@@ -23,12 +23,13 @@ $consulta = "SELECT ausencia_id
 $result = $mysqli->query($consulta);
 $consulta2 = $result->fetch_assoc();
 $ausencia_id = $consulta2['ausencia_id'];
-   
+
 $valor = $diai - $diaf;
 
 if ($valor < 0){
    $total = -1*$valor;
 }
+
 
 //VERIFICAMOS EL PROCESO
 $i = 0;
@@ -51,6 +52,7 @@ while ($diai <= $diaf){
    
    $insert = "INSERT INTO ausencia_medicos (ausencia_id, colaborador_id, fecha_registro, fecha_ausencia, user, comentario)
 	   VALUES('$numero', '$colaborador_id', '$fecha_registro', '$fecha_ausencia_registro', '$usuario','$comentario')"; 
+   echo $insert."***";
    $query = $mysqli->query($insert);
    
    $i++;
