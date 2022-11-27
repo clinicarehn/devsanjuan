@@ -117,6 +117,8 @@ if($nroProductos>0){
 $consulta_respuesta2 = $result_respuesta->fetch_assoc();
 $total_respuesta = $consulta_respuesta2['total'];
 
+/*<a style="text-decoration:none;" href="javascript:modal_agregar_confirmacion_referencia_enviada('.$registro2['referenciar_id'].','.$registro2['colaborador_id'].','.$registro2['servicio_id'].');void(0);" title="Agregar Información a Respuesta Recibida" class="fas fa-plus fa-lg"></a>*/
+
 while($registro2 = $result->fetch_assoc()){	
 
    $repuesta = $registro2['respuesta_recibida'];	
@@ -129,8 +131,7 @@ while($registro2 = $result->fetch_assoc()){
 			<td>'.$registro2['centro'].'</td>
 			<td>'.$registro2['usuario'].'</td>
 			<td>'.$repuesta.'</td>
-			<td>				
-			  <a style="text-decoration:none;" href="javascript:modal_agregar_confirmacion_referencia_enviada('.$registro2['referenciar_id'].','.$registro2['colaborador_id'].','.$registro2['servicio_id'].');void(0);" title="Agregar Información a Respuesta Recibida" class="fas fa-plus fa-lg"></a>			
+			<td>						
 			  <a style="text-decoration:none;" href="javascript:editarReferenciasEnviadas('.$registro2['referenciar_id'].','.$registro2['ata_id'].');void(0);" title="Editar Referencia Enviada" class="fas fa-edit fa-lg"></a>
 			  <a style="text-decoration:none;" title = "Eliminar Registro" href="javascript:modal_eliminarEnviadas('.$registro2['ata_id'].','.$registro2['expediente'].','.$registro2['referenciar_id'].','.$registro2['pacientes_id'].');void(0);" class="fas fa-trash fa-lg"></a>				                    
 			</td>				

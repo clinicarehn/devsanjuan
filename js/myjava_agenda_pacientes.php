@@ -959,106 +959,123 @@ function eliminarCita(id,comentario){
 
 $(document).ready(function(e) {
   $('#formulario #hora_nueva').on('change', function(){	
-    var url = '<?php echo SERVERURL; ?>php/citas/getHora.php';
-	var fecha = $('#formulario #fecha_n').val();
-	var hora = $('#formulario #hora_nueva').val();
-	var agenda_id = $('#formulario #agenda_id').val();
-	var colaborador_id = $('#form_agenda_main #medico_general').val();
-	var hoy = new Date();
-    fecha_actual = convertDate(hoy);
-	
-	if(fecha<fecha_actual){
-		swal({
-			title: "Error", 
-			text: "No se puede reprogramar en esta fecha",
-			type: "error", 
-			confirmButtonClass: "btn-danger",
-			allowEscapeKey: false,
-			allowOutsideClick: false
-		});
-		$("#edi").attr('disabled', true);
-	}else{	
-	  $.ajax({
-	    type:'POST',
-		url:url,
-		async: true,
-		data:'fecha='+fecha+'&agenda_id='+agenda_id+'&colaborador_id='+colaborador_id+'&hora='+hora,
-		success:function(data){	
-			 if (data == 'NulaN'){
+		var url = '<?php echo SERVERURL; ?>php/citas/getHora.php';
+		var fecha = $('#formulario #fecha_n').val();
+		var hora = $('#formulario #hora_nueva').val();
+		var agenda_id = $('#formulario #agenda_id').val();
+		var colaborador_id = $('#form_agenda_main #medico_general').val();
+		var hoy = new Date();
+		fecha_actual = convertDate(hoy);
+
+		var fecha = $('#formulario #fecha_n').val() + " " + $('#formulario #hora_nueva').val();
+		var nombre_colaborador = $('#form_agenda_main #medico_general option:selected').html();
+		
+		if (getBloqueoFecha(fecha, $('#form_agenda_main #medico_general').val(), $('#form_agenda_main #servicio').val()) == 1){
+			if(fecha<fecha_actual){
 				swal({
 					title: "Error", 
-					text: "No se puede agendar este usuario en esta hora ya que es un usuario nuevo",
-					type: "error", 
-					confirmButtonClass: "btn-danger",
-					allowEscapeKey: false,
-					allowOutsideClick: false
-				});		   
-			    $('#edi').attr('disabled', true);
-			   return false;
-			 }else if (data == 'NulaS'){
-				swal({
-					title: "Error", 
-					text: "No se puede agendar este usuario en esta hora ya que es un usuario subsiguiente",
-					type: "error", 
-					confirmButtonClass: "btn-danger",
-					allowEscapeKey: false,
-					allowOutsideClick: false
-				});					
-				$('#edi').attr('disabled', true);
-				return false;
-			 }else if (data == 'Nula'){
-				swal({
-					title: "Error", 
-					text: "No se puede agendar este usuario en esta hora",
-					type: "error", 
-					confirmButtonClass: "btn-danger",
-					allowEscapeKey: false,
-					allowOutsideClick: false
-				});			
-				$('#edi').attr('disabled', true);				
-				return false;
-			 }else if (data == 'NulaP'){
-				swal({
-					title: "Error", 
-					text: "No se puede agendar este usuario en esta hora",
+					text: "No se puede reprogramar en esta fecha",
 					type: "error", 
 					confirmButtonClass: "btn-danger",
 					allowEscapeKey: false,
 					allowOutsideClick: false
 				});
-				$('#edi').attr('disabled', true);
-				return false;
-			 }else if (data == 2){
-				swal({
-					title: "Error", 
-					text: "El médico ya tiene la hora ocupada",
-					type: "error", 
-					confirmButtonClass: "btn-danger",
-					allowEscapeKey: false,
-					allowOutsideClick: false
-				});
-				$('#edi').attr('disabled', true);
-				return false;
-			 }else if (data == 3){
-				swal({
-					title: "Error", 
-					text: "Usuario ya tiene cita agendada ese día",
-					type: "error", 
-					confirmButtonClass: "btn-danger",
-					allowEscapeKey: false,
-					allowOutsideClick: false
-				});				
-				$('#edi').attr('disabled', true);
-				return false;
-			 }else{
-			     $('#hora_citaeditend').val(data);
-				 $('#edi').attr('disabled', false);
-		         return false;				  		  		  		  			  
-		     }
-		}
-	  });
-	  return false;
-	 }
+				$("#edi").attr('disabled', true);
+			}else{	
+			  $.ajax({
+				type:'POST',
+				url:url,
+				async: true,
+				data:'fecha='+fecha+'&agenda_id='+agenda_id+'&colaborador_id='+colaborador_id+'&hora='+hora,
+				success:function(data){	
+					 if (data == 'NulaN'){
+						swal({
+							title: "Error", 
+							text: "No se puede agendar este usuario en esta hora ya que es un usuario nuevo",
+							type: "error", 
+							confirmButtonClass: "btn-danger",
+							allowEscapeKey: false,
+							allowOutsideClick: false
+						});		   
+						$('#edi').attr('disabled', true);
+					   return false;
+					 }else if (data == 'NulaS'){
+						swal({
+							title: "Error", 
+							text: "No se puede agendar este usuario en esta hora ya que es un usuario subsiguiente",
+							type: "error", 
+							confirmButtonClass: "btn-danger",
+							allowEscapeKey: false,
+							allowOutsideClick: false
+						});					
+						$('#edi').attr('disabled', true);
+						return false;
+					 }else if (data == 'Nula'){
+						swal({
+							title: "Error", 
+							text: "No se puede agendar este usuario en esta hora",
+							type: "error", 
+							confirmButtonClass: "btn-danger",
+							allowEscapeKey: false,
+							allowOutsideClick: false
+						});			
+						$('#edi').attr('disabled', true);				
+						return false;
+					 }else if (data == 'NulaP'){
+						swal({
+							title: "Error", 
+							text: "No se puede agendar este usuario en esta hora",
+							type: "error", 
+							confirmButtonClass: "btn-danger",
+							allowEscapeKey: false,
+							allowOutsideClick: false
+						});
+						$('#edi').attr('disabled', true);
+						return false;
+					 }else if (data == 2){
+						swal({
+							title: "Error", 
+							text: "El médico ya tiene la hora ocupada",
+							type: "error", 
+							confirmButtonClass: "btn-danger",
+							allowEscapeKey: false,
+							allowOutsideClick: false
+						});
+						$('#edi').attr('disabled', true);
+						return false;
+					 }else if (data == 3){
+						swal({
+							title: "Error", 
+							text: "Usuario ya tiene cita agendada ese día",
+							type: "error", 
+							confirmButtonClass: "btn-danger",
+							allowEscapeKey: false,
+							allowOutsideClick: false
+						});				
+						$('#edi').attr('disabled', true);
+						return false;
+					 }else{
+						 $('#hora_citaeditend').val(data);
+						 $('#edi').attr('disabled', false);
+						 return false;				  		  		  		  			  
+					 }
+				}
+			  });
+			  return false;
+			 }			 
+		}else{
+			swal({
+				title: "Error",
+				text: "La hora se encuentra bloqueada para el medico . " + nombre_colaborador + " con el comentario: " +
+				getComentarioBloqueoHora(fecha, $('#form_agenda_main #medico_general').val(), $('#form_agenda_main #servicio').val()) + "",
+				type: "error",
+				confirmButtonClass: "btn-danger",
+				allowEscapeKey: false,
+				allowOutsideClick: false
+			});
+			$('#edi').attr('disabled', true);
+			return false;
+		}	
     });
 });
 
@@ -1079,137 +1096,154 @@ function getFechaAusencias(fecha, colaborador_id){
 
 $(document).ready(function(e) {
   $('#formulario #fecha_n').on('change', function(){
-	if(getFechaAusencias($('#fecha_n').val(), $('#formulario #id-registro').val()) == 2){
-		$("#formulario #hora_nueva").attr('disabled', false);
-        $("#formulario #status_repro").attr('disabled', false);
+		var fecha = $('#formulario #fecha_n').val() + " " + $('#formulario #hora_nueva').val();
+		var nombre_colaborador = $('#form_agenda_main #medico_general option:selected').html();
 		
-         if(consultarFecha($('#formulario #fecha_n').val()) == 6 || consultarFecha($('#formulario#fecha_n').val()) == 0){
-			swal({
-				title: "Error", 
-				text: "No se permite agendar un fin de semana",
-				type: "error", 
-				confirmButtonClass: "btn-danger",
-				allowEscapeKey: false,
-				allowOutsideClick: false
-			});				
-	        $("#edi").attr('disabled', true);		
-	     }else{	 
-             $("#edi").attr('disabled', false);		 
-             var url = '<?php echo SERVERURL; ?>php/citas/getHora.php';
-	         var fecha = $('#fecha_n').val();
-	         var hora = $('#hora_nueva').val();
-	         var agenda_id = $('#agenda_id').val();
-	         var colaborador_id = $('#medico_general').val();
-	
-	        var hoy = new Date();
-            fecha_actual = convertDate(hoy);
-	
-	        if(fecha<fecha_actual){
+		if (getBloqueoFecha(fecha, $('#form_agenda_main #medico_general').val(), $('#form_agenda_main #servicio').val()) == 1){		
+			if(getFechaAusencias($('#fecha_n').val(), $('#formulario #id-registro').val()) == 2){
+				$("#formulario #hora_nueva").attr('disabled', false);
+				$("#formulario #status_repro").attr('disabled', false);
+				
+				 if(consultarFecha($('#formulario #fecha_n').val()) == 6 || consultarFecha($('#formulario#fecha_n').val()) == 0){
+					swal({
+						title: "Error", 
+						text: "No se permite agendar un fin de semana",
+						type: "error", 
+						confirmButtonClass: "btn-danger",
+						allowEscapeKey: false,
+						allowOutsideClick: false
+					});				
+					$("#edi").attr('disabled', true);		
+				 }else{	 
+					 $("#edi").attr('disabled', false);		 
+					 var url = '<?php echo SERVERURL; ?>php/citas/getHora.php';
+					 var fecha = $('#fecha_n').val();
+					 var hora = $('#hora_nueva').val();
+					 var agenda_id = $('#agenda_id').val();
+					 var colaborador_id = $('#medico_general').val();
+			
+					var hoy = new Date();
+					fecha_actual = convertDate(hoy);
+			
+					if(fecha<fecha_actual){
+						swal({
+							title: "Error", 
+							text: "No se puede reprogramar en esta fecha",
+							type: "error", 
+							confirmButtonClass: "btn-danger",
+							allowEscapeKey: false,
+							allowOutsideClick: false
+						});
+						$("#edi").attr('disabled', true);
+					}else{
+					 $.ajax({
+					   type:'POST',
+					   url:url,
+					   async: true,
+					   data:'fecha='+fecha+'&agenda_id='+agenda_id+'&colaborador_id='+colaborador_id+'&hora='+hora,
+					   success:function(data){	
+						   if (data == 'NulaN'){
+								swal({
+									title: "Error", 
+									text: "No se puede agendar este usuario en esta hora ya que es un usuario nuevo",
+									type: "error", 
+									confirmButtonClass: "btn-danger",
+									allowEscapeKey: false,
+									allowOutsideClick: false
+								});					
+								$("#edi").attr('disabled', true);
+								return false;
+						   }else if (data == 'NulaS'){
+								swal({
+									title: "Error", 
+									text: "No se puede agendar este usuario en esta hora ya que es un usuario subsiguiente",
+									type: "error", 
+									confirmButtonClass: "btn-danger",
+									allowEscapeKey: false,
+									allowOutsideClick: false
+								});								
+								$("#edi").attr('disabled', true);
+								return false;
+						   }else if (data == 'Nula'){
+								swal({
+									title: "Error", 
+									text: "No se puede agendar este usuario en esta hora",
+									type: "error", 
+									confirmButtonClass: "btn-danger",
+									allowEscapeKey: false,
+									allowOutsideClick: false
+								});						
+								$("#edi").attr('disabled', true);
+								return false;
+						   }else if (data == 'NulaP'){
+								swal({
+									title: "Error", 
+									text: "No se puede agendar este usuario en esta hora",
+									type: "error", 
+									confirmButtonClass: "btn-danger",
+									allowEscapeKey: false,
+									allowOutsideClick: false
+								});							
+								$("#edi").attr('disabled', true);
+								return false;
+						   }else if (data == 2){
+								swal({
+									title: "Error", 
+									text: "El médico ya tiene la hora ocupada",
+									type: "error", 
+									confirmButtonClass: "btn-danger",
+									allowEscapeKey: false,
+									allowOutsideClick: false
+								});							
+								$("#edi").attr('disabled', true);
+								return false;
+						   }else if (data == 3){
+								swal({
+									title: "Error", 
+									text: "Usuario ya tiene cita agendada ese día",
+									type: "error", 
+									confirmButtonClass: "btn-danger",
+									allowEscapeKey: false,
+									allowOutsideClick: false
+								});						
+								$("#edi").attr('disabled', true);
+								return false;
+						   }else{					
+							  $('#hora_citaeditend').val(data);
+							  $("#edi").attr('disabled', false);
+							  return false;				  		  		  		  			  
+							}
+					  }
+					});
+					return false;
+				  }
+				}		
+			}else{
 				swal({
 					title: "Error", 
-					text: "No se puede reprogramar en esta fecha",
+					text: "El médico se encuentra ausente, no se le puede agendar una cita. " + getComentarioAusencia($('#fecha_n').val(), $('#formulario #id-registro').val()) + "",
 					type: "error", 
 					confirmButtonClass: "btn-danger",
 					allowEscapeKey: false,
 					allowOutsideClick: false
-				});
-		        $("#edi").attr('disabled', true);
-	        }else{
-	         $.ajax({
-	           type:'POST',
-		       url:url,
-		       async: true,
-		       data:'fecha='+fecha+'&agenda_id='+agenda_id+'&colaborador_id='+colaborador_id+'&hora='+hora,
-		       success:function(data){	
-			       if (data == 'NulaN'){
-						swal({
-							title: "Error", 
-							text: "No se puede agendar este usuario en esta hora ya que es un usuario nuevo",
-							type: "error", 
-							confirmButtonClass: "btn-danger",
-							allowEscapeKey: false,
-							allowOutsideClick: false
-						});					
-						$("#edi").attr('disabled', true);
-						return false;
-			       }else if (data == 'NulaS'){
-						swal({
-							title: "Error", 
-							text: "No se puede agendar este usuario en esta hora ya que es un usuario subsiguiente",
-							type: "error", 
-							confirmButtonClass: "btn-danger",
-							allowEscapeKey: false,
-							allowOutsideClick: false
-						});								
-						$("#edi").attr('disabled', true);
-						return false;
-			       }else if (data == 'Nula'){
-						swal({
-							title: "Error", 
-							text: "No se puede agendar este usuario en esta hora",
-							type: "error", 
-							confirmButtonClass: "btn-danger",
-							allowEscapeKey: false,
-							allowOutsideClick: false
-						});						
-						$("#edi").attr('disabled', true);
-						return false;
-			       }else if (data == 'NulaP'){
-						swal({
-							title: "Error", 
-							text: "No se puede agendar este usuario en esta hora",
-							type: "error", 
-							confirmButtonClass: "btn-danger",
-							allowEscapeKey: false,
-							allowOutsideClick: false
-						});							
-						$("#edi").attr('disabled', true);
-						return false;
-			       }else if (data == 2){
-						swal({
-							title: "Error", 
-							text: "El médico ya tiene la hora ocupada",
-							type: "error", 
-							confirmButtonClass: "btn-danger",
-							allowEscapeKey: false,
-							allowOutsideClick: false
-						});							
-						$("#edi").attr('disabled', true);
-						return false;
-			       }else if (data == 3){
-						swal({
-							title: "Error", 
-							text: "Usuario ya tiene cita agendada ese día",
-							type: "error", 
-							confirmButtonClass: "btn-danger",
-							allowEscapeKey: false,
-							allowOutsideClick: false
-						});						
-						$("#edi").attr('disabled', true);
-						return false;
-			       }else{					
-			          $('#hora_citaeditend').val(data);
-				      $("#edi").attr('disabled', false);
-		              return false;				  		  		  		  			  
-		            }
-		      }
-	        });
-	        return false;
-		  }
-	    }		
-	}else{
-		swal({
-			title: "Error", 
-			text: "El médico se encuentra ausente, no se le puede agendar una cita. " + getComentarioAusencia($('#fecha_n').val(), $('#formulario #id-registro').val()) + "",
-			type: "error", 
-			confirmButtonClass: "btn-danger",
-			allowEscapeKey: false,
-			allowOutsideClick: false
-		});							
-		$("#edi").attr('disabled', true);
-        $("#formulario #hora_nueva").attr('disabled', true);
-        $("#formulario #status_repro").attr('disabled', true);		
-	}
+				});							
+				$("#edi").attr('disabled', true);
+				$("#formulario #hora_nueva").attr('disabled', true);
+				$("#formulario #status_repro").attr('disabled', true);		
+			}	
+		}else{
+			swal({
+				title: "Error",
+				text: "La hora se encuentra bloqueada para el medico . " + nombre_colaborador + " con el comentario: " +
+				getComentarioBloqueoHora(fecha, $('#form_agenda_main #medico_general').val(), $('#form_agenda_main #servicio').val()) + "",
+				type: "error",
+				confirmButtonClass: "btn-danger",
+				allowEscapeKey: false,
+				allowOutsideClick: false
+			});
+			$('#edi').attr('disabled', true);
+			return false;
+		}	
   });
 });
 

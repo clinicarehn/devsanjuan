@@ -1568,6 +1568,8 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() 
                 $('#formulario_atas #label_suicida_no1').html('No');
 			    $('#formulario_atas #suicida_si1').show();
                 $('#formulario_atas #suicida_no1').show();
+				
+
                 $('#formulario_atas #otros_programar_cita_1').hide();
 
 				//SI EL PUESTO ES DE TRABAJO SOCIAL

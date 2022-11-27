@@ -50,7 +50,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
-    <meta name="author" content="Script Tutorials" />
+    <meta name="author" content="KIREDS" />
     <meta name="description" content="Responsive Websites Orden Hospitalaria de San Juan de Dios">
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -2124,6 +2124,15 @@ $mysqli->close();//CERRAR CONEXIÓN
 								  <input class="form-check-input" type="radio" id="suicida_no1" name="suicida1" value="2" checked>
 								  <label class="form-check-label" id="label_suicida_no1"></label>
 								</div>	
+								
+								<div class="form-check form-check-inline" id="referencia_grupo1">
+								  <input class="form-check-input" type="radio" id="preferencia_si1" name="preferencia1" value="1">
+								  <label class="form-check-label" id="label_preferencia_si1"></label>
+								</div>
+								<div class="form-check form-check-inline" id="referencia_grupo1">
+								  <input class="form-check-input" type="radio" id="preferencia_no1" name="preferencia1" value="2" checked>
+								  <label class="form-check-label" id="label_preferencia_no1"></label>
+								</div>									
 							</div>
 						</div>
 

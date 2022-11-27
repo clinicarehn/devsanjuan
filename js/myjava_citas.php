@@ -1,4 +1,4 @@
-<script>
+    <script>
 $(document).ready(function() {
     getServicio();
     getHoraConsulta();
@@ -85,7 +85,7 @@ $(document).ready(function() {
             
             if (getBloqueoFecha(fecha_cita, colaborador_id, servicio_id) == 1){
                 if (getFechaAusencias(moment(start).format('YYYY-MM-DD HH:mm:ss'), $('#botones_citas #medico_general').val()) == 2) {
-                    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+                    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
                         if (getFinSemana(moment(start).format('YYYY-MM-DD HH:mm:ss')) == "Sabado" ||
                         getFinSemana(moment(start).format('YYYY-MM-DD HH:mm:ss')) == "Domingo") {
                             swal({
@@ -180,7 +180,7 @@ $(document).ready(function() {
         },
         eventRender: function(event, element) {
             element.bind('dblclick', function() {
-                if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+                if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
                     $("#ModalEdit_enviar").attr('disabled', false);
                     $("#ModalImprimir_enviar").attr('disabled', false);
                     $('#form-editevent')[0].reset();
@@ -369,7 +369,7 @@ $(document).ready(function() {
 
 $('#botones_citas #ausencias').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
         e.preventDefault();
         $('#formulario_ausencias')[0].reset();
         pagination_ausencias(1);
@@ -397,7 +397,7 @@ $('#botones_citas #ausencias').on('click', function(e) {
 
 $('#botones_citas #config_edades').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
         e.preventDefault();
         $('#formulario_config_edades')[0].reset();
         $('#registrar_config_edades').modal({
@@ -424,7 +424,7 @@ $('#botones_citas #config_edades').on('click', function(e) {
 
 $('#botones_citas #sobrecupo').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
         e.preventDefault();
         $('#formulario_sobrecupo')[0].reset();
         pagination_ausencias(1);
@@ -681,7 +681,7 @@ $('#mensaje_status #mensaje_status_refresh').on('click', function(e) {
 
 $('#ModalDelete_enviar').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
         if ($('#fecha_citaedit').val() == "" || $('#fecha_citaeditend').val() == "") {
             $('#form-editevent')[0].reset();
             swal({
@@ -757,7 +757,7 @@ $('#reg_buscarausencias').on('click', function(e) {
 
 $('#botones_citas #refresh').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
         if ($('#botones_citas #servicio').val() == "") {
             swal({
                 title: "Error",
@@ -1674,7 +1674,11 @@ $(document).ready(function(e) {
 //INICIO FUNCION EVALUAR HORAS CITA USUARIOS
 $(document).ready(function(e) {
     $('#form-editevent #hora_nueva').on('change', function() {
-        if (getFechaAusenciasEdicionCitas($('#form-editevent #fecha_citaedit').val()) == 2) {
+        var fecha = $('#form-editevent #fecha_citaedit').val() + " " + $('#form-editevent #hora_nueva').val();
+        var nombre_colaborador = $('#botones_citas #medico_general option:selected').html();
+
+        if (getBloqueoFecha(fecha, $('#botones_citas #medico_general').val(), $('#botones_citas #servicio').val()) == 1){
+            if (getFechaAusenciasEdicionCitas($('#form-editevent #fecha_citaedit').val()) == 2) {
             var url = '<?php echo SERVERURL; ?>php/citas/getHora.php';
             var fecha = $('#form-editevent #fecha_citaedit').val();
             var hora = $('#form-editevent #hora_nueva').val();
@@ -1685,202 +1689,11 @@ $(document).ready(function(e) {
 
             if (fecha >= fecha_actual) {
                 $.ajax({
-                    type: 'POST',
-                    url: url,
-                    async: true,
-                    data: 'fecha=' + fecha + '&agenda_id=' + agenda_id + '&colaborador_id=' +
-                        colaborador_id + '&hora=' + hora,
-                    success: function(data) {
-                        if (data == 'NulaN') {
-                            swal({
-                                title: "Error",
-                                text: "No se puede agendar este usuario en esta hora ya que es un usuario nuevo",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            return false;
-                        } else if (data == 'NulaS') {
-                            swal({
-                                title: "Error",
-                                text: "No se puede agendar este usuario en esta hora ya que es un usuario subsiguiente",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            return false;
-                        } else if (data == 'Nula') {
-                            swal({
-                                title: "Error",
-                                text: "No se puede agendar este usuario en esta hora",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            return false;
-                        } else if (data == 'NulaP') {
-                            swal({
-                                title: "Error",
-                                text: "No se puede agendar este usuario en esta hora",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            return false;
-                        } else if (data == 'NulaSError') {
-                            swal({
-                                title: "Error",
-                                text: "No se puede agendar este usuario en esta hora",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            return false;
-                        } else if (data == 'NuevosExcede') {
-                            swal({
-                                title: "Error",
-                                text: "No se puede agendar mas usuarios nuevos ya llego al límite",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            return false;
-                        } else if (data == 'SubsiguienteExcede') {
-                            swal({
-                                title: "Error",
-                                text: "No se puede agendar mas usuarios subsiguientes ya llego al límite",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            return false;
-                        } else if (data == 'Vacio') {
-                            swal({
-                                title: "Error",
-                                text: "El profesional no tiene asignada una jornada laboral o simplemente no tiene un servicio asignado, no se le puede agendar usuarios",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            return false;
-                        } else if (data == 2) {
-                            swal({
-                                title: "Error",
-                                text: "El médico ya tiene la hora ocupada",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            return false;
-                        } else if (data == 3) {
-                            swal({
-                                title: "Error",
-                                text: "Usuario ya tiene cita agendada ese día",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            return false;
-                        } else if (data == 4) {
-                            swal({
-                                title: "Error",
-                                text: "El profesional tiene esta hora ocupada en otro servicio, por favor validar antes de continuar",
-                                type: "error",
-                                confirmButtonClass: "btn-danger",
-                                allowEscapeKey: false,
-                                allowOutsideClick: false
-                            });
-                            $("#ModalEdit_enviar").attr('disabled', true);
-                            $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
-                                false);
-                            return false;
-                        } else {
-                            $("#ModalEdit_enviar").attr('disabled', false);
-                            getFecha(fecha, hora);
-                            return false;
-                        }
-                    }
-                });
-            } else {
-                swal({
-                    title: "Error",
-                    text: "No se puede realizar esta acción en esta fecha",
-                    type: "error",
-                    confirmButtonClass: "btn-danger",
-                    allowEscapeKey: false,
-                    allowOutsideClick: false
-                });
-                $("#ModalEdit_enviar").attr('disabled', true);
-                return false;
-            }
-            return false;
-        } else {
-            swal({
-                title: "Error",
-                text: "El médico se encuentra ausente, no se le puede agendar una cita. " +
-                    getComentarioAusencia($('#ModalEdit #fecha_citaedit').val(), $(
-                        '#ModalEdit #colaborador').val()) + "",
-                type: "error",
-                confirmButtonClass: "btn-danger",
-                allowEscapeKey: false,
-                allowOutsideClick: false
-            });
-            $("#ModalEdit_enviar").attr('disabled', true);
-            $("#form-editevent #ModalEdit #hora_nueva").attr('disabled', false);
-        }
-    });
-});
-
-$(document).ready(function(e) {
-    $('#form-editevent #fecha_citaedit').on('change', function() {
-        if (getFechaAusenciasEdicionCitas($('#form-editevent #fecha_citaedit').val()) == 2) {
-            if (consultarFecha($('#form-editevent #fecha_citaedit').val()) == 6 || consultarFecha($(
-                    '#ModalEdit #fecha_citaedit').val()) == 0) {
-                swal({
-                    title: "Error",
-                    text: "No se permite agendar un fin de semana",
-                    type: "error",
-                    confirmButtonClass: "btn-danger",
-                    allowEscapeKey: false,
-                    allowOutsideClick: false
-                });
-                $("#ModalEdit_enviar").attr('disabled', true);
-            } else {
-                var url = '<?php echo SERVERURL; ?>php/citas/getHora.php';
-                var fecha = $('#form-editevent #fecha_citaedit').val();
-                var hora = $('#form-editevent #hora_nueva').val();
-                var agenda_id = $('#form-editevent #id').val();
-                var colaborador_id = $('#form-editevent #colaborador').val();
-
-                var hoy = new Date();
-
-                if (fecha >= fecha_actual) {
-                    $.ajax({
                         type: 'POST',
                         url: url,
                         async: true,
-                        data: 'fecha=' + fecha + '&agenda_id=' + agenda_id +
-                            '&colaborador_id=' + colaborador_id + '&hora=' + hora,
+                        data: 'fecha=' + fecha + '&agenda_id=' + agenda_id + '&colaborador_id=' +
+                            colaborador_id + '&hora=' + hora,
                         success: function(data) {
                             if (data == 'NulaN') {
                                 swal({
@@ -1892,8 +1705,6 @@ $(document).ready(function(e) {
                                     allowOutsideClick: false
                                 });
                                 $("#ModalEdit_enviar").attr('disabled', true);
-                                $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
-                                    false);
                                 return false;
                             } else if (data == 'NulaS') {
                                 swal({
@@ -1905,8 +1716,6 @@ $(document).ready(function(e) {
                                     allowOutsideClick: false
                                 });
                                 $("#ModalEdit_enviar").attr('disabled', true);
-                                $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
-                                    false);
                                 return false;
                             } else if (data == 'Nula') {
                                 swal({
@@ -1918,8 +1727,6 @@ $(document).ready(function(e) {
                                     allowOutsideClick: false
                                 });
                                 $("#ModalEdit_enviar").attr('disabled', true);
-                                $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
-                                    false);
                                 return false;
                             } else if (data == 'NulaP') {
                                 swal({
@@ -1931,8 +1738,50 @@ $(document).ready(function(e) {
                                     allowOutsideClick: false
                                 });
                                 $("#ModalEdit_enviar").attr('disabled', true);
-                                $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
-                                    false);
+                                return false;
+                            } else if (data == 'NulaSError') {
+                                swal({
+                                    title: "Error",
+                                    text: "No se puede agendar este usuario en esta hora",
+                                    type: "error",
+                                    confirmButtonClass: "btn-danger",
+                                    allowEscapeKey: false,
+                                    allowOutsideClick: false
+                                });
+                                $("#ModalEdit_enviar").attr('disabled', true);
+                                return false;
+                            } else if (data == 'NuevosExcede') {
+                                swal({
+                                    title: "Error",
+                                    text: "No se puede agendar mas usuarios nuevos ya llego al límite",
+                                    type: "error",
+                                    confirmButtonClass: "btn-danger",
+                                    allowEscapeKey: false,
+                                    allowOutsideClick: false
+                                });
+                                $("#ModalEdit_enviar").attr('disabled', true);
+                                return false;
+                            } else if (data == 'SubsiguienteExcede') {
+                                swal({
+                                    title: "Error",
+                                    text: "No se puede agendar mas usuarios subsiguientes ya llego al límite",
+                                    type: "error",
+                                    confirmButtonClass: "btn-danger",
+                                    allowEscapeKey: false,
+                                    allowOutsideClick: false
+                                });
+                                $("#ModalEdit_enviar").attr('disabled', true);
+                                return false;
+                            } else if (data == 'Vacio') {
+                                swal({
+                                    title: "Error",
+                                    text: "El profesional no tiene asignada una jornada laboral o simplemente no tiene un servicio asignado, no se le puede agendar usuarios",
+                                    type: "error",
+                                    confirmButtonClass: "btn-danger",
+                                    allowEscapeKey: false,
+                                    allowOutsideClick: false
+                                });
+                                $("#ModalEdit_enviar").attr('disabled', true);
                                 return false;
                             } else if (data == 2) {
                                 swal({
@@ -1944,21 +1793,17 @@ $(document).ready(function(e) {
                                     allowOutsideClick: false
                                 });
                                 $("#ModalEdit_enviar").attr('disabled', true);
-                                $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
-                                    false);
                                 return false;
                             } else if (data == 3) {
                                 swal({
                                     title: "Error",
-                                    text: "El médico ya tiene la hora ocupada",
+                                    text: "Usuario ya tiene cita agendada ese día",
                                     type: "error",
                                     confirmButtonClass: "btn-danger",
                                     allowEscapeKey: false,
                                     allowOutsideClick: false
                                 });
                                 $("#ModalEdit_enviar").attr('disabled', true);
-                                $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
-                                    false);
                                 return false;
                             } else if (data == 4) {
                                 swal({
@@ -1974,10 +1819,7 @@ $(document).ready(function(e) {
                                     false);
                                 return false;
                             } else {
-                                $("#form-editevent #ModalEdit #ModalEdit_enviar").attr(
-                                    'disabled', false);
-                                $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
-                                    false);
+                                $("#ModalEdit_enviar").attr('disabled', false);
                                 getFecha(fecha, hora);
                                 return false;
                             }
@@ -1993,24 +1835,218 @@ $(document).ready(function(e) {
                         allowOutsideClick: false
                     });
                     $("#ModalEdit_enviar").attr('disabled', true);
-                    $("#form-editevent #ModalEdit #hora_nueva").attr('disabled', false);
                     return false;
                 }
                 return false;
-            }
-        } else {
+            } else {
+                swal({
+                    title: "Error",
+                    text: "El médico se encuentra ausente, no se le puede agendar una cita. " +
+                        getComentarioAusencia($('#ModalEdit #fecha_citaedit').val(), $(
+                            '#ModalEdit #colaborador').val()) + "",
+                    type: "error",
+                    confirmButtonClass: "btn-danger",
+                    allowEscapeKey: false,
+                    allowOutsideClick: false
+                });
+                $("#ModalEdit_enviar").attr('disabled', true);
+                $("#form-editevent #ModalEdit #hora_nueva").attr('disabled', false);
+            }            
+
+        }else{
             swal({
                 title: "Error",
-                text: "El médico se encuentra ausente, no se le puede agendar una cita. " +
-                    getComentarioAusencia($('#ModalEdit #fecha_citaedit').val(), $(
-                        '#ModalEdit #colaborador').val()) + "",
+                text: "La hora se encuentra bloqueada para el medico . " + nombre_colaborador + " con el comentario: " +
+                getComentarioBloqueoHora(fecha, $('#botones_citas #medico_general').val(), $('#botones_citas #servicio').val()) + "",
                 type: "error",
                 confirmButtonClass: "btn-danger",
                 allowEscapeKey: false,
                 allowOutsideClick: false
             });
+            $("#context-menu").hide();
+            $("#context-menu-cita").hide();
             $("#ModalEdit_enviar").attr('disabled', true);
-            $("#form-editevent #ModalEdit #hora_nueva").attr('disabled', false);
+        }
+    });
+});
+
+$(document).ready(function(e) {
+    $('#form-editevent #fecha_citaedit').on('change', function() {
+        var fecha = $('#form-editevent #fecha_citaedit').val() + " " + $('#form-editevent #hora_nueva').val();
+        var nombre_colaborador = $('#botones_citas #medico_general option:selected').html();
+
+        if (getBloqueoFecha(fecha, $('#botones_citas #medico_general').val(), $('#botones_citas #servicio').val()) == 1){
+            if (getFechaAusenciasEdicionCitas($('#form-editevent #fecha_citaedit').val()) == 2) {
+                if (consultarFecha($('#form-editevent #fecha_citaedit').val()) == 6 || consultarFecha($('#ModalEdit #fecha_citaedit').val()) == 0) {
+                    swal({
+                        title: "Error",
+                        text: "No se permite agendar un fin de semana",
+                        type: "error",
+                        confirmButtonClass: "btn-danger",
+                        allowEscapeKey: false,
+                        allowOutsideClick: false
+                    });
+                    $("#ModalEdit_enviar").attr('disabled', true);
+                } else {
+                    var url = '<?php echo SERVERURL; ?>php/citas/getHora.php';
+                    var fecha = $('#form-editevent #fecha_citaedit').val();
+                    var hora = $('#form-editevent #hora_nueva').val();
+                    var agenda_id = $('#form-editevent #id').val();
+                    var colaborador_id = $('#form-editevent #colaborador').val();
+
+                    var hoy = new Date();
+
+                    if (fecha >= fecha_actual) {
+                        $.ajax({
+                            type: 'POST',
+                            url: url,
+                            async: true,
+                            data: 'fecha=' + fecha + '&agenda_id=' + agenda_id +
+                                '&colaborador_id=' + colaborador_id + '&hora=' + hora,
+                            success: function(data) {
+                                if (data == 'NulaN') {
+                                    swal({
+                                        title: "Error",
+                                        text: "No se puede agendar este usuario en esta hora ya que es un usuario nuevo",
+                                        type: "error",
+                                        confirmButtonClass: "btn-danger",
+                                        allowEscapeKey: false,
+                                        allowOutsideClick: false
+                                    });
+                                    $("#ModalEdit_enviar").attr('disabled', true);
+                                    $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
+                                        false);
+                                    return false;
+                                } else if (data == 'NulaS') {
+                                    swal({
+                                        title: "Error",
+                                        text: "No se puede agendar este usuario en esta hora ya que es un usuario subsiguiente",
+                                        type: "error",
+                                        confirmButtonClass: "btn-danger",
+                                        allowEscapeKey: false,
+                                        allowOutsideClick: false
+                                    });
+                                    $("#ModalEdit_enviar").attr('disabled', true);
+                                    $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
+                                        false);
+                                    return false;
+                                } else if (data == 'Nula') {
+                                    swal({
+                                        title: "Error",
+                                        text: "No se puede agendar este usuario en esta hora",
+                                        type: "error",
+                                        confirmButtonClass: "btn-danger",
+                                        allowEscapeKey: false,
+                                        allowOutsideClick: false
+                                    });
+                                    $("#ModalEdit_enviar").attr('disabled', true);
+                                    $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
+                                        false);
+                                    return false;
+                                } else if (data == 'NulaP') {
+                                    swal({
+                                        title: "Error",
+                                        text: "No se puede agendar este usuario en esta hora",
+                                        type: "error",
+                                        confirmButtonClass: "btn-danger",
+                                        allowEscapeKey: false,
+                                        allowOutsideClick: false
+                                    });
+                                    $("#ModalEdit_enviar").attr('disabled', true);
+                                    $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
+                                        false);
+                                    return false;
+                                } else if (data == 2) {
+                                    swal({
+                                        title: "Error",
+                                        text: "El médico ya tiene la hora ocupada",
+                                        type: "error",
+                                        confirmButtonClass: "btn-danger",
+                                        allowEscapeKey: false,
+                                        allowOutsideClick: false
+                                    });
+                                    $("#ModalEdit_enviar").attr('disabled', true);
+                                    $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
+                                        false);
+                                    return false;
+                                } else if (data == 3) {
+                                    swal({
+                                        title: "Error",
+                                        text: "El médico ya tiene la hora ocupada",
+                                        type: "error",
+                                        confirmButtonClass: "btn-danger",
+                                        allowEscapeKey: false,
+                                        allowOutsideClick: false
+                                    });
+                                    $("#ModalEdit_enviar").attr('disabled', true);
+                                    $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
+                                        false);
+                                    return false;
+                                } else if (data == 4) {
+                                    swal({
+                                        title: "Error",
+                                        text: "El profesional tiene esta hora ocupada en otro servicio, por favor validar antes de continuar",
+                                        type: "error",
+                                        confirmButtonClass: "btn-danger",
+                                        allowEscapeKey: false,
+                                        allowOutsideClick: false
+                                    });
+                                    $("#ModalEdit_enviar").attr('disabled', true);
+                                    $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
+                                        false);
+                                    return false;
+                                } else {
+                                    $("#form-editevent #ModalEdit #ModalEdit_enviar").attr(
+                                        'disabled', false);
+                                    $("#form-editevent #ModalEdit #hora_nueva").attr('disabled',
+                                        false);
+                                    getFecha(fecha, hora);
+                                    return false;
+                                }
+                            }
+                        });
+                    } else {
+                        swal({
+                            title: "Error",
+                            text: "No se puede realizar esta acción en esta fecha",
+                            type: "error",
+                            confirmButtonClass: "btn-danger",
+                            allowEscapeKey: false,
+                            allowOutsideClick: false
+                        });
+                        $("#ModalEdit_enviar").attr('disabled', true);
+                        $("#form-editevent #ModalEdit #hora_nueva").attr('disabled', false);
+                        return false;
+                    }
+                    return false;
+                }
+            } else {
+                swal({
+                    title: "Error",
+                    text: "El médico se encuentra ausente, no se le puede agendar una cita. " +
+                        getComentarioAusencia($('#ModalEdit #fecha_citaedit').val(), $(
+                            '#ModalEdit #colaborador').val()) + "",
+                    type: "error",
+                    confirmButtonClass: "btn-danger",
+                    allowEscapeKey: false,
+                    allowOutsideClick: false
+                });
+                $("#ModalEdit_enviar").attr('disabled', true);
+                $("#form-editevent #ModalEdit #hora_nueva").attr('disabled', false);
+            }
+        }else{
+            swal({
+                title: "Error",
+                text: "La hora se encuentra bloqueada para el medico . " + nombre_colaborador + " con el comentario: " +
+                getComentarioBloqueoHora(fecha, $('#botones_citas #medico_general').val(), $('#botones_citas #servicio').val()) + "",
+                type: "error",
+                confirmButtonClass: "btn-danger",
+                allowEscapeKey: false,
+                allowOutsideClick: false
+            });
+            $("#context-menu").hide();
+            $("#context-menu-cita").hide();
+            $("#ModalEdit_enviar").attr('disabled', true);       
         }
     });
 });
@@ -2975,7 +3011,7 @@ $(document).ready(function() {
 
 
 function eliminarRegistro(id) {
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
         var url = '<?php echo SERVERURL; ?>php/citas/eliminar.php';
 
         $.ajax({
@@ -3724,7 +3760,6 @@ $(document).ready(function(e) {
     });
 });
 
-
 function getFechaSistema() {
     var url = '<?php echo SERVERURL; ?>php/citas/getFechaSistema.php';
     var fecha_sistema;
@@ -3868,7 +3903,7 @@ $("#context-menu #menu-eliminar").on("click", function(e) {
 });
 
 $("#context-menu #menu-mover").on("click", function(e) {
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
 		$('#formTransferirServicio #pro').val('Registro');
 		var agenda_id = $('#context-menu #context-agenda_id').val();
 		var pacientes_id = $('#context-menu #context-pacientes_id').val();
@@ -4093,4 +4128,180 @@ function caracteresBloqueoHoras(){
 		return false;
 	}
 }
+
+$("#botones_citas #bloqueo_hora").on("click", function(){
+    pagination_bloqueoHora(1);
+    obtener_unidad();
+
+    $('#formulario_bloquedo #pro_bloqueo').val("Búsqueda");
+    $('#modal_bloqueo_hora').modal({
+        show: true,
+        keyboard: false,
+        backdrop: 'static'
+    });
+});
+
+$('#formulario_bloquedo #fecha_bloqueo').on('change',function(){
+    pagination_bloqueoHora(1);
+});
+
+$('#formulario_bloquedo #fecha_bloqueof').on('change',function(){
+    pagination_bloqueoHora(1);
+});	  
+
+$('#formulario_bloquedo #unidad_id').on('change',function(){
+    pagination_bloqueoHora(1);
+});
+
+$('#formulario_bloquedo #profesional_id').on('change',function(){
+    pagination_bloqueoHora(1);
+});
+
+function pagination_bloqueoHora(partida){
+    var url = '<?php echo SERVERURL; ?>php/citas/paginar_bloqueo.php';
+    var medico = $('#formulario_bloquedo #profesional_id').val();
+    var unidad = $('#formulario_bloquedo #unidad_id').val();
+    var fechai = $('#formulario_bloquedo #fecha_bloqueo').val();
+    var fechaf = $('#formulario_bloquedo #fecha_bloqueof').val();
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: 'partida='+partida+'&medico='+medico+'&fechai='+fechai+'&fechaf='+fechaf+'&unidad='+unidad,
+        success: function(data){
+            var array = eval(data);
+            $('#formulario_bloquedo #agrega_registros_bloqueoHoras').html(array[0]);
+            $('#formulario_bloquedo #pagination_bloqueoHoras').html(array[1]);
+        }
+    });
+    return false;
+}
+
+function modal_eliminarRegistroBloqueo(bloqueo_id, colaboradores_id){
+    profesional = consultarProfesional(colaboradores_id);
+    bloqueo_hora = consultarHoraBloqueo(bloqueo_id);
+
+    swal({
+        title: "¿Estas seguro?",
+        text: "¿Desea remover el bloqueo de esta fecha " +  bloqueo_hora  + " para el profesional: " + profesional + "?",
+        type: "input",
+        showCancelButton: true,
+        confirmButtonClass: "btn-warning",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "¡Sí, remover la cita!",
+        closeOnConfirm: false,
+        inputPlaceholder: "Comentario",
+        allowEscapeKey: false,
+        allowOutsideClick: false
+        },
+        function(inputValue) {
+            if (inputValue === false) return false;
+
+            if (inputValue === "") {
+                swal.showInputError("Necesitas escribir algo");
+                return false
+            }
+            eliminarBloqueoHora(bloqueo_id, inputValue);
+            $(this).parent().removeClass("show").hide();
+        });    
+}
+
+function consultarProfesional(colaboradores_id) {
+	var url = '<?php echo SERVERURL; ?>php/citas/getProfesionalName.php';
+	var resp;
+
+	$.ajax({
+		type: 'POST',
+		url: url,
+		data: 'profesional=' + colaboradores_id,
+		async: false,
+		success: function(data) {
+			resp = data;
+		}
+	});
+	return resp;
+ }
+
+ function consultarHoraBloqueo(bloqueo_id) {
+	var url = '<?php echo SERVERURL; ?>php/citas/getBloqueoHora.php';
+	var resp;
+
+	$.ajax({
+		type: 'POST',
+		url: url,
+		data: 'bloqueo_id=' + bloqueo_id,
+		async: false,
+		success: function(data) {
+			resp = data;
+		}
+	});
+	return resp;
+ }
+
+ function eliminarBloqueoHora(bloqueo_id, comentario) {
+    var url = "";
+    $.ajax({
+        url: '<?php echo SERVERURL; ?>php/citas/eliminarBloqueo.php',
+        data: 'bloqueo_id=' + bloqueo_id + '&comentario='+comentario,
+        type: "POST",
+        async: true,
+        success: function(json) {
+            if (json == 1) {
+                swal({
+                    title: "Success",
+                    text: "Registro eliminado correctamente",
+                    type: "success",
+                    timer: 3000,
+                    allowEscapeKey: false,
+                    allowOutsideClick: false
+                });
+                pagination_bloqueoHora(1);
+                return false;
+            }else{
+                swal({
+                    title: "Error",
+                    text: "No se puedo eliminar el registro",
+                    type: "error",
+                    confirmButtonClass: "btn-danger",
+                    allowEscapeKey: false,
+                    allowOutsideClick: false
+                });
+                return false;
+            }
+        }
+    });
+}
+
+function obtener_unidad(){
+	var url = '<?php echo SERVERURL; ?>php/citas/getUnidadBloqueo.php';
+
+	$.ajax({
+		type: "POST",
+		url: url,
+		async: true,
+		success: function(data) {
+			$('#formulario_bloquedo #unidad_id').html(data);
+			$('#formulario_bloquedo #unidad_id').html(data);
+		}
+	}); 
+}
+
+$(document).ready(function() {
+    $('#formulario_bloquedo #unidad_id').on('change', function() {
+        var puesto_id = $('#formulario_bloquedo #unidad_id').val();
+        var url = '<?php echo SERVERURL; ?>php/citas/getMedicoBloqueoHora.php';
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            async: true,
+            data: 'puesto_id=' + puesto_id,
+            success: function(data) {
+                $('#formulario_bloquedo #profesional_id').html(data);
+                $('#formulario_bloquedo #profesional_id').html(data);
+            }
+        });
+
+    });
+});
 </script>

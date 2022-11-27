@@ -51,7 +51,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
-    <meta name="author" content="Script Tutorials" />
+    <meta name="author" content="KIREDS" />
     <meta name="description" content="Responsive Websites Orden Hospitalaria de San Juan de Dios">
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />

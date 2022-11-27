@@ -7,7 +7,7 @@
 	const SERVEREMPRESA = "San Juan";
     const SERVER = "localhost";
     const DB = "sanjuan";
-    const USER = "sanjuan";
+    const USER = "kireds_sanjuan";
 	const PASS = "Sjd2021hn05%";
     //const PASS = "Sjd202|hn05%#";
 	

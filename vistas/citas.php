@@ -143,6 +143,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 				<a class="dropdown-item" id="sobrecupo" data-toggle="tooltip" data-placement="top" title="Permite Crear Citas para Usuarios Extemporaneos y Sobrecupos" href="#">Citas</a>
 				<a class="dropdown-item" id="ausencias" data-toggle="tooltip" data-placement="top" title="Ausencia de Médicos" href="#">Ausencia Medicos</a>
 				<a class="dropdown-item" id="config_edades" data-toggle="tooltip" data-placement="top" title="Configurar Edad Permitida" href="#">Configurar Edad</a>
+				<a class="dropdown-item" id="bloqueo_hora" data-toggle="tooltip" data-placement="top" title="Bloqueo de Hora" href="#">Bloqueo de Hora</a>
 			  </div>
 			</div>
 		  </div>

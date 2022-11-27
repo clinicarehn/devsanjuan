@@ -535,3 +535,69 @@
   </div>
 </div>
 <!--FIN MODAL BUSCAR HISTORIAL DE AUSENCIA DE USUARIOS-->
+
+<!--INICIO MODAL BLOQUEO POR HORA-->
+<div class="modal fade" id="modal_bloqueo_hora">
+	<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Formulario Bloqueo de Horas</h4>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+        </div><div class="container"></div>
+        <div class="modal-body">
+			<form id="formulario_bloquedo" action="" method="POST" data-form="" autocomplete="off" enctype="multipart/form-data">
+				<input type="hidden" id="clientes_id" name="clientes_id" class="form-control">
+				<div class="form-row">
+					<div class="col-md-12 mb-3">
+						<div class="input-group mb-3">
+							<input type="text" id="pro_bloqueo" name="pro_bloqueo" class="form-control" readonly>
+							<div class="input-group-append">
+								<span class="input-group-text"><div class="sb-nav-link-icon"></div><i class="fa fa-plus-square"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-md-6 mb-3">
+					  <label for="nombre_proveedores">Unidad</label>
+					   <select id="unidad_id" name="unidad_id" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
+						  <option value="">Seleccione</option>
+					   </select>
+					</div>
+					<div class="col-md-6 mb-3">
+					  <label for="nombre_proveedores">Profesional</label>
+					   <select id="profesional_id" name="profesional_id" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
+						  <option value="">Seleccione</option>
+					   </select>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-md-6 mb-3">
+					  <label for="nombre_proveedores">Fecha Inicio</label>
+					  <input type="date" name="fecha_bloqueo" id="fecha_bloqueo" class="form-control" value="<?php echo date ("Y-m-d");?>">
+					</div>
+					<div class="col-md-6 mb-3">
+					  <label for="apellido_proveedores">Fecha Fin</label>
+					  <input type="date" name="fecha_bloqueof" id="fecha_bloqueof" class="form-control" value="<?php echo date ("Y-m-d");?>">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-md-12 mb-3">
+					  	<div class="registros" id="agrega_registros_bloqueoHoras"></div>
+						</div>
+					    <center>
+						   <ul class="pagination" id="pagination_bloqueoHoras"></ul>
+					    </center>
+				</div>
+			</form>
+        </div>
+		<div class="modal-footer">
+
+		</div>
+
+      </div>
+    </div>
+</div>
+<!--FIN MODAL AUSENCIAS-->

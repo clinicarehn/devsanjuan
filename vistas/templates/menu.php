@@ -68,7 +68,12 @@
 					  <li><a class="dropdown-item" href="reportes_consolidados.php">Reporte de Atenciones Consolidado</a></li>
 					  <li><a class="dropdown-item" href="reportes_anuales.php">Reporte de Atenciones Anuales</a></li>				  
 					</ul>
-				</li>				
+				</li>		
+				<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">SJD</a>
+					<ul class="dropdown-menu">
+					  <li><a class="dropdown-item" href="reporte_agenda.php">Reporte Agenda</a></li>			  
+					</ul>
+				</li>							
 				<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Admisión</a>
 					<ul class="dropdown-menu">
 					  <li><a class="dropdown-item" href="reporte_programacion_citas.php">Reporte Reprogramación de Citas</a></li>

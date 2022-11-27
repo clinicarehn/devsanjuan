@@ -419,7 +419,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 					 }//FIN SUBSIGUIENTES
 
 				}//####FIN JORNADA MATUTINA
-				else if($consultarJornadaJornada_id == 1){//####INICIO JORNADA VESPERTINA
+				else if($consultarJornadaJornada_id == 2){//####INICIO JORNADA VESPERTINA
 
 					if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('09:20'))){//INICIO NUEVOS
 						$colores = "#008000"; //VERDE USUARIOS NUEVOS
@@ -619,7 +619,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 					 }//FIN DE HORAS PARA USUARIOS SUBSIGUIENTES
 
 				}//####FIN JORNADA MATUTINA
-				else if($consultarJornadaJornada_id == 1){//####INICIO JORNADA VESPERTINA
+				else if($consultarJornadaJornada_id == 2){//####INICIO JORNADA VESPERTINA
 
 					if ($hora_h >= date('H:i',strtotime('13:20')) && $hora_h < date('H:i',strtotime('23:20'))){//INICIO NUEVOS
 						$colores = "#008000"; //VERDE USUARIOS NUEVOS

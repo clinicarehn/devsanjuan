@@ -1,4 +1,3 @@
-<!--FIN MODAL PARA EL TRASLADO DE PACIENTES EN SERVICIOS-->
 <div class="modal fade" id="modalBloqueoHoras">
 	<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
@@ -50,7 +49,6 @@
       </div>
     </div>
 </div>
-<!--FIN MODAL PARA EL TRASLADO DE PACIENTES EN SERVICIOS-->
 
 <!--FIN MODAL PARA EL TRASLADO DE PACIENTES EN SERVICIOS-->
 <div class="modal fade" id="modalMoverServicioCitas">
