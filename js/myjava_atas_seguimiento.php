@@ -69,7 +69,7 @@ $(document).ready(function(){
 /*FIN DE FUNCIONES PARA ESTABLECER EL FOCUS PARA LAS VENTANAS MODALES*/
 
 $('#transferir').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 15 || getUsuarioSistema() == 18){	
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16 || getUsuarioSistema() == 15 || getUsuarioSistema() == 18){	
         if($('#form_transferir_paciente #comentario').val() != ""){			
 			transferirUsuarioSeguimiento();	
 			return false;

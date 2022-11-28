@@ -60,7 +60,7 @@ $(document).ready(function(){
 $(document).ready(pagination(1));
   $(function(){
 	  $('#nuevo-registro').on('click',function(){
-		  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){
+		  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		  $('#formulario')[0].reset();
 		  valores();
 		  $('#fecha_re').attr('readonly', false);
@@ -98,7 +98,7 @@ $(document).ready(pagination(1));
 	 });
 	 
 	 $('#form_main #profesion').on('click',function(){
-		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		    $('#formulario_profesionales')[0].reset();	
 			paginationPorfesionales(1);		  			
 		    $('#registrar_profesionales').modal({
@@ -184,7 +184,7 @@ $('#reg').on('click', function(e){
 
 $('#convertir_manual').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	 e.preventDefault();
-	 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){
+	 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	     convertirExpedientetoTemporal(); 
 	 }else{
 		swal({
@@ -202,7 +202,7 @@ $('#convertir_manual').on('click', function(e){ // add event submit We don't wan
 
 $('#reg_manual').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	 e.preventDefault();
-	 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){
+	 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	     registrarExpedienteManual(); 
 	 }else{
 		swal({
@@ -252,7 +252,7 @@ function clean(){
 }
 
 function agregaRegistro(){	
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var hoy = new Date();
     fecha_actual = convertDate(hoy);
 	var url = '<?php echo SERVERURL; ?>php/pacientes/agregar.php';
@@ -361,7 +361,7 @@ function agregaRegistro(){
 }
 
 function agregaRegistroEdicion(){	
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var hoy = new Date();
     fecha_actual = convertDate(hoy);
 	var url = '<?php echo SERVERURL; ?>php/pacientes/agregar_edicion.php';
@@ -453,7 +453,7 @@ function agregaRegistroEdicion(){
 }
 
 function agregarProfesional(){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 
 	var url = '<?php echo SERVERURL; ?>php/pacientes/agregar_profesional.php';
 	
@@ -531,7 +531,7 @@ function agregarProfesional(){
 }
 
 function eliminarProfesinal(id){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 
 	var url = '<?php echo SERVERURL; ?>php/pacientes/eliminar_profesional.php';
 	
@@ -599,7 +599,7 @@ function eliminarProfesinal(id){
 }
 
 function modal_eliminar(id){
-  if (consultarExpediente(id) != 0 && (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10)){
+  if (consultarExpediente(id) != 0 && (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16)){
     var nombre_usuario = consultarNombre(id);
     var expediente_usuario = consultarExpediente(id);
     var dato;
@@ -625,7 +625,7 @@ function modal_eliminar(id){
 	function(){
 		eliminarRegistro(id);
 	});
-  }else if (consultarExpediente(id) == 0 && (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 10)){
+  }else if (consultarExpediente(id) == 0 && (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16)){
     var nombre_usuario = consultarNombre(id);
     var expediente_usuario = consultarExpediente(id);
     var dato;
@@ -681,7 +681,7 @@ $(document).ready(function() {
 });
 
 function registrarExpedienteManual(){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/pacientes/agregarExpedienteManual.php';
 	
 	$.ajax({
@@ -749,7 +749,7 @@ function registrarExpedienteManual(){
 }
 
 function modal_agregar_expediente_manual(id, expediente){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	  if(consultarDepartamento(id) != 0 && consultarMunicipio(id) != 0 && consultarPais(id) != 0 && consultarEstadoCivil(id) != 0 && consultarRaza(id) != 0 && consultarReligion(id) != 0 && consultarProfesion(id) != 0 && consultarEscolaridad(id) != 0 && consultarLugarNacimiento(id) != 0 && consultarParentesco(id) != 0 && consultarResponsable(id) != 0){
 	      $('#formulario_agregar_expediente_manual')[0].reset();
 	      var url = '<?php echo SERVERURL; ?>php/pacientes/buscarUsuario.php';
@@ -820,7 +820,7 @@ function modal_agregar_expediente(pacientes_id, expediente){
 		dato = nombre_usuario + " (Expediente: " + expediente_usuario + ")";
 	}
 	
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	  if(consultarDepartamento(pacientes_id) != 0 && consultarMunicipio(pacientes_id) != 0 && consultarPais(pacientes_id) != 0 && consultarEstadoCivil(pacientes_id) != 0 && consultarRaza(pacientes_id) != 0 && consultarReligion(pacientes_id) != 0 && consultarProfesion(pacientes_id) != 0 && consultarEscolaridad(pacientes_id) != 0 && consultarLugarNacimiento(pacientes_id) != 0 && consultarParentesco(pacientes_id) != 0 && consultarResponsable(pacientes_id) != 0){
 	     if (expediente == "" || expediente == 0){	
 				swal({
@@ -1081,7 +1081,7 @@ function modal_transferirUsuario(pacientes_id, expediente){
 	    dato = nombre_usuario + " (Expediente: " + expediente_usuario + ")";
      }
 	   
-     if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){	
+     if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
          var valor = "";
   	     var title = "";
 	     var flag = false;
@@ -1273,7 +1273,7 @@ function transferirExpedienteaRegistro(pacientes_id, estado){
 }
 
 function editarRegistro(id){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	if($('#estado').val() != 3){
 	    var url = '<?php echo SERVERURL; ?>php/pacientes/editar.php';
 		   $.ajax({
@@ -1365,7 +1365,7 @@ function editarRegistro(id){
 }
 
 function reporteEXCEL(){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var estado = "";
 	
 	if ($('#estado').val() == ""){

@@ -37,7 +37,7 @@ $(document).ready(pagination(1));
  $(function(){
 	  $('#nuevo-registro').on('click',function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	      clean();
 		  $('#formulario')[0].reset();
      	  $('#pro').val('Registro');
@@ -86,7 +86,7 @@ $(document).ready(function(){
 /*FIN DE FUNCIONES PARA ESTABLECER EL FOCUS PARA LAS VENTANAS MODALES*/
 
 function modificarContra(id){
-	if (getUsuarioSistema() == 1){	
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		swal({
 			title: "¿Estas seguro?",
 			text: "¿Desea resetear la contraseña al usuario: " + consultarNombre(id) + "?",
@@ -338,7 +338,7 @@ function pagination(partida){
 }
 
 function modal_eliminar(id){
-	if (getUsuarioSistema() == 1){	
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		swal({
 			title: "¿Estas seguro?",
 			text: "¿Desea eliminar el usuario " + consultarNombre(id) + "",
@@ -424,7 +424,7 @@ function eliminarRegistro(id){
 }
 
 function editarRegistro(id){	
-if (getUsuarioSistema() == 1){	
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	$('#formulario_editar')[0].reset();
 	var url = '<?php echo SERVERURL; ?>php/users/editar.php';
 		$.ajax({
@@ -464,7 +464,7 @@ if (getUsuarioSistema() == 1){
 }
 
 function reporteEXCEL(){
-   if (getUsuarioSistema() == 1){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
        var dato = $('#bs-regis').val();
 	   var status_valor = "";
 	

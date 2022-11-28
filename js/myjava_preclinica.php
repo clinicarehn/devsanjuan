@@ -1,7 +1,7 @@
 <script>
 	$(document).ready(function() {
 	  $('#form_main #nuevo-registro').on('click',function(){
-	   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){
+	   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	    $('#reg_preclinica').show();
 	    $('#reg_preclinica_edicion').hide();	
 		$('#edit_preclinica').hide();			
@@ -60,7 +60,7 @@
 });
 
 $('#form_ausencia #Si').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		e.preventDefault();
 		if($('#form_ausencia #motivo_ausencia').val() != ""){
 			eliminarRegistro(); 
@@ -360,7 +360,7 @@ $(document).ready(function() {
 /*************************************************/
 //FORMULARIOS
 function editarRegistro(agenda_id, expediente){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
   if(expediente != 0){	
 	var url = '<?php echo SERVERURL; ?>php/preclinica/editar.php';		
 	
@@ -700,7 +700,7 @@ function agregarPreclinicaporUsuario(){
    }
  
 function nosePresntoRegistro(id, pacientes_id, fecha){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){	 	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	 	
 		var nombre_usuario = consultarNombre(pacientes_id);
 		var expediente_usuario = consultarExpediente(pacientes_id);
 		var dato;
@@ -834,7 +834,7 @@ $(document).ready(function() {
 	setInterval('pagination(1)',22000); //CADA 8 SEGUNDOS
 	
 	//SI EL USUARIO ES DE ENFERMERÍA SE EVALUAN LOS REGISTROS PENDIENTES Y SE ENVIAN POR CORREO
-	if (getUsuarioSistema() == 8 ||  getUsuarioSistema() == 9){
+	if (getUsuarioSistema() == 8 ||  getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		setInterval('evaluarRegistrosPendientes()',1800000); //CADA MEDIA HORA	
 	}	
 });
@@ -937,7 +937,7 @@ function getIdentidad(pacientes_id){
 }
 
 $(document).ready(function() {
-	if (getUsuarioSistema() == 8 ||  getUsuarioSistema() == 9){
+	if (getUsuarioSistema() == 8 ||  getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		evaluarRegistrosPendientesEmailPreclinica(); //AL INGRESAR AL SISTEMA ENVIARA UN CORREO CON LA CANTIDAD DE REGISTROS PENDIENTES		
 	}
 });

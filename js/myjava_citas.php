@@ -85,7 +85,7 @@ $(document).ready(function() {
             
             if (getBloqueoFecha(fecha_cita, colaborador_id, servicio_id) == 1){
                 if (getFechaAusencias(moment(start).format('YYYY-MM-DD HH:mm:ss'), $('#botones_citas #medico_general').val()) == 2) {
-                    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+                    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
                         if (getFinSemana(moment(start).format('YYYY-MM-DD HH:mm:ss')) == "Sabado" ||
                         getFinSemana(moment(start).format('YYYY-MM-DD HH:mm:ss')) == "Domingo") {
                             swal({
@@ -180,7 +180,7 @@ $(document).ready(function() {
         },
         eventRender: function(event, element) {
             element.bind('dblclick', function() {
-                if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+                if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
                     $("#ModalEdit_enviar").attr('disabled', false);
                     $("#ModalImprimir_enviar").attr('disabled', false);
                     $('#form-editevent')[0].reset();
@@ -239,7 +239,7 @@ $(document).ready(function() {
         /*,
         		eventDrop: function(event, delta, revertFunc) { // si changement de position
         		   if(getFechaAusencias(moment(event.start).format('YYYY-MM-DD HH:mm:ss')) == 2){
-        		       if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){
+        		       if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
         		           if (moment(event.start).format('YYYY-MM-DD HH:mm:ss') >= fecha_actual){
         			          edit(event);
         		           }else{
@@ -278,7 +278,7 @@ $(document).ready(function() {
         /*,
         		eventResize: function(event,dayDelta,minuteDelta,revertFunc) { // si changement de longueur
         		 if(getFechaAusencias(moment(start).format('YYYY-MM-DD HH:mm:ss')) == 2){
-        		   if (getUsuarioSistema() == 1){
+        		   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
         			   edit(event);
         		   }else{
         				swal({
@@ -369,7 +369,7 @@ $(document).ready(function() {
 
 $('#botones_citas #ausencias').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
         e.preventDefault();
         $('#formulario_ausencias')[0].reset();
         pagination_ausencias(1);
@@ -397,7 +397,7 @@ $('#botones_citas #ausencias').on('click', function(e) {
 
 $('#botones_citas #config_edades').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
         e.preventDefault();
         $('#formulario_config_edades')[0].reset();
         $('#registrar_config_edades').modal({
@@ -424,7 +424,7 @@ $('#botones_citas #config_edades').on('click', function(e) {
 
 $('#botones_citas #sobrecupo').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
         e.preventDefault();
         $('#formulario_sobrecupo')[0].reset();
         pagination_ausencias(1);
@@ -456,7 +456,7 @@ $('#botones_citas #sobrecupo').on('click', function(e) {
 
 $('#botones_citas #historial_nopresento').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
         $('#form-buscarhistorialno')[0].reset();
         pagination_busqueda_historial_nopresento(1);
         $('#buscarHistorialNo').modal({
@@ -481,8 +481,8 @@ $('#botones_citas #historial_nopresento').on('click', function(e) {
 
 $('#botones_citas #historial_reprogramaciones').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 7 || getUsuarioSistema() ==
-        10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() ==
+        10 || getUsuarioSistema() == 16) {
         e.preventDefault();
         $('#form_buscarhistorial_reprogramaciones')[0].reset();
         pagination_busqueda_reprogramaciones(1);
@@ -508,8 +508,8 @@ $('#botones_citas #historial_reprogramaciones').on('click', function(e) {
 
 $('#botones_citas #historial').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 ||  getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 7 || getUsuarioSistema() ==
-        10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 ||  getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() ==
+        10 || getUsuarioSistema() == 16) {
         $('#form-buscarhistorial')[0].reset();
         pagination_busqueda_historial(1);
         $('#buscarHistorial').modal({
@@ -534,7 +534,7 @@ $('#botones_citas #historial').on('click', function(e) {
 
 $('#botones_citas #search').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
         $('#form-buscarcita')[0].reset();
         pagination_busqueda(1);
         $('#buscarCita').modal({
@@ -681,7 +681,7 @@ $('#mensaje_status #mensaje_status_refresh').on('click', function(e) {
 
 $('#ModalDelete_enviar').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
         if ($('#fecha_citaedit').val() == "" || $('#fecha_citaeditend').val() == "") {
             $('#form-editevent')[0].reset();
             swal({
@@ -757,7 +757,7 @@ $('#reg_buscarausencias').on('click', function(e) {
 
 $('#botones_citas #refresh').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
         if ($('#botones_citas #servicio').val() == "") {
             swal({
                 title: "Error",

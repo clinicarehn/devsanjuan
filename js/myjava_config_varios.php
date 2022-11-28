@@ -3,7 +3,7 @@ $(document).ready(pagination(1));getConsulta();
  $(function(){
 	  $('#form_main #nuevo_registro').on('click',function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		  $('#formulario_registros')[0].reset();
      	  $('#formulario_registros #pro').val('Registro');
 		  $('#formulario_registros #nombre_registro').val('');
@@ -217,7 +217,7 @@ function editarRegistro(id,entidad){
 }
 
 function modal_eliminar(id,entidad){
-   if (getUsuarioSistema() == 1){	   
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	   
 		swal({
 			title: "¿Estas seguro?",
 			text: "¿Desea remover este registro: " + consultarNombre(id) + "?",

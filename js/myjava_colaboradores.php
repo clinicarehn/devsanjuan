@@ -7,7 +7,7 @@ $(document).ready(pagination(1));puesto();empresa();servicio();pagination_servic
   $(function(){
 	  $('#nuevo-registro-colaboradores').on('click',function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 12){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){
 			$('#formulario_colaboradores')[0].reset();
 			$('#pro').val('Registro');
 			$('#reg_colaboradores').show();
@@ -39,7 +39,7 @@ $(document).ready(pagination(1));puesto();empresa();servicio();pagination_servic
                       		  
 	  $('#nuevo-registro-puestos').on('click',function(e){
 			e.preventDefault();
-			if (getUsuarioSistema() == 1 || getUsuarioSistema() == 12){
+			if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){
 			  $('#formulario_puestos')[0].reset();
 			  $('#formulario_puestos #pro').val('Registro');
 			  $('#formulario_puestos #reg_puestos_colaboradores').show();
@@ -64,7 +64,7 @@ $(document).ready(pagination(1));puesto();empresa();servicio();pagination_servic
 
 	  $('#nuevo-registro-servicios').on('click',function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 16){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){
 		  $('#formulario_servicios')[0].reset();
      	  $('#formulario_servicios #pro').val('Registro');
 		  $('#formulario_servicios #edi').hide();
@@ -90,7 +90,7 @@ $(document).ready(pagination(1));puesto();empresa();servicio();pagination_servic
 	
 	  $('#nuevo-registro-colaborador-servicios').on('click',function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 16){		  
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){		  
 		  $('#formulario_servicios_colaboradores')[0].reset();
      	  $('#formulario_servicios_colaboradores #pro').val('Registro');
 		  $('#formulario_servicios_colaboradores #edi').hide();
@@ -180,7 +180,7 @@ $(document).ready(function() {
 }); 
 
 function modal_eliminar(id){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 12){
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){
 	swal({
 		title: "¿Estas seguro?",
 		text: "¿Desea eliminar este colaborador: " + getColaboradorNombre(id) + "?",
@@ -753,7 +753,7 @@ function eliminarRegistro(id){
 }
 
 function editarRegistro(id){
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 12){	
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){	
 		//$('#formulario_colaboradores')[0].reset();		
 		var url = '<?php echo SERVERURL; ?>php/colaboradores/editar.php';
 			$.ajax({
@@ -796,7 +796,7 @@ function editarRegistro(id){
 }
 
 function reporteEXCEL(){
-if (getUsuarioSistema() == 1){	
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){	
     var dato = $('#bs-regis').val();
 	var url = '<?php echo SERVERURL; ?>php/colaboradores/buscar_colaboradores_excel.php?dato='+dato;
     window.open(url);

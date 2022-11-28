@@ -21,7 +21,7 @@ $(document).ready(pagination(1))
 	  //INICIO BOTON AGREGAR
 	  //ATA Usuarios
 	  $('#nuevo-registro').on('click',function(){
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 16){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		   /*if(getPuestoId() == 2 || getPuestoId() == 4){
 				swal({
 					title: "Error",
@@ -160,7 +160,7 @@ $(document).ready(pagination(1))
 
       //ATA MANUAL
 	  $('#form_main #nuevo_ata_manual').on('click',function(){
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	         $('#registrar_ata_manual').modal({
 	            show:true,
 				keyboard: false,
@@ -186,7 +186,7 @@ $(document).ready(pagination(1))
 
 	  //ATA SEGUIMIENTO USUARIOS NUEVOS
 	  $('#form_main #nuevo_seguimiento').on('click',function(){
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 16){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	         $('#modal_seguimiento').modal({
 	            show:true,
 				keyboard: false,
@@ -222,7 +222,7 @@ $(document).ready(pagination(1))
 
       //Atenciones a Familiares
 	  $('#form_main #ata_familiares').on('click',function(){
-           if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 16){
+           if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	           $('#agregar_atenciones_familiares').modal({
 	              show:true,
 				  keyboard: false,
@@ -247,7 +247,7 @@ $(document).ready(pagination(1))
 
       //Cuestionario Familiares MAIDA
 	  $('#form_main #cuestionario').on('click',function(){
-         if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 16){
+         if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	         $('#agregar_cuestionario_maida').modal({
 	            show:true,
 				keyboard: false,
@@ -323,7 +323,7 @@ $(document).ready(pagination(1))
 
 	  //INICIO MODAL ENTREVISTA
 	  $('#form_main #entrevista').on('click',function(){
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 			 $('#formulario_entrevista_trabajo_social .nav-tabs li:eq(0) a').tab('show');
 			 $('#formulario_entrevista_trabajo_social').attr({ 'data-form': 'save' });
 			 $('#formulario_entrevista_trabajo_social').attr({ 'action': '<?php echo SERVERURL; ?>php/atas/agregarEntrevistaTS.php' });
@@ -357,7 +357,7 @@ $(document).ready(pagination(1))
 	  //INICIO BOTON REFERENCIAS
 	  //Referencia Enviada
 	  $('#form_main #ref_enviadas').on('click',function(){
-          if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 16){
+          if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	          $('#agregar_referencias_enviadas').modal({
 	             show:true,
 				 keyboard: false,
@@ -382,7 +382,7 @@ $(document).ready(pagination(1))
 
       //Referencia Recibida
 	  $('#form_main #ref_recibidas').on('click',function(){
-          if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 16){
+          if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	          $('#agregar_referencias_recibidas').modal({
 	              show:true,
 				  keyboard: false,
@@ -409,7 +409,7 @@ $(document).ready(pagination(1))
 	  //INICIO BOTON TRANSITO
 	  //Transito ENVIADA
 	  $('#form_main #transito_enviada').on('click',function(){
-           if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 16){
+           if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	            limpiarTransitoEnviadas();
 	            $('#registrar_transito_enviada').modal({
 	                show:true,
@@ -434,7 +434,7 @@ $(document).ready(pagination(1))
 
 	  //Transito RECIBIDA
 	  $('#form_main #transito_recibida').on('click',function(){
-           if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 16){
+           if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
                 limpiarTransitoRecibidas();
 	            $('#registrar_transito_recibida').modal({
 	               show:true,
@@ -486,7 +486,7 @@ $(document).ready(pagination(1))
 
 $('#reg_ata_form1').on('click', function(e){
 	 e.preventDefault();
-	 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 16){
+	 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		if( (getPuestoId() == 2 || getPuestoId() == 1) && $('#formulario1 #servicio').val() == 12){
 			if($('#formulario1 #programar_cita').val() == "" || $('#formulario1 #programar_cita').val() == null){
 				  swal({
@@ -531,7 +531,7 @@ $('#reg_ata_form1').on('click', function(e){
 
 $('#edi_ata_por_usuario').on('click', function(e){
 	 e.preventDefault();
-	 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 16){
+	 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		if(getPuestoId() == 2 || getPuestoId() == 1){
 			if($('#formulario_atas #programar_cita_1').val() == "" || $('#formulario_atas #programar_cita_1').val() == null){
 				  swal({
@@ -881,7 +881,7 @@ $('#clean1_ata_por_usuario').on('click', function(e){
 });
 
 $('#historial').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 7 || getUsuarioSistema() == 16){
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	e.preventDefault();
 	 $('#form-buscarhistorial')[0].reset();
      pagination_busqueda_historial(1);
@@ -904,7 +904,7 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() 
 });
 
 $('#form_ausencia #Si').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 7){
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	e.preventDefault();
 	if($('#form_ausencia #motivo_ausencia').val() != ""){
 		eliminarRegistro();
@@ -1361,7 +1361,7 @@ if($('#formulario_atas #departamento1').val() != "" && $('#formulario_atas #muni
 }
 
 function nosePresento(id, pacientes_id){
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 7){
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
    if(getPuestoId() == 2 || getPuestoId() == 4){
 	  swal({
 			title: 'Acceso Denegado',
@@ -1515,7 +1515,7 @@ function getServicioEdit(agenda_id){
 }
 
 function editarRegistro(id,agenda_id, exp){
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 7 || getUsuarioSistema() == 16){
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
   if(exp != 0){
 	$('#formulario_atas')[0].reset();
 
@@ -5708,7 +5708,7 @@ $(document).ready(function() {
 });
 
 function agregarEntrevistaTS(pacientes_id, servicio_id, expediente){
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 9){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 9 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		var url = '<?php echo SERVERURL; ?>php/atas/buscar_expediente_entrevista.php';
 		$.ajax({
 			type:'POST',
@@ -5893,7 +5893,7 @@ $(document).ready(function() {
 $('#receta').on('click', function(e){
 	e.preventDefault();
 	//acceso();
-	if (getUsuarioSistema() == 2 || getUsuarioSistema() == 16){
+	if (getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		if(getPuestoId() == 2 || getPuestoId() == 4){
 			formReceta();
 		}else{

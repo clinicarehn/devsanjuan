@@ -2,7 +2,7 @@
 $(document).ready(function() {
 	  $('#form_main #nuevo-registro').on('click',function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		 limpiarFormulario();
 		 $('#reg_postclinica').show();
 		 $('#reg_postclinica_edicion').hide();
@@ -420,7 +420,7 @@ $(document).ready(function() {
 /*************************************************/
 //FORMULARIOS
 function editarRegistro(agenda_id, expediente){
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){	
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
   if(expediente != 0){	
 	var url = '<?php echo SERVERURL; ?>php/preclinica/editar.php';		
 	
@@ -763,7 +763,7 @@ function convertDate(inputFormat) {
 }
 
 function nosePresntoRegistro(id, pacientes_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){	 
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	 
 		var nombre_usuario = consultarNombre(pacientes_id);
 		var expediente_usuario = consultarExpediente(pacientes_id);
 		var dato;
@@ -850,7 +850,7 @@ $(document).ready(function() {
 	setInterval('pagination(1)',8000); //CADA 6 SEGUNDOS
 	
 	//SI EL USUARIO ES DE ENFERMERÍA SE EVALUAN LOS REGISTROS PENDIENTES Y SE ENVIAN POR CORREO
-	if (getUsuarioSistema() == 8 ||  getUsuarioSistema() == 9){
+	if (getUsuarioSistema() == 8 ||  getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		    setInterval('evaluarRegistrosPendientes()',1800000); //CADA MEDIA HORA
 	}	
 });

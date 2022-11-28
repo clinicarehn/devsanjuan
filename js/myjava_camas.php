@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	  $('#form_main #asignar_camas').on('click',function(){
-	   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4){
+	   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		$('#reg_camas').show();
 		$('#edit_camas').hide();		 	 
 	    $('#formulario_agregar_camas')[0].reset();
@@ -428,7 +428,7 @@ var fecha = $('#form_main #fecha_b').val();
 var hoy = new Date();
 fecha_actual = convertDate(hoy);	
 
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4){
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
     if(alta == 0){
        if(getMes(fecha)==2){
 		swal({
@@ -506,7 +506,7 @@ var fecha = $('#form_main #fecha_b').val();
 var hoy = new Date();
 fecha_actual = convertDate(hoy);	
 
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4){
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
   if(alta == 0){
    if(getMes(fecha)==2){
 		swal({
@@ -791,7 +791,7 @@ function modal_eliminar(historial_id, cama_id, expediente, alta){
 		return false;	   
   }else{
    if ( fecha <= fecha_actual){	
-     if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4){
+     if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		if(alta == 0){
            $('#eliminar #historial_id').val(historial_id);
            $('#eliminar #cama_id').val(cama_id);

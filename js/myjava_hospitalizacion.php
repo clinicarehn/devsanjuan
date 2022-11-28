@@ -48,7 +48,7 @@ $(document).ready()
 });
 
 $('#form_ausencia #Si').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 8){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		e.preventDefault();
 		if($('#form_ausencia #motivo_ausencia').val() != ""){
 			eliminarRegistro(); 
@@ -257,7 +257,7 @@ function pagination(partida){
 }
 
 function editarRegistro(hosp_id,servicio,historial,estado){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 8){
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	var estado_cama = getEstadoCama(hosp_id);
 		
     if(estado_cama == 0){
@@ -1037,7 +1037,7 @@ $('#formulario_agregar_hospitalizacion #edi').on('click', function(e){
 });
 
 function nosePresntoRegistro(hosp_id,expediente,servicio_id, estado, pacientes_id){
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 8){
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 
 	var estado_cama = 0;
 	
@@ -1252,7 +1252,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
  	$('#nuevo-registro').on('click',function(){
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 8){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		  if(getPuesto() == 2 || getPuesto() == 4){
 			  clean();
 			  $('#formulario_agregar_hospitalizacion #expediente1').hide();
@@ -1452,7 +1452,7 @@ $(document).ready(function() {
 });
 
 $('#historial').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 8 ){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		e.preventDefault();
 		 $('#form-buscarhistorial')[0].reset();
 		 pagination_busqueda_historial(1);	 
@@ -1476,7 +1476,7 @@ $('#historial').on('click', function(e){ // add event submit We don't want this 
 
 function modalTransferir(hosp_id,estado, expediente, pacientes_id){
 if(getPuesto() == 2 || getPuesto() == 4){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 8){
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	   
 	  var estado_cama = 0;
 	
@@ -1539,7 +1539,7 @@ if(getPuesto() == 2 || getPuesto() == 4){
 
 function modalAlta(hosp_id, estado, expediente, pacientes_id){
 if(getPuesto() == 2 || getPuesto() == 4){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 8){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
    
 	var estado_cama = 0;
 	
@@ -2145,7 +2145,7 @@ function consultarServicioAtencionesFamiliares(){
 
 $(document).ready(function() {
  	$('#nuevo_registro_familiares').on('click',function(){
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 3){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		  if(consultarServicioAtencionesFamiliares() != ""){
 			  $('#formulario_ata_familiares')[0].reset();	
      	      $('#formulario_ata_familiares #pro').val('Registro');		  		  
@@ -2455,7 +2455,7 @@ function getProgramarCita(){
 
 //RECETA MEDICA
 function recetaMedica(pacientes_id, agenda_id, expediente){
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 8 || getUsuarioSistema() == 13 || getUsuarioSistema() == 9 || getUsuarioSistema() == 7){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 8 || getUsuarioSistema() == 13 || getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		if(getPuesto() == 2 || getPuesto() == 10){
 			 mensajeMantenimiento("En Desarrollo", "Estamos trabajando para hacer mas placentera la creación de recetas a los usuarios.");
 		}else{

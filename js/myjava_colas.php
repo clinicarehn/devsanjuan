@@ -80,7 +80,7 @@ var remove_usuario_dataTable = function(tbody, table){
 	$(tbody).off("click", "button.remove");
 	$(tbody).on("click", "button.remove", function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 			var data = table.row( $(this).parents("tr") ).data();
 			var colas_id = data.colas_id;
 
@@ -141,7 +141,7 @@ var view_receta_dataTable = function(tbody, table){
 		var receta_id = data.receta_id;
 
 		if(estadoReceta(receta_id) == 1){
-			if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){
+			if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 				if(data.receta_id != 0){
 
 					var url = '<?php echo SERVERURL; ?>php/receta/getReceta.php';
@@ -266,7 +266,7 @@ var seguimiento_usuario_dataTable = function(tbody, table){
 	$(tbody).off("click", "button.seguimiento");
 	$(tbody).on("click", "button.seguimiento", function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 			$('#label_acciones_receta').html("Seguimiento");
 			var data = table.row( $(this).parents("tr") ).data();
 			var programar_cita_id = data.programar_cita_id;

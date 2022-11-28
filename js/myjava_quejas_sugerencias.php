@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	  $('#form_main #nuevo_registro').on('click',function(){
-	   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 10){
+	   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		$('#reg_quejas').show();
 		$('#edt_quejas').hide();		 	 
 	    $('#formulario_quejas')[0].reset();
@@ -162,7 +162,7 @@ $(document).ready(function(e) {
 
 $('#reg_quejas').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
     e.preventDefault();
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 10){		
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 10){		
         if($('#formulario_quejas #expediente').val() != "" && $('#formulario_quejas #servicio').val() != "" && $('#formulario_quejas #queja').val() != ""){			
 			agregarQueja();	
 		}else{			
@@ -189,7 +189,7 @@ $('#reg_quejas').on('click', function(e){ // add event submit We don't want this
 
 $('#form_seguimiento_queja #reg').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
     e.preventDefault();
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 10){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		if($('#form_seguimiento_queja #seguimiento').val() != ""){
 			agregarQuejaSeguimiento();
 		}else{
@@ -388,7 +388,7 @@ function reporteEXCEL(){
 }
 
 function modal_seguimiento(queja_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 10){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	   $('#seguimiento_queja').modal({
 		  show:true,
 		  keyboard: false,
@@ -411,7 +411,7 @@ function modal_seguimiento(queja_id){
 }
 
 function modal_eliminar(queja_id,pacientes_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 10){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	   $('#eliminar_queja').modal({
 		  show:true,
 		  keyboard: false,

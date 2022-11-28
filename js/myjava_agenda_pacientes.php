@@ -67,7 +67,7 @@ $(document).ready(function(){
 
 /*FIN DE FUNCIONES PARA ESTABLECER EL FOCUS PARA LAS VENTANAS MODALES*/
 $('#form_agenda_main #reporte').on('click', function(e){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	e.preventDefault();
 	if($('#form_agenda_main #servicio').val() != ""){
 	   reporteEXCEL();
@@ -95,7 +95,7 @@ $('#form_agenda_main #reporte').on('click', function(e){
 });
 
 $('#form_agenda_main #Reporte_Agenda').on('click', function(e){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	e.preventDefault();
 	if($('#form_agenda_main #servicio').val() != ""){
 	   reporteEXCELReporte();
@@ -123,7 +123,7 @@ $('#form_agenda_main #Reporte_Agenda').on('click', function(e){
 });
 
 $('#form_agenda_main #agenda_usuarios').on('click', function(e){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	e.preventDefault();
 	if($('#form_agenda_main #servicio').val() != ""){
 	   	reporteExcelAgenda();
@@ -151,7 +151,7 @@ $('#form_agenda_main #agenda_usuarios').on('click', function(e){
 });
 
 $('#descargar_triage').on('click', function(e){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 5 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	e.preventDefault();
 	if($('#formulario_triage_reporte #servicio_triage').val() != ""){
 	   	reporteAgendaTriage();
@@ -179,7 +179,7 @@ $('#descargar_triage').on('click', function(e){
 });
 
 $('#form_agenda_main #agenda_triage').on('click', function(e){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 10){
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	cleanReporteTriage();
 	$('#agregar_triage_reporte').modal({
 		show:true,
@@ -200,7 +200,7 @@ $('#form_agenda_main #agenda_triage').on('click', function(e){
 });
 
 $('#form_agenda_main #reporte_sms').on('click', function(e){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
    if($('#form_agenda_main #servicio').val() != ""){
 	   e.preventDefault();
 	   reporteSMS();
@@ -228,7 +228,7 @@ $('#form_agenda_main #reporte_sms').on('click', function(e){
 });
 
 $('#form_agenda_main #reporte_smsDiasAntes').on('click', function(e){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
    if($('#form_agenda_main #servicio').val() != ""){
 	   e.preventDefault();
 	   reporteSMSDiasAntes();
@@ -256,7 +256,7 @@ $('#form_agenda_main #reporte_smsDiasAntes').on('click', function(e){
 });
 
 $('#form_agenda_main #confirmacion_agenda').on('click', function(e){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	e.preventDefault();
 	if($('#form_agenda_main #servicio').val() != ""){
 	   reporteConfirmacionAgenda();
@@ -309,7 +309,7 @@ $('#edi1').on('click', function(e){ // add event submit We don't want this to ac
 });
 
 $('#form_ausencia #Si').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	e.preventDefault();
 	if($('#form_ausencia #motivo_ausencia').val() != ""){
 		eliminarRegistro(); 
@@ -775,7 +775,7 @@ function getPacientes_id(agenda_id){
 }
 
 function modal_eliminar(id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	 
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	 
 		swal({
 			title: "¿Estas seguro?",
 			text: "¿Desea eliminar la cita para este usuario: " + getNombre(id) + " con número de expediente " + getExpediente(id) + "?",
@@ -816,7 +816,7 @@ function eliminarCita(id,comentario){
     var hoy = new Date();
     fecha_actual = convertDate(hoy);
 
-   if(getUsuarioSistema() == 1 || getUsuarioSistema() == 10){//SOLO SI EL USUARIO ES ADMINISTRADOR PUEDE ELIMINAR LOS REGISTROS
+   if(getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){//SOLO SI EL USUARIO ES ADMINISTRADOR PUEDE ELIMINAR LOS REGISTROS
 	    $.ajax({
 		   type:'POST',
 		   url:url,
@@ -1248,7 +1248,7 @@ $(document).ready(function(e) {
 });
 
 function editarRegistro(agenda_id, colaborador_id, pacientes_id, servicio_id){ 
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
    var atencion;
    
    if($('#form_agenda_main #atencion').val() == ""){
@@ -1599,7 +1599,7 @@ function getNewAgendaID(pacientes_id,colaborador_id,servicio_id,fecha){
 }
 
 function reportePDF(agenda_id){
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	    window.open('<?php echo SERVERURL; ?>php/citas/tickets.php?agenda_id='+agenda_id);
 	}else{
 	    $('#form_agenda_main #bs-regis').val("");	
@@ -1627,7 +1627,7 @@ $(document).ready(function() {
 });
 
 function nosePresentoRegistro(id, pacientes_id, fecha){
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){		
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){		
     if($('#form_agenda_main #atencion').val() == 0){ 		  
 		  var nombre_usuario = consultarNombre(pacientes_id);
 		  var expediente_usuario = consultarExpediente(pacientes_id);
@@ -1881,7 +1881,7 @@ function sendEmailReprogramación(agenda_id){
 
 //INICIO MODAL CONFIRMACIÓN
 function modal_agregar_confirmacion(agenda_id, colaborador_id, servicio_id){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/agenda_pacientes/editConfirmacion.php';
 	
 	$.ajax({
@@ -1951,7 +1951,7 @@ function modal_agregar_confirmacion(agenda_id, colaborador_id, servicio_id){
 }
 
 function modal_triage(agenda_id, colaborador_id, servicio_id, pacientes_id, expediente){
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 10){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	   if(consultarAtencionTriage(agenda_id, colaborador_id, servicio_id, expediente, pacientes_id) == 2){//EL REGISTRO NO EXISTE
 			//if(consultaTipoUsuario(pacientes_id,colaborador_id,servicio_id,expediente) == 'S'){
 				var url = '<?php echo SERVERURL; ?>php/agenda_pacientes/editConfirmacion.php';
@@ -2113,7 +2113,7 @@ function consultarAtencionTriage(agenda_id, colaborador_id, servicio_id, exepedi
 }
 
 function modal_agregar_confirmacionAusencia(agenda_id, colaborador_id, servicio_id){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/agenda_pacientes/editConfirmacionAusencias.php';
 	
 	$.ajax({

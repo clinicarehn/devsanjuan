@@ -639,7 +639,7 @@ $('#reg_centros').on('click', function(e){ // add event submit We don't want thi
 //FORMULARIO REFERENCIAS RECIBIDAS
 $('#edit_referencias_ref_recibida').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	e.preventDefault();
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		 if ($('#formulario_edicion_referencias_recibidas #motivo').val() == "" ){
 			 $('#formulario_edicion_referencias_recibidas')[0].reset();				
 			swal({
