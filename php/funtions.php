@@ -464,19 +464,19 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 						 }else if($hora_h >= date('H:i',strtotime('10:40')) && $hora_h < date('H:i',strtotime('11:20'))){//4TO USUARIO SUBSIGUIENTE
 						   $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						 }else if ($hora_h >= date('H:i',strtotime('11:20')) && $hora_h < date('H:i',strtotime('12:00'))){//5T0 USUARIO SUBSIGUIENTE
-						   $hora = "14:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA MAÑANA
+						   $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA MAÑANA
 						 }else if($hora_h >= date('H:i',strtotime('12:00')) && $hora_h < date('H:i',strtotime('12:40'))){//6TO USUARIO SUBSIGUIENTE
-						   $hora = "14:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						   $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						 }else if($hora_h >= date('H:i',strtotime('12:40')) && $hora_h < date('H:i',strtotime('13:20'))){//7MO USUARIO SUBSIGUIENTE
-						   $hora = "14:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						   $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						 }else if($hora_h >= date('H:i',strtotime('13:20')) && $hora_h < date('H:i',strtotime('14:00'))){//8VO USUARIO SUBSIGUIENTE
-						   $hora = "15:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						   $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						 }else if($hora_h >= date('H:i',strtotime('14:00')) && $hora_h < date('H:i',strtotime('14:40'))){//9NO USUARIO SUBSIGUIENTE
-						   $hora = "15:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						   $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						 }else if($hora_h >= date('H:i',strtotime('14:40')) && $hora_h < date('H:i',strtotime('15:20'))){//9NO USUARIO SUBSIGUIENTE
-						   $hora = "15:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						   $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						 }else if($hora_h >= date('H:i',strtotime('15:20')) && $hora_h < date('H:i',strtotime('16:00'))){//9NO USUARIO SUBSIGUIENTE
-						   $hora = "15:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						   $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						 }else if($hora_h == date('H:i',strtotime('00:00')) ){
 						   $hora = 'NulaSError';
 						 }else{

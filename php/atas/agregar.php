@@ -173,6 +173,17 @@ if(isset($_POST['enfermedad'])){//COMPRUEBO SI LA VARIABLE ESTA DIFINIDA
 	$enfermedad = 0;
 }
 
+//USUARIOS CON PREREFERENCIA
+if(isset($_POST['especial'])){//COMPRUEBO SI LA VARIABLE ESTA DIFINIDA
+	if($_POST['especial'] == ""){
+		$especial = 0;
+	}else{
+		$especial = $_POST['especial'];
+	}
+}else{
+	$especial = 0;
+}
+
 $observaciones = mb_convert_case(trim($_POST['observaciones']), MB_CASE_TITLE, "UTF-8");
 //TAB Transito
 //RECIBIDA
@@ -1038,7 +1049,7 @@ if($consultar_agenda2 == 0){//EL REGISTRO NO ESTA ALMACENADO EN LA AGENDA
 			$farmacia = 2; //1. Visible 2. Oculto
 			
 			$insert = "INSERT INTO colas 
-				VALUES('$colas_id','$cola_numero','$pacientes_id','$fecha','$horai','$horaf','$colaborador_id','$servicio','$receta_id','$programar_cita_id','$transito_id','$admision','$farmacia','$fecha_registro')";
+				VALUES('$colas_id','$cola_numero','$pacientes_id','$fecha','$horai','$horaf','$colaborador_id','$servicio','$receta_id','$programar_cita_id','$transito_id','$admision','$farmacia','$especial','$fecha_registro')";
 			$mysqli->query($insert);			
 		}			
 		

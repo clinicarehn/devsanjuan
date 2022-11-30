@@ -139,6 +139,15 @@ $(document).ready(pagination(1))
 			   $('#formulario1 #label_cronico_no').hide();
 			}
 
+			   $('#formulario1 #preferencia_label').show();
+			   $('#formulario1 #preferencia_label').html("¿Especial?");
+			   $('#formulario1 #preferencia_si').show();
+			   $('#formulario1 #preferencia_no').show();
+			   $('#formulario1 #label_preferencia_si').show();
+			   $('#formulario1 #label_preferencia_no').show();
+			   $('#formulario1 #label_preferencia_si').html("Sí");
+			   $('#formulario1 #label_preferencia_no').html("No");			   
+
 		      $('#registrar').modal({
 			     show:true,
 				 keyboard: false,
@@ -1667,6 +1676,15 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() 
                    $('#formulario_atas #label_cronico_si1').hide();
                    $('#formulario_atas #label_cronico_no1').hide();
 		        }
+				
+			   $('#formulario_atas #preferencia_label1').show();
+			   $('#formulario_atas #preferencia_label1').html("¿Especial?");
+			   $('#formulario_atas #preferencia_si1').show();
+			   $('#formulario_atas #preferencia_no1').show();
+			   $('#formulario_atas #label_preferencia_si1').show();
+			   $('#formulario_atas #label_preferencia_no1').show();	
+			   $('#formulario_atas #label_preferencia_si1').html("Sí");
+			   $('#formulario_atas #label_preferencia_no1').html("No");
 
 				$('#registrar1').modal({
 					show:true,

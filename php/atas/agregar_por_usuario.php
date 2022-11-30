@@ -279,6 +279,16 @@ if(isset($_POST['cronico1'])){//COMPRUEBO SI LA VARIABLE ESTA DIFINIDA
 	$user_cronico = "";
 }
 
+//USUARIOS CON PREREFERENCIA
+if(isset($_POST['especial1'])){//COMPRUEBO SI LA VARIABLE ESTA DIFINIDA
+	if($_POST['especial1'] == ""){
+		$especial1 = 0;
+	}else{
+		$especial = $_POST['especial1'];
+	}
+}else{
+	$especial = 0;
+}
 //OBTENER CENTRO
 //RECIBIDA
 $centroi = $_POST['centroi1'];	
@@ -909,7 +919,7 @@ if($expediente==0 || $servicio == 0){
 		$farmacia = 2; //1. Visible 2. Oculto
 		
 		$insert = "INSERT INTO colas 
-			VALUES('$colas_id','$cola_numero','$pacientes_id','$fecha','$horai','$horaf','$colaborador_id','$servicio','$receta_id','$programar_cita_id','$transito_id','$admision','$farmacia','$fecha_registro')";
+			VALUES('$colas_id','$cola_numero','$pacientes_id','$fecha','$horai','$horaf','$colaborador_id','$servicio','$receta_id','$programar_cita_id','$transito_id','$admision','$farmacia','$especial','$fecha_registro')";
 		$mysqli->query($insert);			
 	}	
 		

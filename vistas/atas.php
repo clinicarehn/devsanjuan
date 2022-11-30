@@ -1588,6 +1588,19 @@ $mysqli->close();//CERRAR CONEXIÓN
 								<div class="form-check form-check-inline" id="referencia_grupo">
 								  <input class="form-check-input" type="radio" id="suicida_no" name="suicida" value="2" checked>
 								  <label class="form-check-label" id="label_suicida_no"></label>
+								</div>
+
+								<div class="form-check form-check-inline">
+								   <label class="form-check-label mr-1 mb-1" id="preferencia_label"></label>					  
+								</div>	
+								
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" id="preferencia_si" name="preferencia" value="1">
+								  <label class="form-check-label" id="label_preferencia_si1"></label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" id="preferencia_no" name="preferencia" value="2" checked>
+								  <label class="form-check-label" id="label_preferencia_no1"></label>
 								</div>	
 							</div>
 						</div>
@@ -2125,11 +2138,15 @@ $mysqli->close();//CERRAR CONEXIÓN
 								  <label class="form-check-label" id="label_suicida_no1"></label>
 								</div>	
 								
-								<div class="form-check form-check-inline" id="referencia_grupo1">
+								<div class="form-check form-check-inline">
+								   <label class="form-check-label mr-1 mb-1" id="preferencia_label1"></label>					  
+								</div>	
+								
+								<div class="form-check form-check-inline">
 								  <input class="form-check-input" type="radio" id="preferencia_si1" name="preferencia1" value="1">
 								  <label class="form-check-label" id="label_preferencia_si1"></label>
 								</div>
-								<div class="form-check form-check-inline" id="referencia_grupo1">
+								<div class="form-check form-check-inline">
 								  <input class="form-check-input" type="radio" id="preferencia_no1" name="preferencia1" value="2" checked>
 								  <label class="form-check-label" id="label_preferencia_no1"></label>
 								</div>									
