@@ -523,7 +523,10 @@
 			  Configuración
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			  <li><a class="dropdown-item" href="colaboradores.php">Colaboradores</a></li>			  
+			  <li><a class="dropdown-item" href="colaboradores.php">Colaboradores</a></li>	
+			  <li><a class="dropdown-item" href="transporte_usuarios.php">Transporte Usuarios</a></li>	
+			  <li><a class="dropdown-item" href="users.php">Usuarios</a></li>	
+			  <li><a class="dropdown-item" href="config_varios.php">Varios</a></li>				  		  
 			</ul>
 		</li>	  
 		<?php

@@ -401,7 +401,9 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 							 $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						 }else if($hora_h >= date('H:i',strtotime('18:00')) && $hora_h < date('H:i',strtotime('18:40'))){//9NO USUARIO SUBSIGUIENTE
 							 $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
-						 }else if($hora_h == date('H:i',strtotime('00:00')) ){
+						 }else if($hora_h >= date('H:i',strtotime('18:40')) && $hora_h < date('H:i',strtotime('19:20'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						}else if($hora_h == date('H:i',strtotime('00:00')) ){
 						   $hora = 'NulaSError';
 						 }else{
 							 $hora = "NulaP";
@@ -477,7 +479,17 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 						   $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						 }else if($hora_h >= date('H:i',strtotime('15:20')) && $hora_h < date('H:i',strtotime('16:00'))){//9NO USUARIO SUBSIGUIENTE
 						   $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
-						 }else if($hora_h == date('H:i',strtotime('00:00')) ){
+						 }else if($hora_h >= date('H:i',strtotime('16:00')) && $hora_h < date('H:i',strtotime('16:40'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h >= date('H:i',strtotime('16:40')) && $hora_h < date('H:i',strtotime('17:20'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('18:00'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h >= date('H:i',strtotime('18:00')) && $hora_h < date('H:i',strtotime('18:40'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h >= date('H:i',strtotime('18:40')) && $hora_h < date('H:i',strtotime('19:20'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h == date('H:i',strtotime('00:00')) ){
 						   $hora = 'NulaSError';
 						 }else{
 							 $hora = "NulaP";
@@ -601,7 +613,13 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						 }else if($hora_h >= date('H:i',strtotime('16:40')) && $hora_h < date('H:i',strtotime('17:20'))){//9NO USUARIO SUBSIGUIENTE
 						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
-						 }else if($hora_h == date('H:i',strtotime('00:00')) ){
+						 }else if($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('18:00'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h >= date('H:i',strtotime('18:00')) && $hora_h < date('H:i',strtotime('18:40'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h >= date('H:i',strtotime('18:40')) && $hora_h < date('H:i',strtotime('19:20'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h == date('H:i',strtotime('00:00')) ){
 						   $hora = 'NulaSError';
 						 }else{
 							 $hora = "NulaP";
@@ -826,7 +844,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 					   if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
 						  $hora = "NuevosExcede";
 					   }else{
-						  if ($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){
+						  if ($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){
 							 $hora = "13:00"; //HORA PARA USUARIOS NUEVOS POR LA MAÑANA
 						  }else if($hora_h == date('H:i',strtotime('00:00')) ){
 							$hora = 'NulaSError';
@@ -840,7 +858,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 						$limite = $consultaJornadaTotal - $consulta_nuevos_devuelto; //EVALUAMOS LA CANTIDAD DE USUARIOS DISPONIBLES PARA AGENDAR;
 						if($consulta_subsiguientes_devuelto > $limite){
 							  $hora = "SubsiguienteExcede";
-						}else if($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
+						}else if($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
 						  $hora = "13:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						}else if($hora_h == date('H:i',strtotime('00:00')) ){
 						  $hora = 'NulaSError';
@@ -862,7 +880,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 					   if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
 						  $hora = "NuevosExcede";
 					   }else{
-						  if ($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){
+						  if ($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){
 							 $hora = "07:20"; //HORA PARA USUARIOS NUEVOS POR LA MAÑANA
 						  }else if($hora_h == date('H:i',strtotime('00:00')) ){
 							$hora = 'NulaSError';
@@ -876,7 +894,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 						$limite = $consultaJornadaTotal - $consulta_nuevos_devuelto; //EVALUAMOS LA CANTIDAD DE USUARIOS DISPONIBLES PARA AGENDAR;
 						if($consulta_subsiguientes_devuelto > $limite){
 							  $hora = "SubsiguienteExcede";
-						}else if($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
+						}else if($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
 						  $hora = "09:20"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						}else if($hora_h == date('H:i',strtotime('00:00')) ){
 						  $hora = 'NulaSError';
@@ -905,7 +923,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 							   if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
 								  $hora = "NuevosExcede";
 							   }else{
-								  if ($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){
+								  if ($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){
 									 $hora = "07:00"; //HORA PARA USUARIOS NUEVOS POR LA MAÑANA
 								  }else if($hora_h == date('H:i',strtotime('00:00')) ){
 									$hora = 'NulaSError';
@@ -919,7 +937,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 								$limite = $consultaJornadaTotal - $consulta_nuevos_devuelto; //EVALUAMOS LA CANTIDAD DE USUARIOS DISPONIBLES PARA AGENDAR;
 								if($consulta_subsiguientes_devuelto > $limite){
 									  $hora = "SubsiguienteExcede";
-								}else if($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
+								}else if($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
 								  $hora = "11:30"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 								}else if($hora_h == date('H:i',strtotime('00:00')) ){
 								  $hora = 'NulaSError';
@@ -940,7 +958,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 						   if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
 							  $hora = "NuevosExcede";
 						   }else{
-							  if ($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){
+							  if ($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){
 								 $hora = "07:45"; //HORA PARA USUARIOS NUEVOS POR LA MAÑANA
 							  }else if($hora_h == date('H:i',strtotime('00:00')) ){
 								$hora = 'NulaSError';
@@ -954,7 +972,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 							$limite = $consultaJornadaTotal - $consulta_nuevos_devuelto; //EVALUAMOS LA CANTIDAD DE USUARIOS DISPONIBLES PARA AGENDAR;
 							if($consulta_subsiguientes_devuelto > $limite){
 								  $hora = "SubsiguienteExcede";
-							}else if($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
+							}else if($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
 							  $hora = "09:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 							}else if($hora_h == date('H:i',strtotime('00:00')) ){
 							  $hora = 'NulaSError';
@@ -976,7 +994,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 						   if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
 							  $hora = "NuevosExcede";
 						   }else{
-							  if ($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){
+							  if ($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){
 								 $hora = "07:45"; //HORA PARA USUARIOS NUEVOS POR LA MAÑANA
 							  }else if($hora_h == date('H:i',strtotime('00:00')) ){
 								$hora = 'NulaSError';
@@ -990,7 +1008,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 							$limite = $consultaJornadaTotal - $consulta_nuevos_devuelto; //EVALUAMOS LA CANTIDAD DE USUARIOS DISPONIBLES PARA AGENDAR;
 							if($consulta_subsiguientes_devuelto > $limite){
 								  $hora = "SubsiguienteExcede";
-							}else if($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
+							}else if($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
 							  $hora = "09:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 							}else if($hora_h == date('H:i',strtotime('00:00')) ){
 							  $hora = 'NulaSError';
@@ -1009,7 +1027,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 			   if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
 				  $hora = "NuevosExcede";
 			   }else{
-				  if ($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){
+				  if ($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){
 					 $hora = "07:45"; //HORA PARA USUARIOS NUEVOS POR LA MAÑANA
 				  }else if($hora_h == date('H:i',strtotime('00:00')) ){
 					$hora = 'NulaSError';
@@ -1023,7 +1041,7 @@ function getAgendatimeSE($consultarJornadaJornada_id, $servicio, $consultarJorna
 				$limite = $consultaJornadaTotal - $consulta_nuevos_devuelto; //EVALUAMOS LA CANTIDAD DE USUARIOS DISPONIBLES PARA AGENDAR;
 				if($consulta_subsiguientes_devuelto > $limite){
 					  $hora = "SubsiguienteExcede";
-				}else if($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
+				}else if($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('23:20'))){//2DO USUARIO SUBSIGUIENTE
 				  $hora = "09:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 				}else if($hora_h == date('H:i',strtotime('00:00')) ){
 				  $hora = 'NulaSError';
@@ -1088,12 +1106,6 @@ function getAgendatimeExtemporaneo($consultarJornadaJornada_id, $servicio, $cons
 
 						if($consulta_subsiguientes_devuelto > $limite){
 							  $hora = "SubsiguienteExcede";
-						}else if($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('18:00'))){//2DO USUARIO SUBSIGUIENTE
-						  $hora = "07:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
-						}else if ($hora_h >= date('H:i',strtotime('18:00')) && $hora_h < date('H:i',strtotime('18:40'))){//3ER USUARIO SUBSIGUIENTE
-						  $hora = "07:40"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA MAÑANA
-						}else if($hora_h >= date('H:i',strtotime('18:40')) && $hora_h < date('H:i',strtotime('19:20'))){//4TO USUARIO SUBSIGUIENTE
-						  $hora = "08:20"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
 						}else if ($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('20:00'))){//5T0 USUARIO SUBSIGUIENTE
 						  $hora = "09:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA MAÑANA
 						}else if($hora_h >= date('H:i',strtotime('20:00')) && $hora_h < date('H:i',strtotime('20:40'))){//6TO USUARIO SUBSIGUIENTE
@@ -1113,11 +1125,11 @@ function getAgendatimeExtemporaneo($consultarJornadaJornada_id, $servicio, $cons
 						}
 
 						if ( $expediente == ""){//EVALUA SI ES UN USUARIO NUEVO PARA EL CONTROL DE HORAS
-							if ($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('21:20'))){
+							if ($hora_h >= date('H:i',strtotime('19:20')) && $hora_h < date('H:i',strtotime('21:20'))){
 							   $hora = 'NulaN';//ESTE ES UN USUARIO NUEVO, NO ES UN SUBSIGUIENTE
 							}
 						}else{///EVALUA SI ES UN USUARIO SUBSIGUIENTE PARA EL CONTROL DE HORAS
-							if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('17:20'))){
+							if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('19:20'))){
 							   $hora = 'NulaS';//ESTE ES UN USUARIO SUBSIGUIENTE, NO ES UN USUARIO NUEVO
 							}
 						}
