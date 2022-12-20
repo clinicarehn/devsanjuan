@@ -13,6 +13,7 @@
 <script src="<?php echo SERVERURL; ?>bootstrap/js/vfs_fonts.js" crossorigin="anonymous"></script>
 <script src="<?php echo SERVERURL; ?>bootstrap/js/buttons.html5.min.js" crossorigin="anonymous"></script>
 <script src="<?php echo SERVERURL; ?>bootstrap/js/buttons.print.min.js" crossorigin="anonymous"></script>
+<script defer src="<?php echo SERVERURL; ?>js/query/snow.js"></script>	
 
 <!--Boton volver al principio-->
 <script src="<?php echo SERVERURL; ?>js/query/arriba.js"></script>
