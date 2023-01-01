@@ -507,7 +507,91 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 					 }//FIN DE HORAS PARA USUARIOS SUBSIGUIENTES
 					 					
 				}//####FIN JORNADA VESPERTINA
+				else if($consultarJornadaJornada_id == 2){//####INICIO JORNADA MIXTA		
+					if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('09:20'))){//INICIO NUEVOS
+						$colores = "#008000"; //VERDE USUARIOS NUEVOS
+						if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
+						   $hora = "NuevosExcede";
+						}else{
+						   if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('08:00'))){
+							  $hora = "10:00"; //HORA PARA USUARIOS NUEVOS POR LA MAÑANA
+						   }else if ($hora_h >= date('H:i',strtotime('08:00')) && $hora_h < date('H:i',strtotime('08:40'))){
+							  $hora = "10:00"; //HORA PARA USUARIOS NUEVOS POR LA MAÑANA
+						   }else if ($hora_h >= date('H:i',strtotime('08:40')) && $hora_h < date('H:i',strtotime('09:20'))){
+							  $hora = "10:00"; //HORA PARA USUARIOS NUEVOS POR LA MAÑANA
+						   }else if($hora_h >= date('H:i',strtotime('09:20'))){
+							  $hora = 'NulaSError';
+						   }else if($hora_h == date('H:i',strtotime('00:00')) ){
+							 $hora = 'NulaSError';
+						   }else{
+							   $hora = "NulaP";
+						   }
+ 
+						   if ( $expediente == ""){//EVALUA SI ES UN USUARIO NUEVO PARA EL CONTROL DE HORAS
+							  if ($hora_h >= date('H:i',strtotime('09:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+								 $hora = 'NulaN';//ESTE ES UN USUARIO NUEVO, NO ES SUBSIGUIENTE
+							  }
+						   }else{//EVALUA SI ES UN USUARIO SUBSIGUIENTE PARA EL CONTROL DE HORAS
+							  if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('09:20'))){
+								 $hora = 'NulaS';//ESTE ES UN USUARIO SUBSIGUIENTE, NO ES NUEVO
+							  }
+						   }
+						 }
+					 }//FIN USUARIOS NUEVOS
+					 else{//INICIO DE HORAS PARA USUARIOS SUBSIGUIENTES
+						 $colores = "#0071c5"; //AZUL OSCURO USUARIOS SUBSIGUIENTES
+						 $limite = $consultaJornadaTotal - $consulta_nuevos_devuelto; //EVALUAMOS LA CANTIDAD DE USUARIOS DISPONIBLES PARA AGENDAR;
+ 
+						 if($consulta_subsiguientes_devuelto > $limite){
+							   $hora = "SubsiguienteExcede";
+						 }else if($hora_h >= date('H:i',strtotime('09:20')) && $hora_h < date('H:i',strtotime('10:00'))){//2DO USUARIO SUBSIGUIENTE
+						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						 }else if ($hora_h >= date('H:i',strtotime('10:00')) && $hora_h < date('H:i',strtotime('10:40'))){//3ER USUARIO SUBSIGUIENTE
+						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA MAÑANA
+						 }else if($hora_h >= date('H:i',strtotime('10:40')) && $hora_h < date('H:i',strtotime('11:20'))){//4TO USUARIO SUBSIGUIENTE
+						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						 }else if ($hora_h >= date('H:i',strtotime('11:20')) && $hora_h < date('H:i',strtotime('12:00'))){//5T0 USUARIO SUBSIGUIENTE
+						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA MAÑANA
+						 }else if($hora_h >= date('H:i',strtotime('12:00')) && $hora_h < date('H:i',strtotime('12:40'))){//6TO USUARIO SUBSIGUIENTE
+						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						 }else if($hora_h >= date('H:i',strtotime('12:40')) && $hora_h < date('H:i',strtotime('13:20'))){//7MO USUARIO SUBSIGUIENTE
+						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						 }else if($hora_h >= date('H:i',strtotime('13:20')) && $hora_h < date('H:i',strtotime('14:00'))){//8VO USUARIO SUBSIGUIENTE
+						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						 }else if($hora_h >= date('H:i',strtotime('14:00')) && $hora_h < date('H:i',strtotime('14:40'))){//9NO USUARIO SUBSIGUIENTE
+						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						 }else if($hora_h >= date('H:i',strtotime('14:40')) && $hora_h < date('H:i',strtotime('15:20'))){//9NO USUARIO SUBSIGUIENTE
+						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						 }else if($hora_h >= date('H:i',strtotime('15:20')) && $hora_h < date('H:i',strtotime('16:00'))){//9NO USUARIO SUBSIGUIENTE
+						   $hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						 }else if($hora_h >= date('H:i',strtotime('16:00')) && $hora_h < date('H:i',strtotime('16:40'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h >= date('H:i',strtotime('16:40')) && $hora_h < date('H:i',strtotime('17:20'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h >= date('H:i',strtotime('17:20')) && $hora_h < date('H:i',strtotime('18:00'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h >= date('H:i',strtotime('18:00')) && $hora_h < date('H:i',strtotime('18:40'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h >= date('H:i',strtotime('18:40')) && $hora_h < date('H:i',strtotime('19:20'))){//9NO USUARIO SUBSIGUIENTE
+							$hora = "11:00"; //HORA PARA USUARIOS SUBSIGUIENTES POR LA TARDE
+						  }else if($hora_h == date('H:i',strtotime('00:00')) ){
+						   $hora = 'NulaSError';
+						 }else{
+							 $hora = "NulaP";
+						 }
+ 
+						 if ( $expediente == ""){//EVALUA SI ES UN USUARIO NUEVO PARA EL CONTROL DE HORAS
+							 if ($hora_h >= date('H:i',strtotime('09:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+								$hora = 'NulaN';//ESTE ES UN USUARIO NUEVO, NO ES UN SUBSIGUIENTE
+							 }
+						 }else{///EVALUA SI ES UN USUARIO SUBSIGUIENTE PARA EL CONTROL DE HORAS
+							 if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('09:20'))){
+								$hora = 'NulaS';//ESTE ES UN USUARIO SUBSIGUIENTE, NO ES UN USUARIO NUEVO
+							 }
+						 }
+					 }//FIN DE HORAS PARA USUARIOS SUBSIGUIENTES
 
+				}//####FIN JORNADA MIXTA
 			}//####FIN PUESTO PSIQUIATRIA Y MED GENERAL####
 			else if($consultar_colaborador_puesto_id == 1){//####INICIO PUESTO PSICOLOGIA####
 
