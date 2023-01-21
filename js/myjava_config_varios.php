@@ -58,9 +58,11 @@ function getConsulta(){
         success: function(data){		
 		    $('#form_main #consulta').html("");
 			$('#form_main #consulta').html(data);
+			$('#form_main #consulta').selectpicker('refresh');
 
 		    $('#formulario_registros #consulta_registro').html("");
-			$('#formulario_registros #consulta_registro').html(data);				
+			$('#formulario_registros #consulta_registro').html(data);
+			$('#formulario_registros #consulta_registro').selectpicker('refresh');			
 		}			
      });		
 }
@@ -203,6 +205,7 @@ function editarRegistro(id,entidad){
 				$('#formulario_registros #pro').val('Edicion');
 				$('#formulario_registros #id_registro').val(id);
                 $('#formulario_registros #consulta_registro').val(datos[0]);
+				$('#formulario_registros #consulta_registro').selectpicker('refresh');
 				$('#formulario_registros #nombre_registro').val(datos[1]);				
 				
 				$('#registrar').modal({

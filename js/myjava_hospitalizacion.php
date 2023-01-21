@@ -117,6 +117,7 @@ function getEstadoAtencionFormMain(){
         success: function(data){	
 		    $('#form_main #estado_atencion').html("");
 			$('#form_main #estado_atencion').html(data);
+			$('#form_main #estado_atencion').selectpicker('refresh');
 		}			
      });		
 }
@@ -130,6 +131,7 @@ function getEstadoFormMain(){
         success: function(data){	
 		    $('#form_main #estado').html("");
 			$('#form_main #estado').html(data);
+			$('#form_main #estado').selectpicker('refresh');
 		}			
      });		
 }
@@ -144,6 +146,7 @@ function getSalaFormMain(){
         success: function(data){	
 		    $('#form_main #sala').html("");
 			$('#form_main #sala').html(data);
+			$('#form_main #sala').selectpicker('refresh');
 		}			
      });		
 }
@@ -440,6 +443,7 @@ function getPatologia1(){
 		success: function(data){
 				$('#formulario_agregar_hospitalizacion #patologia1').html("");
 				$('#formulario_agregar_hospitalizacion #patologia1').html(data);
+				$('#formulario_agregar_hospitalizacion #patologia1').selectpicker('refresh');
 		}	
    });
    return false;		
@@ -453,6 +457,7 @@ function getPatologia2(){
 		success: function(data){
 				$('#formulario_agregar_hospitalizacion #patologia2').html("");
 				$('#formulario_agregar_hospitalizacion #patologia2').html(data);
+				$('#formulario_agregar_hospitalizacion #patologia2').selectpicker('refresh');
 		}	
    });
    return false;		
@@ -466,6 +471,7 @@ function getPatologia3(){
 		success: function(data){
 				$('#formulario_agregar_hospitalizacion #patologia3').html("");
 				$('#formulario_agregar_hospitalizacion #patologia3').html(data);
+				$('#formulario_agregar_hospitalizacion #patologia3').selectpicker('refresh');
 		}	
    });
    return false;		
@@ -481,8 +487,11 @@ function getServicioTransito(){
         success: function(data){		
 		    $('#formulario_agregar_hospitalizacion #transito_servicio_recibida').html("");
 			$('#formulario_agregar_hospitalizacion #transito_servicio_recibida').html(data);
+			$('#formulario_agregar_hospitalizacion #transito_servicio_recibida').selectpicker('refresh');
+
 		    $('#formulario_agregar_hospitalizacion #transito_servicio_enviada').html("");
-			$('#formulario_agregar_hospitalizacion #transito_servicio_enviada').html(data);		
+			$('#formulario_agregar_hospitalizacion #transito_servicio_enviada').html(data);	
+			$('#formulario_agregar_hospitalizacion #transito_servicio_enviada').selectpicker('refresh');	
         }
      });		
 }
@@ -500,6 +509,7 @@ $(document).ready(function() {
             success: function(data){
 				$('#formulario_agregar_hospitalizacion #transito_unidad_recibida').html("");
 				$('#formulario_agregar_hospitalizacion #transito_unidad_recibida').html(data);
+				$('#formulario_agregar_hospitalizacion #transito_unidad_recibida').selectpicker('refresh');
 			
             }
          });
@@ -519,7 +529,8 @@ $(document).ready(function() {
             data:'servicio='+servicio_id,
             success: function(data){
 				$('#formulario_agregar_hospitalizacion #transito_unidad_enviada').html("");
-				$('#formulario_agregar_hospitalizacion #transito_unidad_enviada').html(data);				
+				$('#formulario_agregar_hospitalizacion #transito_unidad_enviada').html(data);
+				$('#formulario_agregar_hospitalizacion #transito_unidad_enviada').selectpicker('refresh');			
             }
          });
 		 
@@ -562,8 +573,11 @@ function getNivel(){
         success: function(data){
 		    $('#formulario_agregar_hospitalizacion #nivel').html("");
 			$('#formulario_agregar_hospitalizacion #nivel').html(data);
+			$('#formulario_agregar_hospitalizacion #nivel').selectpicker('refresh');
+
 		    $('#formulario_agregar_hospitalizacion #nivel_e').html("");
-			$('#formulario_agregar_hospitalizacion #nivel_e').html(data);		
+			$('#formulario_agregar_hospitalizacion #nivel_e').html(data);
+			$('#formulario_agregar_hospitalizacion #nivel_e').selectpicker('refresh');		
         }
      });		
 }
@@ -580,7 +594,8 @@ $(document).ready(function() {
 		   data:'nivel='+nivel,
 		   success:function(data){
 		      $('#formulario_agregar_hospitalizacion #centro').html("");
-			  $('#formulario_agregar_hospitalizacion #centro').html(data);		  
+			  $('#formulario_agregar_hospitalizacion #centro').html(data);
+			  $('#formulario_agregar_hospitalizacion #centro').selectpicker('refresh');	  
 		  }
 	  });
 	  return false;			 				
@@ -601,6 +616,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_agregar_hospitalizacion #centroi').html("");
 			  $('#formulario_agregar_hospitalizacion #centroi').html(data);	
+			  $('#formulario_agregar_hospitalizacion #centroi').selectpicker('refresh');
               $("#formulario_agregar_hospitalizacion #reg").attr('disabled', true);
               $("#formulario_agregar_hospitalizacion #edi").attr('disabled', true);			  
 		  }
@@ -621,7 +637,8 @@ $(document).ready(function() {
 		   data:'nivel='+nivel,
 		   success:function(data){
 		      $('#formulario_agregar_hospitalizacion #centro_e').html("");
-			  $('#formulario_agregar_hospitalizacion #centro_e').html(data);			  
+			  $('#formulario_agregar_hospitalizacion #centro_e').html(data);
+			  $('#formulario_agregar_hospitalizacion #centro_e').selectpicker('refresh');			  
 		  }
 	  });
 	  return false;			 				
@@ -642,6 +659,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_agregar_hospitalizacion #centroi_e').html("");
 			  $('#formulario_agregar_hospitalizacion #centroi_e').html(data);
+			  $('#formulario_agregar_hospitalizacion #centroi_e').selectpicker('refresh');
               $("#formulario_agregar_hospitalizacion #reg").attr('disabled', true);
               $("#formulario_agregar_hospitalizacion #edi").attr('disabled', true);			  
 		  }
@@ -1195,9 +1213,11 @@ function getServicio(){
 		success: function(data){
 				$('#formulario_agregar_hospitalizacion #servicio_consulta').html("");
 				$('#formulario_agregar_hospitalizacion #servicio_consulta').html(data);
+				$('#formulario_agregar_hospitalizacion #servicio_consulta').selectpicker('refresh');
 				
 				$('#formulario_ata_familiares #servicio').html("");
-				$('#formulario_ata_familiares #servicio').html(data);				
+				$('#formulario_ata_familiares #servicio').html(data);
+				$('#formulario_ata_familiares #servicio').selectpicker('refresh');		
 		}	
    });
    return false;		
@@ -1780,9 +1800,12 @@ function getRespuestaFormulario(){
 	    async: true,
         success: function(data){	
 		    $('#formulario_agregar_hospitalizacion #ihss').html("");
-			$('#formulario_agregar_hospitalizacion #ihss').html(data);	
+			$('#formulario_agregar_hospitalizacion #ihss').html(data);
+			$('#formulario_agregar_hospitalizacion #ihss').selectpicker('refresh');
+
 		    $('#formulario_agregar_hospitalizacion #ihss1').html("");
-			$('#formulario_agregar_hospitalizacion #ihss1').html(data);					
+			$('#formulario_agregar_hospitalizacion #ihss1').html(data);
+			$('#formulario_agregar_hospitalizacion #ihss1').selectpicker('refresh');				
 		}			
      });		
 }
@@ -1858,8 +1881,11 @@ function getEnfermedadad(){
         success: function(data){	
 		    $('#formulario_agregar_hospitalizacion #enfermedad').html("");
 			$('#formulario_agregar_hospitalizacion #enfermedad').html(data);
+			$('#formulario_agregar_hospitalizacion #enfermedad').selectpicker('refresh');
+
 		    $('#formulario_agregar_hospitalizacion #enfermedad').html("");
-			$('#formulario_agregar_hospitalizacion #enfermedad').html(data);		
+			$('#formulario_agregar_hospitalizacion #enfermedad').html(data);
+			$('#formulario_agregar_hospitalizacion #enfermedad').selectpicker('refresh');		
 		}			
      });		
 }
@@ -1885,10 +1911,12 @@ function getMotivoTraslado(){
 	    async: true,
         success: function(data){		
 		    $('#formulario_agregar_hospitalizacion #motivo').html("");
-			$('#formulario_agregar_hospitalizacion #motivo').html(data);	
+			$('#formulario_agregar_hospitalizacion #motivo').html(data);
+			$('#formulario_agregar_hospitalizacion #motivo').selectpicker('refresh');	
 
 		    $('#formulario_agregar_hospitalizacion #motivo_traslado').html("");
-			$('#formulario_agregar_hospitalizacion #motivo_traslado').html(data);			
+			$('#formulario_agregar_hospitalizacion #motivo_traslado').html(data);
+			$('#formulario_agregar_hospitalizacion #motivo_traslado').selectpicker('refresh');		
 		}			
      });		
 }
@@ -1903,8 +1931,11 @@ function getMotivoTrasladoOtros(){
         success: function(data){		
 		    $('#formulario_agregar_hospitalizacion #motivo_e').html("");
 			$('#formulario_agregar_hospitalizacion #motivo_e').html(data);
+			$('#formulario_agregar_hospitalizacion #motivo_e').selectpicker('refresh');
+
 		    $('#formulario_agregar_hospitalizacion #motivo_e1').html("");
-			$('#formulario_agregar_hospitalizacion #motivo_e1').html(data);			
+			$('#formulario_agregar_hospitalizacion #motivo_e1').html(data);	
+			$('#formulario_agregar_hospitalizacion #motivo_e1').selectpicker('refresh');		
 		}			
      });		
 }
@@ -1924,6 +1955,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_agregar_hospitalizacion #transito_profesional_recibida').html("");
 			  $('#formulario_agregar_hospitalizacion #transito_profesional_recibida').html(data);
+			  $('#formulario_agregar_hospitalizacion #transito_profesional_recibida').selectpicker('refresh');
 		  }
 	  });
 	  return false;			 				

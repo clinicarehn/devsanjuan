@@ -79,26 +79,42 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 
     <form class="form-inline" id="form_main">
-	  <div class="form-group mr-1">
-		<select id="servicio" name="servicio" class="custom-select" style="width:170px;" data-toggle="tooltip" data-placement="top" title="Servicio">
-			<option value="">Servicio</option>
-		</select>		   
-      </div>	
-	  <div class="form-group mr-1">
-		<select id="mes" name="mes" class="custom-select" style="width:170px;" data-toggle="tooltip" data-placement="top" title="Mes">
-			<option value="">Mes</option>
-		</select>		   
-      </div>	
-	  <div class="form-group mr-1">
-		<select id="año" name="año" class="custom-select" style="width:170px;" data-toggle="tooltip" data-placement="top" title="Año">
-			<option value="">Año</option>		
-		</select>		   
-      </div>  
-	  <div class="form-group mr-1">
-		<select id="reporte" name="reporte" class="custom-select" style="width:170px;" data-toggle="tooltip" data-placement="top" title="Reporte">
-			<option value="">Reporte</option>		
-		</select>		   
-      </div>  	  
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+					<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>	
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Mes</span>
+					<select id="mes" name="mes" class="selectpicker" title="Mes" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Año</span>
+					<select id="año" name="año" class="selectpicker" title="Año" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Reporte</span>
+					<select id="reporte" name="reporte" class="selectpicker" title="Reporte" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>	  
       <div class="form-group">
 	    <button class="btn btn-success ml-1" type="submit" id="reporte_excel" data-toggle="tooltip" data-placement="top" title="Exportar"><div class="sb-nav-link-icon"></div><i class="fas fa-download fa-lg"></i> Exportar</button>
       </div>	

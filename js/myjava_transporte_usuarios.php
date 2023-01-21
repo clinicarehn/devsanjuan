@@ -5,7 +5,7 @@ $(document).ready(pagination(1))
   $(function(){
 	  $('#nuevo_transporte').on('click',function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 12 || getUsuarioSistema() == 17){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){
 		      $('#formulario_transporte')[0].reset();	
 		      $('#formulario_transporte #pro').val('Registro');
 			  $('#reg_vehiculos_transporte').show();
@@ -29,7 +29,7 @@ $(document).ready(pagination(1))
 	   
 	  $('#nuevo_combustible').on('click',function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 12 || getUsuarioSistema() == 17){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){
 		      $('#formulario_combustible')[0].reset();
               getTanqueTotal();			  
 		      $('#formulario_combustible #pro').val('Registro');
@@ -175,9 +175,11 @@ function getTransportista(){
 		success: function(data){
 				$('#formulario_transporte #transportista').html("");
 				$('#formulario_transporte #transportista').html(data);
+				$('#formulario_transporte #transportista').selectpicker('refresh');
 
 				$('#formulario_combustible #transportista_combustible').html("");
-				$('#formulario_combustible #transportista_combustible').html(data);				
+				$('#formulario_combustible #transportista_combustible').html(data);
+				$('#formulario_combustible #transportista_combustible').selectpicker('refresh');			
 		}	
    });
    return false;		
@@ -190,7 +192,8 @@ function getTipo(){
 	 url:url,
 		success: function(data){
 				$('#main_form #tipo').html("");
-				$('#main_form #tipo').html(data);						
+				$('#main_form #tipo').html(data);
+				$('#main_form #tipo').selectpicker('refresh');					
 		}	
    });
    return false;		
@@ -204,12 +207,15 @@ function getVehiculo(){
 		success: function(data){
 				$('#formulario_transporte #vehiculo_t').html("");
 				$('#formulario_transporte #vehiculo_t').html(data);
+				$('#formulario_transporte #vehiculo_t').selectpicker('refresh');
 				
 				$('#formulario_combustible #vehiculo').html("");
 				$('#formulario_combustible #vehiculo').html(data);
+				$('#formulario_combustible #vehiculo').selectpicker('refresh');
 
 				$('#main_form #vehiculo_main').html("");
-				$('#main_form #vehiculo_main').html(data);					
+				$('#main_form #vehiculo_main').html(data);
+				$('#main_form #vehiculo_main').selectpicker('refresh');				
 		}	
    });
    return false;		
@@ -859,7 +865,7 @@ $(document).ready(function() {
 });	
 
 function editarRegistroTransporte(id){
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 17){	
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){	
 	$('#formulario_transporte')[0].reset();		
 	var url = '<?php echo SERVERURL; ?>php/transporte/editar.php';
 		$.ajax({
@@ -880,8 +886,12 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 17){
                 $('#formulario_transporte #hora_final').val(datos[5]);	
                 $('#formulario_transporte #km_inicial').val(datos[6]);
                 $('#formulario_transporte #km_final').val(datos[7]);
-                $('#formulario_transporte #transportista').val(datos[8]);				
+                $('#formulario_transporte #transportista').val(datos[8]);
+				$('#formulario_transporte #transportista').selectpicker('refresh');
+
                 $('#formulario_transporte #vehiculo_t').val(datos[9]);
+				$('#formulario_transporte #vehiculo_t').selectpicker('refresh');
+
 				$('#formulario_transporte #fecha').val(datos[10]);
 				$('#reg_vehiculos_transporte').hide();
 				$('#edit_vehiculos_transporte').show();				
@@ -910,7 +920,7 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 17){
 }
 
 function editarRegistroCombustible(id){
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 17){	
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){	
 	$('#formulario_combustible')[0].reset();		
 	var url = '<?php echo SERVERURL; ?>php/transporte/editar_combustible.php';
 		$.ajax({
@@ -956,7 +966,7 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 17){
 
 //INICIO MODAL ELIMINAR REGISTROS
 function modal_eliminar(id){
-  if (getUsuarioSistema() == 1  || getUsuarioSistema() == 17){
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){
 	swal({
 		title: "¿Estas seguro?",
 		text: "¿Desea eliminar este registro?",
@@ -985,7 +995,7 @@ function modal_eliminar(id){
 }
 
 function modal_eliminar_combustible(id){
-  if (getUsuarioSistema() == 1  || getUsuarioSistema() == 17){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 12 || getUsuarioSistema() == 16){	
 	swal({
 		title: "¿Estas seguro?",
 		text: "¿Desea eliminar este registro?",

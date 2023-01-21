@@ -1462,7 +1462,7 @@ function pagination(partida){
 	}
 	
 	if ($('#form_agenda_main #unidad').val() == "" || $('#form_agenda_main #unidad').val() == null){
-	  unidad = 0;	
+	  unidad = '';	
 	}else{
 	  unidad = $('#form_agenda_main #unidad').val();
 	}	
@@ -1474,7 +1474,7 @@ function pagination(partida){
 	}	
 	
 	if ($('#form_agenda_main #medico_general').val() == "" || $('#form_agenda_main #medico_general').val() == null){
-	  medico_general = 0;	
+	  medico_general = '';	
 	}else{
 	  medico_general = $('#form_agenda_main #medico_general').val();
 	}		
@@ -1510,7 +1510,8 @@ $(document).ready(function() {
             data:'servicio='+servicio_id,
             success: function(data){
 				$('#formulario_enviar_sms_varios #unidad').html("");
-				$('#formulario_enviar_sms_varios #unidad').html(data);			
+				$('#formulario_enviar_sms_varios #unidad').html(data);	
+				$('#formulario_enviar_sms_varios #unidad').selectpicker('refresh');		
             }
          });		 
       });					
@@ -1528,7 +1529,8 @@ $(document).ready(function() {
             data:'servicio='+servicio_id+'&puesto_id='+puesto_id,
             success: function(data){
 				$('#formulario_enviar_sms_varios #medico').html("");
-				$('#formulario_enviar_sms_varios #medico').html(data);				
+				$('#formulario_enviar_sms_varios #medico').html(data);	
+				$('#formulario_enviar_sms_varios #medico').selectpicker('refresh');			
             }
          });		 
       });					
@@ -1545,7 +1547,8 @@ $(document).ready(function() {
             url: url,
             data:'servicio='+servicio_id,
             success: function(data){
-				$('#form_agenda_main #unidad').html(data);			
+				$('#form_agenda_main #unidad').html(data);
+				$('#form_agenda_main #unidad').selectpicker('refresh');		
             }
          });		 
       });					
@@ -1562,7 +1565,8 @@ $(document).ready(function() {
             url: url,
             data:'servicio='+servicio_id+'&puesto_id='+puesto_id,
             success: function(data){
-				$('#form_agenda_main #medico_general').html(data);				
+				$('#form_agenda_main #medico_general').html(data);
+				$('#form_agenda_main #medico_general').selectpicker('refresh');			
             }
          });		 
       });					
@@ -1810,9 +1814,11 @@ function getServicio(){
         success: function(data){	
 		    $('#form_agenda_main #servicio').html("");
 			$('#form_agenda_main #servicio').html(data);
+			$('#form_agenda_main #servicio').selectpicker('refresh');
 
 		    $('#formulario_triage_reporte #servicio_triage').html("");
-			$('#formulario_triage_reporte #servicio_triage').html(data);	
+			$('#formulario_triage_reporte #servicio_triage').html(data);
+			$('#formulario_triage_reporte #servicio_triage').selectpicker('refresh');				
 		}			
      });	
 }
@@ -1827,6 +1833,7 @@ function getAtencion(){
         success: function(data){	
 		    $('#form_agenda_main #atencion').html("");
 			$('#form_agenda_main #atencion').html(data);
+			$('#form_agenda_main #atencion').selectpicker('refresh');	
 		}			
      });	
 }
@@ -1841,6 +1848,7 @@ function getStatusRepro(){
         success: function(data){	
 		    $('#formulario #status_repro').html("");
 			$('#formulario #status_repro').html(data);
+			$('#formulario #status_repro').selectpicker('refresh');	
 		}			
      });	
 }
@@ -1855,6 +1863,7 @@ function getHoraNueva(){
         success: function(data){	
 		    $('#formulario #hora_nueva').html("");
 			$('#formulario #hora_nueva').html(data);
+			$('#formulario #hora_nueva').selectpicker('refresh');
 		}			
      });	
 }
@@ -2184,11 +2193,11 @@ function getConfirmacion_si(){
         success: function(data){		
 		    $('#formulario_agregar_confirmacion #confirmo_si').html("");
 			$('#formulario_agregar_confirmacion #confirmo_si').html(data);
-			$('#formulario_agregar_confirmacion #confirmo_no').html("");
+			$('#formulario_agregar_confirmacion #confirmo_no').selectpicker('refresh');
 			
 		    $('#formulario_agregar_confirmacion_ausencias #confirmo_si').html("");
 			$('#formulario_agregar_confirmacion_ausencias #confirmo_si').html(data);	
-			$('#formulario_agregar_confirmacion_ausencias #confirmo_no').html("");				
+			$('#formulario_agregar_confirmacion_ausencias #confirmo_si').selectpicker('refresh');		
 		}			
      });		
 }
@@ -2204,11 +2213,11 @@ function getConfirmacion_no(){
 		
 		    $('#formulario_agregar_confirmacion #confirmo_no').html("");
 			$('#formulario_agregar_confirmacion #confirmo_no').html(data);
-			$('#formulario_agregar_confirmacion #confirmo_si').html("");
+			$('#formulario_agregar_confirmacion #confirmo_no').selectpicker('refresh');	
 			
 		    $('#formulario_agregar_confirmacion_ausencias #confirmo_no').html("");
-			$('#formulario_agregar_confirmacion_ausencias #confirmo_no').html(data);	
-			$('#formulario_agregar_confirmacion_ausencias #confirmo_si').html("");			
+			$('#formulario_agregar_confirmacion_ausencias #confirmo_no').html(data);
+			$('#formulario_agregar_confirmacion_ausencias #confirmo_no').selectpicker('refresh');					
 		}			
      });		
 }
@@ -2752,7 +2761,8 @@ function getAtencionTriage(){
 	    async: true,
         success: function(data){		
 		    $('#formulario_triage #atencion_triage').html("");
-			$('#formulario_triage #atencion_triage').html(data);				
+			$('#formulario_triage #atencion_triage').html(data);
+			$('#formulario_triage #atencion_triage').selectpicker('refresh');					
 		}			
      });		
 }
@@ -2765,7 +2775,8 @@ function getObservacionTriage(){
 	    async: true,
         success: function(data){		
 		    $('#formulario_triage #observacion_triage').html("");
-			$('#formulario_triage #observacion_triage').html(data);					
+			$('#formulario_triage #observacion_triage').html(data);
+			$('#formulario_triage #observacion_triage').selectpicker('refresh');					
 		}			
      });		
 }
@@ -2779,6 +2790,7 @@ function getInformacionTriage(){
         success: function(data){		
 		    $('#formulario_triage #informacion_triage').html("");
 			$('#formulario_triage #informacion_triage').html(data);
+			$('#formulario_triage #informacion_triage').selectpicker('refresh');	
 		}			
      });		
 }
@@ -2791,7 +2803,8 @@ function getTipoAtencionTriage(){
 	    async: true,
         success: function(data){		
 		    $('#formulario_triage #tipo_triage').html("");
-			$('#formulario_triage #tipo_triage').html(data);					
+			$('#formulario_triage #tipo_triage').html(data);
+			$('#formulario_triage #tipo_triage').selectpicker('refresh');					
 		}			
      });		
 }	
@@ -2804,7 +2817,8 @@ function getReporteTriage(){
 	    async: true,
         success: function(data){		
 		    $('#formulario_triage_reporte #reporte_triage').html("");
-			$('#formulario_triage_reporte #reporte_triage').html(data);				
+			$('#formulario_triage_reporte #reporte_triage').html(data);
+			$('#formulario_triage_reporte #reporte_triage').selectpicker('refresh');				
 		}			
      });		
 }
@@ -2840,48 +2854,6 @@ $('#form_agenda_main #limpiar').on('click', function(e){
     e.preventDefault();
     limpiar();
 });
-
-$('#formulario #buscar_estado_reprogramacion').on('click', function(e){
-	listar_estado_reprogramacion_buscar();
-	 $('#modal_busqueda_estado_reprogramacion').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});	 
-});
-
-var listar_estado_reprogramacion_buscar = function(){
-	var table_estado_reprogramacion_buscar = $("#dataTableEstadoReprogramacion").DataTable({		
-		"destroy":true,	
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/agenda_pacientes/getEstadoReprogramacionTable.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-primary'><span class='fas fa-copy'></span></button>"},
-			{"data":"descripcion"}		
-		],
-		"pageLength" : 5,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,	
-	});	 
-	table_estado_reprogramacion_buscar.search('').draw();
-	$('#buscar').focus();
-	
-	view_estado_reprogramacion_busqueda_dataTable("#dataTableEstadoReprogramacion tbody", table_estado_reprogramacion_buscar);
-}
-
-var view_estado_reprogramacion_busqueda_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();		  
-		$('#formulario #status_repro').val(data.status_id);
-		$('#modal_busqueda_estado_reprogramacion').modal('hide');
-	});
-}
 
 $('#formulario_agregar_confirmacion #observacion_confirmacion').keyup(function() {
 	    var max_chars = 250;

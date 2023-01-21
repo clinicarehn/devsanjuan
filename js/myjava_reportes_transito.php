@@ -45,6 +45,7 @@ function getServicio(){
         success: function(data){	
 		    $('#form_main #servicio').html("");
 			$('#form_main #servicio').html(data);
+			$('#form_main #servicio').selectpicker('refresh');
 		}			
      });	
 }
@@ -58,7 +59,8 @@ function getReporte(){
 	    async: true,
         success: function(data){
 		    $('#form_main #reporte').html("");
-			$('#form_main #reporte').html(data);				
+			$('#form_main #reporte').html(data);
+			$('#form_main #reporte').selectpicker('refresh');				
         }
      });		
 }
@@ -142,7 +144,7 @@ function reporteEXCEL(){
 }
 
 function modal_eliminarTransitoRecibida(transito_id, expediente){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		swal({
 			title: "¿Estas seguro?",
 			text: "¿Desea eliminar el usuario " + consultarNombre(expediente) + "?",
@@ -171,7 +173,7 @@ function modal_eliminarTransitoRecibida(transito_id, expediente){
 }
 
 function modal_eliminarTransitoEnviada(transito_id, expediente){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){   
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){   
 		swal({
 			title: "¿Estas seguro?",
 			text: "¿Desea eliminar el usuario " + consultarNombre(expediente) + "?",
@@ -200,7 +202,7 @@ function modal_eliminarTransitoEnviada(transito_id, expediente){
 }
 
 function eliminarTransitoRecibida(id){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/reportes_transito/eliminarTransitoRecibida.php';
 	
 	var fecha = getFechaRegistroTransitoRecibida(id);
@@ -273,7 +275,7 @@ function eliminarTransitoRecibida(id){
 }
 
 function eliminarTransitoEnviada(id){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/reportes_transito/eliminarTransitoEnviada.php';
 		
 	var fecha = getFechaRegistroTransitoEnviada(id);

@@ -81,36 +81,33 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 	
     <form class="form-inline" id="form_main">	
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+					<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="servicio" name="servicio" class="custom-select" style="width:150px;" data-toggle="tooltip" data-placement="top" title="Servicio">
-				<option value="">Servicio</option>
-			</select>	
-		</div>	   
-      </div>	
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
+		</div>	
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unindad</span>
+					<select id="unidad" name="unidad" class="selectpicker" title="Unindad" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="unidad" name="unidad" class="custom-select" style="width:150px;" data-toggle="tooltip" data-placement="top" title="Unidad">
-				<option value="">Unindad</option>
-			</select>	
-		</div>	   
-      </div>
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Profesional</span>
+		</div>	
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Profesional</span>
+					<select id="colaborador" name="colaborador" class="selectpicker" title="Profesional" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="colaborador" name="colaborador" class="custom-select" style="width:150px;" data-toggle="tooltip" data-placement="top" title="Profesional">
-				<option value="">Profesional</option>		
-			</select>	
-		</div>	   
-      </div>	  
+		</div>			  
 	  <div class="form-group mr-1">
 		<div class="input-group">				
 			<div class="input-group-append">				

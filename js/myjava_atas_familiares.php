@@ -60,7 +60,8 @@ function getServicio(){
 	    async: true,
         success: function(data){
 		    $('#form_main #servicio').html("");
-			$('#form_main #servicio').html(data);			
+			$('#form_main #servicio').html(data);
+			$('#form_main #servicio').selectpicker('refresh');			
         }
      });		
 }
@@ -76,8 +77,9 @@ $(document).ready(function() {
 			async: true,
             data:'servicio='+servicio_id,
             success: function(data){
-				$('#form_main #unidad').html(data);
-			    $('#form_main #unidad').html(data);		
+				$('#form_main #unidad').html("");
+			    $('#form_main #unidad').html(data);
+				$('#form_main #unidad').selectpicker('refresh');	
             }
          });
 		 
@@ -97,7 +99,8 @@ $(document).ready(function() {
 		   data:'puesto_id='+puesto_id+'&servicio='+servicio,
 		   success:function(data){
 		      $('#form_main #medico_general').html("");
-			  $('#form_main #medico_general').html(data);				  
+			  $('#form_main #medico_general').html(data);
+			  $('#form_main #medico_general').selectpicker('refresh');					  
 		  }
 	  });
 	  return false;			 				
@@ -113,7 +116,8 @@ function getReporte(){
 	    async: true,
         success: function(data){
 		    $('#form_main #reporte').html("");
-			$('#form_main #reporte').html(data);			
+			$('#form_main #reporte').html(data);
+			$('#form_main #reporte').selectpicker('refresh');			
         }
      });		
 }

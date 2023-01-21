@@ -141,11 +141,14 @@ $mysqli->close();//CERRAR CONEXIÓN
 					  <label for="telefono">Identidad </label>
 					  <input type="number" name="identidad_manual" class="form-control" id="identidad_manual" maxlength="100" value = "0" readonly />
 					</div>
+
 					<div class="col-md-4 mb-3">
-					  <label for="telefono">Sexo</label>
-					  <select required name="sexo_manual" id="sexo_manual" class="custom-select" data-toggle="tooltip" data-placement="top" title="Género">
-					  </select> 
-					</div>					
+						<label for="sexo_manual">Sexo <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+							<select class="selectpicker" id="sexo_manual" name="sexo_manual" data-live-search="true" title="Sexo">			  
+							</select>
+						</div>
+					</div>				
 				</div>					
 				 <div class="form-check-inline">
 					 <p for="end" class="col-sm-9 form-check-label">¿Desea convertir usuario en temporal?</p>
@@ -214,26 +217,24 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 
     <form class="form-inline" id="form_main">
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Estado</span>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Estado</span>
+					<select id="estado" name="estado" class="selectpicker" title="Estado" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="estado" name="estado" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Estado">
-				<option value="">Estado</option>
-			</select>	
-		</div>	   
-      </div>	
-	  <div class="form-group mr-1">		
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Tipo Usuario</span>
+		</div>	
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Tipo</span>
+					<select id="tipo" name="tipo" class="selectpicker" title="Tipo" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="tipo" name="tipo" class="custom-select" style="width:120px;" data-toggle="tooltip" data-placement="top" title="Tipo">
-				<option value="">Tipo</option>			
-			</select>	
-		</div>				
-      </div>	  
+		</div>			  
       <div class="form-group mr-1">
          <input type="text" placeholder="Buscar por: Expediente, Nombre, Identidad o Teléfono Principal" data-toggle="tooltip" data-placement="top" title="Buscar por: Expediente, Nombre, Apellido, Identidad o Teléfono Principal" id="bs-regis" autofocus class="form-control" size="60" autofocus />
       </div>

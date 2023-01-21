@@ -1070,7 +1070,7 @@ if($('#formulario1 #departamento').val() != "" && $('#formulario1 #municipio').v
 				$('#formulario1 .nav-tabs li:eq(0) a').tab('show');
 				return false;
 			}else{
-			 /*if(getMes(fecha)==2){
+			 if(getMes(fecha)==2){
 					swal({
 						title: 'Error',
 						text: 'No se puede agregar/modificar registros fuera de este periodo.',
@@ -1081,7 +1081,7 @@ if($('#formulario1 #departamento').val() != "" && $('#formulario1 #municipio').v
 					});
 					$('#formulario1 .nav-tabs li:eq(0) a').tab('show');
 					return false;
-			   }else{*/
+			   }else{
 				if ( fecha <= fecha_actual){
 				   $.ajax({
 					  type:'POST',
@@ -1174,7 +1174,7 @@ if($('#formulario1 #departamento').val() != "" && $('#formulario1 #municipio').v
 					limpiarPatologiaformulario_atas();
 					return false;
 				}
-			  //}
+			  }
 	      }
        }
 	}else{
@@ -1230,7 +1230,7 @@ if($('#formulario_atas #departamento1').val() != "" && $('#formulario_atas #muni
 	var pacientes_id = $('#formulario_atas #pacientes_id').val();
 
 
-   /*if(getMes(fecha)==2){
+   if(getMes(fecha)==2){
 		swal({
 			title: 'Error',
 			text: 'No se puede agregar/modificar registros fuera de este periodo',
@@ -1245,7 +1245,7 @@ if($('#formulario_atas #departamento1').val() != "" && $('#formulario_atas #muni
         patologiaCIE10_3_1();
 
 	  return false;
-   }else{*/
+   }else{
 	if ( fecha <= fecha_actual){
 	    $.ajax({
 		  type:'POST',
@@ -1341,7 +1341,7 @@ if($('#formulario_atas #departamento1').val() != "" && $('#formulario_atas #muni
 		limpiarPatologiaformulario_atas();
 		return false;
 	}
-   //}
+   }
   }else{
 		swal({
 			title: 'Error',
@@ -1568,6 +1568,7 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() 
                 $('#formulario_atas #label_cronico_si1').html('Sí');
                 $('#formulario_atas #label_cronico_no1').html('No');
                 $('#formulario_atas #ihss_ata').val(2);
+				$('#formulario_atas #ihss_ata').selectpicker('refresh');
 				$('#formulario_atas #fecha1').val(datos[9]);
 				$('#formulario_atas #user1').attr("readonly", true);
 				$('#formulario_atas #fecha1').attr("readonly", true);
@@ -1578,7 +1579,6 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() 
 			    $('#formulario_atas #suicida_si1').show();
                 $('#formulario_atas #suicida_no1').show();
 				
-
                 $('#formulario_atas #otros_programar_cita_1').hide();
 
 				//SI EL PUESTO ES DE TRABAJO SOCIAL
@@ -1591,8 +1591,13 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() 
 				//CONSULTAMOS LOS REGISTROS QUE NO SEAN DE TRABAJO SOCIAL
 				if($('#formulario_atas #servicio1').val() != 8){
 				    $('#formulario_atas #patologia_1').val(datos[5]);
+					$('#formulario_atas #patologia_1').selectpicker('refresh');
+
 				    $('#formulario_atas #patologia_2').val(datos[6]);
+					$('#formulario_atas #patologia_2').selectpicker('refresh');
+
 				    $('#formulario_atas #patologia_3').val(datos[7]);
+					$('#formulario_atas #patologia_3').selectpicker('refresh');
 				}else{
 				    getPatologia1TS($('#formulario_atas #user1').val(), $('#formulario_atas #fecha1').val(), $('#formulario_atas #servicio1').val());
 				}
@@ -2066,12 +2071,15 @@ function getPatologia1(){
 		success: function(data){
 				$('#formulario1 #patologia1').html("");
 				$('#formulario1 #patologia1').html(data);
+				$('#formulario1 #patologia1').selectpicker('refresh');
 
 				$('#formulario_cuestionario_maida #patologia').html("");
 				$('#formulario_cuestionario_maida #patologia').html(data);
+				$('#formulario_cuestionario_maida #patologia').selectpicker('refresh');
 
 				$('#formulario_ata_manual #patologia_ata1').html("");
 				$('#formulario_ata_manual #patologia_ata1').html(data);
+				$('#formulario_ata_manual #patologia_ata1').selectpicker('refresh');
 		}
    });
    return false;
@@ -2085,9 +2093,11 @@ function getPatologia2(){
 		success: function(data){
 				$('#formulario1 #patologia2').html("");
 				$('#formulario1 #patologia2').html(data);
+				$('#formulario1 #patologia2').selectpicker('refresh');
 
 				$('#formulario_ata_manual #patologia_ata2').html("");
 				$('#formulario_ata_manual #patologia_ata2').html(data);
+				$('#formulario_ata_manual #patologia_ata2').selectpicker('refresh');
 		}
    });
    return false;
@@ -2101,9 +2111,11 @@ function getPatologia3(){
 		success: function(data){
 				$('#formulario1 #patologia3').html("");
 				$('#formulario1 #patologia3').html(data);
+				$('#formulario1 #patologia3').selectpicker('refresh');
 
 				$('#formulario_ata_manual #patologia_ata3').html("");
 				$('#formulario_ata_manual #patologia_ata3').html(data);
+				$('#formulario_ata_manual #patologia_ata3').selectpicker('refresh');
 		}
    });
    return false;
@@ -2117,6 +2129,7 @@ function getPatologia_1(){
 		success: function(data){
 				$('#formulario_atas #patologia_1').html("");
 				$('#formulario_atas #patologia_1').html(data);
+				$('#formulario_atas #patologia_1').selectpicker('refresh');
 		}
    });
    return false;
@@ -2130,6 +2143,7 @@ function getPatologia_2(){
 		success: function(data){
 				$('#formulario_atas #patologia_2').html("");
 				$('#formulario_atas #patologia_2').html(data);
+				$('#formulario_atas #patologia_2').selectpicker('refresh');
 		}
    });
    return false;
@@ -2143,6 +2157,7 @@ function getPatologia_3(){
 		success: function(data){
 				$('#formulario_atas #patologia_3').html("");
 				$('#formulario_atas #patologia_3').html(data);
+				$('#formulario_atas #patologia_3').selectpicker('refresh');
 		}
    });
    return false;
@@ -2176,24 +2191,31 @@ function getServicio(){
         success: function(data){
 		    $('#formulario1 #servicio').html("");
 			$('#formulario1 #servicio').html(data);
+			$('#formulario1 #servicio').selectpicker('refresh');
 
 		    $('#formulario_atas #servicio1').html("");
 			$('#formulario_atas #servicio1').html(data);
+			$('#formulario_atas #servicio1').selectpicker('refresh');
 
 		    $('#formulario_atenciones_familiares #servicio').html("");
 			$('#formulario_atenciones_familiares #servicio').html(data);
+			$('#formulario_atenciones_familiares #servicio').selectpicker('refresh');
 
 		    $('#formulario_cuestionario_maida #servicio').html("");
 			$('#formulario_cuestionario_maida #servicio').html(data);
+			$('#formulario_cuestionario_maida #servicio').selectpicker('refresh');
 
 		    $('#formulario_transito_enviada #servicio').html("");
 			$('#formulario_transito_enviada #servicio').html(data);
+			$('#formulario_transito_enviada #servicio').selectpicker('refresh');
 
 		    $('#formulario_transito_recibida #servicio').html("");
 			$('#formulario_transito_recibida #servicio').html(data);
+			$('#formulario_transito_recibida #servicio').selectpicker('refresh');
 
 		    $('#formulario_receta_medica #servicio_receta').html("");
 			$('#formulario_receta_medica #servicio_receta').html(data);
+			$('#formulario_receta_medica #servicio_receta').selectpicker('refresh');
         }
      });
 }
@@ -2208,15 +2230,19 @@ function getServicioTransito(){
         success: function(data){
 		    $('#formulario1 #transito_servicio_recibida').html("");
 			$('#formulario1 #transito_servicio_recibida').html(data);
+			$('#formulario1 #transito_servicio_recibida').selectpicker('refresh');
 
 		    $('#formulario1 #transito_servicio_enviada').html("");
 			$('#formulario1 #transito_servicio_enviada').html(data);
+			$('#formulario1 #transito_servicio_enviada').selectpicker('refresh');
 
 			$('#formulario_atas #transito_servicio_recibida1').html("");
 			$('#formulario_atas #transito_servicio_recibida1').html(data);
+			$('#formulario_atas #transito_servicio_recibida1').selectpicker('refresh');
 
 		    $('#formulario_atas #transito_servicio_enviada1').html("");
 			$('#formulario_atas #transito_servicio_enviada1').html(data);
+			$('#formulario_atas #transito_servicio_enviada1').selectpicker('refresh');
         }
      });
 }
@@ -2231,9 +2257,11 @@ function getServicioformATA(){
         success: function(data){
 			$('#formulario_atas #transito_servicio_recibida1').html("");
 			$('#formulario_atas #transito_servicio_recibida1').html(data);
+			$('#formulario_atas #transito_servicio_recibida1').selectpicker('refresh');
 
 		    $('#formulario_atas #transito_servicio_enviada1').html("");
 			$('#formulario_atas #transito_servicio_enviada1').html(data);
+			$('#formulario_atas #transito_servicio_enviada1').selectpicker('refresh');
 
         }
      });
@@ -2250,6 +2278,7 @@ function getNivel(){
         success: function(data){
 		    $('#formulario1 #nivel').html("");
 			$('#formulario1 #nivel').html(data);
+			$('#formulario1 #nivel').selectpicker('refresh');
         }
      });
 }
@@ -2265,6 +2294,7 @@ function getNivel_e(){
         success: function(data){
 		    $('#formulario1 #nivel_e').html("");
 			$('#formulario1 #nivel_e').html(data);
+			$('#formulario1 #nivel_e').selectpicker('refresh');
         }
      });
 }
@@ -2280,6 +2310,7 @@ function getNivel1(){
         success: function(data){
 		    $('#formulario_atas #nivel1').html("");
 			$('#formulario_atas #nivel1').html(data);
+			$('#formulario_atas #nivel1').selectpicker('refresh');
         }
      });
 }
@@ -2294,6 +2325,7 @@ function getNivel_e1(){
         success: function(data){
 		    $('#formulario_atas #nivel_e1').html("");
 			$('#formulario_atas #nivel_e1').html(data);
+			$('#formulario_atas #nivel_e1').selectpicker('refresh');
         }
      });
 }
@@ -2312,6 +2344,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario1 #centro').html("");
 			  $('#formulario1 #centro').html(data);
+			  $('#formulario1 #centro').selectpicker('refresh');
               $("#formulario1 #reg").attr('disabled', true);
 		  }
 	  });
@@ -2334,6 +2367,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario1 #centroi').html("");
 			  $('#formulario1 #centroi').html(data);
+			  $('#formulario1 #centroi').selectpicker('refresh');
               $("#formulario1 #reg").attr('disabled', true);
 		  }
 	  });
@@ -2366,6 +2400,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario1 #centro_e').html("");
 			  $('#formulario1 #centro_e').html(data);
+			  $('#formulario1 #centro_e').selectpicker('refresh');
               $("#formulario1 #reg").attr('disabled', true);
 		  }
 	  });
@@ -2398,6 +2433,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario1 #centroi_e').html("");
 			  $('#formulario1 #centroi_e').html(data);
+			  $('#formulario1 #centroi_e').selectpicker('refresh');
               $("#formulario1 #reg").attr('disabled', true);
 		  }
 	  });
@@ -2534,6 +2570,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_atas #centro1').html("");
 			  $('#formulario_atas #centro1').html(data);
+			  $('#formulario_atas #centro1').selectpicker('refresh');
 			  $("#edi_ata_por_usuario").attr('disabled', true);
 		  }
 	  });
@@ -2554,6 +2591,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_atas #centro_e1').html("");
 			  $('#formulario_atas #centro_e1').html(data);
+			  $('#formulario_atas #centro_e1').selectpicker('refresh');
 			  $("#edi_ata_por_usuario").attr('disabled', true);
 		  }
 	  });
@@ -2575,6 +2613,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_atas #centroi1').html("");
 			  $('#formulario_atas #centroi1').html(data);
+			  $('#formulario_atas #centroi1').selectpicker('refresh');
               $("#edi_ata_por_usuario").attr('disabled', true);
 		  }
 	  });
@@ -2596,6 +2635,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_atas #centroi_e1').html("");
 			  $('#formulario_atas #centroi_e1').html(data);
+			  $('#formulario_atas #centroi_e1').selectpicker('refresh');
               $("#edi_ata_por_usuario").attr('disabled', true);
 		  }
 	  });
@@ -2720,9 +2760,9 @@ function getUnidadTransitoRecibida(){
 		async: true,
 		data:'servicio='+servicio_id,
 		success: function(data){
+			$('#formulario1 #transito_unidad_recibida').html("");
 			$('#formulario1 #transito_unidad_recibida').html(data);
-
-			$('#formulario1 #transito_unidad_recibida').html(data);
+			$('#formulario1 #transito_unidad_recibida').selectpicker('refresh');
 		}
 	 });
 }
@@ -2737,7 +2777,8 @@ function getServicioTransitoRecibida(){
 	  async: true,
       data:'servicio='+servicio_id,
       success: function(data){
-		$('#formulario1 #transito_unidad_recibida').html(data);;
+		$('#formulario1 #transito_unidad_recibida').html(data);
+		$('#formulario1 #transito_unidad_recibida').selectpicker('refresh');
     }
   });
 }
@@ -2771,6 +2812,7 @@ function getTransitoEnviadaUnidad(){
 			data:'servicio='+servicio_id,
 			success: function(data){
 				$('#formulario1 #transito_unidad_enviada').html(data);
+				$('#formulario1 #transito_unidad_enviada').selectpicker('refresh');
 			}
 		 });
 		 return false;
@@ -2798,6 +2840,7 @@ function getServicioTransitoEnviada(){
 		 data:'servicio='+servicio_id,
 		 success: function(data){
 			$('#formulario1 #transito_unidad_enviada').html(data);
+			$('#formulario1 #transito_unidad_enviada').selectpicker('refresh');
 		}
 	});
 }
@@ -2820,6 +2863,7 @@ function getTransitoRecibidaServiciosFormularioATAS(){
 		data:'servicio='+servicio_id,
 		success: function(data){
 			$('#formulario_atas #transito_unidad_recibida1').html(data);
+			$('#formulario_atas #transito_unidad_recibida1').selectpicker('refresh');
 		}
 	 });
 	 return false;
@@ -2835,6 +2879,7 @@ function getServicioTransitoRecibida1(){
       data:'servicio='+servicio_id,
       success: function(data){
 		$('#formulario_atas #transito_unidad_recibida1').html(data);
+		$('#formulario_atas #transito_unidad_recibida1').selectpicker('refresh');
     }
   });
 }
@@ -2868,6 +2913,7 @@ function getTransitoEnviadaServiciosFormularioATAS(){
 		data:'servicio='+servicio_id,
 		success: function(data){
 			$('#formulario_atas #transito_unidad_enviada1').html(data);
+			$('#formulario_atas #transito_unidad_enviada1').selectpicker('refresh');
 		}
 	 });
 	 return false;
@@ -2895,6 +2941,7 @@ function getServicioTransitoEnviada1(){
      data:'servicio='+servicio_id,
      success: function(data){
 	    $('#formulario_atas #transito_unidad_enviada1').html(data);
+		$('#formulario_atas #transito_unidad_enviada1').selectpicker('refresh');
 	}
  });
 }
@@ -3030,6 +3077,7 @@ function getNivelAgregarReferenciasRecibidas(){
         success: function(data){
 		    $('#formulario_agregar_referencias_recibidas #centros_nivel').html("");
 			$('#formulario_agregar_referencias_recibidas #centros_nivel').html(data);
+			$('#formulario_agregar_referencias_recibidas #centros_nivel').selectpicker('refresh');
         }
      });
 }
@@ -3045,6 +3093,7 @@ function getCentroAgregarReferenciasRecibidas(){
         success: function(data){
 		    $('#formulario_agregar_referencias_recibidas #centro').html("");
 			$('#formulario_agregar_referencias_recibidas #centro').html(data);
+			$('#formulario_agregar_referencias_recibidas #centro').selectpicker('refresh');
         }
      });
 }
@@ -3070,6 +3119,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_agregar_referencias_recibidas #recibidade').html("");
 			  $('#formulario_agregar_referencias_recibidas #recibidade').html(data);
+			  $('#formulario_agregar_referencias_recibidas #recibidade').selectpicker('refresh');
 		  }
 	  });
 	  return false;
@@ -3086,6 +3136,7 @@ function getServicioReferenciasRecibidas(){
         success: function(data){
 		    $('#formulario_agregar_referencias_recibidas #servicio').html("");
 			$('#formulario_agregar_referencias_recibidas #servicio').html(data);
+			$('#formulario_agregar_referencias_recibidas #servicio').selectpicker('refresh');
 		}
      });
 }
@@ -3098,6 +3149,7 @@ function getPatologia1ReferenciasRecibidas(){
 		success: function(data){
 			$('#formulario_agregar_referencias_recibidas #patologia1').html("");
 			$('#formulario_agregar_referencias_recibidas #patologia1').html(data);
+			$('#formulario_agregar_referencias_recibidas #patologia1').selectpicker('refresh');
 		}
    });
    return false;
@@ -3110,7 +3162,7 @@ function agregarReferenciasRecibidas(){
     var hoy = new Date();
     fecha_actual = convertDate(hoy);
 
-  /* if(getMes(fecha)==2){
+   if(getMes(fecha)==2){
 	swal({
 		title: 'Error',
 		text: 'No se puede agregar/modificar registros fuera de este periodo',
@@ -3120,7 +3172,7 @@ function agregarReferenciasRecibidas(){
 		allowOutsideClick: false
 	});
 	return false;
-   }else{*/
+   }else{
    if ( fecha <= fecha_actual){
 	$.ajax({
 		type:'POST',
@@ -3209,7 +3261,7 @@ function agregarReferenciasRecibidas(){
 	});
 	return false;
   }
- //}
+ }
 }
 
 $(document).ready(function(e) {
@@ -3309,6 +3361,7 @@ function getNivelAgregarReferenciasEnviadas(){
         success: function(data){
 		    $('#formulario_agregar_referencias_enviadas #centros_nivel').html("");
 			$('#formulario_agregar_referencias_enviadas #centros_nivel').html(data);
+			$('#formulario_agregar_referencias_enviadas #centros_nivel').selectpicker('refresh');
         }
      });
 }
@@ -3324,6 +3377,7 @@ function getCentroAgregarReferenciasEnviadas(){
         success: function(data){
 		    $('#formulario_agregar_referencias_enviadas #centro').html("");
 			$('#formulario_agregar_referencias_enviadas #centro').html(data);
+			$('#formulario_agregar_referencias_enviadas #centro').selectpicker('refresh');
         }
      });
 }
@@ -3348,6 +3402,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_agregar_referencias_enviadas #enviadaa').html("");
 			  $('#formulario_agregar_referencias_enviadas #enviadaa').html(data);
+			  $('#formulario_agregar_referencias_enviadas #enviadaa').selectpicker('refresh');
 		  }
 	  });
 	  return false;
@@ -3364,6 +3419,7 @@ function getServicioReferenciasEnviadas(){
         success: function(data){
 		    $('#formulario_agregar_referencias_enviadas #servicio').html("");
 			$('#formulario_agregar_referencias_enviadas #servicio').html(data);
+			$('#formulario_agregar_referencias_enviadas #servicio').selectpicker('refresh');
 		}
      });
 }
@@ -3376,6 +3432,7 @@ function getPatologia1ReferenciasEnviadas(){
 		success: function(data){
 				$('#formulario_agregar_referencias_enviadas #patologia1').html("");
 				$('#formulario_agregar_referencias_enviadas #patologia1').html(data);
+				$('#formulario_agregar_referencias_enviadas #patologia1').selectpicker('refresh');
 		}
    });
    return false;
@@ -3389,6 +3446,7 @@ function getPatologia2ReferenciasEnviadas(){
 		success: function(data){
 				$('#formulario_agregar_referencias_enviadas #patologia2').html("");
 				$('#formulario_agregar_referencias_enviadas #patologia2').html(data);
+				$('#formulario_agregar_referencias_enviadas #patologia2').selectpicker('refresh');
 		}
    });
    return false;
@@ -3402,6 +3460,7 @@ function getPatologia3ReferenciasEnviadas(){
 		success: function(data){
 				$('#formulario_agregar_referencias_enviadas #patologia3').html("");
 				$('#formulario_agregar_referencias_enviadas #patologia3').html(data);
+				$('#formulario_agregar_referencias_enviadas #patologia3').selectpicker('refresh');
 		}
    });
    return false;
@@ -3432,7 +3491,7 @@ function agregarReferenciasEnviadas(){
     var hoy = new Date();
     fecha_actual = convertDate(hoy);
 
-   /*if(getMes(fecha)==2){
+   if(getMes(fecha)==2){
 		swal({
 			title: 'Error',
 			text: 'No se puede agregar/modificar registros fuera de este periodo',
@@ -3442,7 +3501,7 @@ function agregarReferenciasEnviadas(){
 			allowOutsideClick: false
 		});
 	    return false;
-   }else{*/
+   }else{
    if ( fecha <= fecha_actual){
 	$.ajax({
 		type:'POST',
@@ -3531,7 +3590,7 @@ function agregarReferenciasEnviadas(){
 	});
 	return false;
   }
- //}
+ }
 }
 
 $(document).ready(function() {
@@ -3550,6 +3609,7 @@ function getServicioTransitoEnviadasa(){
         success: function(data){
 		    $('#formulario_transito_enviada #enviada').html("");
 			$('#formulario_transito_enviada #enviada').html(data);
+			$('#formulario_transito_enviada #enviada').selectpicker('refresh');
 		}
      });
 }
@@ -3566,6 +3626,7 @@ $(document).ready(function() {
             data:'servicio='+servicio_id,
             success: function(data){
 				$('#formulario_transito_enviada #unidad').html(data);
+				$('#formulario_transito_enviada #unidad').selectpicker('refresh');
             }
          });
 
@@ -3759,6 +3820,7 @@ function getServicioTransitoRecibidasa(){
         success: function(data){
 		    $('#formulario_transito_recibida #recibida').html("");
 			$('#formulario_transito_recibida #recibida').html(data);
+			$('#formulario_transito_recibida #recibida').selectpicker('refresh');
 		}
      });
 }
@@ -3775,6 +3837,7 @@ $(document).ready(function() {
             data:'servicio='+servicio_id,
             success: function(data){
 				$('#formulario_transito_recibida #unidad').html(data);
+				$('#formulario_transito_recibida #unidad').selectpicker('refresh');
             }
          });
 
@@ -4160,9 +4223,17 @@ function getRespuestaFormulario(){
         success: function(data){
 		    $('#formulario1 #ihss').html("");
 			$('#formulario1 #ihss').html(data);
+			$('#formulario1 #ihss').selectpicker('refresh');
+
+			$('#formulario1 #ihss').val(2);
+			$('#formulario1 #ihss').selectpicker('refresh');			
 
 		    $('#formulario_atas #ihss_ata').html("");
 			$('#formulario_atas #ihss_ata').html(data);
+			$('#formulario_atas #ihss_ata').selectpicker('refresh');
+
+			$('#formulario_atas #ihss_ata').val(2);
+			$('#formulario_atas #ihss_ata').selectpicker('refresh');			
 		}
      });
 }
@@ -4243,9 +4314,11 @@ function getEnfermedadad(){
         success: function(data){
 		    $('#formulario1 #enfermedad').html("");
 			$('#formulario1 #enfermedad').html(data);
+			$('#formulario_atas #ihss_ata').selectpicker('refresh');
 ;
 		    $('#formulario_atas #enfermedad1').html("");
 			$('#formulario_atas #enfermedad1').html(data);
+			$('#formulario_atas #ihss_ata').selectpicker('refresh');
 		}
      });
 }
@@ -4261,18 +4334,23 @@ function getTipoAtención(){
         success: function(data){
 		    $('#formulario1 #tipo_atencion').html("");
 			$('#formulario1 #tipo_atencion').html(data);
+			$('#formulario1 #tipo_atencion').selectpicker('refresh');
 
 		    $('#formulario_atas #tipo_atencion1').html("");
 			$('#formulario_atas #tipo_atencion1').html(data);
+			$('#formulario_atas #tipo_atencion1').selectpicker('refresh');
 
 		    $('#formulario_transito_enviada #tipo_atencion_enviadas').html("");
 			$('#formulario_transito_enviada #tipo_atencion_enviadas').html(data);
+			$('#formulario_transito_enviada #tipo_atencion_enviadas').selectpicker('refresh');
 
 		    $('#formulario1 #tipo_atencion_ata').html("");
 			$('#formulario1 #tipo_atencion_ata').html(data);
+			$('#formulario1 #tipo_atencion_ata').selectpicker('refresh');
 
 		    $('#formulario_atas #tipo_atencion_ata1').html("");
 			$('#formulario_atas #tipo_atencion_ata1').html(data);
+			$('#formulario_atas #tipo_atencion_ata1').selectpicker('refresh');
 		}
      });
 }
@@ -4287,9 +4365,11 @@ function getNivelSocioeconomico(){
         success: function(data){
 		    $('#formulario1 #nivel_socioeconomico').html("");
 			$('#formulario1 #nivel_socioeconomico').html(data);
+			$('#formulario1 #nivel_socioeconomico').selectpicker('refresh');
 
 		    $('#formulario_atas #nivel_socioeconomico1').html("");
 			$('#formulario_atas #nivel_socioeconomico1').html(data);
+			$('#formulario_atas #nivel_socioeconomico1').selectpicker('refresh');
 		}
      });
 }
@@ -4304,9 +4384,11 @@ function getProblemaSocial(){
         success: function(data){
 		    $('#formulario1 #problema_social').html("");
 			$('#formulario1 #problema_social').html(data);
+			$('#formulario1 #tipo_atencion_ata1').selectpicker('refresh');
 
 		    $('#formulario_atas #problema_social1').html("");
 			$('#formulario_atas #problema_social1').html(data);
+			$('#formulario_atas #problema_social1').selectpicker('refresh');
 		}
      });
 }
@@ -4322,21 +4404,27 @@ function getMotivoTraslado(){
         success: function(data){
 		    $('#formulario1 #motivo').html("");
 			$('#formulario1 #motivo').html(data);
+			$('#formulario1 #motivo').selectpicker('refresh');
 
 		    $('#formulario1 #motivo_traslado').html("");
 			$('#formulario1 #motivo_traslado').html(data);
+			$('#formulario1 #motivo_traslado').selectpicker('refresh');
 
 		    $('#formulario_atas #motivo_traslado1').html("");
 			$('#formulario_atas #motivo_traslado1').html(data);
+			$('#formulario_atas #motivo_traslado1').selectpicker('refresh');
 
 		    $('#formulario_atas #motivo1').html("");
 			$('#formulario_atas #motivo1').html(data);
+			$('#formulario_atas #motivo1').selectpicker('refresh');
 
 		    $('#agregar_referencias_enviadas #motivo_traslado').html("");
 			$('#agregar_referencias_enviadas #motivo_traslado').html(data);
+			$('#agregar_referencias_enviadas #motivo_traslado').selectpicker('refresh');
 
 	       $('#formulario_agregar_referencias_recibidas #motivo').html("");
 	       $('#formulario_agregar_referencias_recibidas #motivo').html(data);
+		   $('#formulario_agregar_referencias_recibidas #motivo').selectpicker('refresh');
 		}
      });
 }
@@ -4351,21 +4439,27 @@ function getMotivoTrasladoOtro(){
         success: function(data){
 		   $('#formulario1 #motivo_e').html("");
 		   $('#formulario1 #motivo_e').html(data);
+		   $('#formulario1 #motivo_e').selectpicker('refresh');
 
 		   $('#formulario1 #motivo_e1').html("");
 		   $('#formulario1 #motivo_e1').html(data);
+		   $('#formulario1 #motivo_e1').selectpicker('refresh');
 
 	       $('#formulario_atas #motivo_re').html("");
 	       $('#formulario_atas #motivo_re').html(data);
+		   $('#formulario_atas #motivo_re').selectpicker('refresh');
 
 	       $('#formulario_atas #motivo_e1').html("");
 	       $('#formulario_atas #motivo_e1').html(data);
+		   $('#formulario_atas #motivo_e1').selectpicker('refresh');
 
 	       $('#formulario_agregar_referencias_enviadas #motivo').html("");
 	       $('#formulario_agregar_referencias_enviadas #motivo').html(data);
+		   $('#formulario_agregar_referencias_enviadas #motivo').selectpicker('refresh');
 
 	       $('#formulario_agregar_referencias_recibidas #motivo1').html("");
 	       $('#formulario_agregar_referencias_recibidas #motivo1').html(data);
+		   $('#formulario_agregar_referencias_recibidas #motivo1').selectpicker('refresh');
 		}
      });
 }
@@ -4404,6 +4498,7 @@ function getProfesionalTransitoRecibida(){
 	   success:function(data){
 		  $('#formulario1 #transito_profesional_recibida').html("");
 		  $('#formulario1 #transito_profesional_recibida').html(data);
+		  $('#formulario1 #transito_profesional_recibida').selectpicker('refresh');
 		  setMotivoTransitoRecibidaFormulario();
 	  }
   });
@@ -4429,6 +4524,7 @@ function getTransitoRecibidaUnidadFormularioATAS(){
 	   success:function(data){
 		  $('#formulario_atas #transito_profesional_recibidas1').html("");
 		  $('#formulario_atas #transito_profesional_recibidas1').html(data);
+		  $('#formulario_atas #transito_profesional_recibidas1').selectpicker('refresh');
 		  setMotivoTransitoRecibidaFormularoATAS();
 	  }
   });
@@ -4448,6 +4544,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_transito_recibida #profesional_recibida').html("");
 			  $('#formulario_transito_recibida #profesional_recibida').html(data);
+			  $('#formulario_transito_recibida #profesional_recibida').selectpicker('refresh');
 		  }
 	  });
 	  return false;
@@ -4474,6 +4571,7 @@ function getProfesionalTransitoEnviada(){
 		   success:function(data){
 			  $('#formulario1 #transito_profesional_enviada').html("");
 			  $('#formulario1 #transito_profesional_enviada').html(data);
+			  $('#formulario1 #transito_profesional_enviada').selectpicker('refresh');
 			  setMotivoTransitoEnviadaFormulario();
 		  }
 	});
@@ -4500,6 +4598,7 @@ function getTransitoEnviadaProfesionalFormularioATA(){
 	   success:function(data){
 		  $('#formulario_atas #transito_profesional_enviada1').html("");
 		  $('#formulario_atas #transito_profesional_enviada1').html(data);
+		  $('#formulario_atas #transito_profesional_enviada1').selectpicker('refresh');
 		  setMotivoTransitoEnviadaFormularioATAS();
 	  }
   });
@@ -4519,6 +4618,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_transito_enviada #profesional_enviadas').html("");
 			  $('#formulario_transito_enviada #profesional_enviadas').html(data);
+			  $('#formulario_transito_enviada #profesional_enviadas').selectpicker('refresh');
 		  }
 	  });
 	  return false;
@@ -4919,18 +5019,23 @@ function getGenero(){
 		success: function(data){
 				$('#formulario_atenciones_familiares #genero1').html("");
 				$('#formulario_atenciones_familiares #genero1').html(data);
+				$('#formulario_atenciones_familiares #genero1').selectpicker('refresh');
 
 				$('#formulario_atenciones_familiares #genero2').html("");
 				$('#formulario_atenciones_familiares #genero2').html(data);
+				$('#formulario_atenciones_familiares #genero2').selectpicker('refresh');
 
 				$('#formulario_atenciones_familiares #genero3').html("");
 				$('#formulario_atenciones_familiares #genero3').html(data);
+				$('#formulario_atenciones_familiares #genero3').selectpicker('refresh');
 
 				$('#formulario_atenciones_familiares #genero4').html("");
 				$('#formulario_atenciones_familiares #genero4').html(data);
+				$('#formulario_atenciones_familiares #genero4').selectpicker('refresh');
 
 				$('#formulario_atenciones_familiares #genero5').html("");
 				$('#formulario_atenciones_familiares #genero5').html(data);
+				$('#formulario_atenciones_familiares #genero5').selectpicker('refresh');
 		}
    });
    return false;
@@ -4944,18 +5049,23 @@ function getResponsable(){
 		success: function(data){
 				$('#formulario_atenciones_familiares #responsable1').html("");
 				$('#formulario_atenciones_familiares #responsable1').html(data);
+				$('#formulario_atenciones_familiares #responsable1').selectpicker('refresh');
 
 				$('#formulario_atenciones_familiares #responsable2').html("");
 				$('#formulario_atenciones_familiares #responsable2').html(data);
+				$('#formulario_atenciones_familiares #responsable2').selectpicker('refresh');
 
 				$('#formulario_atenciones_familiares #responsable3').html("");
 				$('#formulario_atenciones_familiares #responsable3').html(data);
+				$('#formulario_atenciones_familiares #responsable3').selectpicker('refresh');
 
 				$('#formulario_atenciones_familiares #responsable4').html("");
 				$('#formulario_atenciones_familiares #responsable4').html(data);
+				$('#formulario_atenciones_familiares #responsable4').selectpicker('refresh');
 
 				$('#formulario_atenciones_familiares #responsable5').html("");
 				$('#formulario_atenciones_familiares #responsable5').html(data);
+				$('#formulario_atenciones_familiares #responsable5').selectpicker('refresh');
 		}
    });
    return false;
@@ -5284,6 +5394,7 @@ function getServicioATA_Manual(){
         success: function(data){
 		    $('#formulario_ata_manual #servicio_ata').html("");
 			$('#formulario_ata_manual #servicio_ata').html(data);
+			$('#formulario_ata_manual #servicio_ata').selectpicker('refresh');
         }
      });
 }
@@ -5300,6 +5411,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_ata_manual #unidad_ata').html("");
 			  $('#formulario_ata_manual #unidad_ata').html(data);
+			  $('#formulario_ata_manual #unidad_ata').selectpicker('refresh');
 		  }
 	  });
 	  return false;
@@ -5319,6 +5431,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_ata_manual #colaborador_ata').html("");
 			  $('#formulario_ata_manual #colaborador_ata').html(data);
+			  $('#formulario_ata_manual #colaborador_ata').selectpicker('refresh');
 		  }
 	  });
 	  return false;
@@ -5439,6 +5552,10 @@ function getEstado(){
         success: function(data){
 		    $('#form_main #estado').html("");
 			$('#form_main #estado').html(data);
+			$('#form_main #estado').selectpicker('refresh');
+
+			$('#form_main #estado').val(0);
+			$('#form_main #estado').selectpicker('refresh');			
 		}
      });
 }
@@ -5453,9 +5570,11 @@ function getProgramarCita(){
         success: function(data){
 		    $('#formulario_atas #programar_cita_1').html("");
 			$('#formulario_atas #programar_cita_1').html(data);
+			$('#formulario_atas #programar_cita_1').selectpicker('refresh');
 
 		    $('#formulario1 #programar_cita').html("");
 			$('#formulario1 #programar_cita').html(data);
+			$('#formulario1 #programar_cita').selectpicker('refresh');
 		}
      });
 }
@@ -5529,18 +5648,23 @@ function getMedicamentos(){
         success: function(data){
 		    $('#formulario_receta_medica #medicamento1').html("");
 			$('#formulario_receta_medica #medicamento1').html(data);
+			$('#formulario_receta_medica #medicamento1').selectpicker('refresh');
 
 		    $('#formulario_receta_medica #medicamento2').html("");
 			$('#formulario_receta_medica #medicamento2').html(data);
+			$('#formulario_receta_medica #medicamento2').selectpicker('refresh');
 
 		    $('#formulario_receta_medica #medicamento3').html("");
 			$('#formulario_receta_medica #medicamento3').html(data);
+			$('#formulario_receta_medica #medicamento3').selectpicker('refresh');
 
 		    $('#formulario_receta_medica #medicamento4').html("");
 			$('#formulario_receta_medica #medicamento4').html(data);
+			$('#formulario_receta_medica #medicamento4').selectpicker('refresh');
 
 		    $('#formulario_receta_medica #medicamento5').html("");
 			$('#formulario_receta_medica #medicamento5').html(data);
+			$('#formulario_receta_medica #medicamento5').selectpicker('refresh');
 		}
      });
 }
@@ -5602,7 +5726,9 @@ function getMunicipioEditar(departamento_id, municipio_id){
 	   success:function(data){
 	      $('#formulario_seguimiento #municipio').html("");
 		  $('#formulario_seguimiento #municipio').html(data);
+		  $('#formulario_seguimiento #municipio').selectpicker('refresh');
 		  $('#formulario_seguimiento #municipio').val(municipio_id);
+		  $('#formulario_seguimiento #municipio').selectpicker('refresh');
 	  }
 	});
 	return false;
@@ -5637,6 +5763,7 @@ function getAtencionSeguimiento(){
         success: function(data){
 		    $('#formulario_seguimiento #seguimiento').html("");
 			$('#formulario_seguimiento #seguimiento').html(data);
+			$('#formulario_seguimiento #seguimiento').selectpicker('refresh');
 		}
      });
 }
@@ -5651,6 +5778,7 @@ function getDepartamento(){
         success: function(data){
 		    $('#formulario_seguimiento #departamento').html("");
 			$('#formulario_seguimiento #departamento').html(data);
+			$('#formulario_seguimiento #departamento').selectpicker('refresh');
 		}
      });
 }
@@ -5668,6 +5796,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_seguimiento #municipio').html("");
 			  $('#formulario_seguimiento #municipio').html(data);
+			  $('#formulario_seguimiento #municipio').selectpicker('refresh');
 		  }
 	  });
 	  return false;
@@ -5684,6 +5813,7 @@ function getSexo(){
         success: function(data){
 		    $('#formulario_seguimiento #genero').html("");
 			$('#formulario_seguimiento #genero').html(data);
+			$('#formulario_seguimiento #genero').selectpicker('refresh');
 		}
      });
 }
@@ -5811,6 +5941,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_entrevista_trabajo_social #tipologia1').html("");
 			  $('#formulario_entrevista_trabajo_social #tipologia1').html(data);
+			  $('#formulario_entrevista_trabajo_social #tipologia1').selectpicker('refresh');
 		  }
 	  });
 	  return false;
@@ -5829,6 +5960,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_entrevista_trabajo_social #tipologia2').html("");
 			  $('#formulario_entrevista_trabajo_social #tipologia2').html(data);
+			  $('#formulario_entrevista_trabajo_social #tipologia2').selectpicker('refresh');
 		  }
 	  });
 	  return false;
@@ -5847,6 +5979,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_entrevista_trabajo_social #tipologia3').html("");
 			  $('#formulario_entrevista_trabajo_social #tipologia3').html(data);
+			  $('#formulario_entrevista_trabajo_social #tipologia3').selectpicker('refresh');
 		  }
 	  });
 	  return false;
@@ -6030,1732 +6163,4 @@ function acceso(){
 	});
 }
 //FIN RECETA
-
-//INICIO FORMULARIO 1
-//1ER PATOLOGIA
-$('#formulario1 #buscar_patologia_1_form1_atenciones').on('click', function(e){
-	listar_patologia_1_formulario1_ata();
-	$('#modalPatologia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_patologia_1_formulario1_ata = function(){
-	var table_patologia_1_formulario1_ata  = $("#dataTablePatologias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getPatologiasTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"patologia_id"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,//esta se encuenta en el archivo main.js
-		"columnDefs": [
-		  { width: "3.69", targets: 0 },
-		  { width: "15.69%", targets: 1 },
-		  { width: "6.69%", targets: 2 }
-		]
-	});
-	table_patologia_1_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-
-	view_patologia_1_formulario1_ata_dataTable("#dataTablePatologias tbody", table_patologia_1_formulario1_ata);
-}
-
-var view_patologia_1_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #patologia1').val(data.id);
-		$('#modalPatologia').modal('hide');
-	});
-}
-
-//2DA PATOLOGIA
-$('#formulario1 #buscar_patologia_2_form1_atenciones').on('click', function(e){
-	listar_patologia_2_formulario1_ata();
-	$('#modalPatologia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_patologia_2_formulario1_ata = function(){
-	var table_patologia_2_formulario1_ata  = $("#dataTablePatologias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getPatologiasTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"patologia_id"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,//esta se encuenta en el archivo main.js
-		"columnDefs": [
-		  { width: "3.69", targets: 0 },
-		  { width: "15.69%", targets: 1 },
-		  { width: "6.69%", targets: 2 }
-		]
-	});
-	table_patologia_2_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-
-	view_patologia_2_formulario1_ata_dataTable("#dataTablePatologias tbody", table_patologia_2_formulario1_ata);
-}
-
-var view_patologia_2_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #patologia2').val(data.id);
-		$('#modalPatologia').modal('hide');
-	});
-}
-
-//3ERA PATOLOGIA
-$('#formulario1 #buscar_patologia_3_form1_atenciones').on('click', function(e){
-	listar_patologia_3_formulario1_ata();
-	$('#modalPatologia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_patologia_3_formulario1_ata = function(){
-	var table_patologia_3_formulario1_ata  = $("#dataTablePatologias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getPatologiasTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"patologia_id"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,//esta se encuenta en el archivo main.js
-		"columnDefs": [
-		  { width: "3.69", targets: 0 },
-		  { width: "15.69%", targets: 1 },
-		  { width: "6.69%", targets: 2 }
-		]
-	});
-	table_patologia_3_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-
-	view_patologia_3_formulario1_ata_dataTable("#dataTablePatologias tbody", table_patologia_3_formulario1_ata);
-}
-
-var view_patologia_3_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #patologia3').val(data.id);
-		$('#modalPatologia').modal('hide');
-	});
-}
-
-//SERVICIOS
-$('#formulario1 #buscar_servicios_atenciones_formulario1').on('click', function(e){
-	listar_servicio_formulario1();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_servicio_formulario1 = function(){
-	var table_servicio_formulario1  = $("#dataTableServicios").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getServicioATATabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_servicio_formulario1.search('').draw();
-	$('#buscar').focus();
-
-	view_servicio_formulario1_dataTable("#dataTableServicios tbody", table_servicio_formulario1);
-}
-
-var view_servicio_formulario1_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #servicio').val(data.servicio_id);
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-
-//CENTRO REFERENCIAS RECIBIDAS ATENCION
-$('#formulario1 #buscar_ref_recibida_de_atenciones').on('click', function(e){
-	listar_centros_referencias_recibidas_formulario_ata();
-	$('#modalCentroReferencia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_centros_referencias_recibidas_formulario_ata = function(){
-	var nivel = $("#formulario1 #nivel").val();
-	var centro_id = $("#formulario1 #centro").val();
-
-	var table_centros_referencias_recibidas_formulario_ata = $("#dataTableCentroReferencias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getCentroNombreTabla.php",
-			"data":{
-				"nivel":nivel,
-				"centro_id":centro_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"centro_nombre"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_centros_referencias_recibidas_formulario_ata.search('').draw();
-	$('#buscar').focus();
-	view_centros_referencias_recibidas_formulario_ata_dataTable("#dataTableCentroReferencias tbody", table_centros_referencias_recibidas_formulario_ata);
-}
-
-var view_centros_referencias_recibidas_formulario_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #centroi').val(data.centros_id);
-		setCentroiFormulario();
-		$('#modalCentroReferencia').modal('hide');
-	});
-}
-
-//CENTRO REFERENCIAS ENVIADAS ATENCION
-$('#formulario1 #buscar_enviada_re_atenciones').on('click', function(e){
-	listar_centros_referencias_enviadas_ata();
-	$('#modalCentroReferencia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_centros_referencias_enviadas_ata = function(){
-	var nivel = $("#formulario1 #nivel_e").val();
-	var centro_id = $("#formulario1 #centro_e").val();
-
-	var table_centros_referencias_enviadas_formulario_ata = $("#dataTableCentroReferencias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getCentroNombreTabla.php",
-			"data":{
-				"nivel":nivel,
-				"centro_id":centro_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"centro_nombre"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_centros_referencias_enviadas_formulario_ata.search('').draw();
-	$('#buscar').focus();
-	view_centros_referencias_enviadas_formulario_dataTable("#dataTableCentroReferencias tbody", table_centros_referencias_enviadas_formulario_ata);
-}
-
-var view_centros_referencias_enviadas_formulario_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #centroi_e').val(data.centros_id);
-		setDiagnosticoClinicoFormulario();
-		$('#modalCentroReferencia').modal('hide');
-	});
-}
-
-
-//TRANSITO RECIBIDA FORMULARIO ATENCION
-//SERVICIOS
-$('#formulario1 #buscar_servicios_atenciones_transito_recibida').on('click', function(e){
-	listar_servicio_transito_recibida_formulario1_ata();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_servicio_transito_recibida_formulario1_ata = function(){
-	var table_servicio_transito_recibida_formulario1_ata  = $("#dataTableServicios").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getServiciosTransitoTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_servicio_transito_recibida_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-
-	view_servicio_transito_recibida_formulario1_ata_dataTable("#dataTableServicios tbody", table_servicio_transito_recibida_formulario1_ata);
-}
-
-var view_servicio_transito_recibida_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #transito_servicio_recibida').val(data.servicio_id);
-		getUnidadTransitoRecibida();
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-//UNIDAD
-$('#formulario1 #buscar_unidad_transito_recibida_atenciones').on('click', function(e){
-	listar_unidad_transito_recibida_formulario1_ata();
-	$('#modalBusquedaUnidad').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_unidad_transito_recibida_formulario1_ata = function(){
-	var servicio = $("#formulario1 #transito_servicio_recibida").val();
-	var table_unidad_transito_recibida_formulario1_ata = $("#dataTableUnidad").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getUnidadTabla.php",
-			"data":{
-				"servicio":servicio
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"puesto"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_unidad_transito_recibida_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-	view_unidad_transito_recibida_formulario1_ata_dataTable("#dataTableUnidad tbody", table_unidad_transito_recibida_formulario1_ata);
-}
-
-var view_unidad_transito_recibida_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #transito_unidad_recibida').val(data.puesto_id);
-		getProfesionalTransitoRecibida();
-		$('#modalBusquedaUnidad').modal('hide');
-	});
-}
-//PROFESIONAL
-$('#formulario1 #buscar_profesional_tr_atenciones').on('click', function(e){
-	listar_profesionales_transito_recibida_formulario1_ata();
-	$('#modalBusquedaProfesionales').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_profesionales_transito_recibida_formulario1_ata = function(){
-	var servicio = $("#formulario1 #transito_servicio_recibida").val();
-	var puesto_id = $("#formulario1 #transito_unidad_recibida").val();
-
-	var table_profesionales_transito_recibida_formulario1_ata = $("#dataTableProfesionales").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getMedicoTabla.php",
-			"data":{
-				"servicio":servicio,
-				"puesto_id":puesto_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"colaborador"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_profesionales_transito_recibida_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-	view_profesionales_transito_recibida_formulario1_ata_dataTable("#dataTableProfesionales tbody", table_profesionales_transito_recibida_formulario1_ata);
-}
-
-var view_profesionales_transito_recibida_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #transito_profesional_recibida').val(data.colaborador_id);
-		$('#modalBusquedaProfesionales').modal('hide');
-	});
-}
-
-//TRANSITO ENVIADA FORMULARIO ATENCION
-//SERVICIOS
-$('#formulario1 #buscar_enviada_te_atenciones').on('click', function(e){
-	listar_servicio_transito_enviada_formulario1_ata();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_servicio_transito_enviada_formulario1_ata = function(){
-	var table_servicio_transito_enviada_formulario1_ata  = $("#dataTableServicios").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getServiciosTransitoTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_servicio_transito_enviada_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-
-	view_servicio_transito_enviada_formulario1_ata_dataTable("#dataTableServicios tbody", table_servicio_transito_enviada_formulario1_ata);
-}
-
-var view_servicio_transito_enviada_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #transito_servicio_enviada').val(data.servicio_id);
-		getTransitoEnviadaUnidad();
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-//UNIDAD
-$('#formulario1 #buscar_unidad_te_atenciones').on('click', function(e){
-	listar_unidad_transito_enviada_formulario1_ata();
-	$('#modalBusquedaUnidad').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_unidad_transito_enviada_formulario1_ata = function(){
-	var servicio = $("#formulario1 #transito_servicio_enviada").val();
-
-	var table_unidad_transito_enviada_formulario1_ata = $("#dataTableUnidad").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getUnidadTabla.php",
-			"data":{
-				"servicio":servicio
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"puesto"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_unidad_transito_enviada_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-	view_unidad_transito_enivada_formulario1_ata_dataTable("#dataTableUnidad tbody", table_unidad_transito_enviada_formulario1_ata);
-}
-
-var view_unidad_transito_enivada_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #transito_unidad_enviada').val(data.puesto_id);
-		getProfesionalTransitoEnviada();
-		$('#modalBusquedaUnidad').modal('hide');
-	});
-}
-//PROFESIONAL
-$('#formulario1 #buscar_profesional_te_atenciones').on('click', function(e){
-	listar_profesionales_transito_enviada_formulario1_ata();
-	$('#modalBusquedaProfesionales').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_profesionales_transito_enviada_formulario1_ata = function(){
-	var servicio = $("#formulario1 #transito_servicio_enviada").val();
-	var puesto_id = $("#formulario1 #transito_unidad_enviada").val();
-
-	var table_profesionales_transito_enviada_formulario1_ata = $("#dataTableProfesionales").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getMedicoTabla.php",
-			"data":{
-				"servicio":servicio,
-				"puesto_id":puesto_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"colaborador"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_profesionales_transito_enviada_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-	view_profesionales_transito_enviada_formulario1_ata_dataTable("#dataTableProfesionales tbody", table_profesionales_transito_enviada_formulario1_ata);
-}
-
-var view_profesionales_transito_enviada_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario1 #transito_profesional_enviada').val(data.colaborador_id);
-		$('#modalBusquedaProfesionales').modal('hide');
-	});
-}
-//FIN FORMULARIO 1
-
-//INICIO ATA EDICION
-
-//1ER PATOLOGIA
-$('#formulario_atas #buscar_patologia_1_form2_atenciones').on('click', function(e){
-	listar_patologia_1_formulario1_ata_edicion();
-	$('#modalPatologia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_patologia_1_formulario1_ata_edicion = function(){
-	var table_patologia_1_formulario1_ata_edicion = $("#dataTablePatologias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getPatologiasTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"patologia_id"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,//esta se encuenta en el archivo main.js
-		"columnDefs": [
-		  { width: "3.69", targets: 0 },
-		  { width: "15.69%", targets: 1 },
-		  { width: "6.69%", targets: 2 }
-		]
-	});
-	table_patologia_1_formulario1_ata_edicion.search('').draw();
-	$('#buscar').focus();
-
-	view_patologia_1_formulario1_ata_edicion_dataTable("#dataTablePatologias tbody", table_patologia_1_formulario1_ata_edicion);
-}
-
-var view_patologia_1_formulario1_ata_edicion_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #patologia_1').val(data.id);
-		$('#modalPatologia').modal('hide');
-	});
-}
-
-//2DA PATOLOGIA
-$('#formulario_atas #buscar_patologia_2_form2_atenciones').on('click', function(e){
-	listar_patologia_2_formulario1_ata();
-	$('#modalPatologia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_patologia_2_formulario1_ata = function(){
-	var table_patologia_2_formulario1_ata  = $("#dataTablePatologias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getPatologiasTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"patologia_id"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,//esta se encuenta en el archivo main.js
-		"columnDefs": [
-		  { width: "3.69", targets: 0 },
-		  { width: "15.69%", targets: 1 },
-		  { width: "6.69%", targets: 2 }
-		]
-	});
-	table_patologia_2_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-
-	view_patologia_2_formulario1_ata_dataTable("#dataTablePatologias tbody", table_patologia_2_formulario1_ata);
-}
-
-var view_patologia_2_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #patologia_2').val(data.id);
-		$('#modalPatologia').modal('hide');
-	});
-}
-
-//3ERA PATOLOGIA
-$('#formulario_atas #buscar_patologia_3_form3_atenciones').on('click', function(e){
-	listar_patologia_3_formulario1_ata();
-	$('#modalPatologia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_patologia_3_formulario1_ata = function(){
-	var table_patologia_3_formulario1_ata  = $("#dataTablePatologias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getPatologiasTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"patologia_id"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,//esta se encuenta en el archivo main.js
-		"columnDefs": [
-		  { width: "3.69", targets: 0 },
-		  { width: "15.69%", targets: 1 },
-		  { width: "6.69%", targets: 2 }
-		]
-	});
-	table_patologia_3_formulario1_ata.search('').draw();
-	$('#buscar').focus();
-
-	view_patologia_3_formulario1_ata_dataTable("#dataTablePatologias tbody", table_patologia_3_formulario1_ata);
-}
-
-var view_patologia_3_formulario1_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #patologia_3').val(data.id);
-		$('#modalPatologia').modal('hide');
-	});
-}
-
-//CENTRO REFERENCIAS RECIBIDAS ATENCION
-$('#formulario_atas #buscar_ref_recibida_de_atenciones1').on('click', function(e){
-	listar_centros_referencias_recibidas_formulario_ata_edicion();
-	$('#modalCentroReferencia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_centros_referencias_recibidas_formulario_ata_edicion = function(){
-	var nivel = $("#formulario_atas #nivel1").val();
-	var centro_id = $("#formulario_atas #centro1").val();
-
-	var table_centros_referencias_recibidas_formulario_ata_edicion = $("#dataTableCentroReferencias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getCentroNombreTabla.php",
-			"data":{
-				"nivel":nivel,
-				"centro_id":centro_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"centro_nombre"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_centros_referencias_recibidas_formulario_ata_edicion.search('').draw();
-	$('#buscar').focus();
-	view_centros_referencias_recibidas_formulario_ata_edicion_dataTable("#dataTableCentroReferencias tbody", table_centros_referencias_recibidas_formulario_ata_edicion);
-}
-
-var view_centros_referencias_recibidas_formulario_ata_edicion_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #centroi1').val(data.centros_id);
-		setCentroi1FormularioATA();
-		$('#modalCentroReferencia').modal('hide');
-	});
-}
-//TRANSITO RECIBIDA FORMULARIO ATENCION
-
-
-//CENTRO REFERENCIAS ENVIADAS ATENCION
-$('#formulario_atas #buscar_enviada_re_atenciones1').on('click', function(e){
-	listar_centros_referencias_enviadas_formulario_ata();
-	$('#modalCentroReferencia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_centros_referencias_enviadas_formulario_ata = function(){
-	var nivel = $("#formulario_atas #nivel_e1").val();
-	var centro_id = $("#formulario_atas #centro_e1").val();
-
-	var table_centros_referencias_enviadas_formulario_ata = $("#dataTableCentroReferencias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getCentroNombreTabla.php",
-			"data":{
-				"nivel":nivel,
-				"centro_id":centro_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"centro_nombre"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_centros_referencias_enviadas_formulario_ata.search('').draw();
-	$('#buscar').focus();
-	view_centros_referencias_enviadas_formulario_ata_dataTable("#dataTableCentroReferencias tbody", table_centros_referencias_enviadas_formulario_ata);
-}
-
-var view_centros_referencias_enviadas_formulario_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #centroi_e1').val(data.centros_id);
-		setDiagnosticoClinico1FormularioATA();
-		$('#modalCentroReferencia').modal('hide');
-	});
-}
-//FIN FORMULARIO ATA EDICION
-
-//INICIO REFERENCIAS ENVIADAS AREA ATENCIONES
-//1ER PATOLOGIA
-$('#formulario_agregar_referencias_enviadas #buscar_patologia1_referencia_enviada').on('click', function(e){
-	listar_patologia_1_formulario1_ata_referencias_enviadas();
-	$('#modalPatologia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_patologia_1_formulario1_ata_referencias_enviadas = function(){
-	var table_patologia_1_formulario1_ata_referencias_enviadas = $("#dataTablePatologias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getPatologiasTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"patologia_id"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,//esta se encuenta en el archivo main.js
-		"columnDefs": [
-		  { width: "3.69", targets: 0 },
-		  { width: "15.69%", targets: 1 },
-		  { width: "6.69%", targets: 2 }
-		]
-	});
-	table_patologia_1_formulario1_ata_referencias_enviadas.search('').draw();
-	$('#buscar').focus();
-
-	view_patologia_1_formulario1_ata_referencias_enviadas_dataTable("#dataTablePatologias tbody", table_patologia_1_formulario1_ata_referencias_enviadas);
-}
-
-var view_patologia_1_formulario1_ata_referencias_enviadas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_agregar_referencias_enviadas #patologia1').val(data.id);
-		$('#modalPatologia').modal('hide');
-	});
-}
-
-//2DA PATOLOGIA
-$('#formulario_agregar_referencias_enviadas #buscar_patologia2_referencia_enviada').on('click', function(e){
-	listar_patologia_2_formulario1_ata_referencias_enviadas();
-	$('#modalPatologia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_patologia_2_formulario1_ata_referencias_enviadas = function(){
-	var table_patologia_2_formulario1_ata_referencias_enviadas = $("#dataTablePatologias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getPatologiasTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"patologia_id"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,//esta se encuenta en el archivo main.js
-		"columnDefs": [
-		  { width: "3.69", targets: 0 },
-		  { width: "15.69%", targets: 1 },
-		  { width: "6.69%", targets: 2 }
-		]
-	});
-	table_patologia_2_formulario1_ata_referencias_enviadas.search('').draw();
-	$('#buscar').focus();
-
-	view_patologia_2_formulario1_ata_referencias_enviadas_dataTable("#dataTablePatologias tbody", table_patologia_2_formulario1_ata_referencias_enviadas);
-}
-
-var view_patologia_2_formulario1_ata_referencias_enviadas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_agregar_referencias_enviadas #patologia2').val(data.id);
-		$('#modalPatologia').modal('hide');
-	});
-}
-
-//3ERA PATOLOGIA
-$('#formulario_agregar_referencias_enviadas #buscar_patologia3_referencia_enviada').on('click', function(e){
-	listar_patologia_3_formulario1_ata_referencias_enviadas();
-	$('#modalPatologia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_patologia_3_formulario1_ata_referencias_enviadas = function(){
-	var table_patologia_3_formulario1_ata_referencias_enviadas = $("#dataTablePatologias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getPatologiasTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"patologia_id"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,//esta se encuenta en el archivo main.js
-		"columnDefs": [
-		  { width: "3.69", targets: 0 },
-		  { width: "15.69%", targets: 1 },
-		  { width: "6.69%", targets: 2 }
-		]
-	});
-	table_patologia_3_formulario1_ata_referencias_enviadas.search('').draw();
-	$('#buscar').focus();
-
-	view_patologia_3_formulario1_ata_referencias_enviadas_dataTable("#dataTablePatologias tbody", table_patologia_3_formulario1_ata_referencias_enviadas);
-}
-
-var view_patologia_3_formulario1_ata_referencias_enviadas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_agregar_referencias_enviadas #patologia3').val(data.id);
-		$('#modalPatologia').modal('hide');
-	});
-}
-//FIN FORMULARIO FORMULARIO REFERENCIAS ENVIADAS AREA ATENCIONES
-
-//INICIO FORMULARIO FORMULARIO REFERENCIAS RECIBIDAS AREA ATENCIONES
-//PATOLOGIA
-$('#formulario_agregar_referencias_recibidas #buscar_patologia_referencia_recibida').on('click', function(e){
-	listar_patologia_3_formulario1_ata_referencia_recibida();
-	$('#modalPatologia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_patologia_3_formulario1_ata_referencia_recibida = function(){
-	var table_patologia_3_formulario1_ata_referencia_recibida  = $("#dataTablePatologias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getPatologiasTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"patologia_id"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,//esta se encuenta en el archivo main.js
-		"columnDefs": [
-		  { width: "3.69", targets: 0 },
-		  { width: "15.69%", targets: 1 },
-		  { width: "6.69%", targets: 2 }
-		]
-	});
-	table_patologia_3_formulario1_ata_referencia_recibida.search('').draw();
-	$('#buscar').focus();
-
-	view_patologia_3_formulario1_ata_referencia_recibida_dataTable("#dataTablePatologias tbody", table_patologia_3_formulario1_ata_referencia_recibida);
-}
-
-var view_patologia_3_formulario1_ata_referencia_recibida_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_agregar_referencias_recibidas #patologia1').val(data.id);
-		$('#modalPatologia').modal('hide');
-	});
-}
-
-//TRANSITO RECIBIDA FORMULARIO ATENCION
-//SERVICIOS
-$('#formulario_atas #buscar_servicios_transito_recibida_atenciones1').on('click', function(e){
-	listar_servicio_transito_recibida_formulario_atas();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_servicio_transito_recibida_formulario_atas = function(){
-	var table_servicio_transito_recibida_formulario_atas  = $("#dataTableServicios").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getServiciosTransitoTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_servicio_transito_recibida_formulario_atas.search('').draw();
-	$('#buscar').focus();
-
-	view_servicio_transito_recibida_formulario_atas_dataTable("#dataTableServicios tbody", table_servicio_transito_recibida_formulario_atas);
-}
-
-var view_servicio_transito_recibida_formulario_atas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #transito_servicio_recibida1').val(data.servicio_id);
-		getTransitoRecibidaServiciosFormularioATAS();
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-//UNIDAD
-$('#formulario_atas #buscar_transito_recibida_unidad_atenciones1').on('click', function(e){
-	listar_unidad_transito_recibida_formulario_ata();
-	$('#modalBusquedaUnidad').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_unidad_transito_recibida_formulario_ata = function(){
-	var servicio = $("#formulario_atas #transito_servicio_recibida1").val();
-	var table_unidad_transito_recibida_formulario_ata = $("#dataTableUnidad").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getUnidadTabla.php",
-			"data":{
-				"servicio":servicio
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"puesto"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_unidad_transito_recibida_formulario_ata.search('').draw();
-	$('#buscar').focus();
-	view_unidad_transito_recibida_formulario_ata_dataTable("#dataTableUnidad tbody", table_unidad_transito_recibida_formulario_ata);
-}
-
-var view_unidad_transito_recibida_formulario_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #transito_unidad_recibida1').val(data.puesto_id);
-		getTransitoRecibidaUnidadFormularioATAS();
-		$('#modalBusquedaUnidad').modal('hide');
-	});
-}
-//PROFESIONAL
-$('#formulario_atas #buscar_transito_recibidaprofesional_tr_atenciones1').on('click', function(e){
-	listar_profesionales_transito_recibida_formulario_ata();
-	$('#modalBusquedaProfesionales').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_profesionales_transito_recibida_formulario_ata = function(){
-	var servicio = $("#formulario_atas #transito_servicio_recibida1").val();
-	var puesto_id = $("#formulario_atas #transito_unidad_recibida1").val();
-
-	var table_profesionales_transito_recibida_formulario_ata = $("#dataTableProfesionales").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getMedicoTabla.php",
-			"data":{
-				"servicio":servicio,
-				"puesto_id":puesto_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"colaborador"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_profesionales_transito_recibida_formulario_ata.search('').draw();
-	$('#buscar').focus();
-	view_profesionales_transito_recibida_formulario_ata_dataTable("#dataTableProfesionales tbody", table_profesionales_transito_recibida_formulario_ata);
-}
-
-var view_profesionales_transito_recibida_formulario_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #transito_profesional_recibidas1').val(data.colaborador_id);
-		$('#modalBusquedaProfesionales').modal('hide');
-	});
-}
-
-//TRANSITO ENVIADA FORMULARIO ATENCION FORMULARIO ATAS
-//SERVICIOS
-$('#formulario_atas #buscar_transito_enviada_te_atenciones1').on('click', function(e){
-	listar_servicio_transito_enviada_formulario_ata();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_servicio_transito_enviada_formulario_ata = function(){
-	var table_servicio_transito_enviada_formulario_ata  = $("#dataTableServicios").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getServiciosTransitoTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_servicio_transito_enviada_formulario_ata.search('').draw();
-	$('#buscar').focus();
-
-	view_servicio_transito_enviada_formulario_ata_dataTable("#dataTableServicios tbody", table_servicio_transito_enviada_formulario_ata);
-}
-
-var view_servicio_transito_enviada_formulario_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #transito_servicio_enviada1').val(data.servicio_id);
-		getTransitoEnviadaServiciosFormularioATAS();
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-//UNIDAD
-$('#formulario_atas #buscar_transito_enviada_unidad_te_atenciones1').on('click', function(e){
-	listar_unidad_transito_enviada_formulario_ata();
-	$('#modalBusquedaUnidad').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_unidad_transito_enviada_formulario_ata = function(){
-	var servicio = $("#formulario_atas #transito_servicio_enviada1").val();
-
-	var table_unidad_transito_enviada_formulario_ata = $("#dataTableUnidad").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getUnidadTabla.php",
-			"data":{
-				"servicio":servicio
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"puesto"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_unidad_transito_enviada_formulario_ata.search('').draw();
-	$('#buscar').focus();
-	view_unidad_transito_enivada_formulario_ata_dataTable("#dataTableUnidad tbody", table_unidad_transito_enviada_formulario_ata);
-}
-
-var view_unidad_transito_enivada_formulario_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #transito_unidad_enviada1').val(data.puesto_id);
-		getTransitoEnviadaProfesionalFormularioATA();
-		$('#modalBusquedaUnidad').modal('hide');
-	});
-}
-//PROFESIONAL
-$('#formulario_atas #buscar_transito_enviada_profesional_tr_atenciones1').on('click', function(e){
-	listar_profesionales_transito_enviada_formulario_ata();
-	$('#modalBusquedaProfesionales').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_profesionales_transito_enviada_formulario_ata = function(){
-	var servicio = $("#formulario_atas #transito_servicio_enviada1").val();
-	var puesto_id = $("#formulario_atas #transito_unidad_enviada1").val();
-
-	var table_profesionales_transito_enviada_formulario_ata = $("#dataTableProfesionales").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getMedicoTabla.php",
-			"data":{
-				"servicio":servicio,
-				"puesto_id":puesto_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"colaborador"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_profesionales_transito_enviada_formulario_ata.search('').draw();
-	$('#buscar').focus();
-	view_profesionales_transito_enviada_formulario_ata_dataTable("#dataTableProfesionales tbody", table_profesionales_transito_enviada_formulario_ata);
-}
-
-var view_profesionales_transito_enviada_formulario_ata_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_atas #transito_profesional_enviada1').val(data.colaborador_id);
-		$('#modalBusquedaProfesionales').modal('hide');
-	});
-}
-//FIN FORMULARIO FORMULARIO REFERENCIAS ENVIADAS AREA ATENCIONES
-
-//INICIO FORMULARIO REFERENCIAS ENVIADAS EN ATENCIONES
-$('#formulario_agregar_referencias_enviadas #buscar_servicios_referencias_enviadas').on('click', function(e){
-	listar_servicio_referencias_enviadas();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_servicio_referencias_enviadas = function(){
-	var table_servicio_referencias_enviadas  = $("#dataTableServicios").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getServicioATATabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_servicio_referencias_enviadas.search('').draw();
-	$('#buscar').focus();
-
-	view_servicio_referencias_enviadas_dataTable("#dataTableServicios tbody", table_servicio_referencias_enviadas);
-}
-
-var view_servicio_referencias_enviadas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_agregar_referencias_enviadas #servicio').val(data.servicio_id);
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-
-$('#formulario_agregar_referencias_enviadas #buscar_centro_referencias_enviadas').on('click', function(e){
-	listar_centros_referencias_enviadas();
-	$('#modalCentroReferencia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_centros_referencias_enviadas = function(){
-	var nivel = $("#formulario_agregar_referencias_enviadas #centros_nivel").val();
-	var centro_id = $("#formulario_agregar_referencias_enviadas #centro").val();
-
-	var table_centros_referencias_enviadas = $("#dataTableCentroReferencias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getCentroNombreTabla.php",
-			"data":{
-				"nivel":nivel,
-				"centro_id":centro_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"centro_nombre"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_centros_referencias_enviadas.search('').draw();
-	$('#buscar').focus();
-	view_centros_referencias_enviadas_dataTable("#dataTableCentroReferencias tbody", table_centros_referencias_enviadas);
-}
-
-var view_centros_referencias_enviadas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_agregar_referencias_enviadas #enviadaa').val(data.centros_id);
-		$('#modalCentroReferencia').modal('hide');
-	});
-}
-//FIN FORMULARIO REFERENCIAS ENVIADAS EN ATENCIONES
-
-//INICIO FORMULARIO REFERENCIAS RECIBIDAS EN ATENCIONES
-$('#formulario_agregar_referencias_recibidas #buscar_servicios_referencias_recibidas').on('click', function(e){
-	listar_servicio_referencias_recibidas();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_servicio_referencias_recibidas = function(){
-	var table_servicio_referencias_recibidas  = $("#dataTableServicios").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getServicioATATabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_servicio_referencias_recibidas.search('').draw();
-	$('#buscar').focus();
-
-	view_servicio_referencias_recibidas_dataTable("#dataTableServicios tbody", table_servicio_referencias_recibidas);
-}
-
-var view_servicio_referencias_recibidas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_agregar_referencias_recibidas #servicio').val(data.servicio_id);
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-
-$('#formulario_agregar_referencias_recibidas #buscar_centros_referencias_recibidas').on('click', function(e){
-	listar_centros_referencias_recibidas();
-	$('#modalCentroReferencia').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_centros_referencias_recibidas = function(){
-	var nivel = $("#formulario_agregar_referencias_recibidas #centros_nivel").val();
-	var centro_id = $("#formulario_agregar_referencias_recibidas #centro").val();
-
-	var table_centros_referencias_recibidas = $("#dataTableCentroReferencias").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getCentroNombreTabla.php",
-			"data":{
-				"nivel":nivel,
-				"centro_id":centro_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"centro_nombre"}
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,
-	});
-	table_centros_referencias_recibidas.search('').draw();
-	$('#buscar').focus();
-	view_centros_referencias_recibidas_dataTable("#dataTableCentroReferencias tbody", table_centros_referencias_recibidas);
-}
-
-var view_centros_referencias_recibidas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_agregar_referencias_recibidas #recibidade').val(data.centros_id);
-		$('#modalCentroReferencia').modal('hide');
-	});
-}
-//FIN FORMULARIO REFERENCIAS RECIBIDAS EN ATENCIONES
-
-//INICIO FORMULARIO TRANSITO ENVIADOS EN ATENCIONES
-$('#formulario_transito_enviada #buscar_servicio_te').on('click', function(e){
-	listar_servicio_transito_enviados();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_servicio_transito_enviados = function(){
-	var table_servicio_transito_enviados  = $("#dataTableServicios").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getServicioATATabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_servicio_transito_enviados.search('').draw();
-	$('#buscar').focus();
-
-	view_servicio_transito_enviados_dataTable("#dataTableServicios tbody", table_servicio_transito_enviados);
-}
-
-var view_servicio_transito_enviados_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_transito_enviada #servicio').val(data.servicio_id);
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-//FIN FORMULARIO TRANSITO ENVIADOS EN ATENCIONES
-
-//INICIO FORMULARIO TRANSITO RECIBIDAS EN ATENCIONES
-$('#formulario_transito_recibida #buscar_servicio_tr').on('click', function(e){
-	listar_servicio_transito_enviados();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_servicio_transito_enviados = function(){
-	var table_servicio_transito_enviados  = $("#dataTableServicios").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getServicioATATabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_servicio_transito_enviados.search('').draw();
-	$('#buscar').focus();
-
-	view_servicio_transito_enviados_dataTable("#dataTableServicios tbody", table_servicio_transito_enviados);
-}
-
-var view_servicio_transito_enviados_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_transito_recibida #servicio').val(data.servicio_id);
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-//FIN FORMULARIO TRANSITO RECIBIDAS EN ATENCIONES
-
-//INICIO FORMULARIO TRABAJO SOCIAL
-
-//ENTREVISTADO POR
-$('#formulario_entrevista_trabajo_social #buscar_solicitado_por_entrevista').on('click', function(e){
-	listar_solicitadoPorEntrevistaTS();
-	$('#modalSolicitadoPorTS').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_solicitadoPorEntrevistaTS = function(){
-	var table_solicitadoPorEntrevistaTS  = $("#dataTableSolicitadoPorTS").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getSolicitdoPorTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"colaborador"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_solicitadoPorEntrevistaTS.search('').draw();
-	$('#buscar').focus();
-
-	view_solicitadoPorEntrevistaTS_dataTable("#dataTableSolicitadoPorTS tbody", table_solicitadoPorEntrevistaTS);
-}
-
-var view_solicitadoPorEntrevistaTS_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_entrevista_trabajo_social #solicitado').val(data.colaborador_id);
-		$('#modalSolicitadoPorTS').modal('hide');
-	});
-}
-
-//CLASIFICACION TS 1
-$('#formulario_entrevista_trabajo_social #buscar_clasificacion_ts_1').on('click', function(e){
-	listar_ClasificacionTS_1();
-	$('#modalClasificacionTS').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_ClasificacionTS_1 = function(){
-	var table_ClasficiacionTS_1  = $("#dataTableClasificacionTS").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getClasificacionTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_ClasficiacionTS_1.search('').draw();
-	$('#buscar').focus();
-
-	view_ClasificacionTS_1_dataTable("#dataTableClasificacionTS tbody", table_ClasficiacionTS_1);
-}
-
-var view_ClasificacionTS_1_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_entrevista_trabajo_social #clasificacion1').val(data.clasificacion_diagnostica_id);
-		$('#modalClasificacionTS').modal('hide');
-	});
-}
-
-//CLASIFICACION TS 2
-$('#formulario_entrevista_trabajo_social #buscar_clasificacion_ts_2').on('click', function(e){
-	listar_ClasificacionTS_2();
-	$('#modalClasificacionTS').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_ClasificacionTS_2 = function(){
-	var table_ClasficiacionTS_2  = $("#dataTableClasificacionTS").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getClasificacionTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_ClasficiacionTS_2.search('').draw();
-	$('#buscar').focus();
-
-	view_ClasificacionTS_2_dataTable("#dataTableClasificacionTS tbody", table_ClasficiacionTS_2);
-}
-
-var view_ClasificacionTS_2_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_entrevista_trabajo_social #clasificacion2').val(data.clasificacion_diagnostica_id);
-		$('#modalClasificacionTS').modal('hide');
-	});
-}
-
-//CLASIFICACION TS 3
-$('#formulario_entrevista_trabajo_social #buscar_clasificacion_ts_3').on('click', function(e){
-	listar_ClasificacionTS_3();
-	$('#modalClasificacionTS').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});
-});
-
-var listar_ClasificacionTS_3 = function(){
-	var table_ClasficiacionTS_3  = $("#dataTableClasificacionTS").DataTable({
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/atas/getClasificacionTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});
-	table_ClasficiacionTS_3.search('').draw();
-	$('#buscar').focus();
-
-	view_ClasificacionTS_3_dataTable("#dataTableClasificacionTS tbody", table_ClasficiacionTS_3);
-}
-
-var view_ClasificacionTS_3_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_entrevista_trabajo_social #clasificacion3').val(data.clasificacion_diagnostica_id);
-		$('#modalClasificacionTS').modal('hide');
-	});
-}
-
-//FIN FORMULARIO TRABAJO SOCIAL
 </script>

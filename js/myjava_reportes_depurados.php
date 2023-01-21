@@ -1,7 +1,7 @@
 <script>
 $(document).ready(function() {
 	  $('#nuevo-registro-fallecidos').on('click',function(){
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 16){
 		  $('#formulario_agregar_fallecidos')[0].reset();		
      	  $('#formulario_agregar_fallecidos #pro').val('Registro');
 		  $('#reg_fallecidos').show();
@@ -27,7 +27,7 @@ $(document).ready(function() {
 	   });
 	   
 	  $('#nuevo-registro-pasivos').on('click',function(){
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		  $('#formulario_agregar_pasivos')[0].reset();		
      	  $('#formulario_agregar_pasivos #pro').val('Registro');
 		  $('#reg_pasivos').show();
@@ -254,7 +254,8 @@ function getReporte(){
 	    async: true,
         success: function(data){
 		    $('#form_main #status').html("");
-			$('#form_main #status').html(data);				
+			$('#form_main #status').html(data);
+			$('#form_main #status').selectpicker('refresh');			
         }
      });		
 }
@@ -268,7 +269,8 @@ function getReporteBusqueda(){
 	    async: true,
         success: function(data){
 		    $('#form_main #reporte').html("");
-			$('#form_main #reporte').html(data);				
+			$('#form_main #reporte').html(data);
+			$('#form_main #reporte').selectpicker('refresh');			
         }
      });		
 }
@@ -282,7 +284,8 @@ function getServicioFallecidos(){
 	    async: true,
         success: function(data){
 		    $('#formulario_agregar_fallecidos #servicio').html("");
-			$('#formulario_agregar_fallecidos #servicio').html(data);				
+			$('#formulario_agregar_fallecidos #servicio').html(data);
+			$('#formulario_agregar_fallecidos #servicio').selectpicker('refresh');				
         }
      });		
 }
@@ -297,8 +300,11 @@ function getProfesionalFallecidos(){
         success: function(data){
 		    $('#formulario_agregar_fallecidos #medico_general').html("");
 			$('#formulario_agregar_fallecidos #medico_general').html(data);
+			$('#formulario_agregar_fallecidos #medico_general').selectpicker('refresh');
+
 		    $('#formulario_agregar_fallecidos #medico_general1').html("");
-			$('#formulario_agregar_fallecidos #medico_general1').html(data);			
+			$('#formulario_agregar_fallecidos #medico_general1').html(data);
+			$('#formulario_agregar_fallecidos #medico_general1').selectpicker('refresh');			
         }
      });		
 }
@@ -312,7 +318,8 @@ function getServicioPasivos(){
 	    async: true,
         success: function(data){
 		    $('#formulario_agregar_pasivos #servicio').html("");
-			$('#formulario_agregar_pasivos #servicio').html(data);			
+			$('#formulario_agregar_pasivos #servicio').html(data);	
+			$('#formulario_agregar_pasivos #servicio').selectpicker('refresh');		
         }
      });		
 }
@@ -327,8 +334,11 @@ function getProfesionalPasivos(){
         success: function(data){
 		    $('#formulario_agregar_pasivos #medico_general').html("");
 			$('#formulario_agregar_pasivos #medico_general').html(data);
+			$('#formulario_agregar_pasivos #medico_general').selectpicker('refresh');
+
 		    $('#formulario_agregar_pasivos #medico_general1').html("");
-			$('#formulario_agregar_pasivos #medico_general1').html(data);			
+			$('#formulario_agregar_pasivos #medico_general1').html(data);
+			$('#formulario_agregar_pasivos #medico_general1').selectpicker('refresh');		
         }
      });		
 }
@@ -887,7 +897,7 @@ function editar(id){
 }
 
 function editarRegistroPasivos(id){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	 var url = '<?php echo SERVERURL; ?>php/reportes_depurados/editarPasivos.php';
 		$.ajax({
 		type:'POST',
@@ -936,7 +946,7 @@ function editarRegistroPasivos(id){
 }
 
 function editarRegistroFallecidos(id){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	 var url = '<?php echo SERVERURL; ?>php/reportes_depurados/editarFallecidos.php';
 		$.ajax({
 		type:'POST',

@@ -134,92 +134,64 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Nivel</label>
-					  <div class="input-group mb-3">
-						  <select id="centros_nivel" name="centros_nivel" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_niveles_atenciones" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Centro</label>
-					  <div class="input-group mb-3">
-						  <select id="centro" name="centro" class="custom-select" data-toggle="tooltip" data-placement="top" title="Centros">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_centros_atenciones" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Recibida de</label>
-					  <div class="input-group mb-3">
-						  <select id="recibidade" name="recibidade" class="custom-select" data-toggle="tooltip" data-placement="top" title="Recibida de">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_centros_referencias_recibidas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="centros_nivel">Nivel</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="centros_nivel" name="centros_nivel" data-live-search="true" title="Nivel">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="centro">Centros</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="centro" name="centro" data-live-search="true" title="Centros">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="recibidade">Recibida de</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="recibidade" name="recibidade" data-live-search="true" title="Recibida de">			  
+						</select>
+						</div>
+					</div>		
+					<div class="col-md-3 mb-3">
+						<label for="patologia1">Patología</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia1" name="patologia1" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
+					</div>									
 				</div>	
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia1" name="patologia1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_patologia_referencia_recibida">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-8 mb-3">
+					<div class="col-md-12 mb-3">
 					  <label>Diagnostico Clínico</label>
 					  <input type="text" required id="clinico" placeholder="Diagnostico Clínico" name="clinico" data-toggle="tooltip" data-placement="top" title="Diagnostico Clínico" class="form-control"/>
 					</div>							
 				</div>					
 				
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Motivo</label>
-					  <div class="input-group mb-3">
-						  <select id="motivo" name="motivo" class="custom-select" data-toggle="tooltip" data-placement="top" title="Motivo">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_motivos_atenciones" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Otro Motivo</label>
-					  <div class="input-group mb-3">
-						  <select id="motivo1" name="motivo1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Otro Motivo">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_otros_motivos_atenciones" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Servicio</label>
-					  <div class="input-group mb-3">
-						  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_servicios_referencias_recibidas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="motivo">Motivo</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="motivo" name="motivo" data-live-search="true" title="Motivo">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="motivo1">Otro Motivo</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="motivo1" name="motivo1" data-live-search="true" title="Otro Motivo">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="servicio">Servicio <span class="priority">*<span/> </label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio" name="servicio" requiered data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
 					</div>						
 				</div>			
 			</form>
@@ -271,118 +243,80 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Nivel</label>
-					  <div class="input-group mb-3">
-						  <select id="centros_nivel" name="centros_nivel" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_niveles_atenciones" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="centros_nivel">Nivel</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="centros_nivel" name="centros_nivel" data-live-search="true" title="Nivel">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="centro">Centros</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="centro" name="centro" data-live-search="true" title="Centros">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="enviadaa">Enviada a</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="enviadaa" name="enviadaa" data-live-search="true" title="Enviada a">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Centro</label>
-					  <div class="input-group mb-3">
-						  <select id="centro" name="centro" class="custom-select" data-toggle="tooltip" data-placement="top" title="Centros">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_centros_atenciones" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Enviada a</label>
-					  <div class="input-group mb-3">
-						  <select id="enviadaa" name="enviadaa" class="custom-select" data-toggle="tooltip" data-placement="top" title="Enviada a">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_centro_referencias_enviadas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="patologia1">Patología</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia1" name="patologia1" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
+					</div>												
 				</div>	
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia1" name="patologia1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_patologia1_referencia_enviada">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="patologia2">Patología</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia2" name="patologia2" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia2" name="patologia2" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_patologia2_referencia_enviada">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="patologia3">Patología</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia3" name="patologia3" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia3" name="patologia3" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_patologia3_referencia_enviada">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="motivo_traslado">Motivo Traslado</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="motivo_traslado" name="motivo_traslado" data-live-search="true" title="Motivo Traslado">			  
+						</select>
+						</div>
+					</div>	
+					<div class="col-md-3 mb-3">
+						<label for="motivo">Motivo</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="motivo" name="motivo" data-live-search="true" title="Motivo">			  
+						</select>
+						</div>
+					</div>														
 				</div>					
 				
-				<div class="form-row">					
-					<div class="col-md-4 mb-3">
-					  <label>Motivo</label>
-					  <div class="input-group mb-3">
-						  <select id="motivo_traslado" name="motivo_traslado" class="custom-select" data-toggle="tooltip" data-placement="top" title="Motivo">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_otros_motivos_atenciones" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Otro Motivo</label>
-					  <div class="input-group mb-3">
-						  <select id="motivo" name="motivo" class="custom-select" data-toggle="tooltip" data-placement="top" title="Motivo">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_otros_motivos_atenciones" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
-					<div class="col-md-4 mb-3">
-					  <label>Servicio</label>
-					  <div class="input-group mb-3">
-						  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_servicios_referencias_enviadas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>					
-				</div>	
-				<div class="form-row">
-					<div class="col-md-12 mb-3">
+				<div class="form-row">	
+					<div class="col-md-9 mb-3">
 					  <label>Diagnostico Clínico</label>
 					  <input type="text" required id="diagnostico" placeholder="Diagnostico Clínico" name="diagnostico" title="Motivo de la Referencia Enviada" class="form-control"/>
-					</div>									
-				</div>				
+					</div>	
+					<div class="col-md-3 mb-3">
+						<label for="servicio">Servicio <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio" name="servicio" requiered data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
+					</div>														
+				</div>	
 			</form>
         </div>
 	   <div class="modal-footer">
@@ -432,67 +366,47 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Enviada a</label>
-					  <div class="input-group mb-3">
-						  <select id="enviada" name="enviada" class="custom-select" data-toggle="tooltip" data-placement="top" title="Enviada a">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_niveles_te">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="enviada">Enviada a</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="enviada" name="enviada" data-live-search="true" title="Enviada a">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Unidad</label>
-					  <div class="input-group mb-3">
-						  <select id="unidad" name="unidad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_undad_te">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Profesional</label>
-					  <div class="input-group mb-3">
-						  <select id="profesional_enviadas" name="profesional_enviadas" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_profesional_te">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="unidad">Unidad</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="unidad" name="unidad" data-live-search="true" title="Unidad">			  
+						</select>
+						</div>
+					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="profesional_enviadas">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="profesional_enviadas" name="profesional_enviadas" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
+					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="tipo_atencion_enviadas">Tipo Atención</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="tipo_atencion_enviadas" name="tipo_atencion_enviadas" data-live-search="true" title="Tipo Atención">			  
+						</select>
+						</div>
 					</div>						
 				</div>	
 
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Tipo Atención</label>
-					  <div class="input-group mb-3">
-						  <select id="tipo_atencion_enviadas" name="tipo_atencion_enviadas" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipo Atención">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_tipo_atencion_te" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
+				<div class="form-row">				
+					<div class="col-md-9 mb-3">
 					  <label>Motivo</label>
 					  <input type="text" required name="motivo" placeholder="Motivo de la Referencia Enviada" id="motivo" maxlength="100" class="form-control"/>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Servicio</label>
-					  <div class="input-group mb-3">
-						  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_servicio_te">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="servicio">Servicio <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio" name="servicio" required data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
 					</div>						
 				</div>			
 			</form>
@@ -544,60 +458,41 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Recibida de</label>
-					  <div class="input-group mb-3">
-						  <select id="recibida" name="recibida" class="custom-select" data-toggle="tooltip" data-placement="top" title="Recibida de" required>
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_niveles_tr">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="recibida">Recibida de</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="recibida" name="recibida" data-live-search="true" title="Recibida de">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Unidad</label>
-					  <div class="input-group mb-3">
-						  <select id="unidad" name="unidad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad" required>
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_undad_tr">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="unidad">Unidad</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="unidad" name="unidad" data-live-search="true" title="Unidad">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Profesional</label>
-					  <div class="input-group mb-3">
-						  <select id="profesional_recibida" name="profesional_recibida" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional" required>
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_profesional_tr">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="profesional_recibida">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="profesional_recibida" name="profesional_recibida" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="servicio">Servicio <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio" name="servicio" data-live-search="true" title="Servicio" required>			  
+						</select>
+						</div>
+					</div>												
 				</div>	
 
 				<div class="form-row">
 					<div class="col-md-12 mb-3">
-					  <label>Motivo</label>
+					  <label>Motivo <span class="priority">*<span/></label>
 					  <input type="text" required name="motivo" placeholder="Motivo de la Referencia Recibida" id="motivo" maxlength="100" class="form-control" required />
-					</div>						
-				</div>
-				
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Servicio</label>
-					  <div class="input-group mb-3">
-						  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio" required>
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_servicio_tr">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					</div>										
 				</div>			
 			</form>
         </div>
@@ -649,75 +544,51 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia_ata1" name="patologia_ata1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_niveles_te">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia_ata2" name="patologia_ata2" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_undad_te">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia_ata3" name="patologia_ata3" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_profesional_te">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="patologia_ata1">Patología</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia_ata1" name="patologia_ata1" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="patologia_ata2">Patología</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia_ata2" name="patologia_ata2" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="patologia_ata3">Patología</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia_ata3" name="patologia_ata3" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
+					</div>					
 				</div>	
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Servicio</label>
-					  <div class="input-group mb-3">
-						  <select id="servicio_ata" name="servicio_ata" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_niveles_te">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Unidad</label>
-					  <div class="input-group mb-3">
-						  <select id="unidad_ata" name="unidad_ata" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_undad_te">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Profesional</label>
-					  <div class="input-group mb-3">
-						  <select id="colaborador_ata" name="colaborador_ata" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_profesional_te">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="servicio_ata">Servicio</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio_ata" name="servicio_ata" data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="unidad_ata">Unidad</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="unidad_ata" name="unidad_ata" data-live-search="true" title="Unidad">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="colaborador_ata">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="colaborador_ata" name="colaborador_ata" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
+					</div>					
 				</div>	
 				
 				<div class="form-row">
@@ -803,11 +674,12 @@ $mysqli->close();//CERRAR CONEXIÓN
 							  <label>Fecha de Nacimiento</label>
 							  <input type="date" id="fecha_n" name="fecha_n" value="<?php echo date ("Y-m-d");?>" class="form-control"/>
 							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>Genero</label>
-						       <select id="genero" name="genero" class="custom-select" data-toggle="tooltip" data-placement="top" title="Genero">   				   
-								<option value="">Seleccione</option>
-                               </select>
+							<div class="col-md-3 mb-3">
+								<label for="genero">Genero</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="genero" name="genero" data-live-search="true" title="Genero">			  
+								</select>
+								</div>
 							</div>						
 						</div>	
 						<div class="form-row">
@@ -815,27 +687,19 @@ $mysqli->close();//CERRAR CONEXIÓN
 							  <label>Teléfono</label>
 							  <input type="number" id="telefono" name="telefono" placeholder="Teléfono" class="form-control"/>
 							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>Departamentos</label>
-							  <div class="input-group mb-3">
-								  <select id="departamento" name="departamento" class="custom-select" data-toggle="tooltip" data-placement="top" title="Religión">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_departamento_pacientes">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
-							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>Municipios</label>
-							  <div class="input-group mb-3">
-								  <select id="municipio" name="municipio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Religión">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_municipio_pacientes">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="departamento">Departamentos</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="departamento" name="departamento" data-live-search="true" title="Departamentos">			  
+								</select>
+								</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="municipio">Municipio</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="municipio" name="municipio" data-live-search="true" title="Municipio">			  
+								</select>
+								</div>
 							</div>						
 						</div>	
 						<div class="form-row">
@@ -917,9 +781,9 @@ $mysqli->close();//CERRAR CONEXIÓN
 								   <input type="text" id="conducta_especifique" name="conducta_especifique" placeholder="Especifique" class="form-control"/>					  
 								</div>	
 								<div class="form-check form-check-inline">
-								   <label class="form-check-label mr-1" for="atencion">Atención </label>
-								   <select required name="seguimiento" id="seguimiento" class="custom-select" data-toggle="tooltip" data-placement="top" title="Seguimiento">
-								   </select> 					  
+								   <label class="form-check-label mr-1" for="atencion">Seguimiento </label>
+								   <select class="selectpicker" id="seguimiento" name="seguimiento" required data-live-search="true" title="Seguimiento">			  
+				 	 				</select>				  
 								</div>									
 							</div>							
 						</div>	
@@ -1001,17 +865,13 @@ $mysqli->close();//CERRAR CONEXIÓN
 						</div>	
 
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Servicio</label>
-							  <div class="input-group mb-3">
-								  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_servicios_cuestionario">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
-							</div>						
+							<div class="col-md-3 mb-3">
+								<label for="servicio">Servicio</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="servicio" name="servicio" data-live-search="true" title="Servicio">			  
+								</select>
+								</div>
+							</div>					
 						</div>						
 						
 					</div><!-- FIN TAB HOME-->				
@@ -1129,16 +989,12 @@ $mysqli->close();//CERRAR CONEXIÓN
 								  <label class="form-check-label" id="label_maida_p5_no"></label>
 								</div>		
 								<div class="form-check form-check-inline" id="cuestionario_maida_p5">
-								  <select id="patologia" name="patologia" class="custom-select" style="width: 300px;" data-toggle="tooltip" data-placement="top" title="Patología">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_patologia_atenciones">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>								  
+									<select class="selectpicker" id="patologia" name="patologia" data-size="5" data-live-search="true" title="Patología">			  
+									</select>							  
 								</div>
 							</div>
 						</div>						
-										
+							
 						<div class="form-row">
 							<div class="col-md-12 mb-3">
 								<div class="form-check form-check-inline" id="cuestionario_maida_p6">
@@ -1171,7 +1027,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 	<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Formulari Atenciones Familiares</h4>
+          <h4 class="modal-title">Formulario Atenciones Familiares</h4>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			  <span aria-hidden="true">&times;</span>
 			</button>
@@ -1195,8 +1051,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</ul>
 				<br/>
 				<div class="tab-content" id="myTabContent"><!-- INICIO TAB CONTENT-->
-					<div class="tab-pane fade active show" id="home_familiares" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB HOME-->
-					
+					<div class="tab-pane fade active show" id="home_familiares" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB HOME-->					
 						<div class="form-row">
 							<div class="col-md-4 mb-3">
 							  <label>Expediente</label>
@@ -1227,17 +1082,13 @@ $mysqli->close();//CERRAR CONEXIÓN
 						</div>	
 
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Servicio</label>
-							  <div class="input-group mb-3">
-								  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_servicios_cuestionario">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
-							</div>						
+							<div class="col-md-3 mb-3">
+								<label for="servicio">Servicio </label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="servicio" name="servicio" data-live-search="true" title="Servicio">			  
+								</select>
+								</div>
+							</div>					
 						</div>						
 						
 					</div><!-- FIN TAB HOME-->				
@@ -1268,14 +1119,15 @@ $mysqli->close();//CERRAR CONEXIÓN
 											<input type="number" id="identidad1" name="identidad1" class="form-control" placeholder="Ingrese el Númer de Identidad" title="Ingrese el Númer de Identidad"/>	
 										  </td>
 										  <td>
-										  <input type="text" id="nombre1" name="nombre1" class="form-control" placeholder="Ingrese el Nombre Completo" title="Ingrese el Nombre Completo"/>								  
+										    <input type="text" id="nombre1" name="nombre1" class="form-control" placeholder="Ingrese el Nombre Completo" title="Ingrese el Nombre Completo"/>
 										  </td>
 										  <td>
-										  <select id="responsable1" name="responsable1" class="custom-select" title="Responsable">	
+										  	 <select class="selectpicker" id="responsable1" name="responsable1" data-live-search="true" title="Responsable">			  
+											 </select>											
 										  </td>
 										  <td>
-										  <select id="genero1" name="genero1" class="custom-select" title="Genero">		   
-										  </select>	
+										  	<select class="selectpicker" id="genero1" name="genero1" data-live-search="true" title="Genero">			  
+											</select>
 										  </td>								  
 										  <td>
 											 <input type="text" id="observaciones1" name="observaciones1" class="form-control" placeholder="Ingrese una Observiación"/>
@@ -1290,12 +1142,12 @@ $mysqli->close();//CERRAR CONEXIÓN
 										  <input type="text" id="nombre2" name="nombre2" class="form-control" placeholder="Ingrese el Nombre Completo" title="Ingrese el Nombre Completo"/>								  
 										  </td>
 										  <td>
-										  <select id="responsable2" name="responsable2" class="custom-select" title="Responsable">		   
-										  </select>	
+										 	 <select class="selectpicker" id="responsable2" name="responsable2" data-live-search="true" title="Responsable">			  
+											 </select>
 										  </td>								  
 										  <td>
-										  <select id="genero2" name="genero2" class="custom-select" title="Genero">		   
-										  </select>	
+										 	 <select class="selectpicker" id="genero2" name="genero2" data-live-search="true" title="Genero">			  
+											 </select>
 										  </td>								  
 										  <td>
 											 <input type="text" id="observaciones2" name="observaciones2" class="form-control" placeholder="Ingrese una Observiación"/>
@@ -1307,14 +1159,15 @@ $mysqli->close();//CERRAR CONEXIÓN
 											<input type="number" id="identidad3" name="identidad3" class="form-control" placeholder="Ingrese el Númer de Identidad" title="Ingrese el Númer de Identidad"/>	
 										  </td>
 										  <td>
-										  <input type="text" id="nombre3" name="nombre3" class="form-control" placeholder="Ingrese el Nombre Completo" title="Ingrese el Nombre Completo"/>								  
+										     <input type="text" id="nombre3" name="nombre3" class="form-control" placeholder="Ingrese el Nombre Completo" title="Ingrese el Nombre Completo"/>
 										  </td>
 										  <td>
-										  <select id="responsable3" name="responsable3" class="custom-select" title="Responsable">	
+									 	 	  <select class="selectpicker" id="responsable3" name="responsable3" data-live-search="true" title="Responsable">			  
+											  </select>
 										  </td>
 										  <td>
-										  <select id="genero3" name="genero3" class="custom-select" title="Genero"> 				   
-										  </select>	
+										 	  <select class="selectpicker" id="genero3" name="genero3" data-live-search="true" title="Genero">			  
+											  </select>
 										  </td>								  
 										  <td>
 											 <input type="text" id="observaciones3" name="observaciones3" class="form-control" placeholder="Ingrese una Observiación"/>
@@ -1329,10 +1182,12 @@ $mysqli->close();//CERRAR CONEXIÓN
 										  <input type="text" id="nombre4" name="nombre4" class="form-control" placeholder="Ingrese el Nombre Completo" title="Ingrese el Nombre Completo"/>								  
 										  </td>
 										  <td>
-										  <select id="responsable4" name="responsable4" class="custom-select" data-hide-disabled="true" data-size="10" data-live-search="true" title="Responsable">	
+										  	  <select class="selectpicker" id="responsable4" name="responsable4" data-live-search="true" title="Responsable">			  
+											  </select>	
 										  </td>
 										  <td>
-										  <select id="genero4" name="genero4" class="custom-select" data-hide-disabled="true" data-size="10" data-live-search="true" title="Genero">        </select>	
+										  	  <select class="selectpicker" id="genero4" name="genero4" data-live-search="true" title="Genero">			  
+											  </select>	
 										  </td>								  
 										  <td>
 											 <input type="text" id="observaciones4" name="observaciones4" class="form-control" placeholder="Ingrese una Observiación"/>
@@ -1347,11 +1202,12 @@ $mysqli->close();//CERRAR CONEXIÓN
 										  <input type="text" id="nombre5" name="nombre5" class="form-control" placeholder="Ingrese el Nombre Completo"  title="Ingrese el Nombre Completo"/>								  
 										  </td>
 										  <td>
-										  <select id="responsable5" name="responsable5" class="custom-select" data-hide-disabled="true" data-size="10" data-live-search="true" title="Responsable">	
+										 	  <select class="selectpicker" id="responsable5" name="responsable5" data-live-search="true" title="Responsable">			  
+											  </select>
 										  </td>
 										  <td>
-										  <select id="genero5" name="genero5" class="custom-select" data-hide-disabled="true" data-size="10" data-live-search="true" title="Genero"> 				   
-										  </select>	
+										  	  <select class="selectpicker" id="genero5" name="genero5" data-live-search="true" title="Genero">			  
+											  </select>
 										  </td>								  
 										  <td>
 											 <input type="text" id="observaciones5" name="observaciones5" class="form-control" placeholder="Ingrese una Observiación"/>
@@ -1431,74 +1287,50 @@ $mysqli->close();//CERRAR CONEXIÓN
 						</div>
 						
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Patología</label>
-							  <div class="input-group mb-3">
-								  <select id="patologia1" name="patologia1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_patologia_1_form1_atenciones">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>Patología</label>
-							  <div class="input-group mb-3">
-								  <select id="patologia2" name="patologia2" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_patologia_2_form1_atenciones">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>Patología</label>
-							  <div class="input-group mb-3">
-								  <select id="patologia3" name="patologia3" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_patologia_3_form1_atenciones">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
+							<div class="col-md-3 mb-3">
+								<label for="patologia1">Patología 1 <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="patologia1" name="patologia1" required data-live-search="true" title="Patologia">			  
+								</select>
+								</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="patologia2">Patología 2</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="patologia2" name="patologia2" data-live-search="true" title="Patologia">			  
+								</select>
+								</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="patologia3">Patología 3</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="patologia3" name="patologia2" data-live-search="true" title="Patologia">			  
+								</select>
+								</div>
 							</div>	
 						</div>	
 						
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Servicio</label>
-							  <div class="input-group mb-3">
-								  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_servicios_atenciones_formulario1">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
+							<div class="col-md-3 mb-3">
+								<label for="servicio">Servicio</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="servicio" name="servicio" data-live-search="true" title="Servicio">			  
+								</select>
+								</div>
 							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>IHSS (Asegurado)</label>
-							  <div class="input-group mb-3">
-								  <select id="ihss" name="ihss" class="custom-select" data-toggle="tooltip" data-placement="top" title="Asegurado IHSS">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_ihss_atenciones" style="display:none;">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>Enfermedad</label>
-							  <div class="input-group mb-3">
-								  <select id="enfermedad" name="enfermedad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Enfermedad">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_enfermedad_atenciones" style="display:none;">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
+							<div class="col-md-3 mb-3">
+								<label for="ihss">IHSS (Asegurado)</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="ihss" name="ihss" data-live-search="true" title="Asegurado">			  
+									</select>
+								</div>
+							</div>								
+							<div class="col-md-3 mb-3">
+								<label for="enfermedad">Enfermedad</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="enfermedad" name="enfermedad" data-live-search="true" title="Enfermedad">			  
+								</select>
+								</div>
 							</div>	
 						</div>		
 
@@ -1511,37 +1343,25 @@ $mysqli->close();//CERRAR CONEXIÓN
 
 						<div class="form-row" id="trabajo_social">
 							<div class="col-md-3 mb-3">
-							  <label>Tipo Atención</label>
-							  <div class="input-group mb-3">
-								  <select id="tipo_atencion" name="tipo_atencion" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipo de Atención">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_tipo_atencion_atenciones" style="display:none;">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
+								<label for="tipo_atencion">Tipo de Atención</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="tipo_atencion" name="tipo_atencion" data-live-search="true" title="Tipo de Atención">			  
+								</select>
+								</div>
 							</div>	
 							<div class="col-md-3 mb-3">
-							  <label>Nivel</label>
-							  <div class="input-group mb-3">
-								  <select id="nivel_socioeconomico" name="nivel_socioeconomico" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel Socioeconómico">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_nivel_trabajo_social_atenciones">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
+								<label for="nivel_socioeconomico">Nivel Socioeconómico</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="nivel_socioeconomico" name="nivel_socioeconomico" data-live-search="true" title="Nivel Socioeconómico">			  
+								</select>
+								</div>
 							</div>	
 							<div class="col-md-3 mb-3">
-							  <label>Problema Social</label>
-							  <div class="input-group mb-3">
-								  <select id="problema_social" name="problema_social" class="custom-select" data-toggle="tooltip" data-placement="top" title="Problema Social Identificado">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_problema_social_atenciones" style="display:none;">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
+								<label for="problema_social">Nivel Socioeconómico</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="problema_social" name="problema_social" data-live-search="true" title="Problema Social Identificado">			  
+								</select>
+								</div>
 							</div>
 							<div class="col-md-3 mb-3" style="display: none;" id="grupo_cantidades_tipo_atencion">
 							  <label>Cantidad</label>
@@ -1606,17 +1426,13 @@ $mysqli->close();//CERRAR CONEXIÓN
 						</div>
 
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Cita de Seguimiento</label>
-							  <div class="input-group mb-3">
-								  <select id="programar_cita" name="programar_cita" class="custom-select" data-toggle="tooltip" data-placement="top" title="Cita de Seguimiento">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_cita_seguimiento_atenciones">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
+							<div class="col-md-3 mb-3">
+								<label for="programar_cita">Cita de Seguimiento</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="programar_cita" name="programar_cita" data-live-search="true" title="Cita de Seguimiento" >			  
+								</select>
+								</div>
+							</div>
 							<div class="col-md-8 mb-3">
 							  <label id="label_programar_cita"></label>
 							  <input type="text" id="otros_programar_cita" name="otros_programar_cita" placeholder="Comentario" max="250" class="form-control" style="display: none"/>
@@ -1625,7 +1441,6 @@ $mysqli->close();//CERRAR CONEXIÓN
 						
 					</div><!-- FIN TAB HOME-->				
 					<div class="tab-pane fade" id="transito_form1" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB TRANSITO-->
-
 						<div class="col-md-12 mb-3">
 							<div class="card">
 							  <div class="card-header text-white bg-info mb-3" align="center">
@@ -1633,39 +1448,27 @@ $mysqli->close();//CERRAR CONEXIÓN
 							  </div>
 							  <div class="card-body">
 								<div class="form-row">
-									<div class="col-md-4 mb-3">
-									  <label>Recibida de</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_servicio_recibida" name="transito_servicio_recibida" class="custom-select" data-toggle="tooltip" data-placement="top" title="Recibida de">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_servicios_atenciones_transito_recibida">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
-									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Unidad</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_unidad_recibida" name="transito_unidad_recibida" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_unidad_transito_recibida_atenciones">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
-									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Profesional</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_profesional_recibida" name="transito_profesional_recibida" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_profesional_tr_atenciones">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
-									</div>								
+									<div class="col-md-3 mb-3">
+										<label for="transito_servicio_recibida">Recibida de</label>			
+										<div class="input-group mb-3">
+										<select class="selectpicker" id="transito_servicio_recibida" name="transito_servicio_recibida" data-live-search="true" title="Recibida de">			  
+										</select>
+										</div>
+									</div>
+									<div class="col-md-3 mb-3">
+										<label for="transito_unidad_recibida">Unidad</label>			
+										<div class="input-group mb-3">
+										<select class="selectpicker" id="transito_unidad_recibida" name="transito_unidad_recibida" data-live-search="true" title="Unidad">			  
+										</select>
+										</div>
+									</div>
+									<div class="col-md-3 mb-3">
+										<label for="transito_profesional_recibida">Unidad</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="transito_profesional_recibida" name="transito_profesional_recibida" data-live-search="true" title="Profresional">			  
+											</select>
+										</div>
+									</div>							
 								</div>
 								
 								<div class="form-row">
@@ -1687,54 +1490,38 @@ $mysqli->close();//CERRAR CONEXIÓN
 							  <div class="card-body">
 							  
 								<div class="form-row">
-									<div class="col-md-4 mb-3">
-									  <label>Enviada a</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_servicio_enviada" name="transito_servicio_enviada" class="custom-select" data-toggle="tooltip" data-placement="top" title="Enviada a">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_enviada_te_atenciones">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="transito_servicio_enviada">Enviada a</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="transito_servicio_enviada" name="transito_servicio_enviada" data-live-search="true" title="Enviada a">			  
+											</select>
+										</div>
 									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Unidad</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_unidad_enviada" name="transito_unidad_enviada" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_unidad_te_atenciones">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="transito_unidad_enviada">Unidad</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="transito_unidad_enviada" name="transito_unidad_enviada" data-live-search="true" title="Unidad">			  
+											</select>
+										</div>
 									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Profesional</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_profesional_enviada" name="transito_profesional_enviada" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_profesional_te_atenciones">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
-									</div>								
+									<div class="col-md-3 mb-3">
+										<label for="transito_profesional_enviada">Profesional</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="transito_profesional_enviada" name="transito_profesional_enviada" data-live-search="true" title="Profesional">			  
+											</select>
+										</div>
+									</div>							
 								</div>	
 								
 								<div class="form-row">
-									<div class="col-md-4 mb-3">
-									  <label>Tipo de Atención</label>
-									  <div class="input-group mb-3">
-										  <select id="tipo_atencion_ata" name="tipo_atencion_ata" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipo de Atención">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_tipo_atencion_tr_atenciones" style="display:none;">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="tipo_atencion_ata">Tipo de Atención</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="tipo_atencion_ata" name="tipo_atencion_ata" data-live-search="true" title="Tipo de Atención">			  
+											</select>
+										</div>
 									</div>									
-									<div class="col-md-8 mb-3">
+									<div class="col-md-9 mb-3">
 									  <label>Motivo</label>
 									  <input type="text" name="transito_motivo_enviada" id="transito_motivo_enviada" maxlength="100" placeholder="Motivo Referencia Enviada" class="form-control"/>
 									</div>								
@@ -1753,70 +1540,49 @@ $mysqli->close();//CERRAR CONEXIÓN
 							  <div class="card-header text-white bg-info mb-3" align="center">
 								Referencia Recibida
 							  </div>
-							  <div class="card-body">
-							  
+							  <div class="card-body">							  
 								<div class="form-row">
-									<div class="col-md-4 mb-3">
-									  <label>Nivel</label>
-									  <div class="input-group mb-3">
-										  <select id="nivel" name="nivel" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_nivel_referencias_ref_atenciones" style="display:none;">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="nivel">Nivel</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="nivel" name="nivel" data-live-search="true" title="Nivel">			  
+											</select>
+										</div>
 									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Centro</label>
-									  <div class="input-group mb-3">
-										  <select id="centro" name="centro" class="custom-select" data-toggle="tooltip" data-placement="top" title="Centro">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_centro_referencias_ref_atenciones" style="display:none;">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="centro">Centro</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="centro" name="centro" data-live-search="true" title="Centro">			  
+											</select>
+										</div>
 									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Recibida de</label>
-									  <div class="input-group mb-3">
-										  <select id="centroi" name="centroi" class="custom-select" data-toggle="tooltip" data-placement="top" title="Recibida de">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_ref_recibida_de_atenciones">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="centroi">Recibida de</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="" name="centroi" data-live-search="true" title="Recibida de">			  
+											</select>
+										</div>
 									</div>								
 								</div>
 								
 								<div class="form-row">
-									<div class="col-md-4 mb-3">
+									<div class="col-md-6 mb-3">
 									  <label>Clínico</label>
 									  <input type="text" name="clinico" id="clinico" class="form-control"  title="Diagnostico Clínico" placeholder="Diagnostico Clínico" class="form-control"/>
 									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Motivo</label>
-									  <div class="input-group mb-3">
-										  <select id="motivo" name="motivo" class="custom-select" data-toggle="tooltip" data-placement="top" title="Motivo">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_motivos_atenciones" style="display:none;">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
-									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Otro Motivo</label>
-									  <div class="input-group mb-3">
-										  <select id="motivo_e" name="motivo_e" class="custom-select" data-toggle="tooltip" data-placement="top" title="Otro Motivo">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_otros_motivos_atenciones" style="display:none;">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="motivo">Motivo</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="motivo" name="motivo" data-live-search="true" title="Motivo">			  
+											</select>
+										</div>
+									</div>
+									<div class="col-md-3 mb-3">
+										<label for="motivo_e">Otro Motivo</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="motivo_e" name="motivo_e" data-live-search="true" title="Otro Motivo">			  
+											</select>
+										</div>
 									</div>								
 								</div>																
 							  </div>
@@ -1829,68 +1595,48 @@ $mysqli->close();//CERRAR CONEXIÓN
 						  <div class="card-body">
 						  
 							<div class="form-row">
-								<div class="col-md-4 mb-3">
-								  <label>Niveles</label>
-								  <div class="input-group mb-3">
-									  <select id="nivel_e" name="nivel_e" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_nivel_re_atenciones" style="display:none;">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-									  </div>
-								  </div>
-								</div>	
-								<div class="col-md-4 mb-3">
-								  <label>Centro</label>
-								  <div class="input-group mb-3">
-									  <select id="centro_e" name="centro_e" class="custom-select" data-toggle="tooltip" data-placement="top" title="Centro">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_centro_re_atenciones" style="display:none;">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-									  </div>
-								  </div>
-								</div>	
-								<div class="col-md-4 mb-3">
-								  <label>Enviada a</label>
-								  <div class="input-group mb-3">
-									  <select id="centroi_e" name="centroi_e" class="custom-select" data-toggle="tooltip" data-placement="top" title="Enviada a">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_enviada_re_atenciones">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-									  </div>
-								  </div>
+								<div class="col-md-3 mb-3">
+									<label for="nivel_e">Nivel</label>			
+									<div class="input-group mb-3">
+										<select class="selectpicker" id="nivel_e" name="nivel_e" data-live-search="true" title="Nivel">			  
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="centro_e">Centro</label>			
+									<div class="input-group mb-3">
+										<select class="selectpicker" id="centro_e" name="centro_e" data-live-search="true" title="Centro">			  
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="centroi_e">Enviada a</label>			
+									<div class="input-group mb-3">
+										<select class="selectpicker" id="centroi_e" name="centroi_e" data-live-search="true" title="Enviada a">			  
+										</select>
+									</div>
 								</div>								
 							</div>	
 							
 							<div class="form-row">
-								<div class="col-md-4 mb-3">
+								<div class="col-md-6 mb-3">
 								  <label>Diagnostico</label>
 								  <input type="text" name="diagnostico_clinico" id="diagnostico_clinico" class="form-control"  title="Motivo de la referencia" placeholder="Diagnostico Clínico" class="form-control"/>
+								</div>		
+								<div class="col-md-3 mb-3">
+									<label for="motivo_traslado">Motivo</label>			
+									<div class="input-group mb-3">
+										<select class="selectpicker" id="motivo_traslado" name="motivo_traslado" data-live-search="true" title="Motivo">			  
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="motivo_e1">Otro Motivo</label>			
+									<div class="input-group mb-3">
+										<select class="selectpicker" id="motivo_e1" name="motivo_e1" data-live-search="true" title="Otro Motivo">			  
+										</select>
+									</div>
 								</div>									
-								<div class="col-md-4 mb-3">
-								  <label>Motivo</label>
-								  <div class="input-group mb-3">
-									  <select id="motivo_traslado" name="motivo_traslado" class="custom-select" data-toggle="tooltip" data-placement="top" title="Motivo">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_motivo_re_atenciones" style="display:none;">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-									  </div>
-								  </div>
-								</div>	
-								<div class="col-md-4 mb-3">
-								  <label>Motivo</label>
-								  <div class="input-group mb-3">
-									  <select id="motivo_e1" name="motivo_e1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Otro Motivo">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_otro_motivo_re_atenciones" style="display:none;">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-									  </div>
-								  </div>
-								</div>										
 							</div>
 							
 						  </div>
@@ -1941,10 +1687,9 @@ $mysqli->close();//CERRAR CONEXIÓN
 					</li>				
 				</ul>
 				<br>
-				<div class="tab-content" id="myTabContent"><!-- INICIO TAB CONTENT-->
-				
-					<div class="tab-pane fade active show" id="home_form2" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB HOME-->
-							
+
+				<div class="tab-content" id="myTabContent"><!-- INICIO TAB CONTENT-->				
+					<div class="tab-pane fade active show" id="home_form2" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB HOME-->							
 						<div class="form-row">
 							<div class="col-md-4 mb-3">
 							  <label>Expediente</label>
@@ -1968,128 +1713,87 @@ $mysqli->close();//CERRAR CONEXIÓN
 						</div>
 						
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Patología</label>
-							  <div class="input-group mb-3">
-								  <select id="patologia_1" name="patologia_1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_patologia_1_form2_atenciones">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>Patología</label>
-							  <div class="input-group mb-3">
-								  <select id="patologia_2" name="patologia_2" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_patologia_2_form2_atenciones">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>Patología</label>
-							  <div class="input-group mb-3">
-								  <select id="patologia_3" name="patologia_3" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_patologia_3_form3_atenciones">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
+							<div class="col-md-3 mb-3">
+								<label for="patologia_1">Patología 1 <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="patologia_1" name="patologia_1" required data-live-search="true" title="Patologia">			  
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="patologia_2">Patología 2</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="patologia_2" name="patologia_2" data-live-search="true" title="Patologia">			  
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="patologia_3">Patología 3</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="patologia_3" name="patologia_3" data-live-search="true" title="Patologia">			  
+									</select>
+								</div>
+							</div>
 						</div>	
 						
 						<div class="form-row">
 							<div class="col-md-3 mb-3" id="grupo_servicio">
-							  <label></label>
-							  <div class="input-group mb-3">
-								  <select id="servicio1" name="servicio1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_servicios_atenciones">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
+								<label for="servicio1">Servicio</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="servicio1" name="servicio1" data-live-search="true" title="Servicio">			  
+									</select>
+								</div>
+							</div>
 							<div class="col-md-3 mb-3">
-							  <label>IHSS (Asegurado)</label>
-							  <div class="input-group mb-3">
-								  <select id="ihss_ata" name="ihss_ata" class="custom-select" data-toggle="tooltip" data-placement="top" title="Asegurado IHSS">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_ihss_atenciones1" style="display:none;">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
+								<label for="ihss_ata">Asegurado IHSS</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="ihss_ata" name="ihss_ata" data-live-search="true" title="Asegurado">			  
+									</select>
+								</div>
+							</div>
 							<div class="col-md-3 mb-3">
-							  <label>Enfermedad</label>
-							  <div class="input-group mb-3">
-								  <select id="enfermedad1" name="enfermedad1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Enfermedad">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_enfeermedad_atenciones1" style="display:none;">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
+								<label for="enfermedad1">Enfermedad</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="enfermedad1" name="enfermedad1" data-live-search="true" title="Enfermedad">			  
+									</select>
+								</div>
+							</div>
 							<div class="col-md-3 mb-3">
-							  <label>Glucometría</label>
-							  <div class="input-group mb-3">
-								  <select id="glucometria" name="glucometria" class="custom-select" data-toggle="tooltip" data-placement="top" title="Glucometría">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_glucometria_atenciones1" style="display:none;">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
+								<label for="glucometria">Glucometría</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="glucometria" name="glucometria" data-live-search="true" title="Glucometría">			  
+									</select>
+								</div>
 							</div>								
 						</div>		
 
 						<div class="form-row" id="trabajo_social1">
 							<div class="col-md-3 mb-3">
-							  <label>Tipo Atención</label>
-							  <div class="input-group mb-3">
-								  <select id="tipo_atencion1" name="tipo_atencion1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipo de Atención">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_tipo_atencion_atenciones1" style="display:none;">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
+								<label for="tipo_atencion1">Tipo Atención</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="tipo_atencion1" name="tipo_atencion1" data-live-search="true" title="Tipo Atención">			  
+									</select>
+								</div>
+							</div>								
+							<div class="col-md-3 mb-3">
+								<label for="nivel_socioeconomico1">Nivel Socioeconómico</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="nivel_socioeconomico1" name="nivel_socioeconomico1" data-live-search="true" title="Nivel Socioeconómico">			  
+									</select>
+								</div>
 							</div>	
 							<div class="col-md-3 mb-3">
-							  <label>Nivel</label>
-							  <div class="input-group mb-3">
-								  <select id="nivel_socioeconomico1" name="nivel_socioeconomico1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel Socioeconómico">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_nivel_trabajo_social_atenciones1" style="display:none;">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
-							<div class="col-md-3 mb-3">
-							  <label>Problema Social</label>
-							  <div class="input-group mb-3">
-								  <select id="problema_social1" name="problema_social1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Problema Social Identificado">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_problema_social_atenciones1" style="display:none;">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
+								<label for="problema_social1">Problema Social Identificado</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="problema_social1" name="problema_social1" data-live-search="true" title="Problema Social Identificado">			  
+									</select>
+								</div>
 							</div>
 							<div class="col-md-3 mb-3" style="display: none;" id="grupo_cantidades_tipo_atencion1">
 							  <label>Cantidad</label>
 							  <input type="number" id="cantidad_tipo_atencion1" name="cantidad_tipo_atencion1" placeholder="Cantidad tipo de Atención" data-toggle="tooltip" data-placement="top" title="Cantidad Tipo de Atención" class="form-control"/>
 							</div>								
-						</div>	
-						
+						</div>							
 						<div class="form-row">
 							<div class="col-md-12 mb-3">
 							  <label>Observaciones <span class="priority">*<span/></label>
@@ -2154,17 +1858,13 @@ $mysqli->close();//CERRAR CONEXIÓN
 						</div>
 
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Cita de Seguimiento</label>
-							  <div class="input-group mb-3">
-								  <select id="programar_cita_1" name="programar_cita_1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Cita de Seguimiento">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_cita_seguimiento_atenciones1">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							  </div>
-							</div>	
+							<div class="col-md-3 mb-3">
+								<label for="programar_cita_1">Cita de Seguimiento</label>			
+								<div class="input-group mb-3">
+									<select class="selectpicker" id="programar_cita_1" name="programar_cita_1" data-live-search="true" title="Cita de Seguimiento">			  
+									</select>
+								</div>
+							</div>
 							<div class="col-md-8 mb-3">
 							  <label id="label_programar_cita_1"></label>
 							  <input type="text" id="otros_programar_cita_1" name="otros_programar_cita_1" placeholder="Comentario" max="250" class="form-control" style="display: none"/>
@@ -2173,7 +1873,6 @@ $mysqli->close();//CERRAR CONEXIÓN
 						
 					</div><!-- FIN TAB HOME-->				
 					<div class="tab-pane fade" id="transito_form2" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB TRANSITO-->
-
 						<div class="col-md-12 mb-3">
 							<div class="card">
 							  <div class="card-header text-white bg-info mb-3" align="center">
@@ -2181,38 +1880,26 @@ $mysqli->close();//CERRAR CONEXIÓN
 							  </div>
 							  <div class="card-body">
 								<div class="form-row">
-									<div class="col-md-4 mb-3">
-									  <label>Recibida de</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_servicio_recibida1" name="transito_servicio_recibida1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Recibida de">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_servicios_transito_recibida_atenciones1">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="transito_servicio_recibida1">Recibida de</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="transito_servicio_recibida1" name="transito_servicio_recibida1" data-live-search="true" title="Recibida de">			  
+											</select>
+										</div>
 									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Unidad</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_unidad_recibida1" name="transito_unidad_recibida1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_transito_recibida_unidad_atenciones1">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
-									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Profesional</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_profesional_recibidas1" name="transito_profesional_recibidas1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_transito_recibidaprofesional_tr_atenciones1">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="transito_unidad_recibida1">Unidad</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="transito_unidad_recibida1" name="transito_unidad_recibida1" data-live-search="true" title="Unidad">			  
+											</select>
+										</div>
+									</div>
+									<div class="col-md-3 mb-3">
+										<label for="transito_profesional_recibidas1">Profesional</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="transito_profesional_recibidas1" name="transito_profesional_recibidas1" data-live-search="true" title="Profesional">			  
+											</select>
+										</div>
 									</div>								
 								</div>
 								
@@ -2232,57 +1919,40 @@ $mysqli->close();//CERRAR CONEXIÓN
 							  <div class="card-header text-white bg-info mb-3" align="center">
 								Transito Enviada
 							  </div>
-							  <div class="card-body">
-							  
+							  <div class="card-body">							  
 								<div class="form-row">
-									<div class="col-md-4 mb-3">
-									  <label>Enviada a</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_servicio_enviada1" name="transito_servicio_enviada1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Enviada a">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_transito_enviada_te_atenciones1">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="transito_servicio_enviada1">Enviada a</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="transito_servicio_enviada1" name="transito_servicio_enviada1" data-live-search="true" title="Enviada a">			  
+											</select>
+										</div>
 									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Unidad</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_unidad_enviada1" name="transito_unidad_enviada1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_transito_enviada_unidad_te_atenciones1">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
-									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Profesional</label>
-									  <div class="input-group mb-3">
-										  <select id="transito_profesional_enviada1" name="transito_profesional_enviada1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_transito_enviada_profesional_tr_atenciones1">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
-									</div>								
+									<div class="col-md-3 mb-3">
+										<label for="transito_unidad_enviada1">Unidad</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="transito_unidad_enviada1" name="transito_unidad_enviada1" data-live-search="true" title="Unidad">			  
+											</select>
+										</div>
+									</div>
+									<div class="col-md-3 mb-3">
+										<label for="transito_profesional_enviada1">Profesional</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="transito_profesional_enviada1" name="transito_profesional_enviada1" data-live-search="true" title="Profesional">			  
+											</select>
+										</div>
+									</div>							
 								</div>	
 								
 								<div class="form-row">
-									<div class="col-md-4 mb-3">
-									  <label>Tipo de Atención</label>
-									  <div class="input-group mb-3">
-										  <select id="tipo_atencion_ata1" name="tipo_atencion_ata1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipo de Atención">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_tipo_atencion_tr_atenciones1" style="display:none;">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="tipo_atencion_ata1">Tipo de Atención</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="tipo_atencion_ata1" name="tipo_atencion_ata1" data-live-search="true" title="Tipo de Atención">			  
+											</select>
+										</div>
 									</div>									
-									<div class="col-md-8 mb-3">
+									<div class="col-md-9 mb-3">
 									  <label>Motivo</label>
 									  <input type="text" name="transito_motivo_enviada1" id="transito_motivo_enviada1" maxlength="100" placeholder="Motivo Referencia Enviada" class="form-control"/>
 									</div>								
@@ -2301,70 +1971,49 @@ $mysqli->close();//CERRAR CONEXIÓN
 							  <div class="card-header text-white bg-info mb-3" align="center">
 								Referencia Recibida
 							  </div>
-							  <div class="card-body">
-							  
+							  <div class="card-body">							  
 								<div class="form-row">
-									<div class="col-md-4 mb-3">
-									  <label>Nivel</label>
-									  <div class="input-group mb-3">
-										  <select id="nivel1" name="nivel1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_nivel_referencias_ref_atenciones1" style="display:none;">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="nivel1">Nivel</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="nivel1" name="nivel1" data-live-search="true" title="Nivel">			  
+											</select>
+										</div>
 									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Centro</label>
-									  <div class="input-group mb-3">
-										  <select id="centro1" name="centro1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Centro">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_centro_referencias_ref_atenciones1" style="display:none;">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
-									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Recibida de</label>
-									  <div class="input-group mb-3">
-										  <select id="centroi1" name="centroi1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Recibida de">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_ref_recibida_de_atenciones1">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="centro1">Centro</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="centro1" name="centro1" data-live-search="true" title="Centro">			  
+											</select>
+										</div>
+									</div>
+									<div class="col-md-3 mb-3">
+										<label for="centroi1">Recibida de</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="centroi1" name="centro1" data-live-search="true" title="Recibida de">			  
+											</select>
+										</div>
 									</div>								
 								</div>
 								
 								<div class="form-row">
-									<div class="col-md-4 mb-3">
+									<div class="col-md-6 mb-3">
 									  <label>Clínico</label>
 									  <input type="text" name="clinico1" id="clinico1" class="form-control"  title="Diagnostico Clínico" placeholder="Diagnostico Clínico" class="form-control"/>
 									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Motivo</label>
-									  <div class="input-group mb-3">
-										  <select id="motivo1" name="motivo1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Motivo">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_motivos_atenciones1" style="display:none;">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="motivo1">Motivo</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="motivo1" name="motivo1" data-live-search="true" title="Motivo">			  
+											</select>
+										</div>
 									</div>	
-									<div class="col-md-4 mb-3">
-									  <label>Otro Motivo</label>
-									  <div class="input-group mb-3">
-										  <select id="motivo_re" name="motivo_re" class="custom-select" data-toggle="tooltip" data-placement="top" title="Otro Motivo">
-											<option value="">Seleccione</option>
-										  </select>
-										  <div class="input-group-append" id="buscar_otros_motivos_atenciones1" style="display:none;">				
-											<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-										  </div>
-									  </div>
+									<div class="col-md-3 mb-3">
+										<label for="motivo_re">Otro Motivo</label>			
+										<div class="input-group mb-3">
+											<select class="selectpicker" id="motivo_re" name="motivo_re" data-live-search="true" title="Otro Motivo">			  
+											</select>
+										</div>
 									</div>								
 								</div>																
 							  </div>
@@ -2374,71 +2023,50 @@ $mysqli->close();//CERRAR CONEXIÓN
 						  <div class="card-header text-white bg-info mb-3" align="center">
 							Referencia Enviada
 						  </div>
-						  <div class="card-body">
-						  
+						  <div class="card-body">						  
 							<div class="form-row">
-								<div class="col-md-4 mb-3">
-								  <label>Niveles</label>
-								  <div class="input-group mb-3">
-									  <select id="nivel_e1" name="nivel_e1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_nivel_re_atenciones1" style="display:none;">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-									  </div>
-								  </div>
+								<div class="col-md-3 mb-3">
+									<label for="nivel_e1">Nivel</label>			
+									<div class="input-group mb-3">
+										<select class="selectpicker" id="nivel_e1" name="nivel_e1" data-live-search="true" title="Nivel">			  
+										</select>
+									</div>
 								</div>	
-								<div class="col-md-4 mb-3">
-								  <label>Centro</label>
-								  <div class="input-group mb-3">
-									  <select id="centro_e1" name="centro_e1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Centro">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_centro_re_atenciones1" style="display:none;">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-									  </div>
-								  </div>
+								<div class="col-md-3 mb-3">
+									<label for="centro_e1">Centro</label>			
+									<div class="input-group mb-3">
+										<select class="selectpicker" id="centro_e1" name="centro_e1" data-live-search="true" title="Centro">			  
+										</select>
+									</div>
 								</div>	
-								<div class="col-md-4 mb-3">
-								  <label>Enviada a</label>
-								  <div class="input-group mb-3">
-									  <select id="centroi_e1" name="centroi_e1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Enviada a">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_enviada_re_atenciones1">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-									  </div>
-								  </div>
-								</div>								
+								<div class="col-md-3 mb-3">
+									<label for="centroi_e1">Enviada a</label>			
+									<div class="input-group mb-3">
+										<select class="selectpicker" id="centroi_e1" name="centroi_e1" data-live-search="true" title="Enviada a">			  
+										</select>
+									</div>
+								</div>									
 							</div>	
 							
 							<div class="form-row">
-								<div class="col-md-4 mb-3">
+								<div class="col-md-6 mb-3">
 								  <label>Diagnostico</label>
 								  <input type="text" name="diagnostico_clinico1" id="diagnostico_clinico1" class="form-control"  title="Motivo de la referencia" placeholder="Diagnostico Clínico" class="form-control"/>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="motivo_traslado1">Motivo</label>			
+									<div class="input-group mb-3">
+										<select class="selectpicker" id="motivo_traslado1" name="motivo_traslado1" data-live-search="true" title="Motivo">			  
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="motivo_e1">Otro Motivo</label>			
+									<div class="input-group mb-3">
+										<select class="selectpicker" id="motivo_e1" name="motivo_e1" data-live-search="true" title="Otro Motivo">			  
+										</select>
+									</div>
 								</div>									
-								<div class="col-md-4 mb-3">
-								  <label>Motivo</label>
-								  <div class="input-group mb-3">
-									  <select id="motivo_traslado1" name="motivo_traslado1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Motivo">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_motivo_re_atenciones1" style="display:none;">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-									  </div>
-								  </div>
-								</div>	
-								<div class="col-md-4 mb-3">
-								  <label>Motivo</label>
-								  <div class="input-group mb-3">
-									  <select id="motivo_e1" name="motivo_e1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Otro Motivo">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_otro_motivo_re1_atenciones1" style="display:none;">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-									  </div>
-								  </div>
-								</div>										
 							</div>
 							
 						  </div>
@@ -2472,17 +2100,16 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 	
  	<div id="main">
-		<form class="form-inline" id="form_main">	
-		<div class="form-group mr-1">
-			<div class="input-group">				
-				<div class="input-group-append">				
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Estado</span>
+		<form class="form-inline" id="form_main">
+			<div class="form-group mx-sm-3 mb-1">
+				<div class="input-group">
+					<div class="input-group-append">
+						<span class="input-group-text"><div class="sb-nav-link-icon"></div>Estado</span>
+						<select id="estado" name="estado" class="selectpicker" title="Estado" data-live-search="true">
+						</select>
+					</div>	
 				</div>
-				<select id="estado" name="estado" class="custom-select" style="width:100px;" data-toggle="tooltip" data-placement="top" title="Estado">
-					<option value="0">Estado</option>
-				</select>
 			</div>
-		  </div>	
 		  <div class="form-group mr-1">
 			<div class="input-group">				
 				<div class="input-group-append">				

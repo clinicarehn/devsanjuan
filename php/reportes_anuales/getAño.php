@@ -11,8 +11,3 @@ for($i = $año_anterior; $i<=$año_actual; $i++){
 	echo '<option value='.$i.'>'.$i.'</option>';
 }
 ?>
-
-
-               
-			   
-               

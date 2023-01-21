@@ -333,10 +333,10 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 
 	if($consultarJornadaJornada_id != "" && $servicio == $consultarJornadaServicio_id){//########INICIO EVALUAMOS SI EL PROFESIONAL TIENEN UNA JORNADA ASIGNADA########
 
-		if($servicio == 1 || $servicio == 3 || $servicio == 4 || $servicio == 7){//#####INICIO SERVICIOS C.E, MAIDA, S.H Y USUARIO EN CRISIS#####
+		if($servicio == 1 || $servicio == 3 || $servicio == 4){//#####INICIO SERVICIOS C.E, MAIDA, S.H Y USUARIO EN CRISIS#####
 			
 			if($consultar_colaborador_puesto_id == 2 || $consultar_colaborador_puesto_id == 4){//####INICIO PUESTO PSIQUIATRIA Y MED GENERAL####
-				
+
 				if($consultarJornadaJornada_id == 1){//####INICIO JORNADA MATUTINA
 
 					if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('9:20'))){//INICIO USUARIOS NUEVOS
@@ -507,7 +507,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 					 }//FIN DE HORAS PARA USUARIOS SUBSIGUIENTES
 					 					
 				}//####FIN JORNADA VESPERTINA
-				else if($consultarJornadaJornada_id == 2){//####INICIO JORNADA MIXTA		
+				else if($consultarJornadaJornada_id == 3){//####INICIO JORNADA MIXTA		
 					if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('09:20'))){//INICIO NUEVOS
 						$colores = "#008000"; //VERDE USUARIOS NUEVOS
 						if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
@@ -594,9 +594,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 				}//####FIN JORNADA MIXTA
 			}//####FIN PUESTO PSIQUIATRIA Y MED GENERAL####
 			else if($consultar_colaborador_puesto_id == 1){//####INICIO PUESTO PSICOLOGIA####
-
 				if($consultarJornadaJornada_id == 1){//####INICIO JORNADA MATUTINA
-
 					//INICIO PARA EL INGRESO USUARIOS NUEVOS
 					if ($expediente == ""){
 						$colores = "#008000"; //VERDE USUARIOS NUEVOS
@@ -623,15 +621,97 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 						}
 				}
 
-				}//####FIN JORNADA MATUTINA
+				} //####FIN JORNADA MATUTINA
 				else if($consultarJornadaJornada_id == 1){//####INICIO JORNADA VESPERTINA
 
 				}//####FIN JORNADA VESPERTINA
-
 			}//####FIN PUESTO PSICOLOGIA####
 
 		}//#####FIN SERVICIOS C.E, MAIDA, S.H Y USUARIO EN CRISIS#####
-		else if($servicio == 6){//#####INICIO SERVICIO UNIDA DE NIÑOS Y ADOLESCENTES#####
+		else if($servicio == 7){//PRECONSULTA
+			if($consultarJornadaJornada_id == 1){//####INICIO JORNADA MATUTINA
+				//INICIO PARA EL INGRESO USUARIOS NUEVOS
+				if ($expediente == ""){
+					$colores = "#008000"; //VERDE USUARIOS NUEVOS
+					if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
+						$hora = "NuevosExcede";
+					}else{
+						if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+							$hora = $hora_h;
+						}else{
+						   $hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
+						}
+					}
+				}//FIN PARA EL INGRESO USUARIOS NUEVOS
+				else{//INICIO PARA INGRESO USUARIOS SUBSIGUIENTES
+					$limite = $consultaJornadaTotal - $consulta_nuevos_devuelto;
+					$colores = "#0071c5"; //AZUL OSCURO USUARIOS SUBSIGUIENTES
+					
+					if($consulta_subsiguientes_devuelto > $limite){
+						$hora = "SubsiguienteExcede";
+					}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+						$hora = $hora_h;
+					}else{
+						$hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
+					}
+				}
+
+			} //####FIN JORNADA MATUTINA
+			else if($consultarJornadaJornada_id == 2){//####INICIO JORNADA VESPERTINA
+				//INICIO PARA EL INGRESO USUARIOS NUEVOS
+				if ($expediente == ""){
+					$colores = "#008000"; //VERDE USUARIOS NUEVOS
+					if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
+						$hora = "NuevosExcede";
+					}else{
+						if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+							$hora = $hora_h;
+						}else{
+						   $hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
+						}
+					}
+				}//FIN PARA EL INGRESO USUARIOS NUEVOS
+				else{//INICIO PARA INGRESO USUARIOS SUBSIGUIENTES
+					$limite = $consultaJornadaTotal - $consulta_nuevos_devuelto;
+					$colores = "#0071c5"; //AZUL OSCURO USUARIOS SUBSIGUIENTES
+					
+					if($consulta_subsiguientes_devuelto > $limite){
+						$hora = "SubsiguienteExcede";
+					}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+						$hora = $hora_h;
+					}else{
+						$hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
+					}
+				}
+			}//####FIN JORNADA VESPERTINA	
+			else if($consultarJornadaJornada_id == 3){//####INICIO JORNADA MIXTA
+				//INICIO PARA EL INGRESO USUARIOS NUEVOS
+				if ($expediente == ""){
+					$colores = "#008000"; //VERDE USUARIOS NUEVOS
+					if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
+						$hora = "NuevosExcede";
+					}else{
+						if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+							$hora = $hora_h;
+						}else{
+						   $hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
+						}
+					}
+				}//FIN PARA EL INGRESO USUARIOS NUEVOS
+				else{//INICIO PARA INGRESO USUARIOS SUBSIGUIENTES
+					$limite = $consultaJornadaTotal - $consulta_nuevos_devuelto;
+					$colores = "#0071c5"; //AZUL OSCURO USUARIOS SUBSIGUIENTES
+					
+					if($consulta_subsiguientes_devuelto > $limite){
+						$hora = "SubsiguienteExcede";
+					}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+						$hora = $hora_h;
+					}else{
+						$hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
+					}
+				}
+			}//####FIN JORNADA MIXTA						
+		}else if($servicio == 6){//#####INICIO SERVICIO UNIDA DE NIÑOS Y ADOLESCENTES#####
 
 			if($consultar_colaborador_puesto_id == 2 || $consultar_colaborador_puesto_id == 4){//####INICIO PUESTO PSIQUIATRIA Y MED GENERAL####
 				

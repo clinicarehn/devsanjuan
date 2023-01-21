@@ -72,6 +72,7 @@
 				<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">SJD</a>
 					<ul class="dropdown-menu">
 					  <li><a class="dropdown-item" href="reporte_agenda.php">Reporte Agenda</a></li>			  
+					  <li><a class="dropdown-item" href="reporte_patologia_departamentos.php">Reporte Patologías</a></li>
 					</ul>
 				</li>							
 				<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Admisión</a>

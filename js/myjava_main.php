@@ -1,4 +1,104 @@
 <script>
+$(document).ready(function(){
+	getTempUsers();
+	getActiveUsers();
+	getPasiveUsers();
+	getDeadUsers();
+	getPendientesAtencion();
+	getPendientesPreclinica();
+	getTotalExtemporaneos();
+	getTotalAusencias();	
+});
+
+//DATOS MAIN
+function getTempUsers(){
+    var url = '<?php echo SERVERURL; ?>php/main/getTemporales.php';
+	$.ajax({
+	    type:'POST',
+		url:url,
+		success: function(data){
+           	$('#main_temporales').html(data);  		  		  			  
+		}
+	});	
+}
+
+function getActiveUsers(){
+    var url = '<?php echo SERVERURL; ?>php/main/getActivos.php';
+	$.ajax({
+	    type:'POST',
+		url:url,
+		success: function(data){
+           	$('#main_activos').html(data);  		  		  			  
+		}
+	});	
+}
+
+function getPasiveUsers(){
+    var url = '<?php echo SERVERURL; ?>php/main/getPasivos.php';
+	$.ajax({
+	    type:'POST',
+		url:url,
+		success: function(data){
+           	$('#main_pasivos').html(data);  		  		  			  
+		}
+	});	
+}
+
+function getDeadUsers(){
+    var url = '<?php echo SERVERURL; ?>php/main/getFallecidos.php';
+	$.ajax({
+	    type:'POST',
+		url:url,
+		success: function(data){
+           	$('#main_fallecidos').html(data);  		  		  			  
+		}
+	});	
+}
+
+function getTotalAusencias(){
+    var url = '<?php echo SERVERURL; ?>php/main/totalAusencias.php';
+	$.ajax({
+	    type:'POST',
+		url:url,
+		success: function(data){
+           	$('#main_ausencias').html(data);  		  		  			  
+		}
+	});	
+}
+
+function getPendientesAtencion(){
+    var url = '<?php echo SERVERURL; ?>php/main/pendienteAtenciones.php';
+	$.ajax({
+	    type:'POST',
+		url:url,
+		success: function(data){
+           	$('#main_prendiente_ata').html(data);  		  		  			  
+		}
+	});	
+}
+
+function getPendientesPreclinica(){
+    var url = '<?php echo SERVERURL; ?>php/main/pendientePreclinica.php';
+	$.ajax({
+	    type:'POST',
+		url:url,
+		success: function(data){
+           	$('#main_pendiente_preclinica').html(data);  		  		  			  
+		}
+	});	
+}
+
+function getTotalExtemporaneos(){
+    var url = '<?php echo SERVERURL; ?>php/main/totalExtemporaneos.php';
+	$.ajax({
+	    type:'POST',
+		url:url,
+		success: function(data){
+           	$('#main_extemporaneos').html(data);  		  		  			  
+		}
+	});	
+}
+
 //OBTENER TOTAL DE USUARIOS
 //TEMPORALES
 function getTemporales(){

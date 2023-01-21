@@ -1,9 +1,12 @@
-<?php
-session_start(); 
+<?php 
+session_start();   
 include('../funtions.php');
 	
 //CONEXION A DB
-$mysqli = connect_mysqli(); 
+$mysqli = connect_mysqli();
+
+date_default_timezone_set('America/Tegucigalpa');
+
 $servicio = $_POST['servicio'];
 
 //CONSULTA LOS DATOS DE LA ENTIDAD CORPORACION
@@ -15,15 +18,14 @@ $consulta = "SELECT pc.puesto_id as 'puesto_id', pc.nombre as 'puesto'
               ON c.puesto_id = pc.puesto_id
               WHERE sp.servicio_id = '$servicio'
               GROUP BY pc.nombre";
-$result = $mysqli->query($consulta);	
+$result = $mysqli->query($consulta);			  
 
-$arreglo = array();
-
-while($data = $result->fetch_assoc()){				
-	$arreglo["data"][] = $data;		
+if($result->num_rows>0){
+	echo '<option value="">Unidad</option>';
+	while($consulta2 = $result->fetch_assoc()){
+		echo '<option value="'.$consulta2['puesto_id'].'">'.$consulta2['puesto'].'</option>';
+	}
 }
-
-echo json_encode($arreglo);
 
 $result->free();//LIMPIAR RESULTADO
 $mysqli->close();//CERRAR CONEXIÓN

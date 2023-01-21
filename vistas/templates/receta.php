@@ -33,10 +33,8 @@
 		<label for="inputFecha" class="col-sm-1 col-form-label-md">Servicio <span class="priority">*<span/></label>
 		<div class="col-sm-3">
 			<div class="input-group mb-3">
-			  <select id="servicio_receta" name="servicio_receta" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio" required ></select>
-			  <div class="input-group-append" id="buscar_servicio_receta_electronica">				
-				<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fab fa-servicestack fa-lg"></i></a>
-			  </div>
+				<select class="selectpicker" id="servicio_receta" name="servicio_receta" data-live-search="true" title="Servicio">			  
+				</select>
 			</div>
 		</div>			
 	  </div>				  

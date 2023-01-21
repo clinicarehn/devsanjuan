@@ -286,14 +286,9 @@ toDataURL(
 )
 
 //INICIO DATATABLE OPCIONES
-var lengthMenu10 = [
-    [10, 20, 30, 50, 100, -1],
-    [10, 20, 30, 50, 100, "Todo"]
-];
-var lengthMenu5 = [
-    [5, 10, 20, 30, 50, 100, -1],
-    [5, 10, 20, 30, 50, 100, "Todo"]
-];
+var lengthMenu5 = [[5, 10, 20, 30, 50, 100, -1], [5, 10, 20, 30, 50, 100, "Todo"]];
+var lengthMenu10 = [[10, 20, 30, 50, 100, -1], [10, 20, 30, 50, 100, "Todo"]];
+var lengthMenu20 = [[20, 30, 50, 100, -1], [20, 30, 50, 100, "Todo"]];
 
 var dom = "<'row'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" +
     "<'row'<'col-sm-12'tr>>" +
@@ -325,6 +320,7 @@ function getModalidad() {
         success: function(data) {
             $('#formulario_entrevista_trabajo_social #modalidad').html("");
             $('#formulario_entrevista_trabajo_social #modalidad').html(data);
+            $('#formulario_entrevista_trabajo_social #modalidad').selectpicker('refresh');
         }
     });
 }
@@ -339,6 +335,7 @@ function getTrabajadorSocial() {
         success: function(data) {
             $('#formulario_entrevista_trabajo_social #trabajador_social').html("");
             $('#formulario_entrevista_trabajo_social #trabajador_social').html(data);
+            $('#formulario_entrevista_trabajo_social #trabajador_social').selectpicker('refresh');
         }
     });
 }
@@ -353,6 +350,8 @@ function getSolicitadoPor() {
         success: function(data) {
             $('#formulario_entrevista_trabajo_social #solicitado').html("");
             $('#formulario_entrevista_trabajo_social #solicitado').html(data);
+            $('#formulario_entrevista_trabajo_social #solicitado').selectpicker('refresh');
+
         }
     });
 }
@@ -367,6 +366,7 @@ function getRelacion() {
         success: function(data) {
             $('#formulario_entrevista_trabajo_social #relacion').html("");
             $('#formulario_entrevista_trabajo_social #relacion').html(data);
+            $('#formulario_entrevista_trabajo_social #relacion').selectpicker('refresh');
         }
     });
 }
@@ -381,6 +381,7 @@ function getServicioTS() {
         success: function(data) {
             $('#formulario_entrevista_trabajo_social #servicio_id').html("");
             $('#formulario_entrevista_trabajo_social #servicio_id').html(data);
+            $('#formulario_entrevista_trabajo_social #servicio_id').selectpicker('refresh');
         }
     });
 }
@@ -395,6 +396,7 @@ function getClasificacion3() {
         success: function(data) {
             $('#formulario_entrevista_trabajo_social #clasificacion3').html("");
             $('#formulario_entrevista_trabajo_social #clasificacion3').html(data);
+            $('#formulario_entrevista_trabajo_social #clasificacion3').selectpicker('refresh');
         }
     });
 }
@@ -409,6 +411,7 @@ function getIntervencion() {
         success: function(data) {
             $('#formulario_entrevista_trabajo_social #intervencion').html("");
             $('#formulario_entrevista_trabajo_social #intervencion').html(data);
+            $('#formulario_entrevista_trabajo_social #intervencion').selectpicker('refresh');
         }
     });
 }
@@ -423,6 +426,7 @@ function getClasificacion1() {
         success: function(data) {
             $('#formulario_entrevista_trabajo_social #clasificacion1').html("");
             $('#formulario_entrevista_trabajo_social #clasificacion1').html(data);
+            $('#formulario_entrevista_trabajo_social #clasificacion1').selectpicker('refresh');
         }
     });
 }
@@ -437,6 +441,7 @@ function getClasificacion2() {
         success: function(data) {
             $('#formulario_entrevista_trabajo_social #clasificacion2').html("");
             $('#formulario_entrevista_trabajo_social #clasificacion2').html(data);
+            $('#formulario_entrevista_trabajo_social #clasificacion2').selectpicker('refresh');
         }
     });
 }
@@ -564,6 +569,7 @@ function getServicioRecetaATA() {
         success: function(data) {
             $('#formulario_receta_medica #servicio_receta').html("");
             $('#formulario_receta_medica #servicio_receta').html(data);
+            $('#formulario_receta_medica #servicio_receta').selectpicker('refresh');
         }
     });
 }
@@ -578,6 +584,7 @@ function getServicioReceta() {
         success: function(data) {
             $('#formulario_receta_medica #servicio_receta').html("");
             $('#formulario_receta_medica #servicio_receta').html(data);
+            $('#formulario_receta_medica #servicio_receta').selectpicker('refresh');
         }
     });
 }
@@ -596,7 +603,7 @@ var lengthMenu = [
 //REFRESCAR LA SESION CADA CIERTO TIEMPO PARA QUE NO EXPIRE
 document.addEventListener("DOMContentLoaded", function() {
     // Invocamos cada 5 segundos ;)
-    const milisegundos = 5 * 1000;
+    const milisegundos = 15 * 1000;
     setInterval(function() {
         // No esperamos la respuesta de la petición porque no nos importa
         fetch("../php/signin_out/refrescar.php");
@@ -618,6 +625,8 @@ $(document).ready(function() {
             backdrop: 'static'
         });
     });
+
+    $('.selectpicker').selectpicker();
 });
 //FIN BUSQUEDA PRODUCTOS FACTURA
 

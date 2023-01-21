@@ -106,38 +106,26 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>					
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Servicio <span class="priority">*<span/></label>
-					  <div class="input-group mb-3">
-						  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_servicio_depurados_pasivos">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Profesional</label>
-					  <div class="input-group mb-3">
-						  <select id="medico_general" name="medico_general" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_profesional_depurados_pasivos">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Profesional</label>
-					  <div class="input-group mb-3">
-						  <select id="medico_general1" name="medico_general1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_profesional_depurados_pasivos1">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="servicio">Servicio</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio" name="departamento_cliente" data-size="7" data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="medico_general">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="medico_general" name="medico_general" data-size="7" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="medico_general1">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="medico_general1" name="medico_general1" data-size="7" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
 					</div>						
 				</div>		
 
@@ -204,39 +192,27 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>					
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Servicio</label>
-					  <div class="input-group mb-3">
-						  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_servicio_depurados_fallecidos">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="servicio">Servicio</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio" name="servicio" data-size="7" data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Profesional</label>
-					  <div class="input-group mb-3">
-						  <select id="medico_general" name="medico_general" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_profesional_depurados_fallecidos">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="medico_general">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="medico_general" name="medico_general" data-size="7" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Profesional</label>
-					  <div class="input-group mb-3">
-						  <select id="medico_general1" name="medico_general1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_profesional_depurados_fallecidos">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="medico_general1">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="medico_general1" name="medico_general1" data-size="7" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
+					</div>					
 				</div>		
 
 				<div class="form-row">
@@ -273,26 +249,24 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 
     <form class="form-inline" id="form_main">
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Estado</span>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Estado</span>
+					<select id="status" name="status" class="selectpicker" title="Estado" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="status" name="status" class="custom-select" style="width:120px;" data-toggle="tooltip" data-placement="top" title="Estado">
-				<option value="">Estado</option>
-			</select>		
-		</div>	   
-      </div>	
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Reporte</span>
+		</div>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Reporte</span>
+					<select id="reporte" name="reporte" class="selectpicker" title="Reporte" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="reporte" name="reporte" class="custom-select" style="width:115px;" data-toggle="tooltip" data-placement="top" title="Reporte">
-				<option value="">Reporte</option>
-			</select>		
-		</div>		   
-      </div>	
+		</div>	
 	  <div class="form-group mr-1">
 		<div class="input-group">				
 			<div class="input-group-append">				

@@ -78,6 +78,7 @@ $mysqli->close();//CERRAR CONEXIÓN
     <title>Citas :: <?php echo $empresa; ?></title>
 	<link href="<?php echo SERVERURL; ?>/css/estilo-paginacion.css" rel="stylesheet">
     <link href="<?php echo SERVERURL; ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"/>
+	<link href="<?php echo SERVERURL; ?>bootstrap/css/bootstrap-select.min.css" rel="stylesheet" crossorigin="anonymous"/>
     <link href="<?php echo SERVERURL; ?>bootstrap/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous"/>
     <link href="<?php echo SERVERURL; ?>login/css/all.css" rel="stylesheet">
     <link href="<?php echo SERVERURL; ?>css/style.css" rel="stylesheet"/>
@@ -101,36 +102,34 @@ $mysqli->close();//CERRAR CONEXIÓN
 		</ol>
 
 		<form class="form-inline" id="botones_citas">
-		  <div class="form-group mr-1">
-		  	<div class="input-group">				
-				<div class="input-group-append">				
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+			<div class="form-group mx-sm-3 mb-1">
+				<div class="input-group">
+					<div class="input-group-append">
+						<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+						<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
+						</select>
+					</div>	
 				</div>
-				<select id="servicio" name="servicio" class="custom-select" style="width:200px;" data-toggle="tooltip" data-placement="top" title="Consultorio">
-					<option value="">Servicio</option>
-			    </select>	
 			</div>
-		  </div>
-		  <div class="form-group mr-1">
-		  	<div class="input-group">				
-				<div class="input-group-append">				
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
+			<div class="form-group mx-sm-3 mb-1">
+				<div class="input-group">
+					<div class="input-group-append">
+						<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
+						<select id="unidad" name="unidad" class="selectpicker" title="Unidad" data-live-search="true">
+						</select>
+					</div>	
 				</div>
-				<select id="unidad" name="unidad" class="custom-select" style="width:200px;" data-toggle="tooltip" data-placement="top" data-toggle="tooltip" data-placement="top" title="Profesional">
-					<option value="">Unidad</option>
-				</select>
-			</div>		 
-		  </div>
-		  <div class="form-group mr-1">
-		  	<div class="input-group">				
-				<div class="input-group-append">				
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Profesional</span>
-				</div>
-				<select id="medico_general" name="medico_general" class="custom-select" style="width:200px;" data-toggle="tooltip" data-placement="top" data-toggle="tooltip" data-placement="top" title="Profesional">
-					<option value="">Profesional</option>
-				</select>
 			</div>
-		  </div>
+			<div class="form-group mx-sm-3 mb-1">
+				<div class="input-group">
+					<div class="input-group-append">
+						<span class="input-group-text"><div class="sb-nav-link-icon"></div>Profesional</span>
+						<select id="medico_general" name="medico_general" class="selectpicker" title="Profesional" data-live-search="true">
+						</select>
+					</div>	
+				</div>
+			</div>
+
 		  <div class="form-group mr-1">
 			<button class="btn btn-primary" type="submit" id="refresh"><div class="sb-nav-link-icon"></div><i class="fas fa-sync-alt"></i> Actualizar</button>
 		  </div>
@@ -175,6 +174,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 <script src="<?php echo SERVERURL; ?>js/query/jquery.js" crossorigin="anonymous"></script>
 <script src="<?php echo SERVERURL; ?>bootstrap/js/popper.min.js" crossorigin="anonymous"></script>
 <script src="<?php echo SERVERURL; ?>bootstrap/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="<?php echo SERVERURL; ?>bootstrap/js/bootstrap-select.min.js" crossorigin="anonymous"></script>
 <script src="<?php echo SERVERURL; ?>js/main.js" crossorigin="anonymous"></script>
 <script src="<?php echo SERVERURL; ?>sweetalert/sweetalert.min.js" crossorigin="anonymous"></script>
 

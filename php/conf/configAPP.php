@@ -7,9 +7,8 @@
 	const SERVEREMPRESA = "San Juan";
     const SERVER = "localhost";
     const DB = "sanjuan";
-    const USER = "kireds_sanjuan";
-	const PASS = "Sjd2021hn05%";
-    //const PASS = "Sjd202|hn05%#";
+    const USER = "clinicarehn_clinicare";
+    const PASS = "Clin1c@r32022#";
 	
 	//DATOS DE CONEXIÓN POSTGRESQL
     const SERVERPS = "192.168.1.230";

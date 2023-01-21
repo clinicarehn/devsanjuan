@@ -60,7 +60,7 @@ $(document).ready(function() {
 
 //BOTONES DE ACCIÓN PARA EJECUTAR EL REPORTE EN EXCEL
 $('#form_main #reportes_exportar').on('click', function(e){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	e.preventDefault();
 	if($('#form_main #servicio').val() != ""){
 	   reporteEXCEL();
@@ -114,7 +114,7 @@ $('#form_main #reportes_exportar_diario').on('click', function(e){
 });
 
 $('#form_main #reportes_exportar_diario_colaboradores').on('click', function(e){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	e.preventDefault();
 	if($('#form_main #servicio').val() != ""){
 	   reporteDiarioColaboradorEXCEL();
@@ -151,6 +151,7 @@ function getUsuario(){
 		success:function(data){		
 		   $('#form_main #usuario').html("");
 		   $('#form_main #usuario').html(data); 
+		   $('#form_main #usuario').selectpicker('refresh');
 		}
 	});
 	return false;		
@@ -166,6 +167,7 @@ function getDías(){
 		success:function(data){		
 		   $('#form_main #dias').html("");
 		   $('#form_main #dias').html(data);
+		   $('#form_main #dias').selectpicker('refresh');
 		}
 	});
 	return false;		
@@ -182,6 +184,7 @@ function getSercicio(){
 		success:function(data){		
 		   $('#form_main #servicio').html("");
 		   $('#form_main #servicio').html(data);
+		   $('#form_main #servicio').selectpicker('refresh');
 		}
 	});
 	return false;		
@@ -200,6 +203,7 @@ $(document).ready(function() {
             data:'servicio='+servicio_id,
             success: function(data){
 				$('#form_main #unidad').html(data);	
+				$('#form_main #unidad').selectpicker('refresh');
             }
          });
 		 
@@ -220,6 +224,7 @@ $(document).ready(function() {
             data:'servicio='+servicio_id+'&puesto_id='+puesto_id,
             success: function(data){
 				$('#form_main #profesional').html(data);
+				$('#form_main #profesional').selectpicker('refresh');
             }
          });
 		 

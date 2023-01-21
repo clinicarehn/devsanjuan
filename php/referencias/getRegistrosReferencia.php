@@ -20,11 +20,11 @@ $result = $mysqli->query($valores);
 $valores2 = $result->fetch_assoc();
 
 $datos = array(
-				0 => $valores2['expediente'], 
-				1 => $valores2['identidad'], 
- 				2 => $valores2['nombre'],
-                3 => $valores2['centro'],				
-				);
+          0 => $valores2['expediente'], 
+          1 => $valores2['identidad'], 
+          2 => $valores2['nombre'],
+          3 => $valores2['centro'],				
+	);
 echo json_encode($datos);
 
 

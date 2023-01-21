@@ -86,14 +86,14 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 				<div class="form-row" id="grupo_expediente">
 					<div class="col-md-12 mb-3">
-					  <label for="expedoente">Nombre</label>
-				     <input type="text" name="comentario" id="usuario" class="form-control" id="usuario" placeholder="Paciente" readonly="readonly">
+					  <label for="usuario">Nombre</label>
+				     <input type="text" name="usuario" id="usuario" class="form-control" id="usuario" placeholder="Paciente" readonly="readonly">
 					</div>			
 				</div>									
 				
 				<div class="form-row">			  
 					<div class="col-md-12 mb-3">
-					  <label for="direccion">Comentario <span class="priority">*<span/></label>
+					  <label for="comentario">Comentario <span class="priority">*<span/></label>
 					  <input type="text" name="comentario" id="comentario" class="form-control" id="contranaterior" placeholder="Comentario" required="required">
 					</div>
 				</div>						  
@@ -129,41 +129,37 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 				<div class="form-row">
 					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Expediente</label>
+					  <label for="expediente">Expediente</label>
 				      <input type="text" required="required" name="expediente" id="expediente"  readonly maxlength="100" class="form-control"/>
 					</div>		
 					<div class="col-md-8 mb-3">
-					  <label for="expedoente">Nombre</label>
+					  <label for="nombre">Nombre</label>
 				      <input type="text" required="required" name="nombre" id="nombre"  readonly maxlength="100" class="form-control"/>
 					</div>							
 				</div>		
 				<div class="form-row" id="grupo_expediente">
-					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Fecha Anterior</label>
+					<div class="col-md-3 mb-3">
+					  <label for="fecha_a">Fecha Anterior</label>
 				      <input type="text" required="required" name="fecha_a" id="fecha_a"  readonly value="<?php echo date ("Y-m-d");?>" maxlength="100" class="form-control"/>
 					</div>		
-					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Nueva Fecha</label>
+					<div class="col-md-3 mb-3">
+					  <label for="fecha_n">Nueva Fecha</label>
 				      <input type="date" required="required" name="fecha_n" id="fecha_n" value="<?php echo date ("Y-m-d");?>" maxlength="100" class="form-control"/>
 					</div>		
-					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Hora</label>
-				      <select id="hora_nueva" name="hora_nueva" class="custom-select" data-toggle="tooltip" data-placement="top" ="Nueva Hora" required="required">
-				      </select>
-					</div>							
-				</div>	
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Estado <span class="priority">*<span/></label>
-					  <div class="input-group mb-3">
-						  <select id="status_repro" name="status_repro" class="custom-select" data-toggle="tooltip" data-placement="top" title="Religión">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_estado_reprogramacion">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>									
+					<div class="col-md-3 mb-3">
+						<label for="hora_nueva">Hora <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="hora_nueva" name="hora_nueva" required data-live-search="true" title="Hora">			  
+						</select>
+						</div>
+					</div>	
+					<div class="col-md-3 mb-3">
+						<label for="status_repro">Estado <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="status_repro" name="status_repro" required data-live-search="true" title="Estado">			  
+						</select>
+						</div>
+					</div>											
 				</div>	
 				<div class="form-row" id="grupo_expediente">
 					<div class="col-md-12 mb-3">
@@ -182,7 +178,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 
 				<div class="form-check-inline">
-				  <label for="fecha">Comentario</label>
+				  <label for="checkeliminar">Comentario</label>
 				  <div class="col-md-6 mb-3">
 					  <input class="form-check-input" type="checkbox" name="respuesta" id="checkeliminar" value="1">
 					  <label class="form-check-label" for="exampleRadios1">Sí</label>				  
@@ -217,13 +213,13 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 				<div class="form-row">
 					<div class="col-md-12 mb-3">
-					  <label for="expedoente">Para</label>
+					  <label for="to">Para</label>
 					<input type="text" required="required" id="to" name="to" placeholder="Ejemplo: 97567896,97567897,97567898,97567899,97567810" maxlength="44" class="form-control" />
 					</div>								
 				</div>		
 				<div class="form-row">
 					<div class="col-md-12 mb-3">
-					  <label for="expedoente">Mensaje</label>
+					  <label for="text">Mensaje</label>
 					  <textarea id="text" name="text"  class="form-control" maxlength="160" rows="5"></textarea>
 				      <p id="charNum">160 Caracteres</p>
 				      <p style="color: blue;"><b>Ejemplo: 97567896,97567897,97567898,97567899,97567810<br/>Se puede enviar hasta 5 Números separados por coma (,)</b></p>
@@ -259,31 +255,36 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 				<div class="form-row">
 					<div class="col-md-2 mb-3">
-					  <label for="expedoente">Fecha</label>
+					  <label for="fecha">Fecha</label>
 					  <input type="date" required="required" id="fecha" name="fecha" value="<?php echo date ("Y-m-d");?>" title="Fecha Inicial" class="form-control"/>
-					</div>				
-					<div class="col-md-2 mb-3">
-					  <label for="expedoente">Servicio</label>
-					  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio"> 				   
-						<option value="">Seleccione</option>
-				      </select>
-					</div>	
-					<div class="col-md-2 mb-3">
-					  <label for="expedoente">Unidad</label>
-					  <select id="unidad" name="unidad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad"> 				   
-							<option value="">Seleccione</option>
-				      </select>
 					</div>	
 					<div class="col-md-3 mb-3">
-					  <label for="expedoente">Profesional</label>
-					  <select id="medico" name="medico" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional"> 				   
-						    <option value="">Seleccione</option>
-				      </select>
+						<label for="servicio">Servicio</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio" name="servicio" data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
 					</div>
 					<div class="col-md-3 mb-3">
-					  <label for="expedoente">Tipo de Reporte</label>
-					  <select id="tipo_reporte" name="tipo_reporte" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipo de Reporte">
-				      </select>
+						<label for="unidad">Unidad</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="unidad" name="unidad" data-live-search="true" title="Unidad">			  
+						</select>
+						</div>
+					</div>					
+					<div class="col-md-3 mb-3">
+						<label for="medico">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="medico" name="medico" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
+					</div>	
+					<div class="col-md-3 mb-3">
+						<label for="tipo_reporte">Tipo de Reporte</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="tipo_reporte" name="tipo_reporte" data-live-search="true" title="Tipo de Reporte">			  
+						</select>
+						</div>
 					</div>						
 				</div>			
 				<div class="form-row">
@@ -397,13 +398,14 @@ $mysqli->close();//CERRAR CONEXIÓN
 							<input type="radio" class="form-check-input" name="respuesta_confirmacion" id="no_respuesta_confirmacion" value="1">No					
 							</div>						 
 						</div>					      
-					</div>		
-					<div class="col-md-4 mb-3" id="grupo_confirmacion1" style="display: none;">
-					  <label for="expedoente">¿Confirmo?</label>
-					  <select id="confirmo_no" name="confirmo_no" class="custom-select" data-toggle="tooltip" data-placement="top" title= "Confirmación">
-						<option value="">Seleccione</option>
-				      </select>	
-					</div>								
+					</div>	
+					<div class="col-md-3 mb-3">
+						<label for="confirmo_no">Confirmación</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="confirmo_no" name="confirmo_no" data-live-search="true" title="Confirmación">			  
+						</select>
+						</div>
+					</div>							
 				</div>	
 
 				<div class="form-group">
@@ -454,23 +456,25 @@ $mysqli->close();//CERRAR CONEXIÓN
 					</div>				
 				</div>
 				<div class="form-row">
+					<div class="col-md-3 mb-3">
+						<label for="servicio_triage">Servicio</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio_triage" name="servicio_triage" required data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
+					</div>
 					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Servicio</label>
-					  <select id="servicio_triage" name="servicio_triage" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-				      </select>
-					</div>		
-					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Fecha Inicio</label>
+					  <label for="fecha_b">Fecha Inicio</label>
 				      <input type="date" required="required" id="fecha_b" name="fecha_b" value="<?php echo date ("Y-m-d");?>" class="form-control"/>
 					</div>		
 					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Fecha Fin</label>
+					  <label for="fecha_f">Fecha Fin</label>
 					  <input type="date" required="required" id="fecha_f" name="fecha_f" value="<?php echo date ("Y-m-d");?>" class="form-control"/>
 					</div>							
 				</div>		
 				<div class="form-row">
 					<div class="col-md-12 mb-3">
-					  <label for="expedoente">Reporte de Triage</label>
+					  <label for="reporte_triage">Reporte de Triage</label>
 					  <select id="reporte_triage" name="reporte_triage" class="custom-select" data-hide-disabled="true" data-size="10" data-live-search="true" title="Reporte">
 				      </select>
 					</div>									
@@ -510,49 +514,57 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 				<div class="form-row">
 					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Expediente</label>
+					  <label for="expediente_triage">Expediente</label>
 					  <input type="text" required="required" id="expediente_triage" name="expediente_triage" placeholder="Expediente o Identidad" readonly="readonly" class="form-control"/>
 					</div>		
 					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Fecha</label>
+					  <label for="fecha_triage">Fecha</label>
 				      <input type="date" required="required" readonly id="fecha_triage" name="fecha_triage" value="<?php echo date ("Y-m-d");?>" class="form-control"/>
 					</div>		
 					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Identidad</label>
+					  <label for="identidad_triage">Identidad</label>
 					  <input type="text" required="required" readonly id="identidad_triage" name="identidad_triage" class="form-control"/>
 					</div>							
 				</div>		
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Nombre</label>
+					<div class="col-md-6 mb-3">
+					  <label for="nombre_triage">Nombre</label>
 					  <input type="text" required="required" readonly id="nombre_triage" name="nombre_triage" class="form-control"/>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Atención</label>
-				     <select id="atencion_triage" name="atencion_triage" class="custom-select" required data-toggle="tooltip" data-placement="top" title="Atención">
-	                 </select>	
+					<div class="col-md-3 mb-3">
+						<label for="atencion_triage">Atención </label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="atencion_triage" name="atencion_triage" data-live-search="true" title="Atención">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Observación</label>
-					  <select id="observacion_triage" name="observacion_triage" class="custom-select" required data-toggle="tooltip" data-placement="top" title="Observación">
-	                  </select>
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="observacion_triage">Observación </label>			
+						<div class="input-group mb-3">
+							<select class="selectpicker" id="observacion_triage" name="observacion_triage" data-live-search="true" title="Observación">			  
+							</select>
+						</div>
+					</div>					
 				</div>
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Información</label>
-					  <select id="informacion_triage" name="informacion_triage" class="custom-select" required data-toggle="tooltip" data-placement="top" title="Informacion">
-	                  </select>		
+					<div class="col-md-3 mb-3">
+						<label for="informacion_triage">Información </label>			
+						<div class="input-group mb-3">
+							<select class="selectpicker" id="informacion_triage" name="informacion_triage" data-live-search="true" title="Información">			  
+							</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label for="expedoente">Tipo Atención</label>
-				     <select id="tipo_triage" name="tipo_triage" class="custom-select" required data-toggle="tooltip" data-placement="top" title="Tipo Atención">
-	                 </select>	
+					<div class="col-md-3 mb-3">
+						<label for="tipo_triage">Tipo Atención</label>			
+						<div class="input-group mb-3">
+							<select class="selectpicker" id="tipo_triage" name="tipo_triage" data-live-search="true" title="Tipo Atención">			  
+							</select>
+						</div>
 					</div>						
 				</div>
 				<div class="form-row">
 					<div class="col-md-12 mb-3">
-					  <label for="expedoente">Comentario</label>
+					  <label for="comentario_triage">Comentario</label>
 					  <textarea id="comentario_triage" name="comentario_triage" required placeholder="Comentario" class="form-control" maxlength="250" rows="3"></textarea>	
 					  <p id="charNum_triage">250 Caracteres</p>	
 					</div>							
@@ -592,54 +604,71 @@ $mysqli->close();//CERRAR CONEXIÓN
 		<li class="breadcrumb-item active" id="acciones_factura"><span id="label_acciones_factura"></span>Agenda</li>
 	</ol>
 
-    <form class="form-inline" id="form_agenda_main">		
-	  <div class="form-group mr-1">
-		   <select id="servicio" name="servicio" class="custom-select" style="width:150px;" data-toggle="tooltip" data-placement="top" title="Servicio"> 				   
-			   <option value="">Servicio</option>
-		   </select>	 	  
-      </div>
-	  <div class="form-group mr-1">
-		   <select id="unidad" name="unidad" class="custom-select" style="width:150px;" data-toggle="tooltip" data-placement="top" title="Unidadad"> 
-			   <option value="">Unidad</option>
-		   </select>	   
-      </div>	  
-	  <div class="form-group mr-1">
-		   <select id="medico_general" name="medico_general" class="custom-select" style="width:150px;" data-toggle="tooltip" data-placement="top" title="Profesional"> 
-		   	     <option value="">Profesional</option>
-		   </select>   
-      </div>	
-	  <div class="form-group mr-1">
-		   <input type="date" required="required" id="fecha" name="fecha" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
-      </div>	
-	  <div class="form-group mr-1">
+    <form class="form-inline" id="form_agenda_main">
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+					<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
+					<select id="unidad" name="unidad" class="selectpicker" title="Unidad" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Profesional</span>
+					<select id="medico_general" name="medico_general" class="selectpicker" title="Profesional" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>	
+		<div class="form-group mr-1">
+			<input type="date" required="required" id="fecha" name="fecha" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
+		</div>	
+		<div class="form-group mr-1">
 			<input type="date" required="required" id="fechaf" name="fechaf" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
-      </div>		  
-      <div class="form-group mr-1">
-         <input type="text" placeholder="Buscar por: Expediente, Nombre o Identidad" id="bs-regis" data-toggle="tooltip" data-placement="top" title="Buscar por: Expediente, Nombre o Identidad" autofocus class="form-control" size="25"/>
-      </div>
-      <div class="form-group mr-1">
-		   <select id="atencion" name="atencion" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Atención"> 
-			   	<option value="">Seleccione</option>
-		   </select>
-      </div>	  
-	  <div class="form-group">
-		<div class="dropdown show" data-toggle="tooltip" data-placement="top" title="Exportar">
-		  <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			 <i class="fas fa-download fa-lg"></i> Exportar
-		  </a>
-		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-		  	<a class="dropdown-item" href="#" id="send_sms">Enviar SMS</a>
-			<div class="dropdown-divider"></div>
-		 	<a class="dropdown-item" href="#" id="reporte">Reporte</a>
-			<a class="dropdown-item" href="#" id="Reporte_Agenda">Reporte Agenda</a>	
-			<a class="dropdown-item" href="#" id="agenda_triage">Triage - Agenda</a>
-			<a class="dropdown-item" href="#" id="agenda_usuarios">Agenda Diaria</a>
-			<a class="dropdown-item" href="#" id="confirmacion_agenda">Confirmación Agenda</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#" id="limpiar">Limpiar</a>			
-		  </div>
 		</div>		  
-	  </div> 	  	 	   
+		<div class="form-group mr-1">
+			<input type="text" placeholder="Buscar por: Expediente, Nombre o Identidad" id="bs-regis" data-toggle="tooltip" data-placement="top" title="Buscar por: Expediente, Nombre o Identidad" autofocus class="form-control" size="25"/>
+		</div>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Atención</span>
+					<select id="atencion" name="atencion" class="selectpicker" title="Atención" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>	
+	  
+		<div class="form-group">
+			<div class="dropdown show" data-toggle="tooltip" data-placement="top" title="Exportar">
+				<a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fas fa-download fa-lg"></i> Exportar
+				</a>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+				<a class="dropdown-item" href="#" id="send_sms">Enviar SMS</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#" id="reporte">Reporte</a>
+				<a class="dropdown-item" href="#" id="Reporte_Agenda">Reporte Agenda</a>	
+				<a class="dropdown-item" href="#" id="agenda_triage">Triage - Agenda</a>
+				<a class="dropdown-item" href="#" id="agenda_usuarios">Agenda Diaria</a>
+				<a class="dropdown-item" href="#" id="confirmacion_agenda">Confirmación Agenda</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#" id="limpiar">Limpiar</a>			
+				</div>
+			</div>		  
+		</div> 	  	 	   
     </form>	
 	<hr/>   
     <div class="form-group">
@@ -662,7 +691,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 		include "../js/sms.php";
 		include "../js/select.php"; 	
 		include "../js/functions.php"; 
-		include "../js/myjava_cambiar_pass.php"; 		
+		include "../js/myjava_cambiar_pass.php";	
 	?> 
 </body>
 </html>

@@ -214,8 +214,11 @@ function getColaborador(){
 		success: function(data){
 			$('#formulario #colaborador').html("");
 			$('#formulario #colaborador').html(data);
+			$('#formulario #colaborador').selectpicker('refresh');
+
 			$('#formulario_editar #colaborador1').html("");
-			$('#formulario_editar #colaborador1').html(data);			
+			$('#formulario_editar #colaborador1').html(data);
+			$('#formulario_editar #colaborador1').selectpicker('refresh');			
 		}
 	});
 	return false;	
@@ -230,8 +233,11 @@ function getStatus(){
 		success: function(data){
 			$('#formulario #estatus').html("");
 			$('#formulario #estatus').html(data);
+			$('#formulario #estatus').selectpicker('refresh');
+
 			$('#formulario_editar #estatus1').html("");
-			$('#formulario_editar #estatus1').html(data);			
+			$('#formulario_editar #estatus1').html(data);
+			$('#formulario_editar #estatus1').selectpicker('refresh');		
 		}
 	});
 	return false;	
@@ -245,9 +251,12 @@ function getEmpresa(){
 		url:url,		
 		success: function(data){
 			$('#formulario #empresa').html("");
-			$('#formulario #empresa').html(data);	
+			$('#formulario #empresa').html(data);
+			$('#formulario #empresa').selectpicker('refresh');
+
 			$('#formulario_editar #empresa1').html("");
-			$('#formulario_editar #empresa1').html(data);				
+			$('#formulario_editar #empresa1').html(data);
+			$('#formulario_editar #empresa1').selectpicker('refresh');				
 		}
 	});
 	return false;	
@@ -439,8 +448,14 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() 
 			    $('#formulario_editar #colaborador1').val(datos[0]);							
 				$('#formulario_editar #email1').val(datos[3]);
 				$('#formulario_editar #empresa1').val(datos[4]);
-			    $('#formulario_editar #tipo1').val(datos[5]);																											
+				$('#formulario_editar #empresa1').selectpicker('refresh');
+
+			    $('#formulario_editar #tipo1').val(datos[5]);	
+				$('#formulario_editar #tipo1').selectpicker('refresh');
+
 				$('#formulario_editar #estatus1').val(datos[6]);
+				$('#formulario_editar #estatus1').selectpicker('refresh');
+
 		        $("#formulario_editar #colaborador1").attr('disabled', true);			
 	            $('#registrar_editar').modal({
 			       show:true,
@@ -498,8 +513,11 @@ function getTipo(){
         success: function(data){		
 		    $('#formulario #tipo').html("");
 			$('#formulario #tipo').html(data);
+			$('#formulario #tipo').selectpicker('refresh');
+
 		    $('#formulario_editar #tipo1').html("");
-			$('#formulario_editar #tipo1').html(data);		
+			$('#formulario_editar #tipo1').html(data);	
+			$('#formulario_editar #tipo1').selectpicker('refresh');	
 		}			
      });		
 }
@@ -513,7 +531,8 @@ function getEstatus(){
 	    async: true,
         success: function(data){		
 		    $('#main_form #status').html("");
-			$('#main_form #status').html(data);		
+			$('#main_form #status').html(data);
+			$('#main_form #status').selectpicker('refresh');		
 		}			
      });		
 }

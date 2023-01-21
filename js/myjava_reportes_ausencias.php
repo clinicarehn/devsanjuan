@@ -66,6 +66,7 @@ function getServicio(){
         success: function(data){	
 		    $('#form_main #servicio').html("");
 			$('#form_main #servicio').html(data);
+			$('#form_main #servicio').selectpicker('refresh');
 		}			
      });	
 }
@@ -79,7 +80,8 @@ function getReporte(){
 	    async: true,
         success: function(data){
 		    $('#form_main #reporte').html("");
-			$('#form_main #reporte').html(data);				
+			$('#form_main #reporte').html(data);	
+			$('#form_main #reporte').selectpicker('refresh');			
         }
      });		
 }
@@ -345,7 +347,8 @@ $(document).ready(function() {
 		   data:'servicio='+servicio,
 		   success:function(data){
 		      $('#form_main #unidad').html("");
-			  $('#form_main #unidad').html(data);		  
+			  $('#form_main #unidad').html(data);
+			  $('#form_main #unidad').selectpicker('refresh');		  
 		  }
 	  });
 	  return false;			 				
@@ -365,7 +368,8 @@ $(document).ready(function() {
 		   data:'servicio='+servicio+'&puesto_id='+puesto_id,
 		   success:function(data){
 		      $('#form_main #profesional').html("");
-			  $('#form_main #profesional').html(data);		  
+			  $('#form_main #profesional').html(data);
+			  $('#form_main #profesional').selectpicker('refresh');	  
 		  }
 	  });
 	  return false;			 				
@@ -382,7 +386,7 @@ function limpiar(){
 }
 
 function modal_eliminarPendientes(agenda_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 10){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10|| getUsuarioSistema() == 16){	
         var pacientes_id = getPacientes_id(agenda_id);
 	    var nombre_usuario = consultarNombre(pacientes_id);
         var expediente_usuario = consultarExpediente(pacientes_id);
@@ -428,7 +432,7 @@ function modal_eliminarPendientes(agenda_id){
 }
 
 function modal_eliminarAusencias(ausencia_id, pacientes_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3  || getUsuarioSistema() == 3 || getUsuarioSistema() == 10 || getUsuarioSistema() == 18 || getUsuarioSistema() == 13 || getUsuarioSistema() == 18){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10|| getUsuarioSistema() == 16){	
 	    var nombre_usuario = consultarNombre(pacientes_id);
         var expediente_usuario = consultarExpediente(pacientes_id);
         var dato;
@@ -473,7 +477,7 @@ function modal_eliminarAusencias(ausencia_id, pacientes_id){
 }
 
 function modal_eliminarAsistencia(ata_id, expediente){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3  || getUsuarioSistema() == 10){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10|| getUsuarioSistema() == 16){	
         var pacientes_id = getPacientes_idconExpediente(expediente);
 	    var nombre_usuario = consultarNombre(pacientes_id);
         var expediente_usuario = consultarExpediente(pacientes_id);
@@ -519,7 +523,7 @@ function modal_eliminarAsistencia(ata_id, expediente){
 }
 	   
 function modal_eliminarExtemporaneos(extem_id, pacientes_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 10){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10|| getUsuarioSistema() == 16){	
 	    var nombre_usuario = consultarNombre(pacientes_id);
         var expediente_usuario = consultarExpediente(pacientes_id);
         var dato;
@@ -564,7 +568,7 @@ function modal_eliminarExtemporaneos(extem_id, pacientes_id){
 } 
 
 function eliminarPendientes(agenda_id, comentario){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 10){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10|| getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/reportes_ausencias/eliminarPendientes.php';
 		
 	var fecha = getFechaRegistroAusencia(id);
@@ -635,7 +639,7 @@ function eliminarPendientes(agenda_id, comentario){
 }
 
 function eliminarAsistencia(id, comentario){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 10){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10|| getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/reportes_ausencias/eliminarAsistencia.php';
 		
 	var fecha = getFechaRegistroAsistencia(id);
@@ -729,7 +733,7 @@ function eliminarAsistencia(id, comentario){
 }
 
 function eliminarAusencia(id, comentario){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 10){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10|| getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/reportes_ausencias/eliminarAusencia.php';
 		
 	var fecha = getFechaRegistroAusencia(id);
@@ -803,7 +807,7 @@ function eliminarAusencia(id, comentario){
 }
 
 function eliminarExtemporaneos(id, comentario){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 10){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10|| getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/reportes_ausencias/eliminarExtemporaneos.php';
 		
 	var fecha = getFechaRegistroExtemporaneos(id);
@@ -973,7 +977,8 @@ function getColaborador_usuario(){
 	    async: true,
         success: function(data){
 		     $('#form_main #colaborador_usuario').html("");
-			 $('#form_main #colaborador_usuario').html(data);	
+			 $('#form_main #colaborador_usuario').html(data);
+			 $('#form_main #colaborador_usuario').selectpicker('refresh');
 		}			
      });		
 }

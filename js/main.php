@@ -330,7 +330,8 @@ function getServicio(){
 	    async: true,
         success: function(data){	
 		    $('#formulario_facturacion #servicio_id').html("");
-			$('#formulario_facturacion #servicio_id').html(data);			
+			$('#formulario_facturacion #servicio_id').html(data);	
+			$('#formulario_facturacion #servicio_id').selectpicker('refresh');		
 		}			
      });	
 }
@@ -517,8 +518,8 @@ $('#formulario_facturacion #bt_del').on('click', function(e){
 
 //REFRESCAR LA SESION CADA CIERTO TIEMPO PARA QUE NO EXPIRE
 document.addEventListener("DOMContentLoaded", function(){
-    // Invocamos cada 5 segundos ;)
-    const milisegundos = 5 *1000;
+    // Invocamos cada 15 segundos ;)
+    const milisegundos = 15 *1000;
     setInterval(function(){
         // No esperamos la respuesta de la petición porque no nos importa
         fetch("<?php echo SERVERURL; ?>php/signin_out/refrescar.php");
@@ -538,114 +539,5 @@ function getPorcentajeISV(){
 		}
 	});
 	return isv;	
-}
-
-$(document).ready(function(){
-	getTempUsers();
-	getActiveUsers();
-	getPasiveUsers();
-	getDeadUsers();
-	getPendientesAtencion();
-	getPendientesPreclinica();
-	getTotalExtemporaneos();
-	getTotalAusencias();	
-	
-/*	setInterval('getTempUsers()',2000);
-	setInterval('getActiveUsers()',2000);
-	setInterval('getPasiveUsers()',2000);
-	setInterval('getDeadUsers()',2000);	
-	setInterval('getPendientesAtencion()',2000);
-	setInterval('getPendientesPreclinica()',2000);	
-	setInterval('getTotalExtemporaneos()',2000);
-	setInterval('getTotalAusencias()',2000);*/
-});
-
-//DATOS MAIN
-function getTempUsers(){
-    var url = '<?php echo SERVERURL; ?>php/main/getTemporales.php';
-	$.ajax({
-	    type:'POST',
-		url:url,
-		success: function(data){
-           	$('#main_temporales').html(data);  		  		  			  
-		}
-	});	
-}
-
-function getActiveUsers(){
-    var url = '<?php echo SERVERURL; ?>php/main/getActivos.php';
-	$.ajax({
-	    type:'POST',
-		url:url,
-		success: function(data){
-           	$('#main_activos').html(data);  		  		  			  
-		}
-	});	
-}
-
-function getPasiveUsers(){
-    var url = '<?php echo SERVERURL; ?>php/main/getPasivos.php';
-	$.ajax({
-	    type:'POST',
-		url:url,
-		success: function(data){
-           	$('#main_pasivos').html(data);  		  		  			  
-		}
-	});	
-}
-
-function getDeadUsers(){
-    var url = '<?php echo SERVERURL; ?>php/main/getFallecidos.php';
-	$.ajax({
-	    type:'POST',
-		url:url,
-		success: function(data){
-           	$('#main_fallecidos').html(data);  		  		  			  
-		}
-	});	
-}
-
-function getTotalAusencias(){
-    var url = '<?php echo SERVERURL; ?>php/main/totalAusencias.php';
-	$.ajax({
-	    type:'POST',
-		url:url,
-		success: function(data){
-           	$('#main_ausencias').html(data);  		  		  			  
-		}
-	});	
-}
-
-function getPendientesAtencion(){
-    var url = '<?php echo SERVERURL; ?>php/main/pendienteAtenciones.php';
-	$.ajax({
-	    type:'POST',
-		url:url,
-		success: function(data){
-           	$('#main_prendiente_ata').html(data);  		  		  			  
-		}
-	});	
-}
-
-function getPendientesPreclinica(){
-    var url = '<?php echo SERVERURL; ?>php/main/pendientePreclinica.php';
-	$.ajax({
-	    type:'POST',
-		url:url,
-		success: function(data){
-           	$('#main_pendiente_preclinica').html(data);  		  		  			  
-		}
-	});	
-}
-
-function getTotalExtemporaneos(){
-    var url = '<?php echo SERVERURL; ?>php/main/totalExtemporaneos.php';
-	$.ajax({
-	    type:'POST',
-		url:url,
-		success: function(data){
-           	$('#main_extemporaneos').html(data);  		  		  			  
-		}
-	});	
 }
 </script>

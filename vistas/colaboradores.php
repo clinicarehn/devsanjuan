@@ -97,37 +97,25 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>				
 				<div class="form-row">
 					<div class="col-md-4 mb-3">
-					  <label for="nombre">Empresa </label>
-					  <div class="input-group mb-3">
-						  <select id="empresa" name="empresa" class="custom-select" data-toggle="tooltip" data-placement="top" title="Empresa">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_empresa_colaboradores">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+						<label for="empresa">Empresa</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="empresa" name="empresa" data-size="5" data-live-search="true" title="Empresa">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label for="nombre">Puesto </label>
-					  <div class="input-group mb-3">
-						  <select id="puesto" name="puesto" class="custom-select" data-toggle="tooltip" data-placement="top" title="Puesto">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_puesto_colaboradores">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="puesto">Puesto</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="puesto" name="puesto" data-size="5" data-live-search="true" title="Puesto">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label for="nombre">Estado </label>
-					  <div class="input-group mb-3">
-						  <select id="estatus" name="estatus" class="custom-select" data-toggle="tooltip" data-placement="top" title="Estado">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_estatus_colaboradores">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="puesto">Estado</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="estatus" name="estatus" data-size="5" data-live-search="true" title="Estado">			  
+						</select>
+						</div>
 					</div>
 				</div>					  
 			</form>
@@ -184,7 +172,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 </div>	
 
 <div class="modal fade" id="registrar_servicios_colaboradores">
-	<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+	<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Registrar Servicio a Colaborador</h4>
@@ -200,52 +188,36 @@ $mysqli->close();//CERRAR CONEXIÓN
 					</div>				
 				</div>
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label for="nombre">Puesto <span class="priority">*<span/></label>
-					  <div class="input-group mb-3">
-						  <select id="puesto_id" name="puesto_id" class="custom-select" data-toggle="tooltip" data-placement="top" title="Pupesto">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_puesto_colaboradores">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="puesto_id">Puesto <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="puesto_id" name="puesto_id" required data-live-search="true" title="Puesto">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label for="nombre">Colaborador <span class="priority">*<span/></label>
-					  <div class="input-group mb-3">
-						  <select id="colaborador_id" name="colaborador_id" class="custom-select" data-toggle="tooltip" data-placement="top" title="Colaborador">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_puesto_colaboradores">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="colaborador_id">Colaborador <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="colaborador_id" name="colaborador_id" required data-live-search="true" title="Colaborador">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label for="nombre">Servicio <span class="priority">*<span/></label>
-					  <div class="input-group mb-3">
-						  <select id="servicio_colaborador" name="servicio_colaborador" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_servicio_colaboradores">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>				
+					<div class="col-md-3 mb-3">
+						<label for="servicio_colaborador">Servicio <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio_colaborador" name="servicio_colaborador" required data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
+					</div>		
+					<div class="col-md-3 mb-3">
+						<label for="servicio_colaborador">Jornada <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio_jornada_colaborador" name="servicio_jornada_colaborador" required data-live-search="true" title="Jornada">			  
+						</select>
+						</div>
+					</div>								
 				</div>
-				<div class="form-row">			  
-					<div class="col-md-4 mb-3">
-					   <label for="nombre">Jornada <span class="priority">*<span/></label>
-					   <div class="input-group mb-3">
-						  <select id="servicio_jornada_colaborador" name="servicio_jornada_colaborador" class="custom-select" data-toggle="tooltip" data-placement="top" title="Jornada">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_jornada_colaboradores">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>
+				<div class="form-row">
 					<div class="col-md-4 mb-3">
 						<label for="nombre">Nuevos <span class="priority">*<span/></label>
 						<input type="text" required name="cantidad_nuevos" id="cantidad_nuevos" placeholder="Nuevos" maxlength="100" class="form-control"/>
@@ -332,16 +304,15 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 
     <form class="form-inline" id="main_form">
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Estado</span>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Estado</span>
+					<select id="status" name="status" class="selectpicker" title="Estado" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="status" name="status" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Estado">
-				<option value="">Estado</option>
-			</select>
-		</div>		   
-      </div>	  
+		</div>	
       <div class="form-group mr-1">
          <input type="text" placeholder="Buscar por: Código, Nombre o Puesto" data-toggle="tooltip" data-placement="top" title="Buscar por: Código, Nombre o Puesto" id="bs-regis" autofocus class="form-control" size="50" autofocus />
       </div>

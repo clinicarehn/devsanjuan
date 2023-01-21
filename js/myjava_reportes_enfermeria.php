@@ -56,6 +56,7 @@ function getServicio(){
         success: function(data){
 		    $('#form_main #servicio').html("");
 			$('#form_main #servicio').html(data);
+			$('#form_main #servicio').selectpicker('refresh');
 		}
      });
 }
@@ -70,6 +71,7 @@ function getReporte(){
         success: function(data){
 		    $('#form_main #reporte').html("");
 			$('#form_main #reporte').html(data);
+			$('#form_main #reporte').selectpicker('refresh');
         }
      });
 }
@@ -236,7 +238,7 @@ function showTratamiento(postclinica_id, expediente){
 }
 
 function modal_eliminarPreclinica(preclinica_id, pacientes_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8){
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		var nombre_usuario = consultarNombre(pacientes_id);
 		var expediente_usuario = consultarExpediente(pacientes_id);
 		var dato;
@@ -281,7 +283,7 @@ function modal_eliminarPreclinica(preclinica_id, pacientes_id){
 }
 
 function modal_eliminarPostClinica(postclinica_id, pacientes_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 9){
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		var nombre_usuario = consultarNombre(pacientes_id);
 		var expediente_usuario = consultarExpediente(pacientes_id);
 		var dato;
@@ -326,7 +328,7 @@ function modal_eliminarPostClinica(postclinica_id, pacientes_id){
 }
 
 function eliminarPreclinica(id, comentario){
-  if(getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){
+  if(getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		var url = '<?php echo SERVERURL; ?>php/reportes_enfermeria/eliminarPreclinica.php';
 
 		var fecha = getFechaPreclinica(id);
@@ -429,7 +431,7 @@ function eliminarPreclinica(id, comentario){
 
 
 function eliminarPostclinica(id, comentario){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	var url = '<?php echo SERVERURL; ?>php/reportes_enfermeria/eliminarPostclinica.php';
 
 	var fecha = getFechaPostclinica(id);
@@ -523,7 +525,7 @@ $('#eliminar_postclinica #Si').on('click', function(e){ // add event submit We d
 });*/
 
 function editarPreclinica(preclinica_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	   var url = '<?php echo SERVERURL; ?>php/reportes_enfermeria/editarPreclinica.php';
 
 	   $.ajax({
@@ -572,7 +574,7 @@ function editarPreclinica(preclinica_id){
 }
 
 function editarPostclinica(postclinica_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	   var url = '<?php echo SERVERURL; ?>php/reportes_enfermeria/editarPostclinica.php';
 
 	   $.ajax({
@@ -628,6 +630,7 @@ function getPatologia(){
 		success: function(data){
 			$('#formulario_agregar_postclinica #patologia1').html("");
 			$('#formulario_agregar_postclinica #patologia1').html(data);
+			$('#formulario_agregar_postclinica #patologia1').selectpicker('refresh');
 		}
    });
    return false;
@@ -741,7 +744,7 @@ function modificarPostclinica(){
   }
 
 $('#form_main #exportar').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	 e.preventDefault();
 	 reporteEXCEL();
  }else{
@@ -755,7 +758,7 @@ $('#form_main #exportar').on('click', function(e){ // add event submit We don't 
 });
 
 $('#form_main #reporte_diario').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9){
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	 e.preventDefault();
 	 reporteEXCELDiario();
  }else{
@@ -832,6 +835,7 @@ function getColaborador_usuario(){
         success: function(data){
 		     $('#form_main #colaborador_usuario').html("");
 			 $('#form_main #colaborador_usuario').html(data);
+			 $('#form_main #colaborador_usuario').selectpicker('refresh');
 		}
      });
 }
@@ -878,18 +882,23 @@ function getVia(){
         success: function(data){
 		    $('#formulario_agregar_postclinica #via1').html("");
 			$('#formulario_agregar_postclinica #via1').html(data);
+			$('#formulario_agregar_postclinica #via1').selectpicker('refresh');
 
 		    $('#formulario_agregar_postclinica #via2').html("");
 			$('#formulario_agregar_postclinica #via2').html(data);
+			$('#formulario_agregar_postclinica #via2').selectpicker('refresh');
 
 		    $('#formulario_agregar_postclinica #via3').html("");
 			$('#formulario_agregar_postclinica #via3').html(data);
+			$('#formulario_agregar_postclinica #via3').selectpicker('refresh');
 
 		    $('#formulario_agregar_postclinica #via4').html("");
 			$('#formulario_agregar_postclinica #via4').html(data);
+			$('#formulario_agregar_postclinica #via4').selectpicker('refresh');
 
 		    $('#formulario_agregar_postclinica #via5').html("");
 			$('#formulario_agregar_postclinica #via5').html(data);
+			$('#formulario_agregar_postclinica #via5').selectpicker('refresh');
 		}
      });
 }

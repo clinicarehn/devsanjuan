@@ -1,6 +1,5 @@
 <?php
 echo "
-    <option value=''>Reporte</option>
 	<option value='ata'>ATA</option>
 	<option value='at2rd'>AT2R Diario</option> 
 	<option value='at2rm'>AT2R Mensual</option> 				   

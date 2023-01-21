@@ -20,7 +20,6 @@ $consulta = "SELECT pc.puesto_id, pc.nombre AS 'unidad'
 $result = $mysqli->query($consulta);			  
 
 if($result->num_rows>0){
-	echo '<option value="">Unidad</option>';
 	while($consulta2 = $result->fetch_assoc()){
 		echo '<option value="'.$consulta2['puesto_id'].'">'.$consulta2['unidad'].'</option>';
 	}

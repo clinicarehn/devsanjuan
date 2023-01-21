@@ -108,23 +108,27 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>
 				
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Referencia</label>
-					  <select id="consolidado_ref_ugd" name="consolidado_ref_ugd" class="custom-select" data-toggle="tooltip" data-placement="top" title= "Referencia">
-							<option>Seleccione</option>
-					   </select>	
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Año</label>
-					  <select id="año_ref_ugd" name="año_ref_ugd" class="custom-select" data-toggle="tooltip" data-placement="top" title= "Año">
-						  <option>Seleccione</option>
-					  </select>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Servicio</label>
-					  <select id="servicio_ref_ugd" name="servicio_ref_ugd" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-					  </select>	
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="consolidado_ref_ugd">Referencia</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="consolidado_ref_ugd" name="consolidado_ref_ugd" data-size="3" data-live-search="true" title="Referencia">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="año_ref_ugd">Referencia</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="año_ref_ugd" name="año_ref_ugd" data-size="3" data-live-search="true" title="Año">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="servicio_ref_ugd">Servicio</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio_ref_ugd" name="servicio_ref_ugd" data-size="3" data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
+					</div>					
 				</div>				
 			</form>
         </div>
@@ -135,8 +139,10 @@ $mysqli->close();//CERRAR CONEXIÓN
     </div>
 </div>
 
+
+
 <div class="modal fade" id="registrar_centros">
-	<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+	<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Formulario Centros</h4>
@@ -145,8 +151,14 @@ $mysqli->close();//CERRAR CONEXIÓN
 			</button>
         </div><div class="container"></div>
         <div class="modal-body">		
-			<form id="formulario_centros">			
-			
+			<form class="invoice-form" id="formulario_centros">
+				<div class="form-row">
+					<div class="col-md-12 mb-3">
+					  <input type="hidden" required readonly id="id-registro" name="id-registro" />
+					  <input type="text" required readonly id="pro" name="pro" class="form-control" readonly="readonly"/>
+					</div>				
+				</div>
+				
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item waves-effect waves-light">
 					  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home_centros" role="tab" aria-controls="home_centros" aria-selected="false">Centros</a>
@@ -157,73 +169,47 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</ul>
 				<br>
 				<div class="tab-content"><!--Inicio TAB Panel-->
-				
 					<div class="tab-pane fade active show" id="home_centros" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB HOME-->
-							
-							<div class="form-row">
-								<div class="col-md-12 mb-3">
-									<input type="hidden" readonly id="id-registro" name="id-registro" class="form-control"/>
-									<input type="text" required="required" readonly id="pro" name="pro" class="form-control" readonly="readonly"/>
-								</div>
-							</div>	
-							<div class="form-row">
-								<div class="col-md-4 mb-3">
-								  <label>Nivel</label>
-								  <div class="input-group mb-3">
-									  <select id="centros_nivel" name="centros_nivel" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel">
-										<option value="">Seleccione</option>
-									  </select>
-									  <div class="input-group-append" id="buscar_departamento_pacientes">				
-										<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div>
-										<i class="fas fa-search fa-lg"></i></a>
-								  </div>
-								</div>
-							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>Centro</label>
-							  <div class="input-group mb-3">
-								  <select id="centros_centro" name="centros_centro" class="custom-select" data-toggle="tooltip" data-placement="top" title="Centro">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_departamento_pacientes">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
-							</div>	
-							<div class="col-md-4 mb-3">
-							  <label>Departamento</label>
-							  <div class="input-group mb-3">
-								  <select id="departamento_referencias" name="departamento_referencias" class="custom-select" data-toggle="tooltip" data-placement="top" title="Departamento Referencias">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_departamento_pacientes">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
-							</div>						
-						</div>	
-
+					
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Red</label>
-							  <div class="input-group mb-3">
-								  <select id="red_centro" name="red_centro" class="custom-select" data-toggle="tooltip" data-placement="top" title="Red">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_departamento_pacientes">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
-							</div>	
-							<div class="col-md-8 mb-3">
+							<div class="col-md-3 mb-3">
+								<label for="centros_nivel">Nivel</label>			
+								<div class="input-group mb-3">
+								  <select class="selectpicker" id="centros_nivel" name="centros_nivel" data-size="7" data-live-search="true" title="Nivel">			  
+								 </select>
+								</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="centros_centro">Centro</label>			
+								<div class="input-group mb-3">
+								  <select class="selectpicker" id="centros_centro" name="centros_centro" data-size="7" data-live-search="true" title="Centro">			  
+								 </select>
+								</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="departamento_referencias">Departamento Referencias</label>			
+								<div class="input-group mb-3">
+								  <select class="selectpicker" id="departamento_referencias" name="departamento_referencias" data-size="7" data-live-search="true" title="Departamento Referencias">			  
+								 </select>
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-3 mb-3">
+								<label for="red_centro">Red</label>			
+								<div class="input-group mb-3">
+								  <select class="selectpicker" id="red_centro" name="red_centro" data-size="5" data-live-search="true" title="Red">			  
+								 </select>
+								</div>
+							</div>
+							<div class="col-md-9 mb-3">
 							  <label>Nombre</label>
 							  <input type="text" required="required" name="centros_nombre" class="form-control" id="centros_nombre" maxlength="100"/>
-							</div>						
-						</div>		
-					
-					</div><!-- FIN TAB HOME-->
-					
-					<div class="tab-pane fade" id="menu1_busquedas" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB BÚSQUEDA-->
+							</div>
+						</div>						
+												
+					</div><!-- FIN TAB HOME-->				
+					<div class="tab-pane fade" id="menu1_busquedas" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB TRATAMIENTO-->	
 
 						<div class="form-row">
 							<div class="col-md-12 mb-3">
@@ -239,16 +225,14 @@ $mysqli->close();//CERRAR CONEXIÓN
 
 						<nav aria-label="Page navigation example">
 							<ul class="pagination justify-content-center" id="pagination_centros"></ul>
-						</nav>						
-									
-					</div><!-- FIN TAB BÚSQUEDA-->
-					
-				</div><!--Fin TAB Panel-->
+						</nav>	
 
+					</div><!-- FIN TAB TRATAMIENTO-->					
+				</div><!-- FIN TAB CONTENT-->	
 			</form>
         </div>
 	   <div class="modal-footer">
-		 <button class="btn btn-primary ml-2" form="formulario_centros" type="submit" id="reg_centros" data-toggle="tooltip" data-placement="top" title="Exportar"><div class="sb-nav-link-icon"></div><i class="far fa-save fa-lg"></i> Registrar</button>		 
+		 <button class="btn btn-primary ml-2" form="formulario_centros" type="submit" id="reg_centros"><div class="sb-nav-link-icon"></div><i class="far fa-save fa-lg"></i> Registrar</button>		 
 	   </div>		
       </div>
     </div>
@@ -294,118 +278,79 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>					
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Nivel</label>
-					  <div class="input-group mb-3">
-						  <select id="centros_nivel" name="centros_nivel" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_niveles_referencias_recibidas" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="centros_nivel">Nivel</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="centros_nivel" name="centros_nivel" data-live-search="true" title="Nivel">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="centro">Centro</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="centro" name="centro" data-live-search="true" title="Centro">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="recibidade">Referencia Recidia de</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="recibidade" name="recibidade" data-live-search="true" title="Referencia Recidia de">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Centro</label>
-					  <div class="input-group mb-3">
-						  <select id="centro" name="centro" class="custom-select" data-toggle="tooltip" data-placement="top" title="Centro">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_tipo_centros_referencias_recibidas" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Referencia</label>
-					  <div class="input-group mb-3">
-						  <select id="recibidade" name="recibidade" class="custom-select" data-toggle="tooltip" data-placement="top" title="Referencia Recidia de">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_centros_referencias_recibidas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="patologia1">Patología</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia1" name="patologia1" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
+					</div>										
 				</div>		
 
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia1" name="patologia1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_patologia_referencias_recibidas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-8 mb-3">
-					  <label>Diagnostico</label>
-					  <input type="text" required="required" id="diagnostico" name="diagnostico" placeholder="Diagnostico" class="form-control"/>
-					</div>								
-				</div>	
-
 				<div class="form-row">	
-					<div class="col-md-4 mb-3">
-					  <label>Motivo</label>
-					  <div class="input-group mb-3">
-						  <select id="motivo" name="motivo" class="custom-select" data-toggle="tooltip" data-placement="top" title="Motivo">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_departamento_pacientes" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>				
-					<div class="col-md-4 mb-3">
-					  <label>Otro Motivo</label>
-					  <div class="input-group mb-3">
-						  <select id="motivo1" name="motivo1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Otro Motivo">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_departamento_pacientes" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>				
-					<div class="col-md-4 mb-3">
-					  <label>Servicio</label>
-					  <div class="input-group mb-3">
-						  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_servicios_referencias_recibidas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
-				</div>					
+					<div class="col-md-6 mb-3">
+						<label for="diagnostico">Diagnostico</label>
+						<input type="text" required="required" id="diagnostico" name="diagnostico" placeholder="Diagnostico" class="form-control" />
+					</div>	
+					<div class="col-md-3 mb-3">
+						<label for="motivo">Motivo</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="motivo" name="motivo" data-live-search="true" title="Motivo">			  
+						</select>
+						</div>
+					</div>	
+					<div class="col-md-3 mb-3">
+						<label for="motivo">Otro Motivo</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="motivo" name="motivo" data-live-search="true" title="Otro Motivo">			  
+						</select>
+						</div>
+					</div>																					
+				</div>				
 				
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Unidad</label>
-					  <div class="input-group mb-3">
-						  <select id="unidad" name="unidad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_departamento_pacientes">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Profesional</label>
-					  <div class="input-group mb-3">
-						  <select id="medico_general" name="medico_general" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_departamento_pacientes">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="servicio">Servicio</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio" name="servicio" data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
 					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="unidad">Unidad</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="unidad" name="unidad" data-live-search="true" title="Unidad">			  
+						</select>
+						</div>
+					</div>	
+					<div class="col-md-3 mb-3">
+						<label for="medico_general">Unidad</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="medico_general" name="medico_general" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
+					</div>					
 				</div>					
 			</form>
         </div>
@@ -456,139 +401,95 @@ $mysqli->close();//CERRAR CONEXIÓN
 				</div>					
 
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Nivel</label>
-					  <div class="input-group mb-3">
-						  <select id="centros_nivel" name="centros_nivel" class="custom-select" data-toggle="tooltip" data-placement="top" title="Nivel">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_niveles_referencias_enviadas" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="centros_nivel">Otro Motivo</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="centros_nivel" name="centros_nivel" data-live-search="true" title="Nivel">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Centro</label>
-					  <div class="input-group mb-3">
-						  <select id="centro" name="centro" class="custom-select" data-toggle="tooltip" data-placement="top" title="Centro">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_tipo_centro_referencias_enviadas" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="centro">Centro</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="centro" name="centro" data-live-search="true" title="Centro">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="enviadaa">Enviada a</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="enviadaa" name="enviadaa" data-live-search="true" title="Enviada a">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Envada a</label>
-					  <div class="input-group mb-3">
-						  <select id="enviadaa" name="enviadaa" class="custom-select" data-toggle="tooltip" data-placement="top" title="Enviada a">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_centros_referencias_enviadas" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					<div class="col-md-3 mb-3">
+						<label for="patologia1">Patología 1</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia1" name="patologia1" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
+					</div>									
 				</div>		
 
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia1" name="patologia1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_patologia1_referencias_enviadas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+				<div class="form-row">	
+					<div class="col-md-3 mb-3">
+						<label for="patologia2">Patología 2</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia2" name="patologia2" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia2" name="patologia2" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_patologia2_referencias_enviadas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Patología</label>
-					  <div class="input-group mb-3">
-						  <select id="patologia3" name="patologia3" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_patologia3_referencias_enviadas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
-				</div>		
-				
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
+					<div class="col-md-3 mb-3">
+						<label for="patologia3">Patología 3</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="patologia3" name="patologia3" data-live-search="true" title="Patología">			  
+						</select>
+						</div>
+					</div>
+					<div class="col-md-6 mb-3">
 					  <label>Diagnostico</label>
 					  <input type="text" required="required" id="diagnostico" name="diagnostico" placeholder="Diagnostico" class="form-control"/>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Motivo</label>
-					  <div class="input-group mb-3">
-						  <select id="motivo_traslado" name="motivo_traslado" class="custom-select" data-toggle="tooltip" data-placement="top" title="Motivo">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_departamento_pacientes" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Otro Motivo</label>
-					  <div class="input-group mb-3">
-						  <select id="motivo" name="motivo" class="custom-select" data-toggle="tooltip" data-placement="top" title="Otro Motivo">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_departamento_pacientes" style="display: none;">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
-					</div>						
+					</div>										
 				</div>		
 				
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Servicio</label>
-					  <div class="input-group mb-3">
-						  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_servicios_referencias_enviadas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="motivo_traslado">Motivo</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="motivo_traslado" name="motivo_traslado" data-live-search="true" title="Motivo">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Unidad</label>
-					  <div class="input-group mb-3">
-						  <select id="unidad" name="unidad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_unidades_referencias_enviadas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="motivo">Otro Motivo</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="motivo" name="motivo" data-live-search="true" title="Otro Motivo">			  
+						</select>
+						</div>
 					</div>	
-					<div class="col-md-4 mb-3">
-					  <label>Profesional</label>
-					  <div class="input-group mb-3">
-						  <select id="medico_general" name="medico_general" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_profesionales_referencias_enviadas">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success""><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="servicio">Servicio</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio" name="servicio" data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
+					</div>										
+				</div>		
+				
+				<div class="form-row">
+					<div class="col-md-3 mb-3">
+						<label for="unidad">Unidad</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="unidad" name="unidad" data-live-search="true" title="Unidad">			  
+						</select>
+						</div>
+					</div>	
+					<div class="col-md-3 mb-3">
+						<label for="medico_general">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="medico_general" name="medico_general" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
 					</div>						
 				</div>					
 			</form>
@@ -1004,26 +905,24 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 
     <form class="form-inline" id="form_main">
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+					<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="servicio" name="servicio" class="custom-select" style="width:150px;" data-toggle="tooltip" data-placement="top" title="Servicio">
-				<option value="">Servicio</option>
-			</select>
-		</div>			   
-      </div>	
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Referencia</span>
+		</div>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Referencia</span>
+					<select id="referencias" name="referencias" class="selectpicker" title="Referencia" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="referencias" name="referencias" class="custom-select" style="width:121px;" data-toggle="tooltip" data-placement="top" title="Referencia">
-				<option value="">Referencia</option>
-			</select>	
-		</div>		   
-      </div>
+		</div>
 	  <div class="form-group mr-1">
 		<div class="input-group">				
 			<div class="input-group-append">				

@@ -107,7 +107,7 @@ $(document).ready(function() {
                                     $('#ModalAdd #medico').val($('#botones_citas #medico_general').val());
                                     $('#ModalAdd #unidad').val($('#botones_citas #unidad').val());
                                     $('#ModalAdd #serv').val($('#botones_citas #servicio').val());
-                                    $('#form-addevent #profesional_citas').val(getProfesionalName($('#botones_citas #medico_general').val()));
+                                    $('#form-addevent #profesional_citas').val(getProfesionalName($('#botones_citas #medico_general').val()));                                    
                                     $("#context-menu #context-pacientes_id").val(getPacientes_id(event.id));
                                     $("#context-menu #context-agenda_id").val(event.id);
                                     var top = e.pageY - 10;
@@ -190,6 +190,7 @@ $(document).ready(function() {
                     $('#ModalEdit #fecha_citaedit1').val(moment(event.start).format('YYYY-MM-DD HH:mm:ss'));
                     $('#ModalEdit #fecha_citaeditend').val(moment(event.end).format('YYYY-MM-DD HH:mm:ss'));
                     $('#ModalEdit #color').val(event.color);
+                    $('#ModalEdit #color').selectpicker('refresh');
                     getColaborador_id(event.id);
                     getComentario(event.id);
                     getComentario1(event.id);
@@ -2644,7 +2645,9 @@ function getColaborador_id(dato) {
             } else {
                 ;
                 $('#ModalEdit #medico1').val(data);
+                $('#ModalEdit #medico1').selectpicker('refresh');
                 $('#ModalEdit #colaborador').val(data);
+                $('#ModalEdit #colaborador').selectpicker('refresh');
             }
         }
     });
@@ -2778,6 +2781,7 @@ $(document).ready(function() {
             data: 'servicio=' + servicio_id,
             success: function(data) {
                 $('#botones_citas #unidad').html(data);
+                $('#botones_citas #unidad').selectpicker('refresh');
             }
         });
 
@@ -2859,6 +2863,8 @@ $(document).ready(function() {
             success: function(data) {
                 $('#botones_citas #medico_general').html(data);
                 $('#form-editevent #colaborador').html(data);
+                $('#botones_citas #medico_general').selectpicker('refresh');
+                $('#form-editevent #colaborador').selectpicker('refresh');
             }
         });
 
@@ -2877,6 +2883,7 @@ $(document).ready(function() {
             data: 'puesto_id=' + puesto_id,
             success: function(data) {
                 $('#formulario_ausencias #medico_ausencia').html(data);
+                $('#formulario_ausencias #medico_ausencia').selectpicker('refresh');
             }
         });
 
@@ -2892,6 +2899,7 @@ function getUnidadesAusencias() {
         async: true,
         success: function(data) {
             $('#formulario_ausencias #colaborador_ausencia').html(data);
+            $('#formulario_ausencias #colaborador_ausencia').selectpicker('refresh');
         }
     });
     return false;
@@ -3075,6 +3083,7 @@ function getJornada() {
         success: function(data) {
             $('#formulario_sobrecupo #jornada').html("");
             $('#formulario_sobrecupo #jornada').html(data);
+            $('#formulario_sobrecupo #jornada').selectpicker('refresh');
         }
     });
     return false;
@@ -3090,6 +3099,7 @@ function getServiciosobrecupo() {
         success: function(data) {
             $('#formulario_sobrecupo #sobrecupo_servicio').html("");
             $('#formulario_sobrecupo #sobrecupo_servicio').html(data);
+            $('#formulario_sobrecupo #sobrecupo_servicio').selectpicker('refresh');
         }
     });
     return false;
@@ -3107,6 +3117,7 @@ $(document).ready(function() {
             data: 'servicio=' + servicio_id,
             success: function(data) {
                 $('#formulario_sobrecupo #sobrecupo_unidad').html(data);
+                $('#formulario_sobrecupo #sobrecupo_unidad').selectpicker('refresh');
             }
         });
 
@@ -3126,6 +3137,7 @@ $(document).ready(function() {
             data: 'puesto_id=' + puesto_id + '&servicio=' + servicio_id,
             success: function(data) {
                 $('#formulario_sobrecupo #sobrecupo_medico').html(data);
+                $('#formulario_sobrecupo #sobrecupo_medico').selectpicker('refresh');
             }
         });
 
@@ -3427,6 +3439,7 @@ function getStatusRepro() {
         success: function(data) {
             $('#mensaje_status #status_repro').html("");
             $('#mensaje_status #status_repro').html(data);
+            $('#mensaje_status #status_repro').selectpicker('refresh');
         }
     });
 }
@@ -3534,6 +3547,7 @@ function getServicio() {
         success: function(data) {
             $('#botones_citas #servicio').html("");
             $('#botones_citas #servicio').html(data);
+            $('#botones_citas #servicio').selectpicker('refresh');
         }
     });
 }
@@ -3824,6 +3838,7 @@ function getHoraConsulta() {
         success: function(data) {
             $('#form-editevent #hora_nueva').html("");
             $('#form-editevent #hora_nueva').html(data);
+            $('#form-editevent #hora_nueva').selectpicker('refresh');
         }
     });
 }
@@ -3837,6 +3852,7 @@ function getHoraConsultaSobrecupo() {
         success: function(data) {
             $('#formulario_sobrecupo #hora_sobrecupo').html("");
             $('#formulario_sobrecupo #hora_sobrecupo').html(data);
+            $('#formulario_sobrecupo #hora_sobrecupo').selectpicker('refresh');
         }
     });
 }
@@ -3850,6 +3866,7 @@ function getTipoSobrecupo() {
         success: function(data) {
             $('#formulario_sobrecupo #tipo_sobrecupo').html("");
             $('#formulario_sobrecupo #tipo_sobrecupo').html(data);
+            $('#formulario_sobrecupo #tipo_sobrecupo').selectpicker('refresh');
         }
     });
 }
@@ -3981,6 +3998,7 @@ function getServicioProfesional(colaborador_id) {
 		success: function(data) {
 			$('#formTransferirServicio #servicio_nuevo').html("");
 			$('#formTransferirServicio #servicio_nuevo').html(data);
+            $('#formTransferirServicio #servicio_nuevo').selectpicker('refresh');
 		}
 	});
 }
@@ -4280,8 +4298,9 @@ function obtener_unidad(){
 		url: url,
 		async: true,
 		success: function(data) {
+			$('#formulario_bloquedo #unidad_id').html("");
 			$('#formulario_bloquedo #unidad_id').html(data);
-			$('#formulario_bloquedo #unidad_id').html(data);
+            $('#formulario_bloquedo #unidad_id').selectpicker('refresh');
 		}
 	}); 
 }
@@ -4297,8 +4316,9 @@ $(document).ready(function() {
             async: true,
             data: 'puesto_id=' + puesto_id,
             success: function(data) {
+                $('#formulario_bloquedo #profesional_id').html("");
                 $('#formulario_bloquedo #profesional_id').html(data);
-                $('#formulario_bloquedo #profesional_id').html(data);
+                $('#formulario_bloquedo #profesional_id').selectpicker('refresh');
             }
         });
 

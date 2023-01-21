@@ -82,18 +82,14 @@ $mysqli->close();//CERRAR CONEXIÓN
 					</div>				
 				</div>
 				<div class="form-row" id="grupo_expediente">
-					<div class="col-md-6 mb-3">
-					  <label for="expediente">Registro</label>
-					  <div class="input-group mb-3">
-						  <select id="consulta_registro" name="consulta_registro" class="custom-select" data-toggle="tooltip" data-placement="top" title="Registro">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_registro_configuraciones_varios">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="consulta_registro">Registro</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="consulta_registro" name="consulta_registro" data-size="3" data-live-search="true" title="Registro">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-6 mb-3">
+					<div class="col-md-9 mb-3">
 					  <label for="edad">Nombre</label>
 					  <input type="text" required name="nombre_registro" id="nombre_registro" maxlength="100" class="form-control"/>
 					</div>				
@@ -121,16 +117,15 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 
     <form class="form-inline" id="form_main">
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Consulta</span>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Consulta</span>
+					<select id="consulta" name="consulta" class="selectpicker" title="Consulta" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="consulta" name="consulta" class="custom-select" style="width:200px;" data-toggle="tooltip" data-placement="top" title="Estado">
-				<option value="">Consulta</option>
-			</select>		
-		</div>	   
-      </div>  
+		</div>	  
       <div class="form-group mr-1">
          <input type="text" placeholder="Buscar por: Código o Nombre" data-toggle="tooltip" data-placement="top" title="Buscar por: Código o Nombre" id="bs_regis" autofocus class="form-control" size = "80" autofocus />
       </div>	  

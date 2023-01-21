@@ -211,12 +211,8 @@ $mysqli->close();//CERRAR CONEXIÓN
 						<div class="form-check form-check-inline">
 						   <label class="form-check-label mr-1 mb-3" for="servicio">Servicio </label>
 						  <div class="input-group mb-3">
-							  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-								<option value="">Seleccione</option>
-							  </select>
-							  <div class="input-group-append" id="buscar_servicios_quejas">				
-								<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-							  </div>
+							 <select class="selectpicker" id="servicio" name="servicio" data-live-search="true" title="Servicio">			  
+							 </select>
 						   </div>					  
 						</div>						
 					</div>							
@@ -346,17 +342,16 @@ $mysqli->close();//CERRAR CONEXIÓN
 		<li class="breadcrumb-item active" id="acciones_factura"><span id="label_acciones_factura"></span>Quejas y Sugerencias</li>
 	</ol>
 	
-    <form class="form-inline" id="form_main">	
-	<div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+    <form class="form-inline" id="form_main">
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+					<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="servicio" name="servicio" class="custom-select" style="width:160px;" data-toggle="tooltip" data-placement="top" title="Servicio">
-				<option value="">Servicio</option>
-			</select>	
-		</div>	   
-      </div>	
+		</div>			
 	  <div class="form-group mr-1">	   
 		<div class="input-group">				
 			<div class="input-group-append">				

@@ -15,8 +15,7 @@ $consulta = "SELECT centros_id, centro_nombre
 	WHERE niveles_centros_id = '$nivel' AND niveles_grupo_id = '$centro_id'";
 $result = $mysqli->query($consulta);
 
-if($result->num_rows>0){
-	echo '<option value="">Seleccione</option>';	
+if($result->num_rows>0){	
 	while($consulta2 = $result->fetch_assoc()){
 		echo '<option value="'.$consulta2['centros_id'].'">'.$consulta2['centro_nombre'].'</option>';
 	}

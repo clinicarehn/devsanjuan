@@ -79,21 +79,33 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 
     <form class="form-inline" id="form_main">
-	  <div class="form-group mr-1">
-		<select id="servicio" name="servicio" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Servicio">
-			<option value="">Servicio</option>
-		</select>		   
-      </div>	
-	  <div class="form-group mr-1">
-		<select id="unidad" name="unidad" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Unidad">
-			<option value="">Unidad</option>
-		</select>		   
-      </div>	
-	  <div class="form-group mr-1">
-		<select id="profesional" name="profesional" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Profesional">
-			<option value="">Profesional</option>		
-		</select>		   
-      </div>			  
+		<div class="form-group mx-sm-1 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+					<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>	
+		<div class="form-group mx-sm-1 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
+					<select id="unidad" name="unidad" class="selectpicker" title="Unidad" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>	
+		<div class="form-group mx-sm-1 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Profesional</span>
+					<select id="profesional" name="profesional" class="selectpicker" title="Profesional" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>				  
 	  <div class="form-group mr-1">
 		   <input type="date" required="required" id="fecha_i" name="fecha_i" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
       </div>	
@@ -103,11 +115,15 @@ $mysqli->close();//CERRAR CONEXIÓN
 	  <div class="form-group mr-1">
 		<input type="text" placeholder="Buscar por: Exp, Nombre, Apellido o Identidad" id="bs_regis" data-toggle="tooltip" data-placement="top" title="Buscar por: Expediente, Nombre, Apellido o Identidad" autofocus class="form-control" size="30"/> 
       </div>
-	  <div class="form-group mr-1">
-		<select id="usuario" name="usuario" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Usuario">
-			<option value="">Seleccione</option>		
-		</select>		   
-      </div>  
+	  <div class="form-group mx-sm-1 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Usuario</span>
+					<select id="usuario" name="usuario" class="selectpicker" title="Usuario" data-live-search="true">
+					</select>
+				</div>	
+			</div>
+		</div>	 
 	  <div class="form-group">
 		<div class="dropdown show" data-toggle="tooltip" data-placement="top" title="Expotar">
 		  <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

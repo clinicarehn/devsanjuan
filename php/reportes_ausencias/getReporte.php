@@ -1,6 +1,5 @@
 <?php
-echo "
-	<option value=''>Reporte</option>		   	
+echo "		   	
 	<option value='8'>Asegurados</option>	
 	<option value='1'>Atendidos</option>
 	<option value='2'>Ausencias</option> 	

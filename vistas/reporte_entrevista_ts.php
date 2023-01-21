@@ -60,6 +60,32 @@ $mysqli->close();//CERRAR CONEXIÓN
 	<?php include("script_css.php"); ?>		
 </head>
 <body>
+
+<div class="modal fade" id="mensaje_show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Información Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<form id="mensaje_sistema">		
+				<div class="form-row">
+					<div class="col-md-12 mb-3">
+					   <div class="modal-title" id="mensaje_mensaje_show"></div>
+					</div>					
+				</div>				
+			</form>
+      </div>
+	  <div class="modal-footer">
+		<button class="btn btn-success ml-2" type="submit" id="okay" data-dismiss="modal"><div class="sb-nav-link-icon"></div><i class="fas fa-thumbs-up fa-lg"></i> Okay</button>				
+	  </div>	  
+    </div>
+  </div>
+</div>
+
    <!--Ventanas Modales-->
    <!-- Small modal -->  
   <?php include("templates/modals.php"); ?> 

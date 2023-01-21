@@ -94,15 +94,19 @@
 				</div>
 
 				<div class="form-row">
-					<div class="col-md-6 mb-3">
-					  <label>Servicio Anterior</label>
-					  <input type="text" required readonly id="servicio_anterior" name="servicio_anterior" class="form-control"/>
-					</div>
-					<div class="col-md-6 mb-3">
-					  <label>Servicio Nuevo</label>
-						<select id="servicio_nuevo" name="servicio_nuevo" class="form-control" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione<option>
+					<div class="col-md-3 mb-3">
+						<label for="servicio_anterior">Servicio Anterior</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio_anterior" name="servicio_anterior" readonly data-live-search="true" title="Servicio Anterior">			  
 						</select>
+						</div>
+					</div>
+					<div class="col-md-3 mb-3">
+						<label for="servicio_nuevo">Servicio</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio_nuevo" name="servicio_nuevo" data-live-search="true" title="Servicio">			  
+						</select>
+						</div>
 					</div>
 				</div>
 
@@ -172,7 +176,7 @@
 						</div>					
 						
 						<div class="form-row">			  
-							<div class="col-md-4 mb-3">
+							<div class="col-md-4 mb-3" style="display: none;">
 							  <label>Fecha <span class="priority">*<span/></label>
 							  <input type="date" required class="form-control" name="fecha_re" id="fecha_re" value="<?php echo date ("Y-m-d");?>" maxlength="100"/>
 							</div>
@@ -186,47 +190,62 @@
 								 <input type="text" required name="lastname" class="form-control" id="lastname" maxlength="100"/>
 							     <div id="suggestions_apellido" class="suggestions"></div>
 							  </div>								  
-							</div>							
-						</div>	
-						
-						<div class="form-row">			  
+							</div>	
 							<div class="col-md-4 mb-3">
 							  <label>Nombres <span class="priority">*<span/></label>
 							  <div class="input-group mb-3">
 								  <input type="text" required name="name" class="search_query form-control" id="name" maxlength="100"/>
 								  <div id="suggestions_name" class="suggestions"></div>
 							  </div>								  
+							</div>													
+						</div>	
+						
+						<div class="form-row">	
+							<div class="col-md-3 mb-3">
+								<label for="sexo">Sexo <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="sexo" name="sexo" required data-live-search="true" title="Sexo">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Sexo <span class="priority">*<span/></label>
-							  <select required name="sexo" id="sexo" class="custom-select" data-toggle="tooltip" data-placement="top" title="Género">
-								<option value="">Seleccione</option>
-					          </select> 
+							<div class="col-md-3 mb-3">
+								<label for="tipo">Tipo <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="tipo" name="tipo" required data-live-search="true" title="Tipo">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-4 mb-3">
+							<div class="col-md-3 mb-3">
 							  <label>Fecha de Nacimiento <span class="priority">*<span/></label>
 							  <input type="date" required name="fecha" class="form-control" id="fecha" value="<?php echo date ("Y-m-d");?>" maxlength="100" title="Mes-Dia-Año"/>
-							</div>							
-						</div>
-						
-						<div class="form-row">			  
-							<div class="col-md-4 mb-3">
+							</div>	
+							<div class="col-md-3 mb-3">
 							  <label>Teléfono <span class="priority">*<span/></label>
 							  <input type="number" required name="telefono1" id="telefono1" placeholder="Ejemplo: 97567896" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" title="Este campo es utilizado para la plantilla SMS para enviar los mensajes de texto, debe llenarse"/>
-							</div>
-							<div class="col-md-4 mb-3">
+							</div>																											
+						</div>
+						
+						<div class="form-row">										  
+							<div class="col-md-3 mb-3">
 							  <label>Teléfono </label>
 						      <input type="number" name="telefono2" id="telefono2" placeholder="Ejemplo: 97567896" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" title="Este campo es utilizado para la plantilla SMS para enviar los mensajes de texto, debe llenarse" class="form-control"/>
 					          </select> 
 							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Tipo <span class="priority">*<span/></label>
-							  <select required name="tipo" id="tipo" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipo">
-						      </select>  
-							</div>								
-						
+							<div class="col-md-3 mb-3">
+								<label for="departamento">Departamento <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="departamento" name="departamento" required data-live-search="true" title="Departamento">			  
+								</select>
+								</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="municipio">Municipios <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="municipio" name="municipio" required data-live-search="true" title="Municipios">			  
+								</select>
+								</div>
+							</div>										
 						</div>	
-
 						<div class="form-row">			  
 							<div class="col-md-12 mb-3">
 							  <label>Dirección <span class="priority">*<span/></label>
@@ -234,93 +253,60 @@
 							  <p id="charNum_pacientes_localidad">250 Caracteres</p>
 							</div>						
 						</div>	
-						
-						<div class="form-row">		
-							<div class="col-md-4 mb-3">
-							  <label>Departamento <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="departamento" name="departamento" class="custom-select" data-toggle="tooltip" data-placement="top" title="Modalidad">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_departamento_pacientes">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
-							</div>							
-							<div class="col-md-4 mb-3">
-							  <label>Municipios <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="municipio" name="municipio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Religión">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_municipio_pacientes">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
-							</div>						
-						</div>					
+									
 					
 					</div><!--FIN TAB HOME-->
 					<div class="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB OTRA INFORMACION-->
-						<div class="form-row">			  
-							<div class="col-md-4 mb-3">
-							  <label>País <span class="priority">*<span/></label>
-							  <select name="pais" id="pais" class="custom-select" data-toggle="tooltip" data-placement="top" title="País">
-						      </select> 
+						<div class="form-row">	
+							<div class="col-md-3 mb-3">
+								<label for="pais">País <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="pais" name="pais" required data-live-search="true" title="País">			  
+								</select>
+								</div>
+							</div>	
+							<div class="col-md-3 mb-3">
+								<label for="estado_civil">Estado Civil <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="estado_civil" name="estado_civil" required data-live-search="true" title="Estado Civil">			  
+								</select>
+								</div>
+							</div>	
+							<div class="col-md-3 mb-3">
+								<label for="raza">Raza <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="raza" name="raza" required data-live-search="true" title="Raza">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Estado Civil <span class="priority">*<span/></label>
-							  <select name="estado_civil" id="estado_civil" class="custom-select" data-toggle="tooltip" data-placement="top" title="Estado Civil">
-								<option value="">Seleccione</option>
-					          </select> 
-							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Raza <span class="priority">*<span/></label>
-							  <select name="raza" id="raza" class="custom-select" data-toggle="tooltip" data-placement="top" title="Raza">
-						      </select> 
-							</div>							
+							<div class="col-md-3 mb-3">
+								<label for="religion">Religión <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="religion" name="religion" required data-live-search="true" title="Religión">			  
+								</select>
+								</div>
+							</div>													
 						</div>
 
-						<div class="form-row">			  
-							<div class="col-md-4 mb-3">
-							  <label>Religión <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="religion" name="religion" class="custom-select" data-toggle="tooltip" data-placement="top" title="Religión">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_religion_pacientes">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+						<div class="form-row">
+							<div class="col-md-3 mb-3">
+								<label for="profesion">Profesión <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="profesion" name="profesion" required data-live-search="true" title="Profesión">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Profesión <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="profesion" name="profesion" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesión">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_profesion_pacientes">				
-									<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div> 
+							<div class="col-md-3 mb-3">
+								<label for="escolaridad">Escolaridad <span class="priority">*<span/></label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="escolaridad" name="escolaridad" required data-live-search="true" title="Escolaridad">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Escolaridad <span class="priority">*<span/></label>
-						      <select name="escolaridad" id="escolaridad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Escolaridad">
-								<option value="">Seleccione</option>
-						      </select> 
-							</div>							
-						</div>
-
-						<div class="form-row">			  
 							<div class="col-md-6 mb-3">
 							  <label>Lugar de Nacimiento <span class="priority">*<span/></label>
 							  <input type="text" name="lugar_nacimiento" id="lugar_nacimiento" placeholder="Lugar de Nacimiento" class="form-control" maxlength="100"/>
-							</div>
-							<div class="col-md-6 mb-3">
-							  <label>Correo</label>
-						      <input type="email" name="correo" id="correo" placeholder="alguien@algo.com" class="form-control" title="Este correo será utilizado para enviar las citas creadas y las reprogramaciones, como las notificaciones de las citas pendientes de los usuarios." maxlength="100"/><label id="validate"></label>
-							</div>						
+							</div>														
 						</div>
 
 						<div class="form-row">			  
@@ -343,7 +329,14 @@
 							  <label>Teléfono </label>
 						      <input type="number" name="telefonoresp1" placeholder="Ejemplo: 97567896" id="telefonoresp1" value="" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" maxlength="100"/>
 							</div>						
-						</div>						
+						</div>	
+
+						<div class="form-row">			  
+							<div class="col-md-12 mb-3">
+							  <label>Correo</label>
+						      <input type="email" name="correo" id="correo" placeholder="alguien@algo.com" class="form-control" title="Este correo será utilizado para enviar las citas creadas y las reprogramaciones, como las notificaciones de las citas pendientes de los usuarios." maxlength="100"/><label id="validate"></label>
+							</div>						
+						</div>											
 					</div><!--FIN TAB OTRA INFORMACION-->					
 				
 				</div>				
@@ -441,23 +434,34 @@
 				</div>
 
 				<div class="form-row" id="grupo">
-					<div class="col-md-4 mb-3">
-					  <label>Servicio</label>
-						<select id="servicio" name="servicio" class="form-control" data-toggle="tooltip" data-placement="top" title="Servicio">
-							<option value="">Seleccione<option>
+					<div class="col-md-3 mb-3">
+						<label for="servicio">Servicio</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="servicio" name="servicio" data-live-search="true" title="Servicio">			  
 						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label>Unidad</label>
-						<select id="unidad" name="unidad" class="form-control" data-toggle="tooltip" data-placement="top" title="Unidad">
-							<option value="">Seleccione<option>
+					<div class="col-md-3 mb-3">
+						<label for="unidad">Unidad</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="unidad" name="unidad" data-live-search="true" title="Unidad">			  
 						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label>Profesional</label>
-						<select id="medico" name="medico" class="form-control" data-toggle="tooltip" data-placement="top" title="Profesional">
-							<option value="">Seleccione<option>
+					<div class="col-md-3 mb-3">
+						<label for="unidad">Unidad</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="unidad" name="unidad" data-live-search="true" title="Unidad">			  
 						</select>
+						</div>
+					</div>
+
+					<div class="col-md-3 mb-3">
+						<label for="Profesional">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="medico" name="medico" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
 					</div>
 				</div>
 
@@ -525,7 +529,6 @@
 					</div>					
 				</div>
 
-
 				<div class="tab-content" id="myTabContent"><!-- INICIO TAB CONTENT-->
 					<div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB HOME-->
 						<div class="form-row">
@@ -555,16 +558,12 @@
 						</div>
 
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Patología</label>
-							  <div class="input-group mb-3">
-								  <select id="patologia1" name="patologia1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_municipio_pacientes">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="patologia1">Patología</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="patologia1" name="patologia1" data-live-search="true" title="Patología">			  
+								</select>
+								</div>
 							</div>
 							<div class="col-md-4 mb-3">
 							  <label>Fecha</label>
@@ -577,23 +576,26 @@
 						</div>
 
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Servicio</label>
-							  <select id="servicio" name="servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-								<option value="">Seleccione</option>
-							  </select>
+							<div class="col-md-3 mb-3">
+								<label for="servicio">Servicio</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="servicio" name="servicio" data-live-search="true" title="Servicio">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Unidad</label>
-							  <select id="unidad" name="unidad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidadd">
-								<option value="">Seleccione</option>
-							  </select>
+							<div class="col-md-3 mb-3">
+								<label for="unidad">Unidad</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="unidad" name="unidad" data-live-search="true" title="Unidad">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Profesional</label>
-							  <select id="colaborador" name="colaborador" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-								<option value="">Seleccione</option>
-							  </select>
+							<div class="col-md-3 mb-3">
+								<label for="colaborador">Profesional</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="colaborador" name="colaborador" data-live-search="true" title="Profesional">			  
+								</select>
+								</div>
 							</div>
 						</div>
 
@@ -643,7 +645,8 @@
 														</div>
 													</td>
 													<td>
-														<select name="via[]" id="via_0" class="custom-select" data-toggle="tooltip" data-placement="top" title="Via"></select>
+														<select class="selectpicker" id="via[]" name="via_0" data-live-search="true" title="Via">			  
+														</select>
 													</td>
 													<td>
 														<input type="text" name="frecuencia[]" id="frecuencia_0" class="form-control price" placeholder="Frecuencia" autocomplete="off">
@@ -734,16 +737,12 @@
 						</div>
 
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Patología</label>
-							  <div class="input-group mb-3">
-								  <select id="patologia1" name="patologia1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Patología">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_municipio_pacientes">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="patologia1">Profesional</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="patologia1" name="patologia1" data-live-search="true" title="Patología">			  
+								</select>
+								</div>
 							</div>
 							<div class="col-md-4 mb-3">
 							  <label>Fecha</label>
@@ -756,23 +755,26 @@
 						</div>
 
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Servicio</label>
-							  <select id="servicio_postclinica" name="servicio_postclinica" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-								<option value="">Seleccione</option>
-							  </select>
+							<div class="col-md-3 mb-3">
+								<label for="servicio_postclinica">Servicio</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="servicio_postclinica" name="servicio_postclinica" data-live-search="true" title="Servicio">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Unidad</label>
-							  <select id="unidad" name="unidad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidadd">
-								<option value="">Seleccione</option>
-							  </select>
+							<div class="col-md-3 mb-3">
+								<label for="unidad">Unidad</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="unidad" name="unidad" data-live-search="true" title="Unidad">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Profesional</label>
-							  <select id="colaborador" name="colaborador" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-								<option value="">Seleccione</option>
-							  </select>
+							<div class="col-md-3 mb-3">
+								<label for="colaborador">Profesional</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="colaborador" name="colaborador" data-live-search="true" title="Profesional">			  
+								</select>
+								</div>
 							</div>
 						</div>
 
@@ -822,7 +824,7 @@
 														</div>
 													</td>
 													<td>
-														<select name="via[]" id="via_0" class="custom-select" data-toggle="tooltip" data-placement="top" title="Via"></select>
+														<select class="selectpicker" id="via_0" name="via[]" data-live-search="true" title="Via"></select>										
 													</td>
 													<td>
 														<input type="text" name="frecuenciaPostcllinica[]" id="frecuenciaPostcllinica_0" class="form-control price" placeholder="Frecuencia" autocomplete="off">
@@ -883,6 +885,7 @@
 					<div class="col-md-12 mb-3">
 						<input type="text" required="required" id="pro_entrevista" name="pro_entrevista" class="form-control" readonly="readonly"/>
 						<input type="hidden" required="required" id="pacientes_id" name="pacientes_id" class="form-control"/>
+						<input type="hidden" required="required" id="entrevista_id" name="entrevista_id" class="form-control"/>
 					</div>
 				</div>
 
@@ -899,16 +902,12 @@
 							  <label>Fecha <span class="priority">*<span/></label>
 							  <input type="date" id="fecha" name="fecha" value="<?php echo date ("Y-m-d");?>" class="form-control" required>
 							</div>
-							<div class="col-md-4 mb-3">
-							  <label>Modalidad <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="modalidad" name="modalidad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Modalidad">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_modalidad_entrevista" style="display: none">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="modalidad">Modalidad</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="modalidad" name="modalidad" data-live-search="true" title="Modalidad">			  
+								</select>
+								</div>
 							</div>
 						</div>
 
@@ -920,52 +919,40 @@
 						</div>
 
 						<div class="form-row">
-							<div class="col-md-6 mb-3">
+							<div class="col-md-9 mb-3">
 							  <label>Persona Entrevistada <span class="priority">*<span/></label>
 							  <input type="text" required="required" id="entrevistado" name="entrevistado"  placeholder="Persona Entrevistada" class="form-control" required>
 							</div>
-							<div class="col-md-6 mb-3">
-							  <label>Relación <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="relacion" name="relacion" class="custom-select" data-toggle="tooltip" data-placement="top" title="Relación">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_relacion_entrevista" style="display: none">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="relacion">Relación</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="relacion" name="relacion" data-live-search="true" title="Relación">			  
+								</select>
+								</div>
 							</div>
 						</div>
 
 						<div class="form-row">
-							<div class="col-md-6 mb-3">
-							  <label>Solicitado Por <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="solicitado" name="solicitado" class="custom-select" data-toggle="tooltip" data-placement="top" title="Solicitado Por">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_solicitado_por_entrevista">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="solicitado">Solicitado por</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="solicitado" name="solicitado" data-live-search="true" title="Solicitado por">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-6 mb-3">
+							<div class="col-md-9 mb-3">
 							  <label>Agenda <span class="priority">*<span/></label>
 							  <input type="text" required="required" id="agenda" name="agenda" placeholder="Indicaciones para el área de Admisión" class="form-control" required>
 							</div>
 						</div>
 
 						<div class="form-row">
-							<div class="col-md-4 mb-3">
-							  <label>Servicio <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="servicio_id" name="servicio_id" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_sevicio_entrevista" style="display: none">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="servicio_id">Servicio</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="servicio_id" name="servicio_id" data-live-search="true" title="Servicio">			  
+								</select>
+								</div>
 							</div>
 						</div>
 
@@ -1052,77 +1039,50 @@
 					<div class="tab-pane fade" id="menu_intervencion" role="tabpanel" aria-labelledby="home-tab"><!-- INICIO TAB ENTREVISTA-->
 
 						<div class="form-row">
-							<div class="col-md-6 mb-3">
-							  <label>Clasificación 1 <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="clasificacion1" name="clasificacion1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Clasificación 1">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_clasificacion_ts_1">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="clasificacion1">Clasificación 1</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="clasificacion1" name="clasificacion1" data-live-search="true" title="Clasificación 1">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-6 mb-3">
-							  <label>Tipología 1 <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="tipologia1" name="tipologia1" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipología 1">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_tipologia_ts_1">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="tipologia1">Tipología 1</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="tipologia1" name="tipologia1" data-live-search="true" title="Tipología 1">			  
+								</select>
+								</div>
 							</div>
+							<div class="col-md-3 mb-3">
+								<label for="clasificacion2">Clasificación 2</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="clasificacion2" name="clasificacion2" data-live-search="true" title="Clasificación 2">			  
+								</select>
+								</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="tipologia2">Tipología 2</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="tipologia2" name="tipologia2" data-live-search="true" title="Tipología 2">			  
+								</select>
+								</div>
+							</div>							
 						</div>
 
 						<div class="form-row">
-							<div class="col-md-6 mb-3">
-							  <label>Clasificación 2 <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="clasificacion2" name="clasificacion2" class="custom-select" data-toggle="tooltip" data-placement="top" title="Clasificación 2">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_clasificacion_ts_2">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="clasificacion3">Clasificación 3</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="clasificacion3" name="clasificacion3" data-live-search="true" title="Clasificación 3">			  
+								</select>
+								</div>
 							</div>
-							<div class="col-md-6 mb-3">
-							  <label>Tipología 2 <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="tipologia2" name="tipologia2" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipología 2">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_tipologia_ts_2">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
-							</div>
-						</div>
-
-						<div class="form-row">
-							<div class="col-md-6 mb-3">
-							  <label>Clasificación 3 <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="clasificacion3" name="clasificacion3" class="custom-select" data-toggle="tooltip" data-placement="top" title="Clasificación 3">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_clasificacion_ts_3">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
-							</div>
-							<div class="col-md-6 mb-3">
-							  <label>Tipología 3 <span class="priority">*<span/></label>
-							  <div class="input-group mb-3">
-								  <select id="tipologia3" name="tipologia3" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipología 3">
-									<option value="">Seleccione</option>
-								  </select>
-								  <div class="input-group-append" id="buscar_tipologia_ts_3">
-									<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-								  </div>
-							   </div>
+							<div class="col-md-3 mb-3">
+								<label for="tipologia3">Tipología 3</label>			
+								<div class="input-group mb-3">
+								<select class="selectpicker" id="tipologia3" name="tipologia3" data-live-search="true" title="Tipología 3">			  
+								</select>
+								</div>
 							</div>
 						</div>
 

@@ -16,7 +16,6 @@ $consulta = "SELECT id, patologia_id, LEFT(nombre,45) AS 'nombre'
 $result = $mysqli->query($consulta);
 
 if($result->num_rows>0){
-	echo '<option value="">Seleccione</option>';
 	while($consulta2 = $result->fetch_assoc()){
 		echo '<option value="'.$consulta2['id'].'">['.$consulta2['patologia_id'].'] '.$consulta2['nombre'].'</option>';
 	}

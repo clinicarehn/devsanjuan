@@ -15,7 +15,6 @@ $consulta = "SELECT *
 $result = $mysqli->query($consulta);			  
 
 if($result->num_rows>0){
-	echo '<option value="">Seleccione</option>';
 	while($consulta2 = $result->fetch_assoc()){
 		echo '<option value="'.$consulta2['tipologia_id'].'">'.$consulta2['nombre'].'</option>';
 	}
@@ -23,9 +22,4 @@ if($result->num_rows>0){
 
 $result->free();//LIMPIAR RESULTADO
 $mysqli->close();//CERRAR CONEXIÓN
-?>
-
-
-               
-			   
-               
+?>          

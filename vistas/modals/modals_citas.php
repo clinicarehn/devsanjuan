@@ -24,13 +24,17 @@
 					  <input type="text" name="profesional_citas" readonly class="form-control" id="profesional_citas" required="required">
 					</div>
 					<div class="col-md-4 mb-3">
-					  <label for="rtn_proveedores">Color</label>
-						  <select name="color" class="custom-select" id="color" readonly="readonly">
-							  <option value="">Choose</option>
-							  <option style="color:#0071c5;" value="#0071c5">&#9724; Azul Oscuro</option>
-							  <option style="color:#008000;" value="#008000">&#9724; Verde</option>
-						  </select>
-					</div>
+						<label for="color">Color </label>
+						<div class="input-group">
+							<div class="input-group-append">
+								<select id="color" name="color" class="selectpicker" title="Color" data-live-search="true" disabled>
+									<option value="">Choose</option>
+									<option style="color:#0071c5;" value="#0071c5">&#9724; Azul Oscuro</option>
+									<option style="color:#008000;" value="#008000">&#9724; Verde</option>
+								</select>
+							</div>	
+						</div>
+					</div>					
 				</div>
 				<div class="form-row">
 					<div class="col-md-12 mb-3">
@@ -49,9 +53,14 @@
 					  <input type="text" name="fecha_cita_end" class="form-control" id="fecha_cita_end" readonly="readonly" data-toggle="tooltip" data-placement="top" data-toggle="tooltip" data-placement="top" data-toggle="tooltip" data-placement="top" title="Año-Mes-Dia Hora:Minutos:Segundos">
 					</div>
 					<div class="col-md-4 mb-3">
-					  <label for="hora">Hora</label>
-						  <input type="time" name="hora" class="form-control" id="hora" placeholder="Hora" readonly data-toggle="tooltip" data-placement="top" title="Año-Mes-Dia Hora:Minutos:Segundos">
-					</div>					
+					  <label for="hora">Hora <span class="priority">*<span/></label>
+					  <div class="input-group">
+							<div class="input-group-append">
+								<select id="hora" name="hora" class="selectpicker" title="Hora" data-live-search="true">
+								</select>
+							</div>	
+					   </div>
+					</div>				
 				</div>
 				<div class="form-row">
 					<div class="col-md-12 mb-3">
@@ -85,7 +94,7 @@
 
 <!--INICIO MODAL EDITAR CITAS-->
 <div class="modal fade" id="ModalEdit">
-	<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+	<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Editar/Eliminar una Cita</h4>
@@ -115,12 +124,16 @@
 					<div class="col-md-3 mb-3">
 					  <label for="nombre_proveedores">Fecha</label>
 					  <input type="date" name="fecha_citaedit" class="form-control" id="fecha_citaedit" data-toggle="tooltip" data-placement="top" title="Año-Mes-Dia   Hora:Minutos:Segundos">
-					</div>
+					</div>					
 					<div class="col-md-3 mb-3">
-					  <label for="apellido_proveedores">Hora</label>
-					  <select id="hora_nueva" name="hora_nueva" class="custom-select" required="required">
-					  </select>
-					</div>
+					  <label for="hora_nueva">Nueva Hora <span class="priority">*<span/></label>
+					  <div class="input-group">
+							<div class="input-group-append">
+								<select id="hora_nueva" name="hora_nueva" class="selectpicker" title="Hora" data-live-search="true">
+								</select>
+							</div>	
+					   </div>
+					</div>						
 					<div class="col-md-3 mb-3">
 					  <label for="rtn_proveedores">Fecha Cita Inicio</label>
 						 <input type="text" name="fecha_citaedit1" class="form-control" id="fecha_citaedit1" data-toggle="tooltip" data-placement="top" title="Año-Mes-Dia Hora:Minutos:Segundos" readonly="readonly">
@@ -136,25 +149,30 @@
 					  <input type="time" name="hora_citaeditend" class="form-control" id="hora_citaeditend" placeholder="Hora" readonly >
 					</div>
 					<div class="col-md-3 mb-3">
-					  <label for="nombre_proveedores">Color</label>
-					  <select name="color" class="custom-select" id="color" readonly="readonly">
-						  <option value="">Choose</option>
-						  <option style="color:#0071c5;" value="#0071c5">&#9724; Azul Oscuro</option><!--Usuarios Subsiguientes-->
-						  <option style="color:#008000;" value="#008000">&#9724; Verde</option><!--Usuarios Nuevos-->
-						  <option style="color:#DF0101;" value="#DF0101">&#9724; Rojo</option><!--Usuarios Precargados-->
-						  <option style="color:#824CC8;" value="#824CC8">&#9724; Morado</option><!--Usuarios Extemporaneos-->
-						  <option style="color:#FF5733;" value="#FF5733">&#9724; Naranja</option><!--Usuarios Reprogramados-->
-						  <option style="color:#B7950B;" value="#B7950B">&#9724; Amarillo</option><!--Usuarios con mas de 5 años-->
-					  </select>
+					  <label for="color">Color <span class="priority">*<span/></label>
+					  <div class="input-group">
+							<div class="input-group-append">
+								<select id="color" name="color" class="selectpicker" title="Color" data-live-search="true" disabled>
+									<option value="">Choose</option>
+									<option style="color:#0071c5;" value="#0071c5">&#9724; Azul Oscuro</option><!--Usuarios Subsiguientes-->
+									<option style="color:#008000;" value="#008000">&#9724; Verde</option><!--Usuarios Nuevos-->
+									<option style="color:#DF0101;" value="#DF0101">&#9724; Rojo</option><!--Usuarios Precargados-->
+									<option style="color:#824CC8;" value="#824CC8">&#9724; Morado</option><!--Usuarios Extemporaneos-->
+									<option style="color:#FF5733;" value="#FF5733">&#9724; Naranja</option><!--Usuarios Reprogramados-->
+									<option style="color:#B7950B;" value="#B7950B">&#9724; Amarillo</option><!--Usuarios con mas de 5 años-->
+								</select>
+							</div>	
+					   </div>
 					</div>
-					<div class="col-md-6 mb-3">
-					  <label for="apellido_proveedores">Profesional</label>
-					  <div class="input-group mb-3">
-							  <select id="colaborador" name="colaborador" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional" required ></select>
-							  <div class="input-group-append" id="buscar_profesional">
-								<a data-toggle="modal" href="#" class="btn btn-outline-success" id="servicio_boton"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-							  </div>
-						   </div>
+					<div class="col-md-3 mb-3">
+						<label for="colaborador">Colaborador <span class="priority">*<span/></label>
+						<div class="input-group">
+							<div class="input-group-append">
+								<select id="colaborador" name="colaborador" class="selectpicker" title="Colaborador" data-live-search="true">
+									<option value="">Seleccione</option>
+								</select>
+							</div>	
+						</div>
 					</div>					
 				</div>
 				<div class="form-row">
@@ -239,40 +257,55 @@
 				</div>
 				<div class="form-row">
 					<div class="col-md-4 mb-3">
-					  <label for="nombre_proveedores">Servicio</label>
-					  <select id="sobrecupo_servicio" required="required" name="sobrecupo_servicio" class="custom-select" data-toggle="tooltip" data-placement="top" title="Servicio">
-						<option value="">Seleccione</option>
-					  </select>
-					</div>
+					  <label for="sobrecupo_servicio">Servicio <span class="priority">*<span/></label>
+					  <div class="input-group">
+							<div class="input-group-append">
+								<select id="sobrecupo_servicio" name="sobrecupo_servicio" class="selectpicker" title="Servicio" data-live-search="true">
+								</select>
+							</div>	
+					   </div>
+					</div>				
 					<div class="col-md-4 mb-3">
-					  <label for="nombre_proveedores">Unidad</label>
-					  <select id="sobrecupo_unidad"  required="required" name="sobrecupo_unidad" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-						<option value="">Seleccione</option>
-					  </select>
-					</div>
+					  <label for="sobrecupo_unidad">Unidad <span class="priority">*<span/></label>
+					  <div class="input-group">
+							<div class="input-group-append">
+								<select id="sobrecupo_unidad" name="sobrecupo_unidad" class="selectpicker" title="Unidad" data-live-search="true">
+								</select>
+							</div>	
+					   </div>
+					</div>	
 					<div class="col-md-4 mb-3">
-					  <label for="nombre_proveedores">Profesional</label>
-					  <select id="sobrecupo_medico"  required="required" name="sobrecupo_medico" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-						<option value="">Seleccione</option>
-					  </select>
-					</div>
+					  <label for="sobrecupo_medico">Profesional <span class="priority">*<span/></label>
+					  <div class="input-group">
+							<div class="input-group-append">
+								<select id="sobrecupo_medico" name="sobrecupo_medico" class="selectpicker" title="Profesional" data-live-search="true">
+								</select>
+							</div>	
+					   </div>
+					</div>	
 				</div>
 				<div class="form-row">
 					<div class="col-md-4 mb-3">
-					  <label for="nombre_proveedores">Tipo</label>
-					  <select id="tipo_sobrecupo" required="required" name="tipo_sobrecupo" class="custom-select" data-toggle="tooltip" data-placement="top" title="Tipo">
-						<option value="">Seleccione</option>
-					  </select>
-					</div>
+					  <label for="tipo_sobrecupo">Tipo <span class="priority">*<span/></label>
+					  <div class="input-group">
+							<div class="input-group-append">
+								<select id="tipo_sobrecupo" name="tipo_sobrecupo" class="selectpicker" title="Tipo" data-live-search="true">
+								</select>
+							</div>	
+					   </div>
+					</div>					
 					<div class="col-md-4 mb-3">
 					  <label for="nombre_proveedores">Fecha Cita</label>
 					  <input type="date" required="required" name="sobrecupo_fecha_cita" id="sobrecupo_fecha_cita" class="form-control" value="<?php echo date ("Y-m-d");?>">
 					</div>
 					<div class="col-md-4 mb-3">
-					  <label for="nombre_proveedores">Hora</label>
-					  <select id="hora_sobrecupo"  required="required" name="hora_sobrecupo" class="custom-select" data-toggle="tooltip" data-placement="top" title="Hora">
-						<option value="">Seleccione</option>
-					  </select>
+					  <label for="hora_sobrecupo">Hora <span class="priority">*<span/></label>
+					  <div class="input-group">
+							<div class="input-group-append">
+								<select id="hora_sobrecupo" name="hora_sobrecupo" class="selectpicker" title="Hora" data-live-search="true">
+								</select>
+							</div>	
+					   </div>
 					</div>
 				</div>
 				<div class="form-row">
@@ -361,19 +394,21 @@
 					</div>
 				</div>
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label for="nombre_proveedores">Unidad</label>
-					   <select id="colaborador_ausencia" name="colaborador_ausencia" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-						  <option value="">Seleccione</option>
-					   </select>
+					<div class="col-md-3 mb-3">
+						<label for="colaborador_ausencia">Departamento</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="colaborador_ausencia" name="colaborador_ausencia" data-live-search="true" title="Unidad">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label for="nombre_proveedores">Profesional</label>
-					   <select id="medico_ausencia" name="medico_ausencia" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-						  <option value="">Seleccione</option>
-					   </select>
+					<div class="col-md-3 mb-3">
+						<label for="medico_ausencia">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="medico_ausencia" name="medico_ausencia" data-live-search="true" title="Profesional">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
+					<div class="col-md-6 mb-3">
 					  <label for="nombre_proveedores">Comentario</label>
 					  <input type="text" name="comentario_ausencias" id="comentario_ausencias" class="form-control" size="280">
 					</div>

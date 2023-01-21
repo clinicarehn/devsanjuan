@@ -101,6 +101,7 @@ function getEstadoFormMain(){
         success: function(data){	
 		    $('#form_main #estado').html("");
 			$('#form_main #estado').html(data);
+			$('#form_main #estado').selectpicker('refresh');
 		}			
      });		
 }
@@ -284,6 +285,7 @@ function getSalaFormMain(){
         success: function(data){	
 		    $('#form_main #sala').html("");
 			$('#form_main #sala').html(data);
+			$('#form_main #sala').selectpicker('refresh');
 		}			
      });		
 }
@@ -298,6 +300,7 @@ function getSala(sexo){
         success: function(data){	
 		    $('#formulario_agregar_camas #sala').html("");
 			$('#formulario_agregar_camas #sala').html(data);
+			$('#formulario_agregar_camas #sala').selectpicker('refresh');
 		}			
      });		
 }
@@ -311,6 +314,7 @@ function getUnidad(){
         success: function(data){	
 		    $('#form_main #unidad').html("");
 			$('#form_main #unidad').html(data);
+			$('#form_main #unidad').selectpicker('refresh');
 		}			
      });		
 }
@@ -326,7 +330,8 @@ $(document).ready(function() {
 			async: true,
             data:'sala='+sala,
             success: function(data){
-				$('#formulario_agregar_camas #cama').html(data);					
+				$('#formulario_agregar_camas #cama').html(data);
+				$('#formulario_agregar_camas #cama').selectpicker('refresh');				
             }
          });
 		 

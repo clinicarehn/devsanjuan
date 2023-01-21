@@ -121,7 +121,8 @@ function patologiaCIE10_1(){
 			url:url,
 			data:'id='+id,
 			success: function(data){
-			    $('#patologia1').html(data);				
+			    $('#patologia1').html(data);
+				$('#patologia1').selectpicker('refresh');			
 			}
 		});	
 	
@@ -138,7 +139,8 @@ function patologiaCIE10_2(){
 			url:url,
 			data:'id='+id,
 			success: function(data){
-			    $('#patologia2').html(data);				
+			    $('#patologia2').html(data);
+				$('#patologia2').selectpicker('refresh');			
 			}
 		});	
 	
@@ -155,7 +157,8 @@ function patologiaCIE10_3(){
 			url:url,
 			data:'id='+id,
 			success: function(data){
-			    $('#patologia3').html(data);			
+			    $('#patologia3').html(data);
+				$('#patologia3').selectpicker('refresh');	
 			}
 		});	
 	
@@ -172,7 +175,8 @@ function patologiaCIE10_1_1(){
 			url:url,
 			data:'id='+id,
 			success: function(data){
-			    $('#patologia_1').html(data);				
+			    $('#patologia_1').html(data);
+				$('#patologia_1').selectpicker('refresh');				
 			}
 		});	
 	
@@ -189,7 +193,8 @@ function patologiaCIE10_2_1(){
 			url:url,
 			data:'id='+id,
 			success: function(data){
-			    $('#patologia_2').html(data);				
+			    $('#patologia_2').html(data);
+				$('#patologia_2').selectpicker('refresh');			
 			}
 		});	
 	
@@ -206,7 +211,8 @@ function patologiaCIE10_3_1(){
 			url:url,
 			data:'id='+id,
 			success: function(data){
-			    $('#patologia_3').html(data);				
+			    $('#patologia_3').html(data);
+				$('#patologia_3').selectpicker('refresh');				
 			}
 		});	
 	
@@ -225,6 +231,7 @@ $(function(){
 			data:'id='+id,
 			success: function(data){
 				$('#first-disabled3').html(data);
+				$('#first-disabled3').selectpicker('refresh');
 			}
 		});
 		return false;

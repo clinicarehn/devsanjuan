@@ -9,7 +9,6 @@ $query = "SELECT * FROM frecuencia";
 $result = $mysqli->query($query);
 
 if($result->num_rows>0){
-	echo '<option value="">Seleccione</option>';
 	while($consulta2 = $result->fetch_assoc()){
 		echo '<option value="'.$consulta2['frecuencia_id'].'">'.$consulta2['nombre'].'</option>';
 	}

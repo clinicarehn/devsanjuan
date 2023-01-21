@@ -1,31 +1,31 @@
 <?php
-session_start(); 
-include('../php/funtions.php'); 
+session_start();
+include('../php/funtions.php');
 
 //CONEXION A DB
 $mysqli = connect_mysqli();
 
 if( isset($_SESSION['colaborador_id']) == false ){
-   header('Location: login.php'); 
-}    
+   header('Location: login.php');
+}
 
-$_SESSION['menu'] = "Reporte Agenda";
+$_SESSION['menu'] = "Colas";
 
 if(isset($_SESSION['colaborador_id'])){
- $colaborador_id = $_SESSION['colaborador_id'];  
+ $colaborador_id = $_SESSION['colaborador_id'];
 }else{
    $colaborador_id = "";
 }
 
 $type = $_SESSION['type'];
 
-$nombre_host = getRealIP();		
-$fecha = date("Y-m-d H:i:s"); 
-$comentario = mb_convert_case("Ingreso al Modulo Reporte Agenda", MB_CASE_TITLE, "UTF-8");   
+$nombre_host = getRealIP();
+$fecha = date("Y-m-d H:i:s");
+$comentario = mb_convert_case("Ingreso al Modulo Reoirte de Agenda", MB_CASE_TITLE, "UTF-8");
 
 if($colaborador_id != "" || $colaborador_id != null){
-   historial_acceso($comentario, $nombre_host, $colaborador_id);  
-}  
+   historial_acceso($comentario, $nombre_host, $colaborador_id);
+}
 
 //OBTENER NOMBRE DE EMPRESA
 $usuario = $_SESSION['colaborador_id'];
@@ -44,139 +44,223 @@ if($result->num_rows>0){
   $empresa = $consulta_registro['nombre'];
 }
 
-$mysqli->close();//CERRAR CONEXIÓN     
+$mysqli->close();//CERRAR CONEXIÓN
  ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
-    <meta name="author" content="KIREDS" />
+    <meta name="author" content="CLINICARE" />
     <meta name="description" content="Responsive Websites Orden Hospitalaria de San Juan de Dios">
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Reporte Agenda :: <?php echo $empresa; ?></title>
-	<?php include("script_css.php"); ?>	
+	<?php include("script_css.php"); ?>
 </head>
 <body>
    <!--Ventanas Modales-->
-   <!-- Small modal -->  
-  <?php include("templates/modals.php"); ?> 
-<!--INICIO MODAL PARA EL INGRESO DE PACIENTES-->
 
-<!--FIN MODAL PARA EL INGRESO DE PACIENTES-->
-  <?php include("modals/modals.php"); ?>  
-<!--FIN VENTANAS MODALES-->	
+  <?php include("templates/modals.php"); ?>
 
-<?php include("templates/menu.php"); ?> 
+<!--INICIO MODAL-->
+   <?php include("modals/modals.php");?>
+<!--FIN MODAL-->
+
+   <!--Fin Ventanas Modales-->
+	<!--MENU-->
+       <?php include("templates/menu.php"); ?>
+    <!--FIN MENU-->
 
 <br><br><br>
 <div class="container-fluid">
 	<ol class="breadcrumb mt-2 mb-4">
-		<li class="breadcrumb-item"><a class="breadcrumb-link" href="inicio.php">Dashboard</a></li>
-		<li class="breadcrumb-item active" id="acciones_factura"><span id="label_acciones_factura"></span>Reporte Agenda</li>
+		<li class="breadcrumb-item" id="acciones_atras"><a class="breadcrumb-link" href="#" id="ancla_volver"><span id="label_acciones_volver">Home</a></li>
+		<li class="breadcrumb-item active" id="acciones_receta">Reporte Agenda</li>
 	</ol>
 
-    <form id="form_reporte_agenda">
-		<div class="form-group custom-control custom-checkbox custom-control-inline">
-			<div class="col-md-3">		
-				<label class="form-check-label" for="defaultCheck1"><b>Buscar por:</b> </label>				
-			</div>			
-			<div class="col-md-3">		
-				<label class="form-check-label" for="defaultCheck1">Servicio</label>
-				<label class="switch">
-					<input type="checkbox" id="servicio_activo" name="servicio_activo" value="1" checked>
-					<div class="slider round"></div>
-				</label>
-				<span class="question mb-2" id="label_servicio_activo"></span>				
-			</div>
-			<div class="col-md-3">		
-				<label class="form-check-label" for="defaultCheck1">Unidad</label>
-				<label class="switch">
-					<input type="checkbox" id="unidad_activo" name="unidad_activo" value="1" checked>
-					<div class="slider round"></div>
-				</label>
-				<span class="question mb-2" id="label_unidad_activo"></span>				
-			</div>	
-			<div class="col-md-4">		
-				<label class="form-check-label" for="defaultCheck1">Profesional</label>
-				<label class="switch">
-					<input type="checkbox" id="profesional_activo" name="profesional_activo" value="1" checked>
-					<div class="slider round"></div>
-				</label>
-				<span class="question mb-2" id="label_profesional_activo"></span>				
-			</div>	
-			<div class="col-md-3">		
-				<label class="form-check-label" for="defaultCheck1">Fecha</label>
-				<label class="switch">
-					<input type="checkbox" id="fecha_activo" name="fecha_activo" value="1" checked>
-					<div class="slider round"></div>
-				</label>
-				<span class="question mb-2" id="label_fecha_activo"></span>				
-			</div>									
-		</div>
-		<div class="form-row">
-			<div class="form-group mr-1">
-				<select id="tipo" name="tipo" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Tipo">
-					<option value="">Tipo</option>
-					<option value="0">Todos</option>
-					<option value="1">Programados</option>
-					<option value="2">Atendidos</option>
-					<option value="3">Ausencias</option>
-				</select>		   
-			</div>	
-			<div class="form-group mr-1">
-				<select id="servicio" name="servicio" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Servicio">
-					<option value="">Servicio</option>
-				</select>		   
-			</div>	
-			<div class="form-group mr-1">
-				<select id="unidad" name="unidad" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Unidad">
-					<option value="">Unidad</option>
-				</select>		   
-			</div>	
-			<div class="form-group mr-1">
-				<select id="profesional" name="profesional" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Profesional">
-					<option value="">Profesional</option>
-				</select>		   
-			</div>			
-			<div class="form-group mr-1">
-			<input type="date" required="required" id="fecha_i" name="fecha_i" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
-			</div>	
-			<div class="form-group mr-1">
-				<input type="date" required="required" id="fecha_f" name="fecha_f" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
-			</div>
-			<div class="form-group">
-				<button class="btn btn-success ml-1" type="submit" id="reporte_excel" data-toggle="tooltip" data-placement="top" title="Exportar"><div class="sb-nav-link-icon"></div><i class="fas fa-download fa-lg"></i> Exportar</button>		 
-			</div> 
-			<div class="form-group">
-				<button class="btn btn-danger ml-1" type="submit" id="limpiar" data-toggle="tooltip" data-placement="top" title="Limpiar"><div class="sb-nav-link-icon"></div><i class="fas fa-broom fa-lg"></i> Limpiar</button>		 
-			</div> 
-		</div>	
+	<div class="card mb-4">
+        <div class="card-body">
+			<form class="form-inline" id="form_main_reporte_agenda">
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">
+						<div class="input-group-append">
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+							<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
+							</select>
+						</div>	
+					</div>
+				</div>	
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">
+						<div class="input-group-append">
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Puesto</span>
+							<select id="unidad" name="unidad" class="selectpicker" title="Puesto" data-live-search="true">
+								<option value="">Seleccione</option>
+								</select>
+						</div>	
+					</div>
+				</div>	
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">
+						<div class="input-group-append">
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Vendedor</span>
+							<select id="colaborador" name="colaborador" class="selectpicker" title="Colaborador" data-live-search="true">
+								<option value="">Seleccione</option>
+								</select>
+						</div>	
+					</div>
+				</div>												
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">				
+						<div class="input-group-append">				
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Inicio</span>
+						</div>
+						<input type="date" required id="fechai" name="fechai" value="<?php 
+						$fecha = date ("Y-m-d");
+						
+						$año = date("Y", strtotime($fecha));
+						$mes = date("m", strtotime($fecha));
+						$dia = date("d", mktime(0,0,0, $mes+1, 0, $año));
 
-    </form>	
-	<hr/>   
-    <div class="form-group">
-	  <div class="col-sm-12">
-		<div class="registros overflow-auto" id="agrega-registros"></div>
-	   </div>		   
+						$dia1 = date('d', mktime(0,0,0, $mes, 1, $año)); //PRIMER DIA DEL MES
+						$dia2 = date('d', mktime(0,0,0, $mes, $dia, $año)); // ULTIMO DIA DEL MES
+
+						$fecha_inicial = date("Y-m-d", strtotime($año."-".$mes."-".$dia1));
+						$fecha_final = date("Y-m-d", strtotime($año."-".$mes."-".$dia2));						
+						
+						
+						echo $fecha_inicial;
+					?>" class="form-control" data-toggle="tooltip" data-placement="top" title="Fecha Inicio" style="width:165px;">
+					</div>
+				  </div>	
+				  <div class="form-group mx-sm-3 mb-1">
+				 	<div class="input-group">				
+						<div class="input-group-append">				
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Fin</span>
+						</div>
+						<input type="date" required id="fechaf" name="fechaf" value="<?php echo date ("Y-m-d");?>" class="form-control" data-toggle="tooltip" data-placement="top" title="Fecha Fin" style="width:165px;">
+					</div>
+				  </div>  				  
+			</form>          
+        </div>
+    </div>
+		
+    <div class="options clearfix">
+        <div class="ck-label">						
+            <label for="">Mostrar/Ocultar</label>
+        </div>															
+        <div class="ck-button">						
+            <label><input type="checkbox" value="1" name="servicio" checked="checked"><span>Servicio</span></label>
+        </div>
+        <div class="ck-button">
+            <label><input type="checkbox" value="1" name="tipo" checked="checked"><span>Tipo</span></label>
+        </div>															
+        <div class="ck-button">						
+            <label><input type="checkbox" value="1" name="dia1" checked="checked"><span>1</span></label>
+        </div>
+        <div class="ck-button">
+            <label><input type="checkbox" value="1" name="dia2" checked="checked"><span>2</span></label>
+        </div>	
+        <div class="ck-button">						
+            <label><input type="checkbox" value="1" name="dia3" checked="checked"><span>3</span></label>
+        </div>
+        <div class="ck-button">
+            <label><input type="checkbox" value="1" name="dia4" checked="checked"><span>4</span></label>
+        </div>															
+        <div class="ck-button">						
+            <label><input type="checkbox" value="1" name="dia5" checked="checked"><span>5</span></label>
+        </div>
+        <div class="ck-button">
+            <label><input type="checkbox" value="1" name="dia6" checked="checked"><span>6</span></label>
+        </div>	
+		
+        <div class="ck-button">
+            <label><input type="checkbox" value="1" name="dia7" checked="checked"><span>7</span></label>
+        </div>	
+        <div class="ck-button">						
+            <label><input type="checkbox" value="1" name="dia8" checked="checked"><span>8</span></label>
+        </div>
+        <div class="ck-button">
+            <label><input type="checkbox" value="1" name="dia9" checked="checked"><span>9</span></label>
+        </div>															
+        <div class="ck-button">						
+            <label><input type="checkbox" value="1" name="dia10" checked="checked"><span>10</span></label>
+        </div>		
+    </div>  	
+	<br/>
+
+    <div class="card mb-4">
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fab fa-sellsy mr-1"></i>
+				Reporte Agenda
+			</div>
+			<div class="card-body"> 
+				<form id="formReporteAgenda">
+					<div class="table-responsive">
+						<table id="dataTableReporteAgenda" class="display" style="width:100%">
+							<thead>
+								<tr>
+									<th class="servicio">Servicio</th>
+									<th class="tipo">Tipo</th>
+									<th>1</th>
+									<th>2</th>
+									<th>3</th>
+									<th>4</th>
+									<th>5</th>
+									<th>6</th>
+									<th>7</th>
+									<th>8</th>
+									<th>9</th>
+									<th>10</th>
+									<th>11</th>
+									<th>12</th>
+									<th>13</th>
+									<th>14</th>
+									<th>15</th>
+									<th>16</th>
+									<th>17</th>
+									<th>18</th>
+									<th>19</th>
+									<th>20</th>
+									<th>21</th>
+									<th>22</th>
+									<th>23</th>
+									<th>24</th>
+									<th>25</th>
+									<th>26</th>
+									<th>27</th>
+									<th>28</th>
+									<th>29</th>
+									<th>30</th>																														
+									<th>31</th>
+									<th class="total">Total</th>
+								</tr>
+							</thead>						
+						</table>  
+					</div>  
+				</form>                
+			</div>
+			<div class="card-footer small text-muted">
+
+			</div>
+		</div>
 	</div>
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center" id="pagination"></ul>
-	</nav>
-	<?php include("templates/footer.php"); ?>
-</div>	  
+
+	<?php include("templates/receta.php"); ?>
+    <?php include("templates/footer.php"); ?>
+</div>
 
     <!-- add javascripts -->
-	<?php 
-		include "script.php"; 
-		
-		include "../js/main.php"; 
-		include "../js/myjava_reporte_agenda.php"; 
-		include "../js/select.php"; 	
-		include "../js/functions.php"; 
-		include "../js/myjava_cambiar_pass.php"; 		
-	?> 
+	<?php
+		include "script.php";
+		include "../js/main.php";
+		include "../js/myjava_reporte_agenda.php";
+		include "../js/select.php";
+		include "../js/functions.php";
+		include "../js/myjava_cambiar_pass.php";
+	?>
 </body>
 </html>

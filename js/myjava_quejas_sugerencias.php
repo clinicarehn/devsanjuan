@@ -85,9 +85,11 @@ function getServicio(){
         success: function(data){
 		    $('#form_main #servicio').html("");
 			$('#form_main #servicio').html(data);
+			$('#form_main #servicio').selectpicker('refresh');	
 
 		    $('#formulario_quejas #servicio').html("");
-			$('#formulario_quejas #servicio').html(data);			
+			$('#formulario_quejas #servicio').html(data);
+			$('#formulario_quejas #servicio').selectpicker('refresh');			
         }
      });		
 }
@@ -638,46 +640,4 @@ $('#form_main #crear_salas').on('click', function(e){
     e.preventDefault();
     mantenimiento();
 });
-
-$('#formulario_quejas #buscar_servicios_quejas').on('click', function(e){
-	listar_servicios_buscar();
-	 $('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});	 
-});
-
-var listar_servicios_buscar = function(){
-	var table_servicios_buscar = $("#dataTableServicios").DataTable({		
-		"destroy":true,	
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/quejas_sugerencias/getServiciosTable.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-primary'><span class='fas fa-copy'></span></button>"},
-			{"data":"nombre"}		
-		],
-		"pageLength" : 5,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,	
-	});	 
-	table_servicios_buscar.search('').draw();
-	$('#buscar').focus();
-	
-	view_servicios_busqueda_dataTable("#dataTableServicios tbody", table_servicios_buscar);
-}
-
-var view_servicios_busqueda_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();		  
-		$('#formulario_quejas #servicio').val(data.servicio_id);
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
 </script>

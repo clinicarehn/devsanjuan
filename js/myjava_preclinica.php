@@ -1,7 +1,7 @@
 <script>
 	$(document).ready(function() {
 	  $('#form_main #nuevo-registro').on('click',function(){
-	   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
+	   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 9 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	    $('#reg_preclinica').show();
 	    $('#reg_preclinica_edicion').hide();	
 		$('#edit_preclinica').hide();			
@@ -242,6 +242,7 @@ function getServicioFormMain(){
         success: function(data){	
 		    $('#form_main #servicio').html("");
 			$('#form_main #servicio').html(data);
+			$('#form_main #servicio').selectpicker('refresh');
 		}			
      });		
 }
@@ -258,7 +259,8 @@ $(document).ready(function() {
             data:'servicio='+servicio_id,
             success: function(data){
 				$('#form_main #unidad').html("");
-				$('#form_main #unidad').html(data);				
+				$('#form_main #unidad').html(data);
+				$('#form_main #unidad').selectpicker('refresh');		
             }
          });
 		 
@@ -278,7 +280,8 @@ $(document).ready(function() {
             data:'servicio='+servicio+'&puesto_id='+puesto_id,
             success: function(data){
 				$('#form_main #colaborador').html("");
-				$('#form_main #colaborador').html(data);			
+				$('#form_main #colaborador').html(data);
+				$('#form_main #colaborador').selectpicker('refresh');		
             }
          });
 		 
@@ -305,7 +308,8 @@ function getServicio(){
 	    async: true,
         success: function(data){
 		    $('#formulario_agregar_preclinica #servicio').html("");
-			$('#formulario_agregar_preclinica #servicio').html(data);				
+			$('#formulario_agregar_preclinica #servicio').html(data);
+			$('#formulario_agregar_preclinica #servicio').selectpicker('refresh');				
         }
      });		
 }
@@ -322,7 +326,8 @@ $(document).ready(function() {
 			async: true,
             data:'servicio='+servicio_id,
             success: function(data){
-				$('#formulario_agregar_preclinica #unidad').html(data);					
+				$('#formulario_agregar_preclinica #unidad').html(data);	
+				$('#formulario_agregar_preclinica #unidad').selectpicker('refresh');				
             }
          });
 		 
@@ -341,7 +346,8 @@ $(document).ready(function() {
 			async: true,
             data:'servicio='+servicio_id+'&puesto_id='+puesto_id,
             success: function(data){
-				$('#formulario_agregar_preclinica #medico').html(data);				 				
+				$('#formulario_agregar_preclinica #medico').html(data);
+				$('#formulario_agregar_preclinica #medico').selectpicker('refresh');				 				
             }
          });
 		 

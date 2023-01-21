@@ -104,16 +104,20 @@ $mysqli->close();//CERRAR CONEXIÓN
 					</div>					
 				</div>	
 				<div class="form-row">
-					<div class="col-md-4 mb-3">
-					  <label>Sala </label>
-					  <select id="sala" name="sala" class="form-control" data-toggle="tooltip" data-placement="top" title="Sala">   				   
-					  </select>
+					<div class="col-md-3 mb-3">
+						<label for="sala">Sala</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="sala" name="sala" data-live-search="true" title="Sala">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label>Cama </label>
-					  <select id="cama" name="cama" class="form-control" data-toggle="tooltip" data-placement="top" title="Cama">   				   
-				      </select>
-					</div>				
+					<div class="col-md-3 mb-3">
+						<label for="cama">Cama</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="cama" name="cama" data-live-search="true" title="Cama">			  
+						</select>
+						</div>
+					</div>			
 				</div>
 				<div class="form-row">
 					<div class="col-md-12 mb-3">
@@ -146,36 +150,33 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 	
     <form class="form-inline" id="form_main">	
-	<div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Sala</span>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Sala</span>
+					<select id="sala" name="sala" class="selectpicker" title="Sala" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="sala" name="sala" class="custom-select" style="width:120px;" data-toggle="tooltip" data-placement="top"  title="Sala">
-				<option value="">Sala</option>
-			</select>	
-		</div>	   
-      </div>	
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Estado</span>
+		</div>	
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Estado</span>
+					<select id="estado" name="estado" class="selectpicker" title="Estado" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="estado" name="estado" class="custom-select" style="width:120px;" data-toggle="tooltip" data-placement="top" title="Estado">
-				<option value="">Estado</option>
-			</select>	
-		</div>	   
-      </div>
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
+		</div>	
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
+					<select id="unidad" name="unidad" class="selectpicker" title="Unidad" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="unidad" name="unidad" class="custom-select" style="width:130px;" data-toggle="tooltip" data-placement="top" title="Unidad">
-				<option value="">Unidad</option>
-			</select>
-		</div>		   
-      </div>	  
+		</div>		  
       <div class="form-group mr-1">
 		<div class="input-group">				
 			<div class="input-group-append">				

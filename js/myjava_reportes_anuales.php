@@ -50,7 +50,8 @@ function getReporte(){
 	    async: true,
         success: function(data){
 		    $('#form_main #reporte').html("");
-			$('#form_main #reporte').html(data);			
+			$('#form_main #reporte').html(data);
+			$('#form_main #reporte').selectpicker('refresh');		
         }
      });		
 }
@@ -64,7 +65,8 @@ function getMes(){
 	    async: true,
         success: function(data){
 		    $('#form_main #mes').html("");
-			$('#form_main #mes').html(data);			
+			$('#form_main #mes').html(data);
+			$('#form_main #mes').selectpicker('refresh');
         }
      });		
 }
@@ -78,7 +80,8 @@ function getAño(){
 	    async: true,
         success: function(data){
 		    $('#form_main #año').html("");
-			$('#form_main #año').html(data);			
+			$('#form_main #año').html(data);
+			$('#form_main #año').selectpicker('refresh');			
         }
      });		
 }
@@ -92,7 +95,8 @@ function getServicio(){
 	    async: true,
         success: function(data){
 		    $('#form_main #servicio').html("");
-			$('#form_main #servicio').html(data);				
+			$('#form_main #servicio').html(data);
+			$('#form_main #servicio').selectpicker('refresh');				
         }
      });		
 }
@@ -106,7 +110,8 @@ function getReporte(){
 	    async: true,
         success: function(data){
 		    $('#form_main #reporte').html("");
-			$('#form_main #reporte').html(data);				
+			$('#form_main #reporte').html(data);
+			$('#form_main #reporte').selectpicker('refresh');				
         }
      });		
 }

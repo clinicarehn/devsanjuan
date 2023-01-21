@@ -18,7 +18,6 @@ $total = $consulta_centros2['referenciar_id'];
 
 echo $total;
 
-
 $result->free();//LIMPIAR RESULTADO
 $mysqli->close();//CERRAR CONEXIÓN
 ?>

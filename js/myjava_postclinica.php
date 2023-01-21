@@ -201,6 +201,7 @@ function getServicioFormMain(){
         success: function(data){	
 		    $('#form_main #servicio').html("");
 			$('#form_main #servicio').html(data);
+			$('#form_main #servicio').selectpicker('refresh');
 		}			
      });		
 }
@@ -215,6 +216,7 @@ function getServicioForm(){
         success: function(data){	
 		    $('#formulario_agregar_postclinica #servicio').html("");
 			$('#formulario_agregar_postclinica #servicio').html(data);
+			$('#formulario_agregar_postclinica #servicio').selectpicker('refresh');
 		}			
      });		
 }
@@ -351,7 +353,8 @@ $(document).ready(function() {
             data:'servicio='+servicio_id,
             success: function(data){
 				$('#formulario_agregar_postclinica #unidad').html("");
-				$('#formulario_agregar_postclinica #unidad').html(data);			
+				$('#formulario_agregar_postclinica #unidad').html(data);	
+				$('#formulario_agregar_postclinica #unidad').selectpicker('refresh');		
             }
          });
 		 
@@ -371,7 +374,8 @@ $(document).ready(function() {
             data:'servicio='+servicio+'&puesto_id='+puesto_id,
             success: function(data){
 				$('#formulario_agregar_postclinica #colaborador').html("");
-				$('#formulario_agregar_postclinica #colaborador').html(data);				
+				$('#formulario_agregar_postclinica #colaborador').html(data);
+				$('#formulario_agregar_postclinica #colaborador').selectpicker('refresh');				
             }
          });
 		 
@@ -390,7 +394,8 @@ $(document).ready(function() {
             data:'servicio='+servicio_id,
             success: function(data){
 				$('#form_main #unidad').html("");
-				$('#form_main #unidad').html(data);			
+				$('#form_main #unidad').html(data);		
+				$('#form_main #unidad').selectpicker('refresh');	
             }
          });
 		 
@@ -410,7 +415,8 @@ $(document).ready(function() {
             data:'servicio='+servicio+'&puesto_id='+puesto_id,
             success: function(data){
 				$('#form_main #colaborador').html("");
-				$('#form_main #colaborador').html(data);				
+				$('#form_main #colaborador').html(data);
+				$('#form_main #colaborador').selectpicker('refresh');				
             }
          });
 		 
@@ -498,6 +504,7 @@ function getPatologia(){
 		success: function(data){
 				$('#formulario_agregar_postclinica #patologia1').html("");
 				$('#formulario_agregar_postclinica #patologia1').html(data);
+				$('#formulario_agregar_postclinica #patologia1').selectpicker('refresh');
 		}	
    });
    return false;		
@@ -978,18 +985,23 @@ function getMedicamentos(){
         success: function(data){		
 		    $('#formulario_agregar_postclinica #medicamento1').html("");
 			$('#formulario_agregar_postclinica #medicamento1').html(data);
+			$('#formulario_agregar_postclinica #medicamento1').selectpicker('refresh');
 
 		    $('#formulario_agregar_postclinica #medicamento2').html("");
 			$('#formulario_agregar_postclinica #medicamento2').html(data);
+			$('#formulario_agregar_postclinica #medicamento2').selectpicker('refresh');
 
 		    $('#formulario_agregar_postclinica #medicamento3').html("");
 			$('#formulario_agregar_postclinica #medicamento3').html(data);
+			$('#formulario_agregar_postclinica #medicamento3').selectpicker('refresh');
 
 		    $('#formulario_agregar_postclinica #medicamento4').html("");
 			$('#formulario_agregar_postclinica #medicamento4').html(data);
+			$('#formulario_agregar_postclinica #medicamento4').selectpicker('refresh');
 
 		    $('#formulario_agregar_postclinica #medicamento5').html("");
-			$('#formulario_agregar_postclinica #medicamento5').html(data);			
+			$('#formulario_agregar_postclinica #medicamento5').html(data);
+			$('#formulario_agregar_postclinica #medicamento5').selectpicker('refresh');			
 		}			
      });		
 }

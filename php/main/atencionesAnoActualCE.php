@@ -9,9 +9,10 @@
 	$año_actual = date("Y");
 	
 	$query = "SELECT MONTHNAME(fecha) as 'mes', COUNT(*) as 'total' 
-		FROM ata 
+		FROM ata  
 		WHERE YEAR(fecha) = '$año_actual' AND servicio_id = 1
-		GROUP BY MONTH(fecha) ASC";
+		GROUP BY  MONTHNAME(fecha)
+		ORDER BY  MONTHNAME(fecha)";
 	$result = $mysqli->query($query);
 
 	$arreglo = array();

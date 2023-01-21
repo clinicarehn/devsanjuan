@@ -69,8 +69,8 @@ $(document).ready(pagination(1));
 		  $("#formulario #expediente").hide();
 		  $("#formulario #label_edad").hide();
 		  $("#formulario #edad").hide();
-		  $("#formulario #pais").val(1);
 		  $('#tipo').val('1').change(); 
+		  $('#formulario #tipo').selectpicker('refresh');
 	      $('#formulario #validate').html('');		  
 		  $('#formulario #mensaje').html("");		  
 		  $('#reg').show();
@@ -1295,12 +1295,14 @@ function editarRegistro(id){
 				$('#formulario #lastname').val(datos[1]);
 				$('#formulario #identidad').val(datos[2]);
 				$('#formulario #sexo').val(datos[3]);
+				$('#formulario #sexo').selectpicker('refresh');
 				$('#formulario #fecha').val(datos[4]);
 				$('#formulario #telefono1').val(datos[5]);
 				$('#formulario #telefono2').val(datos[6]);
 				$('#formulario #departamento').val(datos[7]);
+				$('#formulario #departamento').selectpicker('refresh');	
 				getMunicipioEditar(datos[7], datos[8]);
-				$('#formulario #municipio').val(datos[8]);				
+				$('#estado').selectpicker('refresh');					
 				$('#formulario #localidad').val(datos[9]);
 				$('#formulario #responsable').val(datos[10]);
 				$('#formulario #parentesco').val(datos[11]);
@@ -1310,16 +1312,23 @@ function editarRegistro(id){
 				$('#formulario #expediente').val(datos[15]);
 				$('#formulario #edad').val(datos[16]);				
 				$('#formulario #pais').val(datos[18]);
+				$('#formulario #departamento').selectpicker('refresh');	
 				$('#formulario #estado_civil').val(datos[19]);
+				$('#formulario #estado_civil').selectpicker('refresh');	
 				$('#formulario #raza').val(datos[20]);
+				$('#formulario #raza').selectpicker('refresh');	
 				$('#formulario #religion').val(datos[21]);
+				$('#formulario #religion').selectpicker('refresh');	
 				$('#formulario #profesion').val(datos[22]);
-				$('#formulario #escolaridad').val(datos[25]);				
+				$('#formulario #profesion').selectpicker('refresh');	
+				$('#formulario #escolaridad').val(datos[25]);			
+				$('#formulario #escolaridad').selectpicker('refresh');		
 				$('#formulario #lugar_nacimiento').val(datos[23]);
 				$('#formulario #correo').val(datos[24]);
 				$('#formulario #grupo_nombre_usuario').show();
                 $('#formulario #nombre_usuario').val(datos[26]);
-                $('#formulario #tipo').val(datos[27]);			
+                $('#formulario #tipo').val(datos[27]);	
+				$('#formulario #tipo').selectpicker('refresh');			
 				$('#formulario #identidad').attr('readonly', true);
 				$('#formulario #fecha_re').attr('readonly', true);				
 				$('#registrar').modal({
@@ -1481,6 +1490,9 @@ function getStatus(){
         success: function(data){	
 		    $('#estado').html("");
 			$('#estado').html(data);
+			$('#estado').selectpicker('refresh');
+			$("#estado").val(1);
+		  	$('#estado').selectpicker('refresh');			
 		}			
      });		
 }
@@ -1495,8 +1507,10 @@ function getSexo(){
         success: function(data){	
 		    $('#formulario_agregar_expediente_manual #sexo_manual').html("");
 			$('#formulario_agregar_expediente_manual #sexo_manual').html(data);
+			$('#formulario_agregar_expediente_manual #sexo_manual').selectpicker('refresh');
 		    $('#formulario #sexo').html("");
-			$('#formulario #sexo').html(data);			
+			$('#formulario #sexo').html(data);
+			$('#formulario #sexo').selectpicker('refresh');		
 		}			
      });		
 }
@@ -1570,6 +1584,7 @@ function getDepartamento(){
         success: function(data){	
 		    $('#formulario #departamento').html("");
 			$('#formulario #departamento').html(data);
+			$('#formulario #departamento').selectpicker('refresh');	
 		}			
      });		
 }
@@ -1586,7 +1601,8 @@ $(document).ready(function() {
 		   data:'departamento_id='+departamento_id,
 		   success:function(data){
 		      $('#formulario #municipio').html("");
-			  $('#formulario #municipio').html(data);		  
+			  $('#formulario #municipio').html(data);
+			  $('#formulario #municipio').selectpicker('refresh');		  
 		  }
 	  });
 	  return false;			 				
@@ -1603,6 +1619,7 @@ function getEstadoCivil(){
         success: function(data){	
 		    $('#formulario #estado_civil').html("");
 			$('#formulario #estado_civil').html(data);
+			$('#formulario #estado_civil').selectpicker('refresh');
 		}			
      });		
 }
@@ -1617,6 +1634,7 @@ function getRaza(){
         success: function(data){	
 		    $('#formulario #raza').html("");
 			$('#formulario #raza').html(data);
+			$('#formulario #raza').selectpicker('refresh');
 		}			
      });		
 }
@@ -1631,6 +1649,7 @@ function getReligion(){
         success: function(data){	
 		    $('#formulario #religion').html("");
 			$('#formulario #religion').html(data);
+			$('#formulario #religion').selectpicker('refresh');
 		}			
      });		
 }
@@ -1645,6 +1664,7 @@ function getProfesion(){
         success: function(data){	
 		    $('#formulario #profesion').html("");
 			$('#formulario #profesion').html(data);
+			$('#formulario #profesion').selectpicker('refresh');
 		}			
      });		
 }
@@ -1659,6 +1679,9 @@ function getPais(){
         success: function(data){	
 		    $('#formulario #pais').html("");
 			$('#formulario #pais').html(data);
+			$('#formulario #pais').selectpicker('refresh');
+			$("#formulario #pais").val(1);
+		  	$('#formulario #pais').selectpicker('refresh');			
 		}			
      });		
 }
@@ -1673,6 +1696,7 @@ function getEscolaridad(){
         success: function(data){	
 		    $('#formulario #escolaridad').html("");
 			$('#formulario #escolaridad').html(data);
+			$('#formulario #escolaridad').selectpicker('refresh');
 		}			
      });		
 }
@@ -1687,7 +1711,9 @@ function getMunicipioEditar(departamento_id, municipio_id){
 	   success:function(data){
 	      $('#formulario #municipio').html("");
 		  $('#formulario #municipio').html(data);
-		  $('#formulario #municipio').val(municipio_id);		  
+		  $('#formulario #municipio').selectpicker('refresh');
+		  $('#formulario #municipio').val(municipio_id);
+		  $('#formulario #municipio').selectpicker('refresh');	  
 	  }
 	});
 	return false;		
@@ -1798,7 +1824,10 @@ function getTipo(){
 	    async: true,
         success: function(data){	
 		    $('#form_main #tipo').html("");
-			$('#form_main #tipo').html(data);			
+			$('#form_main #tipo').html(data);
+			$('#form_main #tipo').selectpicker('refresh');	
+			$("#form_main #tipo").val(1);
+		  	$('#form_main #tipo').selectpicker('refresh');						
 		}			
      });		
 }
@@ -1812,7 +1841,10 @@ function getTipoPacientes(){
 	    async: true,
         success: function(data){	
 		    $('#formulario #tipo').html("");
-			$('#formulario #tipo').html(data);		
+			$('#formulario #tipo').html(data);
+			$('#formulario #tipo').selectpicker('refresh');	
+			$("#formulario #tipo").val(1);
+		  	$('#formulario #tipo').selectpicker('refresh');			
 		}			
      });		
 }
@@ -2092,189 +2124,6 @@ function detallesUsuario(pacientes_id){
 	});	
 }
 
-$('#formulario #buscar_religion_pacientes').on('click', function(e){
-	listar_religion_buscar();
-	 $('#modal_busqueda_religion').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});	 
-});
-
-$('#formulario #buscar_profesion_pacientes').on('click', function(e){
-	listar_profesion_buscar();
-	 $('#modal_busqueda_profesion').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});	 
-});
-
-$('#formulario #buscar_departamento_pacientes').on('click', function(e){
-	listar_departamentos_buscar(); 
-	$('#modal_busqueda_departamentos').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});			
-});
-
-$('#formulario #buscar_municipio_pacientes').on('click', function(e){
-	if($('#formulario #departamento').val() == "" || $('#formulario #departamento').val() == null){
-		swal({
-			title: "Error", 
-			text: "Lo sentimos el departamento no debe estar vacío, antes de seleccionar esta opción por favor seleccione un departamento, por favor corregir",
-			type: "error", 
-			confirmButtonClass: 'btn-danger',
-			allowEscapeKey : false,
-			allowOutsideClick: false
-		});			
-	}else{
-		listar_municipios_buscar();
-		 $('#modal_busqueda_municipios').modal({
-			show:true,
-			keyboard: false,
-			backdrop:'static'
-		});		
-	}	
-});
-
-var listar_religion_buscar = function(){
-	var table_religion_buscar = $("#dataTableReligion").DataTable({		
-		"destroy":true,	
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/pacientes/getReligionTable.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-primary'><span class='fas fa-copy'></span></button>"},
-			{"data":"nombre"}		
-		],
-		"pageLength" : 5,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,	
-	});	 
-	table_religion_buscar.search('').draw();
-	$('#buscar').focus();
-	
-	view_religion_busqueda_dataTable("#dataTableReligion tbody", table_religion_buscar);
-}
-
-var view_religion_busqueda_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();		  
-		$('#formulario #religion').val(data.religion_id);
-		$('#modal_busqueda_religion').modal('hide');
-	});
-}
-
-var listar_profesion_buscar = function(){
-	var table_profeision_buscar = $("#dataTableProfesiones").DataTable({		
-		"destroy":true,	
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/pacientes/getProfesionTable.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-primary'><span class='fas fa-copy'></span></button>"},
-			{"data":"nombre"}		
-		],
-		"pageLength" : 5,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,	
-	});	 
-	table_profeision_buscar.search('').draw();
-	$('#buscar').focus();
-	
-	view_profesion_busqueda_dataTable("#dataTableProfesiones tbody", table_profeision_buscar);
-}
-
-var view_profesion_busqueda_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();		  
-		$('#formulario #profesion').val(data.profesion_id);
-		$('#modal_busqueda_profesion').modal('hide');
-	});
-}
-
-var listar_departamentos_buscar = function(){
-	var table_departamentos_buscar = $("#dataTableDepartamentos").DataTable({		
-		"destroy":true,	
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/pacientes/getDepartamentosTabla.php"
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-primary'><span class='fas fa-copy'></span></button>"},
-			{"data":"nombre"}		
-		],
-		"pageLength" : 5,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,	
-	});	 
-	table_departamentos_buscar.search('').draw();
-	$('#buscar').focus();
-	
-	view_departamentos_busqueda_dataTable("#dataTableDepartamentos tbody", table_departamentos_buscar);
-}
-
-var view_departamentos_busqueda_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();		  
-		$('#formulario #departamento').val(data.departamento_id);
-		getMunicipio();
-		$('#modal_busqueda_departamentos').modal('hide');
-	});
-}
-
-var listar_municipios_buscar = function(){
-	var departamento = $('#formulario #departamento').val();
-	var table_municipios_buscar = $("#dataTableMunicipios").DataTable({
-		"destroy":true,	
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/pacientes/getMunicipiosTabla.php",
-			"data":{ 'departamento' : departamento },
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-primary'><span class='fas fa-copy'></span></button>"},
-			{"data":"municipio"},
-			{"data":"departamento"}			
-		],
-		"pageLength" : 5,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,	
-	});	 
-	table_municipios_buscar.search('').draw();
-	$('#buscar').focus();
-	
-	view_municipios_busqueda_dataTable("#dataTableMunicipios tbody", table_municipios_buscar);
-}
-
-var view_municipios_busqueda_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();		  
-		$('#formulario #municipio').val(data.municipio_id);
-		$('#modal_busqueda_municipios').modal('hide');
-	});
-}
-
 function getMunicipio(){
 	var url = '<?php echo SERVERURL; ?>php/pacientes/getMunicipio.php';
 		
@@ -2287,6 +2136,7 @@ function getMunicipio(){
 	   success:function(data){
 		  $('#formulario #municipio').html("");
 		  $('#formulario #municipio').html(data);  
+		  $('#formulario #municipio').selectpicker('refresh');
 	  }
   });	
 }

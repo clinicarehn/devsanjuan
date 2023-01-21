@@ -23,8 +23,3 @@ echo $status;
 $result->free();//LIMPIAR RESULTADO
 $mysqli->close();//CERRAR CONEXIÓN
 ?>
-
-
-               
-			   
-               

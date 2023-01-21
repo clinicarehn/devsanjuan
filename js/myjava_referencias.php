@@ -3,7 +3,7 @@ $(document).ready()
   $(function(){
 	  $('#form_main #centros_mainform').on('click',function(e){
 		 e.preventDefault();
-		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		    limpiarCentros();
 		    $('#formulario_centros .nav-tabs li:eq(0) a').tab('show');
 		    $('#formulario_centros')[0].reset();	
@@ -33,7 +33,7 @@ $(document).ready()
 
 	  $('#form_main #referencias_enviadas').on('click',function(e){
 		 e.preventDefault();
-		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		    formReferenciasEnviadas();
 		}else{
 			swal({
@@ -50,7 +50,7 @@ $(document).ready()
 	   
 	  $('#form_main #referencias_recibidas').on('click',function(e){
 		 e.preventDefault();
-		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		    formReferenciasRecibidas();
 		 }else{
 			swal({
@@ -67,7 +67,7 @@ $(document).ready()
 
 	  $('#form_main #reporte_referencias').on('click',function(e){
 		 e.preventDefault();
-		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		    reporteEXCEL();
 		}else{
 			swal({
@@ -84,7 +84,7 @@ $(document).ready()
 	   
 	  $('#form_main #reporte_patologias').on('click',function(e){
 		 e.preventDefault();
-		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		    reporteEXCELPatologia();
 		}else{
 			swal({
@@ -101,7 +101,7 @@ $(document).ready()
 
 	  $('#form_main #reporte_procedencias').on('click',function(e){
 		 e.preventDefault();
-		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		    reporteProcedencias();
 		}else{
 			swal({
@@ -118,7 +118,7 @@ $(document).ready()
 
 	  $('#form_main #reporte_centros').on('click',function(e){
 		 e.preventDefault();
-		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		    reporteCentros();
 		}else{
 			swal({
@@ -135,7 +135,7 @@ $(document).ready()
 
 	  $('#form_main #reporte_registro_referencias').on('click',function(e){
 		 e.preventDefault();
-		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		    reporteEXCEL_UGD();
 		}else{
 			swal({
@@ -152,7 +152,7 @@ $(document).ready()
 
 	  $('#form_main #reporte_consolidado_referencias').on('click',function(e){
 		 e.preventDefault();
-		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+		 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		    modal_consolidadoReferencias();
 		}else{
 			swal({
@@ -189,7 +189,7 @@ $(document).ready(function(){
 /*FIN DE FUNCIONES PARA ESTABLECER EL FOCUS PARA LAS VENTANAS MODALES*/
 	
 function formReferenciasRecibidas(){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	$('#formulario_agregar_referencias_recibidas')[0].reset();	
 	getNivel();
 	getServicioReferenciasRecibidas();	 
@@ -218,7 +218,7 @@ function formReferenciasRecibidas(){
 }
 
 function formReferenciasEnviadas(){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){		
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){		
 	$('#formulario_agregar_referencias_enviadas')[0].reset();
 	getNivelAgregarReferenciasEnviadas();
 	getServicioReferenciasEnviadas();
@@ -293,7 +293,8 @@ function getServicioFormMain(){
 	    async: true,
         success: function(data){	
 		    $('#form_main #servicio').html("");
-			$('#form_main #servicio').html(data);		
+			$('#form_main #servicio').html(data);	
+			$('#form_main #servicio').selectpicker('refresh');	
 		}			
      });		
 }
@@ -307,7 +308,8 @@ function getServicioFormMainUGD(){
 	    async: true,
         success: function(data){				
 		    $('#formulario_modal_consolidado_referencias #servicio_ref_ugd').html("");
-			$('#formulario_modal_consolidado_referencias #servicio_ref_ugd').html(data);			
+			$('#formulario_modal_consolidado_referencias #servicio_ref_ugd').html(data);
+			$('#formulario_modal_consolidado_referencias #servicio_ref_ugd').selectpicker('refresh');		
 		}			
      });		
 }
@@ -453,7 +455,7 @@ function pagination_referencias_enviadas(partida){
 }
 
 function eliminarRegistro(id){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/referencias/eliminar.php';
 	
 	$.ajax({
@@ -581,6 +583,7 @@ function getNivel(){
         success: function(data){
 		    $('#formulario_centros #centros_nivel').html("");
 			$('#formulario_centros #centros_nivel').html(data);	
+			$('#formulario_centros #centros_nivel').selectpicker('refresh');
 
 		    $('#formulario_centros #centros_centro').html("");			
         }
@@ -599,7 +602,8 @@ $(document).ready(function() {
 		   data:'nivel='+nivel,
 		   success:function(data){
 		      $('#formulario_centros #centros_centro').html("");
-			  $('#formulario_centros #centros_centro').html(data);			  
+			  $('#formulario_centros #centros_centro').html(data);
+			  $('#formulario_centros #centros_centro').selectpicker('refresh');		  
 		  }
 	  });
 	  return false;			 				
@@ -611,7 +615,7 @@ $(document).ready(function() {
 //FORMULARIO CENTROS
 $('#reg_centros').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	e.preventDefault();
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		 if ($('#formulario_centros #centros_nombre').val() == ""){				
 			swal({
 				title: "Error", 
@@ -639,7 +643,7 @@ $('#reg_centros').on('click', function(e){ // add event submit We don't want thi
 //FORMULARIO REFERENCIAS RECIBIDAS
 $('#edit_referencias_ref_recibida').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	e.preventDefault();
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		 if ($('#formulario_edicion_referencias_recibidas #motivo').val() == "" ){
 			 $('#formulario_edicion_referencias_recibidas')[0].reset();				
 			swal({
@@ -669,7 +673,7 @@ $('#edit_referencias_ref_recibida').on('click', function(e){ // add event submit
 
 $('#reg_rr').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	e.preventDefault();
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		 if ($('#formulario_agregar_referencias_recibidas #expediente').val() == "" && $('#formulario_agregar_referencias_recibidas #motivo').val() == "" && $('#formulario_agregar_referencias_recibidas #recibidade').val() == "" && $('#formulario_agregar_referencias_recibidas #patologia1').val() == ""){
 			$('#formulario_agregar_referencias_recibidas')[0].reset();			
 			swal({
@@ -701,7 +705,7 @@ $('#reg_rr').on('click', function(e){ // add event submit We don't want this to 
 //CONSOLIDADO DE REFERENCIAS
 $('#reg_consolidado_ref_ugd').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	e.preventDefault();
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		 if ($('#formulario_modal_consolidado_referencias #consolidado_ref_ugd').val() == ""  && $('#formulario_modal_consolidado_referencias #año_ref_ugd').val() == "" ){
 			$('#formulario_modal_consolidado_referencias')[0].reset();
 			swal({
@@ -731,7 +735,7 @@ $('#reg_consolidado_ref_ugd').on('click', function(e){ // add event submit We do
 //FORMULARIO REFERENCIAS ENVIADAS
 $('#edit_referencias_ref_enviadas').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	e.preventDefault();
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		 if ($('#formulario_edicion_referencias_enviadas #motivo_enviada').val() == "" ){
 			$('#formulario_edicion_referencias_enviadas')[0].reset();
 			swal({
@@ -761,7 +765,7 @@ $('#edit_referencias_ref_enviadas').on('click', function(e){ // add event submit
 
 $('#reg_re').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	e.preventDefault();
-	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
+	if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 		 if ($('#formulario_agregar_referencias_enviadas #expediente').val() == "" && $('#formulario_agregar_referencias_recibidas #motivo').val() == "" && $('#formulario_agregar_referencias_recibidas #enviadaa').val() == "" && $('#formulario_agregar_referencias_recibidas #patologia1').val() == ""){
 			 $('#formulario_agregar_referencias_enviadas')[0].reset();	
 			swal({
@@ -1145,7 +1149,7 @@ function modificarReferenciasEnviadas(){
 }
 
 function editarReferenciasRecibidas(referenciar_id,ata_id){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/referencias/editarReferenciasRecibidas.php';
 	
 	$.ajax({
@@ -1188,7 +1192,7 @@ function editarReferenciasRecibidas(referenciar_id,ata_id){
 }
 
 function editarReferenciasEnviadas(referenciar_id,ata_id){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/referencias/editarReferenciasEnviadas.php';
 	
 	$.ajax({
@@ -1297,7 +1301,7 @@ function showDatosReferenciasRecibidas(id){
 }
 
 function modal_agregar_respuesta(ata_id){
- if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
+ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
       $('#agregar_respuesta #dato').val(ata_id);	 
 	  $('#agregar_respuesta').modal({
 	     show:true,
@@ -1321,7 +1325,7 @@ function modal_agregar_respuesta(ata_id){
 //CONFIRMACION DE RESPUESTA ENVIADA
 //CUANDO SE ENVIAN RESPUESTA Y SE AGREGA INFORMACIÓN SOBRE LO RECIBIDO
 function modal_agregar_confirmacion_referencia_recibida(referencia_id, colaborador_id, servicio_id){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/referencias/getRegistrosReferencia.php';
 	
 	$.ajax({
@@ -1572,7 +1576,7 @@ function agregaRespuestaRecibida(){
 /*CONFIRMACION DE RESPUESTA A REFERENCIA ENVIADA*/
 //CUANDO SE RECIBEN RESPUESTAS Y SE ENVIAN CONFIRMACIÓN DE RECIBIDO
 function modal_agregar_confirmacion_referencia_enviada(referencia_id, colaborador_id, servicio_id){
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/referencias/getRegistrosReferenciaEnviada.php';
 	
 	$.ajax({
@@ -1619,7 +1623,7 @@ function modal_agregar_confirmacion_referencia_enviada(referencia_id, colaborado
 //AGREGAR RESPUESTA A REFERENCIA ENVIADA
 function modal_agregar_respuesta_referencia_enviada(referencia_id, colaborador_id, servicio_id, pacientes_id){
 if(getEstatusRespuestaRecibida(referencia_id) == 'No'){	
-  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	var url = '<?php echo SERVERURL; ?>php/referencias/getRegistrosReferenciaEnviada.php';
 	
 	$.ajax({
@@ -1845,7 +1849,8 @@ function getNivelEditarReferenciasRecibidas(){
 	    async: true,
         success: function(data){
 		    $('#formulario_edicion_referencias_recibidas #centros_nivel').html("");
-			$('#formulario_edicion_referencias_recibidas #centros_nivel').html(data);			
+			$('#formulario_edicion_referencias_recibidas #centros_nivel').html(data);	
+			$('#formulario_centros #centros_centro').selectpicker('refresh');		
         }
      });		
 }
@@ -1859,8 +1864,10 @@ function getCentroEditarReferenciasRecibidas(nivel, centro, recibidade){
 	    data:'nivel='+nivel,
         success: function(data){
 		    $('#formulario_edicion_referencias_recibidas #centro').html("");
-			$('#formulario_edicion_referencias_recibidas #centro').html(data);		
+			$('#formulario_edicion_referencias_recibidas #centro').html(data);
+			$('#formulario_edicion_referencias_recibidas #centro').selectpicker('refresh');		
 			$('#formulario_edicion_referencias_recibidas #centro').val(centro);
+			$('#formulario_edicion_referencias_recibidas #centro').selectpicker('refresh');
             getCentroEditarReferenciasRecibidasRecibidade(nivel, centro, recibidade);			
         }
      });		
@@ -1875,8 +1882,10 @@ function getCentroEditarReferenciasRecibidasRecibidade(nivel, centro, recibidade
 	    data:'nivel='+nivel+'&centro='+centro,
         success: function(data){
 		    $('#formulario_edicion_referencias_recibidas #recibidade').html("");
-			$('#formulario_edicion_referencias_recibidas #recibidade').html(data);			
-			$('#formulario_edicion_referencias_recibidas #recibidade').val(recibidade);			
+			$('#formulario_edicion_referencias_recibidas #recibidade').html(data);
+			$('#formulario_edicion_referencias_recibidas #recibidade').selectpicker('refresh');		
+			$('#formulario_edicion_referencias_recibidas #recibidade').val(recibidade);	
+			$('#formulario_edicion_referencias_recibidas #recibidade').selectpicker('refresh');	
         }
      });		
 }
@@ -1894,7 +1903,8 @@ $(document).ready(function() {
 		   data:'nivel='+nivel+'&centro='+centro,
 		   success:function(data){
 		      $('#formulario_edicion_referencias_recibidas #recibidade').html("");
-			  $('#formulario_edicion_referencias_recibidas #recibidade').html(data);			  
+			  $('#formulario_edicion_referencias_recibidas #recibidade').html(data);	
+			  $('#formulario_edicion_referencias_recibidas #recibidade').selectpicker('refresh');		  
 		  }
 	  });
 	  return false;			 				
@@ -1911,7 +1921,8 @@ function getNivelEditarReferenciasEnviadas(){
 	    async: true,
         success: function(data){
 		    $('#formulario_edicion_referencias_enviadas #centros_nivel_enviada').html("");
-			$('#formulario_edicion_referencias_enviadas #centros_nivel_enviada').html(data);				
+			$('#formulario_edicion_referencias_enviadas #centros_nivel_enviada').html(data);
+			$('#formulario_edicion_referencias_enviadas #centros_nivel_enviada').selectpicker('refresh');				
         }
      });		
 }
@@ -1924,6 +1935,7 @@ function getPatologia1EdicionReferenciasEnviadas1(){
 		success: function(data){
 				$('#formulario_edicion_referencias_enviadas #patologia1').html("");
 				$('#formulario_edicion_referencias_enviadas #patologia1').html(data);
+				$('#formulario_edicion_referencias_enviadas #patologia1').selectpicker('refresh');
 		}	
    });
    return false;	
@@ -1937,6 +1949,7 @@ function getPatologia1EdicionReferenciasEnviadas2(){
 		success: function(data){
 				$('#formulario_edicion_referencias_enviadas #patologia2').html("");
 				$('#formulario_edicion_referencias_enviadas #patologia2').html(data);
+				$('#formulario_edicion_referencias_enviadas #patologia1').selectpicker('refresh');
 		}	
    });
    return false;	
@@ -1950,6 +1963,7 @@ function getPatologia1EdicionReferenciasEnviadas3(){
 		success: function(data){
 				$('#formulario_edicion_referencias_enviadas #patologia3').html("");
 				$('#formulario_edicion_referencias_enviadas #patologia3').html(data);
+				$('#formulario_edicion_referencias_enviadas #patologia3').selectpicker('refresh');
 		}	
    });
    return false;	
@@ -1964,8 +1978,10 @@ function getCentroEditarReferenciasEnviadas(nivel, centro, recibidade){
 	    data:'nivel='+nivel,
         success: function(data){
 		    $('#formulario_edicion_referencias_enviadas #centro_enviada').html("");
-			$('#formulario_edicion_referencias_enviadas #centro_enviada').html(data);			
+			$('#formulario_edicion_referencias_enviadas #centro_enviada').html(data);
+			$('#formulario_edicion_referencias_enviadas #centro_enviada').selectpicker('refresh');		
 			$('#formulario_edicion_referencias_enviadas #centro_enviada').val(centro);
+			$('#formulario_edicion_referencias_enviadas #centro_enviada').selectpicker('refresh');
             getCentroEditarReferenciasRecibidasEnviadaa(nivel, centro, recibidade);			
         }
      });		
@@ -1980,8 +1996,10 @@ function getCentroEditarReferenciasRecibidasEnviadaa(nivel, centro, recibidade){
 	    data:'nivel='+nivel+'&centro='+centro,
         success: function(data){
 		    $('#formulario_edicion_referencias_enviadas #enviadaa').html("");
-			$('#formulario_edicion_referencias_enviadas #enviadaa').html(data);			
-			$('#formulario_edicion_referencias_enviadas #enviadaa').val(recibidade);				
+			$('#formulario_edicion_referencias_enviadas #enviadaa').html(data);
+			$('#formulario_edicion_referencias_enviadas #enviadaa').selectpicker('refresh');		
+			$('#formulario_edicion_referencias_enviadas #enviadaa').val(recibidade);
+			$('#formulario_edicion_referencias_enviadas #enviadaa').selectpicker('refresh');				
         }
      });		
 }
@@ -1999,7 +2017,8 @@ $(document).ready(function() {
 		   data:'nivel='+nivel+'&centro='+centro,
 		   success:function(data){
 		      $('#formulario_edicion_referencias_enviadas #enviadaa').html("");
-			  $('#formulario_edicion_referencias_enviadas #enviadaa').html(data);			  
+			  $('#formulario_edicion_referencias_enviadas #enviadaa').html(data);	
+			  $('#formulario_edicion_referencias_enviadas #enviadaa').selectpicker('refresh');		  
 		  }
 	  });
 	  return false;			 				
@@ -2017,7 +2036,8 @@ function getNivelAgregarReferenciasRecibidas(){
 	    async: true,
         success: function(data){
 		    $('#formulario_agregar_referencias_recibidas #centros_nivel').html("");
-			$('#formulario_agregar_referencias_recibidas #centros_nivel').html(data);				
+			$('#formulario_agregar_referencias_recibidas #centros_nivel').html(data);
+			$('#formulario_agregar_referencias_recibidas #centros_nivel').selectpicker('refresh');				
         }
      });		
 }
@@ -2033,7 +2053,8 @@ function getCentroAgregarReferenciasRecibidas(){
 		async: true,
         success: function(data){
 		    $('#formulario_agregar_referencias_recibidas #centro').html("");
-			$('#formulario_agregar_referencias_recibidas #centro').html(data);			
+			$('#formulario_agregar_referencias_recibidas #centro').html(data);
+			$('#formulario_agregar_referencias_recibidas #centro').selectpicker('refresh');
         }
      });		
 }
@@ -2057,7 +2078,8 @@ $(document).ready(function() {
 		   data:'nivel='+nivel+'&centro='+centro,
 		   success:function(data){
 		      $('#formulario_agregar_referencias_recibidas #recibidade').html("");
-			  $('#formulario_agregar_referencias_recibidas #recibidade').html(data);				  
+			  $('#formulario_agregar_referencias_recibidas #recibidade').html(data);	
+			  $('#formulario_agregar_referencias_recibidas #recibidade').selectpicker('refresh');			  
 		  }
 	  });
 	  return false;			 				
@@ -2076,7 +2098,8 @@ $(document).ready(function() {
 			async: true,
             data:'servicio='+servicio_id+'&puesto_id='+puesto_id,
             success: function(data){
-				$('#formulario_agregar_referencias_recibidas #medico_general').html(data);				
+				$('#formulario_agregar_referencias_recibidas #medico_general').html(data);
+				$('#formulario_agregar_referencias_recibidas #medico_general').selectpicker('refresh');			
             }
          });
 		 
@@ -2089,8 +2112,9 @@ function getPatologia1ReferenciasRecibidas(){
  	 type:'POST',
 	 url:url,
 		success: function(data){
-				$('#formulario_agregar_referencias_recibidas #patologia1').html("");
-				$('#formulario_agregar_referencias_recibidas #patologia1').html(data);
+			$('#formulario_agregar_referencias_recibidas #patologia1').html("");
+			$('#formulario_agregar_referencias_recibidas #patologia1').html(data);
+			$('#formulario_agregar_referencias_recibidas #patologia1').selectpicker('refresh');
 		}	
    });
    return false;		
@@ -2102,8 +2126,9 @@ function getPatologia1EdicionReferenciasRecibidas(){
  	 type:'POST',
 	 url:url,
 		success: function(data){
-				$('#editar_referencias_recibidas #patologia').html("");
-				$('#editar_referencias_recibidas #patologia').html(data);
+			$('#editar_referencias_recibidas #patologia').html("");
+			$('#editar_referencias_recibidas #patologia').html(data);
+			$('#editar_referencias_recibidas #patologia').selectpicker('refresh');
 		}	
    });
    return false;		
@@ -2119,6 +2144,7 @@ function getServicioReferenciasRecibidas(){
         success: function(data){	
 		    $('#formulario_agregar_referencias_recibidas #servicio').html("");
 			$('#formulario_agregar_referencias_recibidas #servicio').html(data);
+			$('#formulario_agregar_referencias_recibidas #servicio').selectpicker('refresh');
 		}			
      });		
 }
@@ -2134,7 +2160,8 @@ $(document).ready(function() {
 			async: true,
             data:'servicio='+servicio_id,
             success: function(data){
-				$('#formulario_agregar_referencias_recibidas #unidad').html(data);			
+				$('#formulario_agregar_referencias_recibidas #unidad').html(data);	
+				$('#formulario_agregar_referencias_recibidas #unidad').selectpicker('refresh');		
             }
          });
 		 
@@ -2213,7 +2240,8 @@ function getNivelAgregarReferenciasEnviadas(){
 	    async: true,
         success: function(data){
 		    $('#formulario_agregar_referencias_enviadas #centros_nivel').html("");
-			$('#formulario_agregar_referencias_enviadas #centros_nivel').html(data);				
+			$('#formulario_agregar_referencias_enviadas #centros_nivel').html(data);
+			$('#formulario_agregar_referencias_enviadas #centros_nivel').selectpicker('refresh');					
         }
      });		
 }
@@ -2228,7 +2256,8 @@ function getCentroAgregarReferenciasEnviadas(){
 	    data:'nivel='+nivel,
         success: function(data){
 		    $('#formulario_agregar_referencias_enviadas #centro').html("");
-			$('#formulario_agregar_referencias_enviadas #centro').html(data);				
+			$('#formulario_agregar_referencias_enviadas #centro').html(data);
+			$('#formulario_agregar_referencias_enviadas #centro').selectpicker('refresh');		
         }
      });		
 }
@@ -2252,7 +2281,8 @@ $(document).ready(function() {
 		   data:'nivel='+nivel+'&centro='+centro,
 		   success:function(data){
 		      $('#formulario_agregar_referencias_enviadas #enviadaa').html("");
-			  $('#formulario_agregar_referencias_enviadas #enviadaa').html(data);				  
+			  $('#formulario_agregar_referencias_enviadas #enviadaa').html(data);	
+			  $('#formulario_agregar_referencias_enviadas #enviadaa').selectpicker('refresh');			  
 		  }
 	  });
 	  return false;			 				
@@ -2276,7 +2306,8 @@ function getProfesionalReferenciasEnviadas(){
 		async: true,
 		data:'servicio='+servicio_id+'&puesto_id='+puesto_id,
 		success: function(data){
-			$('#formulario_agregar_referencias_enviadas #medico_general').html(data);					
+			$('#formulario_agregar_referencias_enviadas #medico_general').html(data);
+			$('#formulario_agregar_referencias_enviadas #medico_general').selectpicker('refresh');				
 		}
 	 });
 	 return false;	
@@ -2292,6 +2323,7 @@ function getServicioReferenciasEnviadas(){
         success: function(data){	
 		    $('#formulario_agregar_referencias_enviadas #servicio').html("");
 			$('#formulario_agregar_referencias_enviadas #servicio').html(data);
+			$('#formulario_agregar_referencias_enviadas #servicio').selectpicker('refresh');
 		}			
      });		
 }
@@ -2312,7 +2344,8 @@ function getUnidadReferenciasEnviadas(){
 		async: true,
 		data:'servicio='+servicio_id,
 		success: function(data){
-			$('#formulario_agregar_referencias_enviadas #unidad').html(data);				
+			$('#formulario_agregar_referencias_enviadas #unidad').html(data);
+			$('#formulario_agregar_referencias_enviadas #unidad').selectpicker('refresh');				
 		}
 	 });
 	 return false;	
@@ -2326,6 +2359,7 @@ function getPatologia1ReferenciasEnviadas(){
 		success: function(data){
 				$('#formulario_agregar_referencias_enviadas #patologia1').html("");
 				$('#formulario_agregar_referencias_enviadas #patologia1').html(data);
+				$('#formulario_agregar_referencias_enviadas #patologia1').selectpicker('refresh');
 		}	
    });
    return false;		
@@ -2339,6 +2373,7 @@ function getPatologia2ReferenciasEnviadas(){
 		success: function(data){
 				$('#formulario_agregar_referencias_enviadas #patologia2').html("");
 				$('#formulario_agregar_referencias_enviadas #patologia2').html(data);
+				$('#formulario_agregar_referencias_enviadas #patologia2').selectpicker('refresh');
 		}	
    });
    return false;		
@@ -2352,6 +2387,7 @@ function getPatologia3ReferenciasEnviadas(){
 		success: function(data){
 				$('#formulario_agregar_referencias_enviadas #patologia3').html("");
 				$('#formulario_agregar_referencias_enviadas #patologia3').html(data);
+				$('#formulario_agregar_referencias_enviadas #patologia3').selectpicker('refresh');
 		}	
    });
    return false;		
@@ -2634,7 +2670,7 @@ function reporteCentros(){
 }
 
 function modal_eliminarRecibidas(ata_id, expediente, referenciar_id, pacientes_id){	
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 		var nombre_usuario = consultarNombre(pacientes_id);
 		var expediente_usuario = consultarExpediente(pacientes_id);
 		var dato;
@@ -2673,7 +2709,7 @@ function modal_eliminarRecibidas(ata_id, expediente, referenciar_id, pacientes_i
 }
 
 function modal_eliminarEnviadas(ata_id,expediente, referenciar_id, pacientes_id){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){   
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){   
 		var nombre_usuario = consultarNombre(pacientes_id);
 		var expediente_usuario = consultarExpediente(pacientes_id);
 		var dato;
@@ -2794,7 +2830,8 @@ function getReporteR(){
 	    async: true,
         success: function(data){	
 		    $('#form_main #referencias').html("");
-			$('#form_main #referencias').html(data);				
+			$('#form_main #referencias').html(data);
+			$('#form_main #referencias').selectpicker('refresh');				
 		}			
      });		
 }
@@ -2808,7 +2845,8 @@ function getReporteR_UGD(){
 	    async: true,
         success: function(data){			
 		    $('#modal_consolidado_referencias #consolidado_ref_ugd').html("");
-			$('#modal_consolidado_referencias #consolidado_ref_ugd').html(data);			
+			$('#modal_consolidado_referencias #consolidado_ref_ugd').html(data);
+			$('#modal_consolidado_referencias #consolidado_ref_ugd').selectpicker('refresh');		
 		}			
      });		
 }
@@ -2966,6 +3004,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_edicion_referencias_enviadas #centro_enviada').html("");
 			  $('#formulario_edicion_referencias_enviadas #centro_enviada').html(data);
+			  $('#formulario_edicion_referencias_enviadas #centro_enviada').selectpicker('refresh');
               $("#reg_re").attr('disabled', true);			  
 		  }
 	  });
@@ -2987,6 +3026,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_edicion_referencias_enviadas #enviadaa').html("");
 			  $('#formulario_edicion_referencias_enviadas #enviadaa').html(data);
+			  $('#formulario_edicion_referencias_enviadas #enviadaa').selectpicker('refresh');
 			  $("#reg_re").attr('disabled', true);		  
 		  }
 	  });
@@ -3008,6 +3048,7 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_edicion_referencias_recibidas #centro').html("");
 			  $('#formulario_edicion_referencias_recibidas #centro').html(data);	
+			  $('#formulario_edicion_referencias_recibidas #centro').selectpicker('refresh');
               $("#reg_re").attr('disabled', true);			  
 		  }
 	  });
@@ -3028,7 +3069,8 @@ $(document).ready(function() {
 		   data:'nivel='+nivel+'&centro='+centro_id,
 		   success:function(data){
 		      $('#formulario_edicion_referencias_recibidas #recibidade').html("");
-			  $('#formulario_edicion_referencias_recibidas #recibidade').html(data);	
+			  $('#formulario_edicion_referencias_recibidas #recibidade').html(data);
+			  $('#formulario_edicion_referencias_recibidas #recibidade').selectpicker('refresh');	
               $("#reg_re").attr('disabled', true);				  
 		  }
 	  });
@@ -3068,9 +3110,11 @@ function getMotivoTraslado(){
         success: function(data){		
 		    $('#formulario_agregar_referencias_recibidas #motivo').html("");
 			$('#formulario_agregar_referencias_recibidas #motivo').html(data);
+			$('#formulario_agregar_referencias_recibidas #motivo').selectpicker('refresh');
 
 		    $('#formulario_agregar_referencias_enviadas #motivo_traslado').html("");
-			$('#formulario_agregar_referencias_enviadas #motivo_traslado').html(data);			
+			$('#formulario_agregar_referencias_enviadas #motivo_traslado').html(data);	
+			$('#formulario_agregar_referencias_enviadas #motivo_traslado').selectpicker('refresh');		
 		}			
      });		
 }
@@ -3085,9 +3129,11 @@ function getMotivoTrasladoOtros(){
         success: function(data){
 		    $('#formulario_agregar_referencias_recibidas #motivo1').html("");
 			$('#formulario_agregar_referencias_recibidas #motivo1').html(data);
+			$('#formulario_agregar_referencias_recibidas #motivo1').selectpicker('refresh');
 			
 		    $('#formulario_agregar_referencias_enviadas #motivo').html("");
-			$('#formulario_agregar_referencias_enviadas #motivo').html(data);		
+			$('#formulario_agregar_referencias_enviadas #motivo').html(data);
+			$('#formulario_agregar_referencias_enviadas #motivo').selectpicker('refresh');	
 		}			
      });		
 }
@@ -3102,11 +3148,13 @@ function getConfirmacion_rr_si(){
         success: function(data){
             //RESPUESTA ENVIADA			
 		    $('#formulario_agregar_info_respuesta_enviada #confirmo_respuesta').html("");
-			$('#formulario_agregar_info_respuesta_enviada #confirmo_respuesta').html(data);	
+			$('#formulario_agregar_info_respuesta_enviada #confirmo_respuesta').html(data);
+			$('#formulario_agregar_info_respuesta_enviada #confirmo_respuesta').selectpicker('refresh');
 			$('#formulario_agregar_info_respuesta_enviada #confirmo_respuesta1').html("");	
             //RESPUESTA RECIBIDA			
 		    $('#formulario_agregar_info_respuesta_recibida #confirmo_respuesta_recibida').html("");
-			$('#formulario_agregar_info_respuesta_recibida #confirmo_respuesta_recibida').html(data);	
+			$('#formulario_agregar_info_respuesta_recibida #confirmo_respuesta_recibida').html(data);
+			$('#formulario_agregar_info_respuesta_recibida #confirmo_respuesta_recibida').selectpicker('refresh');
 			$('#formulario_agregar_info_respuesta_recibida #confirmo_respuesta_recibida1').html("");
 		}			
      });		
@@ -3122,11 +3170,13 @@ function getConfirmacion_rr_no(){
         success: function(data){
             //RESPESTA ENVIDADA			
 		    $('#formulario_agregar_info_respuesta_enviada #confirmo_respuesta1').html("");
-			$('#formulario_agregar_info_respuesta_enviada #confirmo_respuesta1').html(data);	
+			$('#formulario_agregar_info_respuesta_enviada #confirmo_respuesta1').html(data);
+			$('#formulario_agregar_info_respuesta_enviada #confirmo_respuesta1').selectpicker('refresh');	
 			$('#formulario_agregar_info_respuesta_enviada #confirmo_respuesta').html("");			
 			//RESPUESTA RECIBIDA
 		    $('#formulario_agregar_info_respuesta_recibida #confirmo_respuesta_recibida1').html("");
 			$('#formulario_agregar_info_respuesta_recibida #confirmo_respuesta_recibida1').html(data);
+			$('#formulario_agregar_info_respuesta_recibida #confirmo_respuesta_recibida1').selectpicker('refresh');
 			$('#formulario_agregar_info_respuesta_recibida #confirmo_respuesta_recibida').html("");
 		}			
      });		
@@ -3157,9 +3207,11 @@ function motivoTraslado(){
         success: function(data){		
 		    $('#formulario_edicion_referencias_recibidas #motivo1').html("");
 			$('#formulario_edicion_referencias_recibidas #motivo1').html(data);
+			$('#formulario_edicion_referencias_recibidas #motivo1').selectpicker('refresh');
 
 		    $('#formulario_edicion_referencias_enviadas #motivo').html("");
-			$('#formulario_edicion_referencias_enviadas #motivo').html(data);		
+			$('#formulario_edicion_referencias_enviadas #motivo').html(data);
+			$('#formulario_edicion_referencias_enviadas #motivo').selectpicker('refresh');	
 		}			
      });		
 }
@@ -3174,9 +3226,11 @@ function motivoTrasladoOtros(){
         success: function(data){		
 		    $('#formulario_edicion_referencias_recibidas #motivo_otro1').html("");
 			$('#formulario_edicion_referencias_recibidas #motivo_otro1').html(data);
+			$('#formulario_edicion_referencias_recibidas #motivo_otro1').selectpicker('refresh');
 
 		    $('#formulario_edicion_referencias_enviadas #motivo_otro').html("");
-			$('#formulario_edicion_referencias_enviadas #motivo_otro').html(data);		
+			$('#formulario_edicion_referencias_enviadas #motivo_otro').html(data);
+			$('#formulario_edicion_referencias_enviadas #motivo_otro').selectpicker('refresh');		
 		}			
      });		
 }
@@ -3190,13 +3244,14 @@ function getAnos(){
 	    async: true,
         success: function(data){			
 		    $('#formulario_modal_consolidado_referencias #año_ref_ugd').html("");
-			$('#formulario_modal_consolidado_referencias #año_ref_ugd').html(data);		
+			$('#formulario_modal_consolidado_referencias #año_ref_ugd').html(data);
+			$('#formulario_modal_consolidado_referencias #año_ref_ugd').selectpicker('refresh');
 		}			
      });		
 }
 
 function modal_consolidadoReferencias(){
-   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
+   if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	   $('#modal_consolidado_referencias').modal({
 		  show:true,
 		  keyboard: false,
@@ -3300,9 +3355,11 @@ function getDepartamento(){
         success: function(data){	
 		    $('#formulario_centros #departamento_referencias').html("");
 			$('#formulario_centros #departamento_referencias').html(data);
+			$('#formulario_centros #departamento_referencias').selectpicker('refresh');
 			
 		    $('#formulario_centros #red_centro').html("");
-			$('#formulario_centros #red_centro').html(data);			
+			$('#formulario_centros #red_centro').html(data);
+			$('#formulario_centros #red_centro').selectpicker('refresh');		
 			
 		    $('#formulario_centros #municipio_referencias').html("");			
 		}			
@@ -3322,292 +3379,14 @@ $(document).ready(function() {
 		   success:function(data){
 		      $('#formulario_centros #municipio_referencias').html("");
 			  $('#formulario_centros #municipio_referencias').html(data);
+			  $('#formulario_centros #municipio_referencias').selectpicker('refresh');
 
 		      $('#formulario_centros #red_centro').html("");
-			  $('#formulario_centros #red_centro').html(data);			  
+			  $('#formulario_centros #red_centro').html(data);
+			  $('#formulario_centros #red_centro').selectpicker('refresh');			  
 		  }
 	  });
 	  return false;			 				
     });					
 });  
-
-//INICIO REFERENCIAS ENVIADAS
-//SERVICIOS
-$('#formulario_agregar_referencias_enviadas #buscar_servicios_referencias_enviadas').on('click', function(e){
-	listar_servicio_referencias_enviadas();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});		 
-});
-
-var listar_servicio_referencias_enviadas = function(){
-	var table_servicio_referencias_enviadas  = $("#dataTableServicios").DataTable({
-		"destroy":true,	
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/referencias/getServiciosTabla.php"
-		},		
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,		
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});	 
-	table_servicio_referencias_enviadas.search('').draw();
-	$('#buscar').focus();
-	
-	view_servicio_referencias_enviadas_dataTable("#dataTableServicios tbody", table_servicio_referencias_enviadas);
-}
-
-var view_servicio_referencias_enviadas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();		  
-		$('#formulario_agregar_referencias_enviadas #servicio').val(data.servicio_id);
-		getUnidadReferenciasEnviadas();
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-
-//UNIDAD
-$('#formulario_agregar_referencias_enviadas #buscar_unidades_referencias_enviadas').on('click', function(e){
-	listar_unidad_referencias_enviadas();
-	$('#modalBusquedaUnidad').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});		 
-});
-
-var listar_unidad_referencias_enviadas = function(){	
-	var servicio = $("#formulario_agregar_referencias_enviadas #servicio").val();
-	var table_unidad_referencias_enviadas = $("#dataTableUnidad").DataTable({		
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/referencias/getUnidadTabla.php",
-			"data":{
-				"servicio":servicio
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"puesto"}	
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,	
-	});	 
-	table_unidad_referencias_enviadas.search('').draw();
-	$('#buscar').focus();
-	view_unidad_referencias_enviadas_dataTable("#dataTableUnidad tbody", table_unidad_referencias_enviadas);
-}
-
-var view_unidad_referencias_enviadas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_agregar_referencias_enviadas #unidad').val(data.puesto_id);
-		getProfesionalReferenciasEnviadas();
-		$('#modalBusquedaUnidad').modal('hide');
-	});
-}
-//PROFESIONAL
-$('#formulario_agregar_referencias_enviadas #buscar_profesionales_referencias_enviadas').on('click', function(e){
-	listar_profesionales_referencias_enviadas();
-	$('#modalBusquedaProfesionales').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});		 
-});
-
-var listar_profesionales_referencias_enviadas = function(){	
-	var servicio = $("#formulario_agregar_referencias_enviadas #servicio").val();
-	var puesto_id = $("#formulario_agregar_referencias_enviadas #unidad").val();	
-		
-	var table_profesionales_referencias_enviadas = $("#dataTableProfesionales").DataTable({		
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/referencias/getMedicoTabla.php",
-			"data":{
-				"servicio":servicio,
-				"puesto_id":puesto_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"colaborador"}	
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,	
-	});	 
-	table_profesionales_referencias_enviadas.search('').draw();
-	$('#buscar').focus();
-	view_profesionales_referencias_enviadas_dataTable("#dataTableProfesionales tbody", table_profesionales_referencias_enviadas);
-}
-
-var view_profesionales_referencias_enviadas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();		  
-		$('#formulario_agregar_referencias_enviadas #medico_general').val(data.colaborador_id);
-		$('#modalBusquedaProfesionales').modal('hide');
-	});
-}
-//FIN REFERENCIAS ENVIADAS
-
-//INICIO REFERENCIAS RECIBIDAS
-//SERVICIOS
-$('#formulario_agregar_referencias_recibidas #buscar_servicios_referencias_recibidas').on('click', function(e){
-	listar_servicio_referencias_recibidas();
-	$('#modal_busqueda_servicios').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});		 
-});
-
-var listar_servicio_referencias_recibidas = function(){
-	var table_servicio_referencias_recibidas  = $("#dataTableServicios").DataTable({
-		"destroy":true,	
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/referencias/getServiciosTabla.php"
-		},		
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"nombre"}
-		],
-        "lengthMenu": lengthMenu10,
-		"stateSave": true,
-		"bDestroy": true,		
-		"language": idioma_español//esta se encuenta en el archivo main.js
-	});	 
-	table_servicio_referencias_recibidas.search('').draw();
-	$('#buscar').focus();
-	
-	view_servicio_referencias_recibidas_dataTable("#dataTableServicios tbody", table_servicio_referencias_recibidas);
-}
-
-var view_servicio_referencias_recibidas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();		  
-		$('#formulario_agregar_referencias_recibidas #servicio').val(data.servicio_id);
-		getUnidadReferenciasEnviadas();
-		$('#modal_busqueda_servicios').modal('hide');
-	});
-}
-
-//UNIDAD
-$('#formulario_agregar_referencias_recibidas #buscar_unidades_referencias_enviadas').on('click', function(e){
-	listar_unidad_referencias_enviadas();
-	$('#modalBusquedaUnidad').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});		 
-});
-
-var listar_unidad_referencias_enviadas = function(){	
-	var servicio = $("#formulario_agregar_referencias_recibidas #servicio").val();
-	var table_unidad_referencias_enviadas = $("#dataTableUnidad").DataTable({		
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/referencias/getUnidadTabla.php",
-			"data":{
-				"servicio":servicio
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"puesto"}	
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,	
-	});	 
-	table_unidad_referencias_enviadas.search('').draw();
-	$('#buscar').focus();
-	view_unidad_referencias_enviadas_dataTable("#dataTableUnidad tbody", table_unidad_referencias_enviadas);
-}
-
-var view_unidad_referencias_enviadas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();
-		$('#formulario_agregar_referencias_recibidas #unidad').val(data.puesto_id);
-		getProfesionalReferenciasEnviadas();
-		$('#modalBusquedaUnidad').modal('hide');
-	});
-}
-//PROFESIONAL
-$('#formulario_agregar_referencias_recibidas #buscar_profesionales_referencias_enviadas').on('click', function(e){
-	listar_profesionales_referencias_enviadas();
-	$('#modalBusquedaProfesionales').modal({
-		show:true,
-		keyboard: false,
-		backdrop:'static'
-	});		 
-});
-
-var listar_profesionales_referencias_enviadas = function(){	
-	var servicio = $("#formulario_agregar_referencias_recibidas #servicio").val();
-	var puesto_id = $("#formulario_agregar_referencias_recibidas #unidad").val();	
-		
-	var table_profesionales_referencias_enviadas = $("#dataTableProfesionales").DataTable({		
-		"destroy":true,
-		"ajax":{
-			"method":"POST",
-			"url":"<?php echo SERVERURL; ?>php/referencias/getMedicoTabla.php",
-			"data":{
-				"servicio":servicio,
-				"puesto_id":puesto_id
-			}
-		},
-		"columns":[
-			{"defaultContent":"<button class='view btn btn-info'><span class='far fa-eye'></span></button>"},
-			{"data":"colaborador"}	
-		],
-		"pageLength": 10,
-        "lengthMenu": lengthMenu,
-		"stateSave": true,
-		"bDestroy": true,
-		"language": idioma_español,	
-	});	 
-	table_profesionales_referencias_enviadas.search('').draw();
-	$('#buscar').focus();
-	view_profesionales_referencias_enviadas_dataTable("#dataTableProfesionales tbody", table_profesionales_referencias_enviadas);
-}
-
-var view_profesionales_referencias_enviadas_dataTable = function(tbody, table){
-	$(tbody).off("click", "button.view");		
-	$(tbody).on("click", "button.view", function(e){
-		e.preventDefault();
-		var data = table.row( $(this).parents("tr") ).data();		  
-		$('#formulario_agregar_referencias_recibidas #medico_general').val(data.colaborador_id);
-		$('#modalBusquedaProfesionales').modal('hide');
-	});
-}
-//FIN REFERENCIAS RECIBIDAS
 </script>

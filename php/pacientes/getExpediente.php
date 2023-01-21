@@ -69,8 +69,6 @@ if($result->num_rows>0){
   }else{
 	  $telefonoresp = $consulta1['telefonoresp'];  
   }	  
-	 
-  
   
   if($consulta1['telefonoresp1'] == 0 || $consulta1['telefonoresp1'] == ""){
 	  $telefonoresp1 = "";

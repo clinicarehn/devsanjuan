@@ -19,8 +19,7 @@ $query = "SELECT c.colaborador_id AS 'colaborador_id', CONCAT(c.nombre,' ',c.ape
               WHERE c.puesto_id = '$puesto_id' AND u.estatus = 1";
 $result = $mysqli->query($query);			  
   
-if($result->num_rows>0){
-	echo '<option value="">Seleccione</option>';	
+if($result->num_rows>0){	
 	while($consulta2 = $result->fetch_assoc()){
 	    echo '<option value="'.$consulta2['colaborador_id'].'">'.$consulta2['nombre'].'</option>';
 	}

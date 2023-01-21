@@ -12,7 +12,6 @@ $consulta = "SELECT status_id, descripcion
 $result = $mysqli->query($consulta);
 
 if($result->num_rows>0){
-	echo '<option value="">Seleccione</option>';	
 	while($consulta2 = $result->fetch_assoc()){
 	    echo '<option value="'.$consulta2['status_id'].'">'.$consulta2['descripcion'].'</option>';
 	}

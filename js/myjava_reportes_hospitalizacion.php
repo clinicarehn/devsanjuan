@@ -71,7 +71,8 @@ function servicio(){
 	 url:url,
 		success: function(data){
 			$('#form_main #servicio').html("");
-		    $('#form_main #servicio').html(data);		
+		    $('#form_main #servicio').html(data);
+			$('#form_main #servicio').selectpicker('refresh');	
 		}
  });
  return false;	
@@ -85,6 +86,7 @@ function getEstado(){
 		success: function(data){
 			$('#form_main #estado').html("");
 		    $('#form_main #estado').html(data);
+			$('#form_main #estado').selectpicker('refresh');
 		}
  });
  return false;	
@@ -103,6 +105,7 @@ $(document).ready(function() {
             success: function(data){
 			    $('#form_main #unidad').html("");
 			    $('#form_main #unidad').html(data);
+				$('#form_main #unidad').selectpicker('refresh');
             }
          });
 		 
@@ -122,7 +125,8 @@ $(document).ready(function() {
             data:'servicio='+servicio_id+'&puesto_id='+puesto_id,
             success: function(data){
 			    $('#form_main #profesional').html("");
-			    $('#form_main #profesional').html(data);				
+			    $('#form_main #profesional').html(data);
+				$('#form_main #profesional').selectpicker('refresh');			
             }
          });
 		 
@@ -130,7 +134,7 @@ $(document).ready(function() {
 });
 
 function modal_eliminar(hosp_id, expediente){
-  if (getUsuarioSistema() == 1){
+  if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10){
 	$('#hosp_id').val(hosp_id);
 	$('#expediente').val(expediente);
 	mensajeEliminar("Remover","¿Desea eliminar el usuario <b>" + consultarNombre(expediente) + "</b>?");

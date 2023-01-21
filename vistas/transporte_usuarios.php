@@ -124,27 +124,19 @@ $mysqli->close();//CERRAR CONEXIÓN
 					  <label for="sexo">Kilometro Final </label>
 					  <input type="number" required name="km_final" id="km_final" maxlength="100" class="form-control"/>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label for="telefono">Usuario </label>
-					  <div class="input-group mb-3">
-						  <select id="transportista" name="transportista" class="custom-select" data-toggle="tooltip" data-placement="top" title="Usuario">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_usuario_transporte">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="transportista">Usuario <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="transportista" name="transportista" required data-size="5" data-live-search="true" title="Usuario">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-4 mb-3">
-					  <label for="telefono">Vehículo </label>
-					  <div class="input-group mb-3">
-						  <select id="vehiculo_t" name="vehiculo_t" class="custom-select" data-toggle="tooltip" data-placement="top" title="Usuario">
-							<option value="">Seleccione</option>
-						  </select>
-						  <div class="input-group-append" id="buscar_vehiculo_transporte">				
-							<a data-toggle="modal" href="#" class="btn btn-outline-success"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i></a>
-						  </div>
-					   </div>
+					<div class="col-md-3 mb-3">
+						<label for="vehiculo_t">Vehículo <span class="priority">*<span/></label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="vehiculo_t" name="vehiculo_t" required data-size="5" data-live-search="true" title="Vehículo">			  
+						</select>
+						</div>
 					</div>						
 				</div>  
 			</form>
@@ -231,13 +223,11 @@ $mysqli->close();//CERRAR CONEXIÓN
     </div>
 </div>
 
-
 <!--FIN MODAL PARA EL INGRESO DE PACIENTES-->
   <?php include("modals/modals.php"); ?>  
 <!--FIN VENTANAS MODALES-->	
 
 <?php include("templates/menu.php"); ?> 
-
 <br><br><br>
 <div class="container-fluid">
 	<ol class="breadcrumb mt-2 mb-4">
@@ -246,25 +236,24 @@ $mysqli->close();//CERRAR CONEXIÓN
 	</ol>
 
     <form class="form-inline" id="main_form">
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Tipo</span>
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>tipo</span>
+					<select id="tipo" name="tipo" class="selectpicker" title="tipo" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="tipo" name="tipo" class="custom-select" style="width:120px;" data-toggle="tooltip" data-placement="top" title="Tipo">
-				<option value="">Tipo</option>
-			</select>		
-		</div>	   
-      </div>	
-	  <div class="form-group mr-1">
-		<div class="input-group">				
-			<div class="input-group-append">				
-				<span class="input-group-text"><div class="sb-nav-link-icon"></div>Vehículo</span>
+		</div>	
+		<div class="form-group mx-sm-3 mb-1">
+			<div class="input-group">
+				<div class="input-group-append">
+					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Vehículo</span>
+					<select id="vehiculo_main" name="vehiculo_main" class="selectpicker" title="Vehículo" data-live-search="true">
+					</select>
+				</div>	
 			</div>
-			<select id="vehiculo_main" name="vehiculo_main" class="custom-select" style="width:120px;" data-toggle="tooltip" data-placement="top" title="Vehículo">
-			</select>		
-		</div>		   
-      </div>	  
+		</div>			
 	  <div class="form-group mr-1">
 		<div class="input-group">				
 			<div class="input-group-append">				
@@ -307,7 +296,8 @@ $mysqli->close();//CERRAR CONEXIÓN
 		</div>		  
 	  </div>	   
     </form>	
-	<hr/>   
+	<hr/>  
+	<br/>
     <div class="form-group">
 	  <div class="col-sm-12">
 		<div class="registros overflow-auto" id="agrega-registros"></div>
@@ -317,7 +307,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 		<ul class="pagination justify-content-center" id="pagination"></ul>
 	</nav>
 	<?php include("templates/footer.php"); ?>
-</div>	  
+</div>
 
     <!-- add javascripts -->
 	<?php 
