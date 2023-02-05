@@ -50,7 +50,7 @@ $(document).ready(function() {
 //REPORTES EN EXCEL
 //LISTA DE ESPERA
 $('#form_main #reportes_exportar').on('click', function(e){
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 15 || getUsuarioSistema() == 18){	
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	e.preventDefault();
 	if($('#form_main #servicio').val() != ""){
 	   reporteEXCEL();
@@ -77,7 +77,7 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() 
 });
 //REPORTE DE CITAS MENORES A 15 DIAS	
 $('#form_main #reporte1').on('click', function(e){
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 15 || getUsuarioSistema() == 18){	
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	e.preventDefault();
 	if($('#form_main #servicio').val() != ""){
 	   reporteMenores15EXCEL();
@@ -105,7 +105,7 @@ if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() 
 	
 //REPORTE DE CITAS MAYORES A 15 DIAS	
 $('#form_main #reporte2').on('click', function(e){
-if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 15 || getUsuarioSistema() == 18){	
+if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){	
 	e.preventDefault();
 	if($('#form_main #servicio').val() != ""){
 	   reporteMayores15EXCEL();

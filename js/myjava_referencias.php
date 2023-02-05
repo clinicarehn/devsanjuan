@@ -946,7 +946,6 @@ function agregarReferenciasRecibidas(){
 				});
 			   return false;
 			}else if(registro == 5){							   
-				limpiarReferenciasRecibidas();
 				swal({
 					title: "Error", 
 					text: "Error, hay registros en blanco, no se puede proceder",
@@ -957,7 +956,6 @@ function agregarReferenciasRecibidas(){
 				});
 				return false;
 			}else{							   
-				limpiarReferenciasRecibidas();
 				swal({
 					title: "Error", 
 					text: "Error al completar su solicitud",
@@ -1006,12 +1004,12 @@ function agregarReferenciasEnviadas(){
 					allowEscapeKey: false,
 					allowOutsideClick: false					
 				});
-				limpiarReferenciasEnviadas(); 
+				limpiarReferenciasEnviadas();
 				$('#formulario_agregar_referencias_enviadas #pro').val('Registro');
 				pagination_referencias_enviadas(1);
 				return false;
-			}else if(registro == 2){			
-				limpiarReferenciasEnviadas(); 
+			}else if(registro == 2){
+				limpiarReferenciasEnviadas();			
 				swal({
 					title: "Error", 
 					text: "No se puede guardar la referencia, no existen atenciones del usuario para esta fecha",
@@ -1021,8 +1019,7 @@ function agregarReferenciasEnviadas(){
 					allowOutsideClick: false
 				});	   
 				return false;
-			}else if(registro == 3){							   
-				limpiarReferenciasEnviadas(); 	
+			}else if(registro == 3){							   	
 				swal({
 					title: "Error", 
 					text: "Error al completar el registro",
@@ -1033,7 +1030,6 @@ function agregarReferenciasEnviadas(){
 				});
 				return false;
 			}else if(registro == 3){							   
-				limpiarReferenciasEnviadas(); 
 				swal({
 					title: "Error", 
 					text: "Error, hay registros en blanco, no se puede proceder",
@@ -1044,7 +1040,6 @@ function agregarReferenciasEnviadas(){
 				});
 			   return false;
 			}else{							   
-				limpiarReferenciasEnviadas();
 				swal({
 					title: "Error", 
 					text: "Error al completar su solicitud",
@@ -1059,7 +1054,7 @@ function agregarReferenciasEnviadas(){
 	});	
   }else{
 	swal({
-		title: "Error", 
+		title: "Error, Error, hay registros en blanco, no se puede proceder",
 		text: "No se puede agregar/modificar registros fuera de esta fecha",
 		type: "error", 
 		confirmButtonClass: "btn-danger",
@@ -2206,7 +2201,6 @@ $(document).ready(function(e) {
                  $('#formulario_agregar_referencias_recibidas #nombre').val(array[2]);			  		 
                  $("#reg_rr").attr('disabled', true);
 
-                 limpiarReferenciasRecibidas();
 			  }else{		  
 					swal({
 						title: "Error", 

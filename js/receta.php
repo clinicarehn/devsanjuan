@@ -347,6 +347,7 @@ var view_servicio_receta_medica_dataTable = function(tbody, table){
 		e.preventDefault();
 		var data = table.row( $(this).parents("tr") ).data();
 		$('#formulario_receta_medica #servicio_receta').val(data.servicio_id);
+		$('#formulario_receta_medica #servicio_receta').selectpicker('refresh');
 		consultarServicioReceta();
 		$('#modal_busqueda_servicios').modal('hide');
 	});

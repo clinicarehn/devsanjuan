@@ -20,7 +20,6 @@ $resultado_busqueda = pg_query($conexion, $query);
 $consulta2 = pg_fetch_array($resultado_busqueda);
 
 if(pg_num_rows($resultado_busqueda)>0){
-	 echo '<option value="">Seleccione</option>';
 	 while($consulta2 = pg_fetch_array($resultado_busqueda)){
 	    echo '<option value="'.$consulta2['producto'].'">'.'['.$consulta2['codigo'].'] '.$consulta2['producto'].'</option>';
 	 }

@@ -268,7 +268,6 @@ function pagination_enfermedades(partida){
 		 url = '<?php echo SERVERURL; ?>php/reportes_anuales/paginar_enfermedades_por_mes.php';
 	}
 		
-	
 	$.ajax({
 		type:'POST',
 		url:url,

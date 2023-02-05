@@ -256,7 +256,7 @@ function getTelefono(pacientes_id){
 }
 
 function sendOneSMS(pacientes_id, agenda_id){	   
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 10){
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	     $('#formulario_enviar_sms #to').val(getTelefono(pacientes_id));
          $('#formulario_enviar_sms #pacientes_id').val(pacientes_id);
          $('#formulario_enviar_sms #agenda_id').val(agenda_id);

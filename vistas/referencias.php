@@ -323,7 +323,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 					<div class="col-md-3 mb-3">
 						<label for="motivo">Otro Motivo</label>			
 						<div class="input-group mb-3">
-						<select class="selectpicker" id="motivo" name="motivo" data-live-search="true" title="Otro Motivo">			  
+						<select class="selectpicker" id="motivo1" name="motivo1" data-live-search="true" title="Otro Motivo">			  
 						</select>
 						</div>
 					</div>																					

@@ -27,7 +27,7 @@
 						<label for="color">Color </label>
 						<div class="input-group">
 							<div class="input-group-append">
-								<select id="color" name="color" class="selectpicker" title="Color" data-live-search="true" disabled>
+								<select id="color" name="color" class="selectpicker" title="Color" data-live-search="true" readonly>
 									<option value="">Choose</option>
 									<option style="color:#0071c5;" value="#0071c5">&#9724; Azul Oscuro</option>
 									<option style="color:#008000;" value="#008000">&#9724; Verde</option>
@@ -54,12 +54,7 @@
 					</div>
 					<div class="col-md-4 mb-3">
 					  <label for="hora">Hora <span class="priority">*<span/></label>
-					  <div class="input-group">
-							<div class="input-group-append">
-								<select id="hora" name="hora" class="selectpicker" title="Hora" data-live-search="true">
-								</select>
-							</div>	
-					   </div>
+					  <input type="text" name="hora" class="form-control" id="hora" readonly="readonly">
 					</div>				
 				</div>
 				<div class="form-row">
@@ -595,28 +590,28 @@
 					</div>
 				</div>
 				<div class="form-row">
-					<div class="col-md-6 mb-3">
-					  <label for="nombre_proveedores">Unidad</label>
-					   <select id="unidad_id" name="unidad_id" class="custom-select" data-toggle="tooltip" data-placement="top" title="Unidad">
-						  <option value="">Seleccione</option>
-					   </select>
+					<div class="col-md-3 mb-3">
+						<label for="unidad_id">Unidad</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="unidad_id" name="unidad_id" data-live-search="true" title="Unidad">			  
+						</select>
+						</div>
 					</div>
-					<div class="col-md-6 mb-3">
-					  <label for="nombre_proveedores">Profesional</label>
-					   <select id="profesional_id" name="profesional_id" class="custom-select" data-toggle="tooltip" data-placement="top" title="Profesional">
-						  <option value="">Seleccione</option>
-					   </select>
+					<div class="col-md-3 mb-3">
+						<label for="profesional_id">Profesional</label>			
+						<div class="input-group mb-3">
+						<select class="selectpicker" id="profesional_id" name="profesional_id" data-live-search="true" title="Unidad">			  
+						</select>
+						</div>
 					</div>
-				</div>
-				<div class="form-row">
-					<div class="col-md-6 mb-3">
+					<div class="col-md-3 mb-3">
 					  <label for="nombre_proveedores">Fecha Inicio</label>
 					  <input type="date" name="fecha_bloqueo" id="fecha_bloqueo" class="form-control" value="<?php echo date ("Y-m-d");?>">
 					</div>
-					<div class="col-md-6 mb-3">
+					<div class="col-md-3 mb-3">
 					  <label for="apellido_proveedores">Fecha Fin</label>
 					  <input type="date" name="fecha_bloqueof" id="fecha_bloqueof" class="form-control" value="<?php echo date ("Y-m-d");?>">
-					</div>
+					</div>					
 				</div>
 				<div class="form-row">
 					<div class="col-md-12 mb-3">

@@ -1648,6 +1648,7 @@ $(document).ready(function(e) {
                                 $('#paciente_id').val(array[0]);
                                 $('#nombre').val(array[1]);
                                 $('#color').val(array[2]);
+                                $('#color').selectpicker('refresh');
                                 $('#hora').val(array[3]);
                                 $('#medico').val(array[4]);
                                 $("#ModalAdd_enviar").attr('disabled', false);
@@ -2664,6 +2665,7 @@ function getHora(dato) {
         data: 'agenda_id=' + dato,
         success: function(data) {
             $('#ModalEdit #hora_citaeditend').val(data);
+            $('#ModalEdit #hora_citaeditend').selectpicker('refresh');
         }
     });
     return false;
@@ -2679,6 +2681,7 @@ function getFechaInicio(dato) {
         data: 'agenda_id=' + dato,
         success: function(data) {
             $('#ModalEdit #fecha_citaedit').val(data);
+            $('#ModalEdit #fecha_citaedit').selectpicker('refresh');
         }
     });
     return false;
@@ -2694,6 +2697,7 @@ function getHoraInicio(dato) {
         data: 'agenda_id=' + dato,
         success: function(data) {
             $('#ModalEdit #hora_nueva').val(data);
+            $('#ModalEdit #hora_nueva').selectpicker('refresh');
         }
     });
     return false;
@@ -2782,6 +2786,9 @@ $(document).ready(function() {
             success: function(data) {
                 $('#botones_citas #unidad').html(data);
                 $('#botones_citas #unidad').selectpicker('refresh');
+
+                $('#botones_citas #medico_general').html("");
+                $('#botones_citas #medico_general').selectpicker('refresh');                
             }
         });
 

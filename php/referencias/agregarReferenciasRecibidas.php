@@ -200,7 +200,7 @@ if ($proceso = 'Registro'){
 	   }else{//DE LO CONTRARIO SE GUARDA EN CERO
 		  $ata_id = 0;
 	   }
-	   
+	   	   
 	   if($recibida != 0 && $nivel != 0 && $centro != 0 && $ata_id != 0 && $servicio != 0 && $patologia != 0 && $medico != 0 && $motivo != 0 && $motivo_ref_recibida != 0){
 		   $insert = "INSERT INTO referencia_recibida 
 	           VALUES('$numero', '$ata_id', '$fecha', '$expediente', '$anos', '$patologia', '$diagnostico', '$servicio','$medico','$motivo_referencia_recibida','$recibida','Sí', '$recibida', '$nivel','$centro','$usuario','$fecha_registro', '$motivo', '$motivo_ref_recibida')";

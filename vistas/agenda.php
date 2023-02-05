@@ -395,7 +395,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 							<p for="end" class="col-sm-5 form-check-label">¿Confirmo?</p>
 							<div class="col-sm-6">
 							<input type="radio" class="form-check-input" name="respuesta_confirmacion" id="si_respuesta_confirmacion" value="1">Sí
-							<input type="radio" class="form-check-input" name="respuesta_confirmacion" id="no_respuesta_confirmacion" value="1">No					
+							<input type="radio" class="form-check-input" name="respuesta_confirmacion" id="no_respuesta_confirmacion" value="2">No					
 							</div>						 
 						</div>					      
 					</div>	
@@ -419,7 +419,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 					 <p for="end" class="col-sm-4 form-check-label">¿Editar Registro?</p>
 					 <div class="col-sm-4">
 						<input type="radio" class="form-check-input" name="editar_confirmacion" id="editar_si_confirmacion" value="1">Sí
-						<input type="radio" class="form-check-input" name="editar_confirmacion" id="editar_no_confirmacion" value="1">No					
+						<input type="radio" class="form-check-input" name="editar_confirmacion" id="editar_no_confirmacion" value="2">No					
 					 </div>	
 					 <p for="end" class="col-sm-4 form-check-label">¿Actualizar Datos?</p>
 					 <div class="col-sm-4">

@@ -169,7 +169,7 @@ $(document).ready(pagination(1))
 
       //ATA MANUAL
 	  $('#form_main #nuevo_ata_manual').on('click',function(){
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 5 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 	         $('#registrar_ata_manual').modal({
 	            show:true,
 				keyboard: false,
@@ -4314,11 +4314,11 @@ function getEnfermedadad(){
         success: function(data){
 		    $('#formulario1 #enfermedad').html("");
 			$('#formulario1 #enfermedad').html(data);
-			$('#formulario_atas #ihss_ata').selectpicker('refresh');
+			$('#formulario1 #enfermedad').selectpicker('refresh');
 ;
 		    $('#formulario_atas #enfermedad1').html("");
 			$('#formulario_atas #enfermedad1').html(data);
-			$('#formulario_atas #ihss_ata').selectpicker('refresh');
+			$('#formulario_atas #enfermedad').selectpicker('refresh');
 		}
      });
 }
@@ -5207,7 +5207,6 @@ $('#reg_cuestionario').on('click', function(e){ // add event submit We don't wan
 });
 
 $('#reg_ata_manual').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
-	 alert("estas aqui");
 	 if ($('#formulario_ata_manual #expediente_ata').val() != "" && $('#formulario_ata_manual #paciente_ata').val() != "" && $('#formulario_ata_manual #patologia_ata1').val() != "" && $('#formulario_ata_manual #servicio_ata').val() != "" && $('#formulario_ata_manual #unidad_ata').val() != "" && $('#formulario_ata_manual #colaborador_ata').val() != ""){
 		 e.preventDefault();
 		 agregaATA_Manual();
@@ -6134,6 +6133,7 @@ function showRecetaMedica(agenda_id, pacientes_id){
 				$('#formulario_receta_medica #nombre').val(datos[0]);
 				$('#formulario_receta_medica #identidad').val(datos[1]);
 				$('#formulario_receta_medica #servicio_receta').val(datos[3]);
+				$('#formulario_receta_medica #servicio_receta').selectpicker('refresh');
 				$('#label_acciones_volver').html("ATA");
 				$('#label_acciones_receta').html("Receta Electrónica");
 				$('#formulario_receta_medica #expediente').attr('readonly', true);

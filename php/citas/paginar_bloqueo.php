@@ -15,13 +15,25 @@ $fechaf = $_POST['fechaf'];
 
 $fecha = date('Y-m-d');
 
+$unidad = '';
+$medico = '';
+
+if($_POST['unidad'] != ''){
+    $unidad = "AND c.puesto_id = '".$_POST['unidad']."'";
+}
+
+if($_POST['medico'] != ''){
+    $medico = "AND c.colaborador_id = '".$_POST['medico']."'";
+}
+
+/*
 if($unidad != ""){
     $where = "WHERE c.puesto_id = '$unidad' AND CAST(a.fecha_cita AS DATE) BETWEEN '$fechai' AND '$fechaf'";
 }else if($unidad != "" || $medico !== ""){
     $where = "WHERE c.puesto_id = '$unidad' AND c.colaborador_id = '$medico' AND CAST(a.fecha_cita AS DATE) BETWEEN '$fechai' AND '$fechaf'";
 }else{
     $where = "WHERE CAST(a.fecha_cita AS DATE) BETWEEN '$fechai' AND '$fechaf'";
-}
+}*/
 
 //EJECUTAMOS LA CONSULTA DE BUSQUEDA
 $query = "SELECT a.bloqueo_id AS 'bloqueo_id', CONCAT(c.nombre, ' ', c.apellido) AS 'profesional', a.fecha_cita AS 'fecha', s.nombre AS 'servicio', a.observacion AS 'comentario'
@@ -30,7 +42,9 @@ $query = "SELECT a.bloqueo_id AS 'bloqueo_id', CONCAT(c.nombre, ' ', c.apellido)
     ON a.colaborador_id = c.colaborador_id
     INNER JOIN servicios AS s
     ON a.servicio_id = s.servicio_id
-    ".$where."
+    WHERE CAST(a.fecha_cita AS DATE) BETWEEN '$fechai' AND '$fechaf'
+    $unidad
+    $medico
     ORDER BY a.fecha_cita, a.colaborador_id DESC";
 
     $result = $mysqli->query($query);
@@ -69,7 +83,9 @@ $registro = "SELECT a.bloqueo_id AS 'bloqueo_id',  CONCAT(c.nombre, ' ', c.apell
     ON a.colaborador_id = c.colaborador_id
     INNER JOIN servicios AS s
     ON a.servicio_id = s.servicio_id
-    ".$where."
+    WHERE CAST(a.fecha_cita AS DATE) BETWEEN '$fechai' AND '$fechaf'
+    $unidad
+    $medico
     ORDER BY a.fecha_cita, a.colaborador_id LIMIT $limit, $nroLotes";
 
 $result = $mysqli->query($registro);

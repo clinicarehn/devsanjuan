@@ -18,35 +18,6 @@ $observacion = cleanStringStrtolower($_POST['observacion_confirmacion']);
 $usuario = $_SESSION['colaborador_id'];
 $fecha_registro = date("Y-m-d H:i:s");
 
-$confirmo = 0;
-$confirmo1 = 0;
-
-//CONFIRMACIONES
-if(isset($_POST['confirmo_si'])){
-   if($_POST['confirmo_si'] == ""){
-       $confirmo = 0;
-   }else{
-	   $confirmo = $_POST['confirmo_si'];
-   }
-}
-
-if(isset($_POST['confirmo_no'])){
-    if($_POST['confirmo_no'] == ""){
-        $confirmo1 = 0;	
-    }else{
-	    $confirmo1 = $_POST['confirmo_no'];
-    }
-}
-
-//ACTUALIZACION DE DATOS
-if(isset($_POST['actualizar_datos'])){
-   if($_POST['actualizar_datos'] == ""){
-       $actualizacion = 0;
-   }else{
-	   $actualizacion = $_POST['actualizar_datos'];
-   }
-}
-
 //RESPUESTA A CONFIRMACION
 if(isset($_POST['respuesta_confirmacion'])){//COMPRUEBO SI LA VARIABLE ESTA DIFINIDA
 	if($_POST['respuesta_confirmacion'] == ""){
@@ -56,6 +27,24 @@ if(isset($_POST['respuesta_confirmacion'])){//COMPRUEBO SI LA VARIABLE ESTA DIFI
 	}
 }else{
 	$respuesta = 0;
+}
+
+//CONFIRMACIONES
+if(isset($_POST['confirmo_no'])){
+   if($_POST['confirmo_no'] == ""){
+       $confirmo = 0;
+   }else{
+	   $confirmo = $_POST['confirmo_no'];
+   }
+}
+
+//ACTUALIZACION DE DATOS
+if(isset($_POST['actualizar_datos'])){
+   if($_POST['actualizar_datos'] == ""){
+       $actualizacion = 0;
+   }else{
+	   $actualizacion = $_POST['actualizar_datos'];
+   }
 }
 
 //CONSULTAR FECHA_CITA

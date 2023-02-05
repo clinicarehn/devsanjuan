@@ -79,7 +79,7 @@ var view_reporte_receta_electronica_dataTable = function(tbody, table){
 	$(tbody).off("click", "button.view");
 	$(tbody).on("click", "button.view", function(e){
 		e.preventDefault();
-		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 8 || getUsuarioSistema() == 15 || getUsuarioSistema() == 16){
+		if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
 			var data = table.row( $(this).parents("tr") ).data();
 			var receta_id = data.receta_id
 			var url = '<?php echo SERVERURL; ?>php/receta/getReceta.php';
@@ -94,6 +94,9 @@ var view_reporte_receta_electronica_dataTable = function(tbody, table){
 				   $('#label_acciones_volver').html("Reporte Receta Electrónica");
 				   $('#label_acciones_receta').html("Receta Electrónica");
 				   $('#reporteReceta').hide();
+				   $('#validar_receta').hide();
+				   $('#editar_receta').hide();
+				   $('#eliminar_receta').hide();
 				   $('#acciones_atras').addClass("breadcrumb-item active");
 				   $('#acciones_receta').removeClass("active");
 				   $('#formulario_receta_medica #expediente').val(datos[0]);
@@ -101,9 +104,11 @@ var view_reporte_receta_electronica_dataTable = function(tbody, table){
 				   $('#formulario_receta_medica #identidad').val(datos[2]);
 				   $('#formulario_receta_medica #nombre').val(datos[3]);
 				   $('#formulario_receta_medica #servicio_receta').val(datos[4]);
+				   $('#formulario_receta_medica #servicio_receta').selectpicker('refresh');
 				   $('#formulario_receta_medica #observaciones').val(datos[5]);
 
 				   //DESHABILITAR OBJETOS
+				   $('#formulario_receta_medica #fecha').attr('disabled', true);
 				   $('#formulario_receta_medica #servicio_receta').attr('disabled', true);
 				   $('#formulario_receta_medica #observaciones').attr('readonly',true);
 				   $('#validar_receta').hide();
@@ -214,6 +219,7 @@ var edit_reporte_receta_electronica_dataTable = function(tbody, table){
 					   $('#formulario_receta_medica #identidad').val(datos[2]);
 					   $('#formulario_receta_medica #nombre').val(datos[3]);
 					   $('#formulario_receta_medica #servicio_receta').val(datos[4]);
+					   $('#formulario_receta_medica #servicio_receta').selectpicker('refresh');
 					   $('#formulario_receta_medica #observaciones').val(datos[5]);
 					   $('#validar_receta').hide();
 					   $('#editar_receta').show();
@@ -230,6 +236,7 @@ var edit_reporte_receta_electronica_dataTable = function(tbody, table){
 
 					   //DESHABILITAR OBJETOS
 					   $('#formulario_receta_medica #servicio_receta').attr('disabled', true);
+					   $('#formulario_receta_medica #fecha').attr('disabled', true);
 					   $('#formulario_receta_medica #buscar_servicio_receta_electronica').hide();
 						 caracteresObservacionReceta();
 					}
@@ -349,6 +356,7 @@ var delete_reporte_receta_electronica_dataTable = function(tbody, table){
 					   $('#formulario_receta_medica #identidad').val(datos[2]);
 					   $('#formulario_receta_medica #nombre').val(datos[3]);
 					   $('#formulario_receta_medica #servicio_receta').val(datos[4]);
+					   $('#formulario_receta_medica #servicio_receta').selectpicker('refresh');
 					   $('#formulario_receta_medica #observaciones').val(datos[5]);
 					   $('#validar_receta').hide();
 					   $('#editar_receta').hide();
@@ -362,6 +370,7 @@ var delete_reporte_receta_electronica_dataTable = function(tbody, table){
 
 					   //DESHABILITAR OBJETOS
 					   $('#formulario_receta_medica #servicio_receta').attr('disabled', true);
+					   $('#formulario_receta_medica #fecha').attr('disabled', true);
 					   $('#formulario_receta_medica #observaciones').attr('readonly',true);
 					   $('#formulario_receta_medica #buscar_servicio_receta_electronica').hide();
 					}
@@ -512,6 +521,7 @@ function getServicioReceta(){
 		success: function(data){
 			$('#formulario_receta_medica #servicio_receta').html("");
 			$('#formulario_receta_medica #servicio_receta').html(data);
+			$('#formulario_receta_medica #servicio_receta').selectpicker('refresh');
 		}
    });
    return false;

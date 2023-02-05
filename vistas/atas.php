@@ -1416,11 +1416,11 @@ $mysqli->close();//CERRAR CONEXIÓN
 								
 								<div class="form-check form-check-inline">
 								  <input class="form-check-input" type="radio" id="preferencia_si" name="preferencia" value="1">
-								  <label class="form-check-label" id="label_preferencia_si1"></label>
+								  <label class="form-check-label" id="label_preferencia_si"></label>
 								</div>
 								<div class="form-check form-check-inline">
 								  <input class="form-check-input" type="radio" id="preferencia_no" name="preferencia" value="2" checked>
-								  <label class="form-check-label" id="label_preferencia_no1"></label>
+								  <label class="form-check-label" id="label_preferencia_no"></label>
 								</div>	
 							</div>
 						</div>
@@ -1559,7 +1559,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 									<div class="col-md-3 mb-3">
 										<label for="centroi">Recibida de</label>			
 										<div class="input-group mb-3">
-											<select class="selectpicker" id="" name="centroi" data-live-search="true" title="Recibida de">			  
+											<select class="selectpicker" id="centroi" name="centroi" data-live-search="true" title="Recibida de">			  
 											</select>
 										</div>
 									</div>								
@@ -1990,7 +1990,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 									<div class="col-md-3 mb-3">
 										<label for="centroi1">Recibida de</label>			
 										<div class="input-group mb-3">
-											<select class="selectpicker" id="centroi1" name="centro1" data-live-search="true" title="Recibida de">			  
+											<select class="selectpicker" id="centroi1" name="centroi1" data-live-search="true" title="Recibida de">			  
 											</select>
 										</div>
 									</div>								

@@ -712,6 +712,7 @@ if($expediente==0 || $servicio == 0){
       	  if($nivel != 0 && $centro != 0 && $centroi != 0 && $numero != 0 && $patologia_id1 != 0 && $servicio != 0 && $colaborador_id != 0 && $motivo != 0 && $motivo_ref_recibida != 0){	     
              $insert = "INSERT INTO referencia_recibida 
 			    VALUES('$numero_referencia_recibida','$numero','$fecha','$expediente','$anos','$patologia_id1', '$clinico1', '$servicio','$colaborador_id','$motivo_referencia_recibida','$centroi','Sí','$centroi','$nivel','$centro','$colaborador_id','$fecha_registro','$motivo','$motivo_ref_recibida')";
+
              $mysqli->query($insert);	
 
              //INGRESAR REGISTROS EN LA ENTIDAD HISTORIAL
