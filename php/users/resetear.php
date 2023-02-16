@@ -54,7 +54,7 @@ if($query){
 	
 	if($sock = @fsockopen('www.google.com', 80)){ 
 		$de = "notificaciones@hsjddhn.com";
-		$contraseña = 'Sjd2021hn05%';	
+		$contraseña = 'S@nhn2023%CLIN';	
 		$servidor = "smtp.office365.com";
 		$puerto = "587";
 		$SMTPSecure = "tls";

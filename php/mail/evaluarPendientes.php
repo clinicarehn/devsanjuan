@@ -145,7 +145,7 @@ $consulta_correo2 = $result->fetch_assoc();
 $correo_consulta = $consulta_correo2['email'];
    
 $de = "notificaciones@hsjddhn.com";
-$contraseña = 'Sjd2021hn05%';	
+$contraseña = 'S@nhn2023%CLIN';	
 $servidor = "smtp.office365.com";
 $puerto = "587";
 $SMTPSecure = "tls";
