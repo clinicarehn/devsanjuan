@@ -158,7 +158,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 					<div class="col-md-3 mb-3">
 						<label for="patologia1">Patología</label>			
 						<div class="input-group mb-3">
-						<select class="selectpicker" id="patologia1" name="patologia1" data-live-search="true" title="Patología">			  
+						<select class="selectpicker" id="patologia1" name="patologia1" data-live-search="true" title="Patología" required>			  
 						</select>
 						</div>
 					</div>									
@@ -267,7 +267,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 					<div class="col-md-3 mb-3">
 						<label for="patologia1">Patología</label>			
 						<div class="input-group mb-3">
-						<select class="selectpicker" id="patologia1" name="patologia1" data-live-search="true" title="Patología">			  
+						<select class="selectpicker" id="patologia1" name="patologia1" data-live-search="true" title="Patología" required>			  
 						</select>
 						</div>
 					</div>												
@@ -547,7 +547,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 					<div class="col-md-3 mb-3">
 						<label for="patologia_ata1">Patología</label>			
 						<div class="input-group mb-3">
-						<select class="selectpicker" id="patologia_ata1" name="patologia_ata1" data-live-search="true" title="Patología">			  
+						<select class="selectpicker" id="patologia_ata1" name="patologia_ata1" data-live-search="true" title="Patología" required>			  
 						</select>
 						</div>
 					</div>
@@ -1297,7 +1297,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 							<div class="col-md-3 mb-3">
 								<label for="patologia2">Patología 2</label>			
 								<div class="input-group mb-3">
-								<select class="selectpicker" id="patologia2" name="patologia2" data-live-search="true" title="Patologia">			  
+								<select class="selectpicker" id="patologia2" name="patologia2" data-live-search="true" title="Patologia" required>			  
 								</select>
 								</div>
 							</div>
