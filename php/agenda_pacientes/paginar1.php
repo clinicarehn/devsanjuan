@@ -6,28 +6,42 @@ $mysqli = connect_mysqli();
 
 date_default_timezone_set('America/Tegucigalpa');
 $paginaActual = $_POST['partida'];
-$servicio = $_POST['servicio'];
-$unidad = $_POST['unidad'];
-$medico_general = $_POST['medico_general'];
 $status = $_POST['atencion'];
 $dato = $_POST['dato'];
 $fecha = $_POST['fecha'];
 $fechaf = $_POST['fechaf'];
 
+$servicio = '';
+$unidad = '';
+$medico_general = '';
+
+if($_POST['servicio'] != ''){
+	$servicio = "AND a.servicio_id = '".$_POST['servicio']."'";
+}
+
+if($_POST['unidad'] != ''){
+	$unidad = "AND c.puesto_id = '".$_POST['unidad']."'";
+}
+
+if($_POST['medico_general'] != ''){
+	$medico_general = "AND a.colaborador_id = '".$_POST['medico_general']."'";
+}
+
 if($status == 0){//PENDIENTES
-	$in = "IN(0)";
+	$estado = "AND a.status = 0";
 }else if($status == 1){//ATENDIDOS
-	$in = "IN(1)";		
+	$in = "AND a.status = 1";		
 }else if($status == 2){//AUSENCIAS
-	$in = "IN(2)";		
+	$estado = "AND a.status = 2";		
 }else if($status == 3){//ELIMINADOS
-	$in = "IN(3)";		
+	$estado = "AND a.status = 3";		
 }else if($status == 4){//SEGUIMIENTO
-	$in = "IN(4)";		
+	$estado = "AND a.status = 4";		
 }else if($status == 5){//AGENDA
-	$in = "IN(0,1,2)";		
+	$estado = "AND a.status IN(0,1,2) AND a.color IN('#0071c5', '#008000')";		
 }
 	
+/*
 if($servicio != 0 && $unidad == 0 && $medico_general == 0 && $status != ""){
    if($status == 3){
 	  $where = "WHERE cast(a.fecha_cita as date) BETWEEN '$fecha' AND '$fechaf' AND a.status $in AND a.servicio_id = '$servicio' AND a.hora <> '00:00' AND a.color <> '#824CC8' AND (p.expediente LIKE '%$dato%' OR CONCAT(p.nombre,' ',p.apellido) LIKE '%$dato%' OR p.apellido LIKE '$dato%' OR p.identidad LIKE '$dato%')";		   
@@ -64,19 +78,24 @@ if($servicio != 0 && $unidad == 0 && $medico_general == 0 && $status != ""){
 	   $where = " WHERE cast(a.fecha_cita as date) BETWEEN '$fecha' AND '$fechaf' AND a.status $in AND a.servicio_id = '$servicio' AND (p.expediente LIKE '%$dato%' OR CONCAT(p.apellido,' ',p.nombre) LIKE '%$dato%' OR p.apellido LIKE '$dato%' OR p.identidad LIKE '$dato%')";		   
    }	   
 }
+*/
 
-$query = "SELECT a.servicio_id AS 'servicio_id', a.agenda_id as 'agenda_id', a.pacientes_id AS 'pacientes_id', a.expediente AS 'expediente', CONCAT(p.apellido, ' ', p.nombre) AS 'paciente_nombre', a.hora AS 'hora', DATE_FORMAT(CAST(a.fecha_cita AS DATE ), '%d/%m/%Y') AS 'fecha_cita',
+$query = "SELECT a.servicio_id AS 'servicio_id', a.agenda_id as 'agenda_id', a.pacientes_id AS 'pacientes_id', (CASE WHEN a.expediente = 0 THEN 'TEMP' ELSE a.expediente END) AS 'expediente', CONCAT(p.apellido, ' ', p.nombre) AS 'paciente_nombre', a.hora AS 'hora', DATE_FORMAT(CAST(a.fecha_cita AS DATE ), '%d/%m/%Y') AS 'fecha_cita',
    CONCAT(c.nombre, ' ', c.apellido) As doctor, p.telefono AS 'telefono', p.telefono1 AS 'telefono1', p.telefonoresp AS 'telefonoresp',
-   p.telefonoresp1 AS 'telefonoresp1', c.colaborador_id AS 'colaborador_id', a.observacion as 'observacion', a.comentario as 'comentario', CONCAT(c1.apellido, ' ', c1.nombre) As usuario, p.identidad AS 'identidad', a.expediente AS 'expediente', a.servicio_id AS 'servicio_id', CAST(a.fecha_cita AS DATE) AS 'fecha_cita_consulta', c.puesto_id AS 'puesto_id', CAST(a.fecha_cita AS DATE) AS 'fecha', a.servicio_id AS 'servicio_id', (CASE WHEN a.paciente = 'N' THEN 'N' ELSE 'S' END) AS paciente
-   FROM agenda AS a 
-   INNER JOIN pacientes AS p 
-   ON a.pacientes_id = p.pacientes_id 
-   INNER JOIN colaboradores AS c 
-   ON a.colaborador_id = c.colaborador_id
-   INNER JOIN colaboradores AS c1
-   ON a.usuario = c1.colaborador_id	 
-   ".$where."
-   ORDER BY a.hora, a.pacientes_id ASC";
+   p.telefonoresp1 AS 'telefonoresp1', c.colaborador_id AS 'colaborador_id', (CASE WHEN a.observacion = '' THEN 'Sin Observacion' ELSE a.observacion END) AS 'observacion', (CASE WHEN a.comentario = '' THEN 'Sin comentario' ELSE a.comentario END) AS 'comentario', CONCAT(c1.apellido, ' ', c1.nombre) As usuario, p.identidad AS 'identidad', a.expediente AS 'expediente', a.servicio_id AS 'servicio_id', CAST(a.fecha_cita AS DATE) AS 'fecha_cita_consulta', c.puesto_id AS 'puesto_id', CAST(a.fecha_cita AS DATE) AS 'fecha', a.servicio_id AS 'servicio_id', (CASE WHEN a.paciente = 'N' THEN 'N' ELSE 'S' END) AS paciente
+	FROM agenda AS a 
+	INNER JOIN pacientes AS p 
+	ON a.pacientes_id = p.pacientes_id 
+	INNER JOIN colaboradores AS c 
+	ON a.colaborador_id = c.colaborador_id
+	INNER JOIN colaboradores AS c1
+	ON a.usuario = c1.colaborador_id	 
+	WHERE CAST(a.fecha_cita AS DATE) BETWEEN '$fecha' AND '$fechaf'
+	$servicio
+	$unidad
+	$medico_general
+	$estado
+	ORDER BY a.hora, a.pacientes_id ASC";
 $result = $mysqli->query($query);
    
 $nroLotes = 20;
@@ -107,26 +126,25 @@ if($paginaActual <= 1){
 	$limit = $nroLotes*($paginaActual-1);
 }
 
-$registro = "SELECT DISTINCT a.servicio_id AS 'servicio_id', a.agenda_id as 'agenda_id', a.pacientes_id AS 'pacientes_id', a.expediente AS 'expediente', CONCAT(p.apellido, ' ', p.nombre) AS 'paciente_nombre', a.hora AS 'hora', DATE_FORMAT(CAST(a.fecha_cita AS DATE ), '%d/%m/%Y') AS 'fecha_cita',
+$registro = "SELECT DISTINCT a.servicio_id AS 'servicio_id', a.agenda_id as 'agenda_id', a.pacientes_id AS 'pacientes_id', (CASE WHEN a.expediente = 0 THEN 'TEMP' ELSE a.expediente END) AS 'expediente', CONCAT(p.apellido, ' ', p.nombre) AS 'paciente_nombre', a.hora AS 'hora', DATE_FORMAT(CAST(a.fecha_cita AS DATE ), '%d/%m/%Y') AS 'fecha_cita',
    CONCAT(c.nombre, ' ', c.apellido) As doctor, p.telefono AS 'telefono', p.telefono1 AS 'telefono1', p.telefonoresp AS 'telefonoresp',
-   p.telefonoresp1 AS 'telefonoresp1', c.colaborador_id AS 'colaborador_id', a.observacion as 'observacion', a.comentario as 'comentario', CONCAT(c1.apellido, ' ', c1.nombre) As usuario, p.identidad AS 'identidad', a.expediente AS 'expediente', a.servicio_id AS 'servicio_id', CAST(a.fecha_cita AS DATE) AS 'fecha_cita_consulta', c.puesto_id AS 'puesto_id', CAST(a.fecha_cita AS DATE) AS 'fecha', a.servicio_id AS 'servicio_id', (CASE WHEN a.paciente = 'N' THEN 'N' ELSE 'S' END) AS paciente
-   FROM agenda AS a 
-   INNER JOIN pacientes AS p 
-   ON a.pacientes_id = p.pacientes_id 
-   INNER JOIN colaboradores AS c 
-   ON a.colaborador_id = c.colaborador_id
-   INNER JOIN colaboradores AS c1
-   ON a.usuario = c1.colaborador_id  
-   ".$where."
-   ORDER BY a.hora, a.pacientes_id ASC LIMIT $limit, $nroLotes";
+   p.telefonoresp1 AS 'telefonoresp1', c.colaborador_id AS 'colaborador_id', (CASE WHEN a.observacion = '' THEN 'Sin Observacion' ELSE a.observacion END) AS 'observacion', (CASE WHEN a.comentario = '' THEN 'Sin comentario' ELSE a.comentario END) AS 'comentario', CONCAT(c1.apellido, ' ', c1.nombre) As usuario, p.identidad AS 'identidad', a.expediente AS 'expediente', a.servicio_id AS 'servicio_id', CAST(a.fecha_cita AS DATE) AS 'fecha_cita_consulta', c.puesto_id AS 'puesto_id', CAST(a.fecha_cita AS DATE) AS 'fecha', a.servicio_id AS 'servicio_id', (CASE WHEN a.paciente = 'N' THEN 'N' ELSE 'S' END) AS paciente
+	FROM agenda AS a 
+	INNER JOIN pacientes AS p 
+	ON a.pacientes_id = p.pacientes_id 
+	INNER JOIN colaboradores AS c 
+	ON a.colaborador_id = c.colaborador_id
+	INNER JOIN colaboradores AS c1
+	ON a.usuario = c1.colaborador_id  
+	WHERE CAST(a.fecha_cita AS DATE) BETWEEN '$fecha' AND '$fechaf'
+	$servicio
+	$unidad
+	$medico_general
+	$estado
+	ORDER BY a.hora, a.pacientes_id ASC LIMIT $limit, $nroLotes";
   
 $result = $mysqli->query($registro);
 
-/*
-	<th>
-	   <input type="checkbox" name="seleccionar" class="form-control" id="checkAll">
-	</th>	
-*/
 $tabla = $tabla.'<table class="table table-striped table-condensed table-hover">
 		  <tr>	  
 			<th width="1.14%">N°</th>
@@ -151,6 +169,7 @@ while($registro2 = $result->fetch_assoc()){
 	$colaborador_id = $registro2['colaborador_id'];
 	$fecha_cita = $registro2['fecha_cita_consulta'];
 
+	/*
 	$telefonousuario = "";
 	if($registro2['telefono'] != ""){
 	 $telefonousuario = '<a style="text-decoration:none" title = "Teléfono Usuario" href="tel:9'.$registro2['telefono'].'">'.$registro2['telefono'].'</a>'; 
@@ -162,20 +181,8 @@ while($registro2 = $result->fetch_assoc()){
 	 $telefonousuariosms .= ", ".$registro2['telefono1'];
 	}else{
 	 $telefonousuario1 = '';
-	}
-
-	if ($registro2['expediente'] == 0){
-	  $expediente = "TEMP"; 
-	}else{
-	  $expediente = $registro2['expediente'];
 	}	 
 
-	if ($registro2['observacion'] == ""){
-	 $observacion = "No hay ningún observacion";
-	}else{
-	$observacion = $registro2['observacion'];
-	}	  
-	  
 	//INICIO CONSULTAR MENSAJE CONFIRMACION AGENDA
 	$query_confirmacion_agenda = "SELECT confirmacion_agenda_id, observacion, confirmo
 	 FROM confirmacion_agenda AS conf_agenda
@@ -184,15 +191,9 @@ while($registro2 = $result->fetch_assoc()){
 	$registro_confirmacion_agenda2 = $result_confirmacion_agenda->fetch_assoc();		  
 
 	if ($result_confirmacion_agenda->num_rows != 0){
-	$observacion = $observacion."***".$registro_confirmacion_agenda2['observacion'];
+		$observacion = $observacion."***".$registro_confirmacion_agenda2['observacion'];
 	}	 	  
-	//FIN CONSULTAR MENSAJE CONFIRMACION AGENDA
-
-	if ($registro2['comentario'] == ""){
-	 $comentario = "No hay ningún comentario";
-	}else{
-	$comentario = $registro2['comentario'];
-	}	 
+	//FIN CONSULTAR MENSAJE CONFIRMACION AGENDA 
 
 	//INICIO CONSULTAR MENSAJE CONFIRMACION DE AUSENCIA PARA LA REPROGRAMACIÓN
 	$query_confirmacion = "SELECT confirmar_ausencias_repro_id, observacion, confirmo
@@ -202,39 +203,20 @@ while($registro2 = $result->fetch_assoc()){
 	$registro_confirmacion2 = $result_confirmacion->fetch_assoc();	  
 
 	if ($result_confirmacion->num_rows != 0){
-	$observacion = $observacion."***".$registro_confirmacion2['observacion'];
-	}	
+		$observacion = $observacion."***".$registro_confirmacion2['observacion'];
+	}*/	
 
-	//CONSULTAR PUESTO COLABORADOR			  
-	$consultar_puesto = "SELECT puesto_id 
-	   FROM colaboradores 
-	   WHERE colaborador_id = '$colaborador_id'";
-	$result_puesto_colaborador = $mysqli->query($consultar_puesto);
-	$consultar_puesto1 = $result_puesto_colaborador->fetch_assoc();
-
-	$consultar_colaborador_puesto_id = "";
-
-	if($result_puesto_colaborador->num_rows>0){
-		$consultar_colaborador_puesto_id = $consultar_puesto1['puesto_id'];
-	}
-
-  //FIN CONSULTAR MENSAJE CONFIRMACION DE AUSENCIA PARA LA REPROGRAMACIÓN	  
-    /*
-  	   <td>
-		  <input type="checkbox" name="checkeliminar" class="itemRow form-control" id="checkeliminar">
-	   </td>	
-	*/
 	$tabla = $tabla.'<tr>
 	   <td>'.$i.'</td>
-	   <td><a style="text-decoration:none" href="javascript:sendOneSMS('.$registro2['pacientes_id'].','.$registro2['agenda_id'].');">'.$expediente.'</a></td>			
+	   <td><a style="text-decoration:none" href="javascript:sendOneSMS('.$registro2['pacientes_id'].','.$registro2['agenda_id'].');">'.$registro2['expediente'].'</a></td>			
 	   <td title='.$registro2['usuario'].'>'.$registro2['identidad'].'</td>
 	   <td>'.$registro2['paciente_nombre'].'</td>
 	   <td>'.$registro2['fecha_cita'].'</td>
 	   <td>'.date('g:i a',strtotime($registro2['hora'])).'</td>	
 	   <td>'.$registro2['paciente'].'</td>  
 	   <td>'.$registro2['doctor'].'</td>	   
-	   <td>'.$observacion.'</td>
-	   <td>'.$comentario.'</td>		   
+	   <td>'.$registro2['observacion'].'</td>
+	   <td>'.$registro2['comentario'].'</td>		   
 	   <td>'.$registro2['usuario'].'</td>	   
 	   <td>
 		   <a style="text-decoration:none;" href="javascript:modal_triage('.$registro2['agenda_id'].','.$registro2['colaborador_id'].','.$registro2['servicio_id'].','.$registro2['pacientes_id'].','.$registro2['expediente'].');void(0);" title="Triage" class="fas fa-user-md fa-lg"></a>

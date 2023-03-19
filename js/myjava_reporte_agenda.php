@@ -57,14 +57,38 @@ var listar_reporte_agenda = function(){
 				"data":"2",
 				"className": "dia2"
 			},
-			{"data":"3"},
-			{"data":"4"},
-			{"data":"5"},
-			{"data":"6"},
-			{"data":"7"},
-			{"data":"8"},
-			{"data":"9"},
-			{"data":"10"},
+			{
+			  "data":"3",
+			  "className": "dia3"
+			},
+			{
+				"data":"4",
+				"className": "dia4"
+			},
+			{
+				"data":"5",
+				"className": "dia5"
+			},
+			{
+				"data":"6",
+				"className": "dia6"
+			},
+			{
+				"data":"7",
+				"className": "dia7"
+			},
+			{
+				"data":"8",
+				"className": "dia8"
+			},
+			{
+				"data":"9",
+				"className": "dia9"
+			},
+			{
+				"data":"10",
+				"className": "dia10"
+			},
 			{"data":"11"},
 			{"data":"12"},
 			{"data":"13"},
@@ -88,7 +112,8 @@ var listar_reporte_agenda = function(){
 			{"data":"31"},															
 			{
 				"data":"total",
-				"className": "total",}
+				"className": "total"
+			}
 		],
 		"buttons":[		
 			{

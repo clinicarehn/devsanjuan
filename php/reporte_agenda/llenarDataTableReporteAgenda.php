@@ -67,7 +67,7 @@ $query = "SELECT s.nombre AS 'servicio', ae.nombre AS 'tipo',
 	INNER JOIN colaboradores AS c ON a.colaborador_id = c.colaborador_id
 	INNER JOIN servicios AS s ON a.servicio_id = s.servicio_id
 	INNER JOIN agenda_estado AS ae ON a.status = ae.agenda_estado_id
-	WHERE CAST(a.fecha_cita AS date) BETWEEN '$fechai' AND '$fechaf' AND a.`status` IN(1,2)
+	WHERE CAST(a.fecha_cita AS date) BETWEEN '$fechai' AND '$fechaf' AND a.status IN(1,2)
 	$servicio
 	$unidad
 	$colaborador

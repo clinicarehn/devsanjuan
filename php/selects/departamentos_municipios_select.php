@@ -11,7 +11,7 @@ date_default_timezone_set('America/Tegucigalpa');
 $id = $_POST['id'];
 
 //CONSULTA LOS DATOS DE LA ENTIDAD CORPORACION
-$consulta = "SELECT * 
+$consulta = "SELECT municipio_id, nombre
     FROM municipios WHERE municipio_id = '$id' ORDER BY nombre";
 $result = $mysqli->query($consulta);
 

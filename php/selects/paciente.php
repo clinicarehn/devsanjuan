@@ -10,7 +10,7 @@ date_default_timezone_set('America/Tegucigalpa');
 $id = $_POST['id'];
 
 //CONSULTA LOS DATOS DE LA ENTIDAD CORPORACION
-$consulta = "SELECT * 
+$consulta = "SELECT expediente, nombre, apellido
     FROM pacientes 
 	WHERE nombre like '$id%' ORDER BY pacientes_id";
 $result = $mysqli->query($consulta);

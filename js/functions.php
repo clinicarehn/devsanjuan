@@ -111,6 +111,7 @@ function getSaludoSistema(){
 	});
 }
 
+/*
 function evaluarRegistrosPendientesEmail(){
     var url = '<?php echo SERVERURL; ?>php/mail/evaluarPendientes.php';
 
@@ -336,15 +337,6 @@ $(document).ready(function(e) {
 	});
 });
 
-/**
- * jQuery snow effects.
- *
- * This is a heavily modified, jQuery-adapted, browser-agnostic version of
- * "Snow Effect Script" by Altan d.o.o. (http://www.altan.hr/snow/index.html).
- *
- * Dustin Oprea (2011)
- */
-
 function __ShowSnow(settings)
 {
 
@@ -444,14 +436,14 @@ function __ShowSnow(settings)
 
 })(jQuery);
 
-/*
+
 $(function() {
     var now = new Date();
 
     if((now.getMonth() == 10 && now.getDate() >= 26) || (now.getMonth() == 11 && now.getDate() <= 31) || (now.getMonth() == 0 && now.getDate() <= 6)){
 		$(document).snow({ SnowImage: "<?php echo SERVERURL; ?>img/snow.gif" });
 	}
-})*/
+})
 
 
 //VERIFICAR AUSENCIA DE USUARIOS
@@ -523,5 +515,5 @@ function confirmar(agenda_id, colaborador_id, servicio_id){
 	}else{
       mensajeError("Error","Lo sentimos esta opción no esta disponible");
 	}
-}
+}*/
 </script>
