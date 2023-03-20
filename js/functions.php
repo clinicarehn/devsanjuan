@@ -111,7 +111,6 @@ function getSaludoSistema(){
 	});
 }
 
-/*
 function evaluarRegistrosPendientesEmail(){
     var url = '<?php echo SERVERURL; ?>php/mail/evaluarPendientes.php';
 
@@ -515,5 +514,5 @@ function confirmar(agenda_id, colaborador_id, servicio_id){
 	}else{
       mensajeError("Error","Lo sentimos esta opción no esta disponible");
 	}
-}*/
+}
 </script>
