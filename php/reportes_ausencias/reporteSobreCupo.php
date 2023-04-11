@@ -39,7 +39,7 @@ if($servicio != "" && $unidad == "" && $profesional == "" && $reporte != ""){
   $where = "WHERE so.fecha BETWEEN '$desde' AND '$hasta' AND so.servicio_id = '$servicio' AND c.puesto_id = '$unidad' AND c.colaborador_id = '$profesional' ";
 }
 	
-  $registro = "SELECT DISTINCT DATE_FORMAT(CAST(so.fecha_registro AS DATE ), '%d/%m/%Y') AS 'fecha_registro', DATE_FORMAT(so.fecha, '%d/%m/%Y') AS 'fecha', p.identidad AS 'identidad', p.expediente AS 'expediente', CONCAT(p.apellido,' ',p.nombre) AS  'nombre', so.expediente AS 'expediente', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h', (CASE WHEN p.sexo = 'M' THEN 'X' ELSE '' END) AS 'm', s.nombre AS 'servicio', CONCAT(c.nombre,' ',c.apellido) AS 'medico', (CASE WHEN so.tipo_cita = 'N' THEN 'X' ELSE '' END) AS 'nuevo', (CASE WHEN so.tipo_cita = 'S' THEN 'X' ELSE '' END) AS 'subsiguiente'
+  $registro = "SELECT DISTINCT CAST(so.fecha_registro AS DATE) AS 'fecha_registro', so.fecha AS 'fecha', p.identidad AS 'identidad', p.expediente AS 'expediente', CONCAT(p.apellido,' ',p.nombre) AS  'nombre', so.expediente AS 'expediente', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h', (CASE WHEN p.sexo = 'M' THEN 'X' ELSE '' END) AS 'm', s.nombre AS 'servicio', CONCAT(c.nombre,' ',c.apellido) AS 'medico', (CASE WHEN so.tipo_cita = 'N' THEN 'X' ELSE '' END) AS 'nuevo', (CASE WHEN so.tipo_cita = 'S' THEN 'X' ELSE '' END) AS 'subsiguiente'
   FROM sobrecupo AS so
   INNER JOIN pacientes AS p
   ON so.expediente = p.expediente

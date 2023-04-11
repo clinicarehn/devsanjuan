@@ -186,12 +186,12 @@ function limpiar(){
 	getReporte();
 }
 
-$('#form_main #reporte_excel').on('click', function(e){
+$('#reporte_excel').on('click', function(e){
     e.preventDefault();
     reporteEXCEL();
 });
 
-$('#form_main #limpiar').on('click', function(e){
+$('#limpiar').on('click', function(e){
     e.preventDefault();
     limpiar();
 });

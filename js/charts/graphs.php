@@ -9,11 +9,14 @@ $(document).ready(function () {
 	setInterval('showGraphUNAActual()',10000);
 });
 
-	
 function showGraphCEAnterior(){
-	{		
-		$.post("<?php echo SERVERURL; ?>php/main/atencionesUltimosAnoCE.php",
-		function(data){
+	var url = '<?php echo SERVERURL; ?>php/main/atencionesUltimosAnoCE.php';
+
+	$.ajax({
+	    type:'POST',
+		url:url,
+		async: false,
+		success:function(data){
 			var datos = eval(data);
 			var mes = [];
 			var total = [];
@@ -22,8 +25,9 @@ function showGraphCEAnterior(){
 				mes.push(datos[fila]["mes"]);
 				total.push(datos[fila]["total"]);
 			}
-
-			var ctx = document.getElementById('graphBarCEAnterior').getContext('2d');		
+			
+			var ctx = document.getElementById('graphBarCEAnterior').getContext('2d');
+			
 			var chart = new Chart(ctx, {
 				// The type of chart we want to create
 				type: 'bar',
@@ -32,7 +36,7 @@ function showGraphCEAnterior(){
 				data: {
 					labels: mes,
 					datasets: [{
-						label: 'Reporte de Atenciones Consulta Externa Año <?php echo date("Y",strtotime(date("Y-m-d")."- 1 year")); ?>',
+						label: 'Reporte de Ventas Año <?php echo date("Y"); ?>',
 						backgroundColor: '#4099ff',
 						borderColor: '#4099ff',
 						hoverBackgroundColor: '#73b4ff',
@@ -75,14 +79,19 @@ function showGraphCEAnterior(){
 					}
 				}		
 			});	
-		});
-	}
+			return false;
+		}
+	});
 }
 
 function showGraphCEActual(){
-	{
-		$.post("<?php echo SERVERURL; ?>php/main/atencionesAnoActualCE.php",
-		function(data){
+	var url = '<?php echo SERVERURL; ?>php/main/atencionesAnoActualCE.php';
+
+	$.ajax({
+	    type:'POST',
+		url:url,
+		async: false,
+		success:function(data){
 			var datos = eval(data);
 			var mes = [];
 			var total = [];
@@ -91,8 +100,9 @@ function showGraphCEActual(){
 				mes.push(datos[fila]["mes"]);
 				total.push(datos[fila]["total"]);
 			}
-
-			var ctx = document.getElementById('graphBarCEActual').getContext('2d');		
+			
+			var ctx = document.getElementById('graphBarCEActual').getContext('2d');
+			
 			var chart = new Chart(ctx, {
 				// The type of chart we want to create
 				type: 'bar',
@@ -101,7 +111,7 @@ function showGraphCEActual(){
 				data: {
 					labels: mes,
 					datasets: [{
-						label: 'Reporte de Atenciones Consulta Externa Año <?php echo date("Y"); ?>',
+						label: 'Reporte de Ventas Año <?php echo date("Y"); ?>',
 						backgroundColor: '#2ed8b6',
 						borderColor: '#2ed8b6',
 						hoverBackgroundColor: '#59e0c5',
@@ -141,17 +151,22 @@ function showGraphCEActual(){
 								}
 							}
 						}
-					}	
+					}
 				}		
-			});				
-		});
-	}
+			});	
+			return false;
+		}
+	});
 }
 
 function showGraphUNAAnterior(){
-	{
-		$.post("<?php echo SERVERURL; ?>php/main/atencionesUltimosAnoUNA.php",
-		function(data){
+	var url = '<?php echo SERVERURL; ?>php/main/atencionesUltimosAnoUNA.php';
+
+	$.ajax({
+	    type:'POST',
+		url:url,
+		async: false,
+		success:function(data){
 			var datos = eval(data);
 			var mes = [];
 			var total = [];
@@ -161,7 +176,8 @@ function showGraphUNAAnterior(){
 				total.push(datos[fila]["total"]);
 			}
 			
-			var ctx = document.getElementById('graphBarUNAAnterior').getContext('2d');		
+			var ctx = document.getElementById('graphBarUNAAnterior').getContext('2d');	
+			
 			var chart = new Chart(ctx, {
 				// The type of chart we want to create
 				type: 'bar',
@@ -170,7 +186,7 @@ function showGraphUNAAnterior(){
 				data: {
 					labels: mes,
 					datasets: [{
-						label: 'Reporte de Atenciones UNA Año <?php echo date("Y",strtotime(date("Y-m-d")."- 1 year")); ?>',
+						label: 'Reporte de Ventas Año <?php echo date("Y"); ?>',
 						backgroundColor: '#FFB64D',
 						borderColor: '#FFB64D',
 						hoverBackgroundColor: '#ffcb80',
@@ -210,18 +226,22 @@ function showGraphUNAAnterior(){
 								}
 							}
 						}
-					}	
+					}
 				}		
-			});		
-			
-		});
-	}
+			});	
+			return false;
+		}
+	});
 }
 
 function showGraphUNAActual(){
-	{
-		$.post("<?php echo SERVERURL; ?>php/main/atencionesAnoActualUNA.php",
-		function(data){
+	var url = '<?php echo SERVERURL; ?>php/main/atencionesAnoActualUNA.php';
+
+	$.ajax({
+	    type:'POST',
+		url:url,
+		async: false,
+		success:function(data){
 			var datos = eval(data);
 			var mes = [];
 			var total = [];
@@ -231,7 +251,8 @@ function showGraphUNAActual(){
 				total.push(datos[fila]["total"]);
 			}
 			
-			var ctx = document.getElementById('graphBarUNAActual').getContext('2d');		
+			var ctx = document.getElementById('graphBarUNAActual').getContext('2d');
+			
 			var chart = new Chart(ctx, {
 				// The type of chart we want to create
 				type: 'bar',
@@ -240,7 +261,7 @@ function showGraphUNAActual(){
 				data: {
 					labels: mes,
 					datasets: [{
-						label: 'Reporte de Atenciones UNA Año <?php echo date("Y"); ?>',
+						label: 'Reporte de Ventas Año <?php echo date("Y"); ?>',
 						backgroundColor: '#FF5370',
 						borderColor: '#FF5370',
 						hoverBackgroundColor: '#ff869a',
@@ -280,10 +301,11 @@ function showGraphUNAActual(){
 								}
 							}
 						}
-					}	
+					}
 				}		
-			});		
-		});
-	}
+			});	
+			return false;
+		}
+	});
 }
 </script>

@@ -24,7 +24,7 @@ if($unidad == ""){
 	$where = "WHERE le.servicio = '$servicio' AND CAST(fecha_solicitud as DATE) BETWEEN '$fechai' AND '$fechaf' AND le.reprogramo = '' AND c.colaborador_id = '$medico_general'";	
 }
 
-$query = "SELECT DATE_FORMAT(CAST(le.fecha_solicitud AS DATE), '%d/%m/%Y') AS 'fecha_solicitud', DATE_FORMAT(CAST(le.fecha_solicitud AS DATE), '%d/%m/%Y') AS 'fecha_registro', CONCAT(p.nombre,' ',p.apellido) AS 'nombre', le.edad AS 'edad', p.identidad AS 'identidad', CONCAT(p.localidad,', ',m.nombre) AS 'direccion', p.telefono AS 'telefono', pc.nombre AS 'especialidad', CONCAT(c.nombre,' ',c.apellido) AS 'medico',
+$query = "SELECT CAST(le.fecha_solicitud AS DATE) AS 'fecha_solicitud', CAST(le.fecha_solicitud AS DATE) AS 'fecha_registro', CONCAT(p.nombre,' ',p.apellido) AS 'nombre', le.edad AS 'edad', p.identidad AS 'identidad', CONCAT(p.localidad,', ',m.nombre) AS 'direccion', p.telefono AS 'telefono', pc.nombre AS 'especialidad', CONCAT(c.nombre,' ',c.apellido) AS 'medico',
 le.fecha_cita AS 'fecha_cita',
 (CASE WHEN le.prioridad = 'P' THEN 'X' ELSE '' END) AS 'preferente',
 (CASE WHEN le.prioridad = 'N' THEN 'X' ELSE '' END) AS 'normal',
@@ -57,28 +57,28 @@ $nroProductos = $result->num_rows;
     $tabla = '';
 
 	if($paginaActual > 1){
-        $lista = $lista.'<li><a href="javascript:pagination_busqueda_reportes('.(1).');">Inicio</a></li>';
-    }
-	
-    if($paginaActual > 1){
-        $lista = $lista.'<li><a href="javascript:pagination_busqueda_reportes('.($paginaActual-1).');">Anterior '.($paginaActual-1).'</a></li>';
-    }
-    
-    if($paginaActual < $nroPaginas){
-        $lista = $lista.'<li><a href="javascript:pagination_busqueda_reportes('.($paginaActual+1).');">Siguiente '.($paginaActual+1).' de '.$nroPaginas.'</a></li>';
-    }
+		$lista = $lista.'<li class="page-item"><a class="page-link" href="javascript:pagination_busqueda_reportes('.(1).');void(0);">Inicio</a></li>';
+	}
 	
 	if($paginaActual > 1){
-        $lista = $lista.'<li><a href="javascript:pagination_busqueda_reportes('.($nroPaginas).');">Ultima</a></li>';
-    }
-  
-  	if($paginaActual <= 1){
-  		$limit = 0;
-  	}else{
-  		$limit = $nroLotes*($paginaActual-1);
-  	}		  
+		$lista = $lista.'<li class="page-item"><a class="page-link" href="javascript:pagination_busqueda_reportes('.($paginaActual-1).');void(0);">Anterior '.($paginaActual-1).'</a></li>';
+	}
 	
-$registro = "SELECT DATE_FORMAT(CAST(le.fecha_solicitud AS DATE), '%d/%m/%Y') AS 'fecha_solicitud', CAST(le.fecha_solicitud AS DATE) AS 'fecha_registro', CONCAT(p.nombre,' ',p.apellido) AS 'nombre', le.edad AS 'edad', p.identidad AS 'identidad', CONCAT(p.localidad,' ',m.nombre) AS 'direccion', p.telefono AS 'telefono', pc.nombre AS 'especialidad', CONCAT(c.nombre,' ',c.apellido) AS 'medico',
+	if($paginaActual < $nroPaginas){
+		$lista = $lista.'<li class="page-item"><a class="page-link" href="javascript:pagination_busqueda_reportes('.($paginaActual+1).');void(0);">Siguiente '.($paginaActual+1).' de '.$nroPaginas.'</a></li>';
+	}
+	
+	if($paginaActual > 1){
+		$lista = $lista.'<li class="page-item"><a class="page-link" href="javascript:pagination_busqueda_reportes('.($nroPaginas).');void(0);">Ultima</a></li>';
+	}
+	
+	if($paginaActual <= 1){
+		$limit = 0;
+	}else{
+		$limit = $nroLotes*($paginaActual-1);
+	}	  
+	
+$registro = "SELECT CAST(le.fecha_solicitud AS DATE) AS 'fecha_solicitud', CAST(le.fecha_solicitud AS DATE) AS 'fecha_registro', CONCAT(p.nombre,' ',p.apellido) AS 'nombre', le.edad AS 'edad', p.identidad AS 'identidad', CONCAT(p.localidad,' ',m.nombre) AS 'direccion', p.telefono AS 'telefono', pc.nombre AS 'especialidad', CONCAT(c.nombre,' ',c.apellido) AS 'medico',
 (CASE WHEN le.prioridad = 'P' THEN 'X' ELSE '' END) AS 'preferente',
 (CASE WHEN le.prioridad = 'N' THEN 'X' ELSE '' END) AS 'normal',
 le.fecha_cita AS 'fecha_cita',

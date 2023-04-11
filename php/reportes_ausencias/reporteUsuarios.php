@@ -21,7 +21,7 @@ $año2=date("Y", strtotime($hasta));
 
 $where = "WHERE CAST(p.fecha AS DATE) BETWEEN '$desde' AND '$hasta'";		
 	
-$registro = "SELECT p.pacientes_id AS 'pacientes_id', DATE_FORMAT(CAST(p.fecha AS DATE ), '%d/%m/%Y') AS 'fecha', p.identidad AS 'identidad', 
+$registro = "SELECT p.pacientes_id AS 'pacientes_id', CAST(p.fecha AS DATE) AS 'fecha', p.identidad AS 'identidad', 
 	   CONCAT(p.apellido,' ',p.nombre) AS 'nombre', p.expediente AS 'expediente', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h', 
 	  (CASE WHEN p.sexo = 'M' THEN 'X' ELSE '' END) AS 'm', CONCAT(c.nombre,' ',c.apellido) AS 'usuario', d.nombre AS 'departamento', 
 	   m.nombre AS 'municipio', p.telefono AS 'telefono', p.telefono1 AS 'telefono1', p.tipo AS 'tipo', p.fecha_nacimiento AS 'fecha_nacimiento'

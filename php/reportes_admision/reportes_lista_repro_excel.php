@@ -73,7 +73,7 @@ if($unidad == ""){
 }
 
 //EJECUTAMOS LA CONSULTA DE BUSQUEDA
-$registro = "SELECT DATE_FORMAT(CAST(le.fecha_solicitud AS DATE), '%d/%m/%Y') AS 'fecha_solicitud', DATE_FORMAT(CAST(le.fecha_inclusion AS DATE), '%d/%m/%Y') AS 'fecha_registro', CONCAT(p.nombre,' ',p.apellido) AS 'nombre', le.edad AS 'edad', p.identidad AS 'identidad', CONCAT(p.localidad,', ',m.nombre) AS 'direccion', p.telefono AS 'telefono', pc.nombre AS 'especialidad', CONCAT(c.nombre,' ',c.apellido) AS 'medico',
+$registro = "SELECT CAST(le.fecha_solicitud AS DATE) AS 'fecha_solicitud', CAST(le.fecha_inclusion AS DATE) AS 'fecha_registro', CONCAT(p.nombre,' ',p.apellido) AS 'nombre', le.edad AS 'edad', p.identidad AS 'identidad', CONCAT(p.localidad,', ',m.nombre) AS 'direccion', p.telefono AS 'telefono', pc.nombre AS 'especialidad', CONCAT(c.nombre,' ',c.apellido) AS 'medico',
 (CASE WHEN le.prioridad = 'P' THEN 'X' ELSE '' END) AS 'preferente',
 (CASE WHEN le.prioridad = 'N' THEN 'X' ELSE '' END) AS 'normal',
 le.fecha_cita AS 'fecha_cita',
@@ -84,7 +84,7 @@ le.reprogramo AS 'reprogramacion', DATEDIFF(le.fecha_cita,le.fecha_solicitud) AS
 FROM lista_espera AS le
 INNER JOIN agenda AS a
 ON le.pacientes_id = a.pacientes_id
-INNER JOIN pacientes AS p
+INNER JOIN pacientes AS pw
 ON le.pacientes_id = p.pacientes_id
 INNER JOIN municipios AS m
 ON p.municipio_id = m.municipio_id

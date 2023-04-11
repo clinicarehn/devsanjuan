@@ -27,7 +27,7 @@ if($servicio != "" && $unidad == "" && $profesional == "" && $colaborador_usuari
    $where = "WHERE ex.fecha BETWEEN '$desde' AND '$hasta' AND pc.puesto_id = '$unidad ' AND ex.servicio_id = '$servicio' AND ex.usuario = '$colaborador_usuario' AND (p.expediente LIKE '%$dato%' OR CONCAT(p.nombre,' ',p.apellido) LIKE '%$dato%' OR p.apellido LIKE '$dato%' OR p.identidad LIKE '$dato%')";		
 }
 		
-$query = "SELECT ex.pacientes_id AS 'pacientes_id', ex.extem_id AS 'extem_id', DATE_FORMAT(CAST(ex.fecha AS DATE ), '%d/%m/%Y') AS 'fecha', CONCAT(p.apellido,' ',p.nombre) AS 'nombre', p.expediente AS 'expediente', p.identidad AS 'identidad', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h',
+$query = "SELECT ex.pacientes_id AS 'pacientes_id', ex.extem_id AS 'extem_id', CAST(ex.fecha AS DATE) AS 'fecha', CONCAT(p.apellido,' ',p.nombre) AS 'nombre', p.expediente AS 'expediente', p.identidad AS 'identidad', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h',
    (CASE WHEN p.sexo = 'M' THEN 'X' ELSE '' END) AS 'm', (CASE WHEN ex.tipo_cita = 'n' THEN 'X' ELSE '' END) AS 'nuevo', (CASE WHEN ex.tipo_cita = 'S' THEN 'X' ELSE '' END) AS 'subsiguiente', pc.nombre AS 'puesto', CONCAT(c.apellido,' ',c.nombre) AS 'profesional', s.nombre AS 'servicio',  CONCAT(c1.apellido,' ',c1.nombre) AS 'usuario', ex.observaciones AS 'observaciones'
 	FROM extemporaneos AS ex
 	INNER JOIN pacientes AS p
@@ -77,7 +77,7 @@ if($paginaActual <= 1){
 }	
 
 
-$registro = "SELECT ex.pacientes_id AS 'pacientes_id', ex.extem_id AS 'extem_id', DATE_FORMAT(CAST(ex.fecha AS DATE ), '%d/%m/%Y') AS 'fecha', CONCAT(p.apellido,' ',p.nombre) AS 'nombre', p.expediente AS 'expediente', p.identidad AS 'identidad', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h',
+$registro = "SELECT ex.pacientes_id AS 'pacientes_id', ex.extem_id AS 'extem_id', CAST(ex.fecha AS DATE) AS 'fecha', CONCAT(p.apellido,' ',p.nombre) AS 'nombre', p.expediente AS 'expediente', p.identidad AS 'identidad', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h',
 	(CASE WHEN p.sexo = 'M' THEN 'X' ELSE '' END) AS 'm', (CASE WHEN ex.tipo_cita = 'n' THEN 'X' ELSE '' END) AS 'nuevo', (CASE WHEN ex.tipo_cita = 'S' THEN 'X' ELSE '' END) AS 'subsiguiente', pc.nombre AS 'puesto', CONCAT(c.apellido,' ',c.nombre) AS 'profesional', s.nombre AS 'servicio',  CONCAT(c1.apellido,' ',c1.nombre) AS 'usuario', ex.observaciones AS 'observaciones'
 	FROM extemporaneos AS ex
 	INNER JOIN pacientes AS p

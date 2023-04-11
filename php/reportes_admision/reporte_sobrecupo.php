@@ -56,7 +56,7 @@ if($servicio != "" && $unidad == "" && $profesional == ""){
     $where = "WHERE CAST(a.fecha_registro AS DATE) BETWEEN '$desde' AND '$hasta' AND a.servicio_id = '$servicio' AND a.hora <> 0 AND c.puesto_id = '$unidad' AND c.colaborador_id = '$profesional' AND color = '#824CC8')";
 }
 	
-$registro = "SELECT DATE_FORMAT(CAST(a.fecha_registro AS DATE), '%d/%m/%Y') AS 'fecha_registro', p.expediente As 'expediente', p.identidad AS 'identidad', CONCAT(p.nombre,' ',p.apellido) AS 'paciente', CONCAT(c.nombre,' ',c.apellido) AS 'colaborador', pc.nombre AS 'puesto', s.nombre AS 'servicio', CAST(a.fecha_cita AS DATE) AS 'fecha_cita', a.hora AS 'hora', CONCAT(u.nombre,' ',u.apellido) AS 'usuario'
+$registro = "SELECT CAST(a.fecha_registro AS DATE) AS 'fecha_registro', p.expediente As 'expediente', p.identidad AS 'identidad', CONCAT(p.nombre,' ',p.apellido) AS 'paciente', CONCAT(c.nombre,' ',c.apellido) AS 'colaborador', pc.nombre AS 'puesto', s.nombre AS 'servicio', CAST(a.fecha_cita AS DATE) AS 'fecha_cita', a.hora AS 'hora', CONCAT(u.nombre,' ',u.apellido) AS 'usuario'
          FROM agenda AS a
          INNER JOIN pacientes AS p
          ON a.pacientes_id = p.pacientes_id

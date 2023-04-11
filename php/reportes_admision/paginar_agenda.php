@@ -24,7 +24,7 @@ if($servicio != "" && $unidad == "" && $profesional == ""){
    $where = "WHERE CAST(a.fecha_registro AS DATE) BETWEEN '$desde' AND '$hasta' AND a.servicio_id = '$servicio' AND a.hora <> 0 AND c.puesto_id = '$unidad' AND c.colaborador_id = '$profesional' AND (p.expediente LIKE '%$dato%' OR CONCAT(p.nombre,' ',p.apellido) LIKE '%$dato%' OR p.apellido LIKE '$dato%' OR p.identidad LIKE '$dato%')";
 }
 
-$query = "SELECT a.pacientes_id AS 'pacientes_id', DATE_FORMAT(CAST(a.fecha_registro AS DATE), '%d/%m/%Y') AS 'fecha_registro', p.expediente As 'expediente', p.identidad AS 'identidad', CONCAT(p.nombre,' ',p.apellido) AS 'paciente', CONCAT(c.nombre,' ',c.apellido) AS 'colaborador', pc.nombre AS 'puesto', s.nombre AS 'servicio', CAST(a.fecha_cita AS DATE) AS 'fecha_cita', a.hora AS 'hora', CONCAT(u.nombre,' ',u.apellido) AS 'usuario', c.puesto_id AS 'puesto_id', a.servicio_id AS 'servicio_id'
+$query = "SELECT a.pacientes_id AS 'pacientes_id', CAST(a.fecha_registro AS DATE) AS 'fecha_registro', p.expediente As 'expediente', p.identidad AS 'identidad', CONCAT(p.nombre,' ',p.apellido) AS 'paciente', CONCAT(c.nombre,' ',c.apellido) AS 'colaborador', pc.nombre AS 'puesto', s.nombre AS 'servicio', CAST(a.fecha_cita AS DATE) AS 'fecha_cita', a.hora AS 'hora', CONCAT(u.nombre,' ',u.apellido) AS 'usuario', c.puesto_id AS 'puesto_id', a.servicio_id AS 'servicio_id'
 	 FROM agenda AS a
 	 INNER JOIN pacientes AS p
 	 ON a.pacientes_id = p.pacientes_id
@@ -37,7 +37,8 @@ $query = "SELECT a.pacientes_id AS 'pacientes_id', DATE_FORMAT(CAST(a.fecha_regi
 	 INNER JOIN colaboradores AS u
 	 ON a.usuario = u.colaborador_id
 	 ".$where." 
-	 ORDER BY c.puesto_id, a.fecha_registro ASC";	 
+	 ORDER BY c.puesto_id, a.fecha_registro ASC";	
+
 $result = $mysqli->query($query);
 $nroProductos = $result->num_rows;
  
@@ -47,19 +48,19 @@ $lista = '';
 $tabla = '';	
 
 if($paginaActual > 1){
-	$lista = $lista.'<li><a href="javascript:pagination_ausencias('.(1).');">Inicio</a></li>';
+	$lista = $lista.'<li class="page-item"><a class="page-link" href="javascript:pagination_busqueda_reportes('.(1).');void(0);">Inicio</a></li>';
 }
 
 if($paginaActual > 1){
-	$lista = $lista.'<li><a href="javascript:pagination_ausencias('.($paginaActual-1).');">Anterior '.($paginaActual-1).'</a></li>';
+	$lista = $lista.'<li class="page-item"><a class="page-link" href="javascript:pagination_busqueda_reportes('.($paginaActual-1).');void(0);">Anterior '.($paginaActual-1).'</a></li>';
 }
 
 if($paginaActual < $nroPaginas){
-	$lista = $lista.'<li><a href="javascript:pagination_ausencias('.($paginaActual+1).');">Siguiente '.($paginaActual+1).' de '.$nroPaginas.'</a></li>';
+	$lista = $lista.'<li class="page-item"><a class="page-link" href="javascript:pagination_busqueda_reportes('.($paginaActual+1).');void(0);">Siguiente '.($paginaActual+1).' de '.$nroPaginas.'</a></li>';
 }
 
 if($paginaActual > 1){
-	$lista = $lista.'<li><a href="javascript:pagination_ausencias('.($nroPaginas).');">Ultima</a></li>';
+	$lista = $lista.'<li class="page-item"><a class="page-link" href="javascript:pagination_busqueda_reportes('.($nroPaginas).');void(0);">Ultima</a></li>';
 }
 
 if($paginaActual <= 1){
@@ -68,7 +69,7 @@ if($paginaActual <= 1){
 	$limit = $nroLotes*($paginaActual-1);
 }	
 
-$registro = "SELECT a.pacientes_id AS 'pacientes_id', DATE_FORMAT(CAST(a.fecha_registro AS DATE), '%d/%m/%Y') AS 'fecha_registro', p.expediente As 'expediente', p.identidad AS 'identidad', CONCAT(p.nombre,' ',p.apellido) AS 'paciente', CONCAT(c.nombre,' ',c.apellido) AS 'colaborador', pc.nombre AS 'puesto', s.nombre AS 'servicio', CAST(a.fecha_cita AS DATE) AS 'fecha_cita', a.hora AS 'hora', CONCAT(u.nombre,' ',u.apellido) AS 'usuario', c.puesto_id AS 'puesto_id', a.servicio_id AS 'servicio_id'
+$registro = "SELECT a.pacientes_id AS 'pacientes_id', CAST(a.fecha_registro AS DATE) AS 'fecha_registro', p.expediente As 'expediente', p.identidad AS 'identidad', CONCAT(p.nombre,' ',p.apellido) AS 'paciente', CONCAT(c.nombre,' ',c.apellido) AS 'colaborador', pc.nombre AS 'puesto', s.nombre AS 'servicio', CAST(a.fecha_cita AS DATE) AS 'fecha_cita', a.hora AS 'hora', CONCAT(u.nombre,' ',u.apellido) AS 'usuario', c.puesto_id AS 'puesto_id', a.servicio_id AS 'servicio_id'
 	 FROM agenda AS a
 	 INNER JOIN pacientes AS p
 	 ON a.pacientes_id = p.pacientes_id
@@ -146,11 +147,11 @@ while($registro2 = $result->fetch_assoc()){
 
 if($nroProductos == 0){
 	$tabla = $tabla.'<tr>
-	   <td colspan="10" style="color:#C7030D">No se encontraron resultados</td>
+	   <td colspan="11" style="color:#C7030D">No se encontraron resultados</td>
 	</tr>';		
 }else{
    $tabla = $tabla.'<tr>
-	  <td colspan="10"><b><p ALIGN="center">Total de Registros Encontrados '.$nroProductos.'</p></b>
+	  <td colspan="11"><b><p ALIGN="center">Total de Registros Encontrados '.$nroProductos.'</p></b>
    </tr>';		
 }        
 

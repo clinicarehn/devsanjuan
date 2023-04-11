@@ -2,41 +2,11 @@
 $(document).ready(function() {
   getReporte();
   getServicio();
-  pagination_busqueda_reportes(1);
 });
 
 $(document).ready(function() {
-  $('#form_main #servicio').on('change', function(){	
-       pagination_busqueda_reportes(1);
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #unidad').on('change', function(){	
-       pagination_busqueda_reportes(1);
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #profesional').on('change', function(){	
-       pagination_busqueda_reportes(1);  
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #reporte').on('change', function(){	
-       pagination_busqueda_reportes(1);   
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #fecha_i').on('change', function(){	
-       pagination_busqueda_reportes(1);
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #fecha_f').on('change', function(){	
+  $('#form_main #buscarRegistros').on('click', function(e){	
+	   e.preventDefault();
        pagination_busqueda_reportes(1);
   });
 });
@@ -340,12 +310,27 @@ function pagination_busqueda_reportes(partida){
 	$.ajax({
 		type:'POST',
 		url:url,
-		data:info_send,		
+		data:info_send,	
+		beforeSend: function(){
+			swal({
+				title: "",
+				text: "Por favor espere...",
+				imageUrl: '../img/gif-load.gif',
+				closeOnConfirm: false,
+				showConfirmButton: false,
+				imageSize: '150x150',
+				allowEscapeKey: false,
+				allowOutsideClick: false
+			});		   
+        },			
 		success:function(data){
 			var array = eval(data);
 			$('#agrega-registros').html(array[0]);
 			$('#pagination').html(array[1]);
-		}
+		},
+		complete:function(){
+			swal.close();			
+		}	
 	});
 	return false;
 }

@@ -78,77 +78,92 @@ $mysqli->close();//CERRAR CONEXIÓN
 		<li class="breadcrumb-item active" id="acciones_factura"><span id="label_acciones_factura"></span>Reporte de Admisión</li>
 	</ol>
 
-    <form class="form-inline" id="form_main">
-		<div class="form-group mx-sm-1 mb-1">
-			<div class="input-group">
-				<div class="input-group-append">
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
-					<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
-					</select>
+	<div class="card mb-4">
+        <div class="card-body">
+			<form class="form-inline" id="form_main">
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">
+						<div class="input-group-append">
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+							<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
+							</select>
+						</div>	
+					</div>
 				</div>	
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">
+						<div class="input-group-append">
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
+							<select id="unidad" name="unidad" class="selectpicker" title="Unidad" data-live-search="true">
+							</select>
+						</div>	
+					</div>
+				</div>	
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">
+						<div class="input-group-append">
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Profesional</span>
+							<select id="profesional" name="profesional" class="selectpicker" title="Profesional" data-live-search="true">
+							</select>
+						</div>	
+					</div>
+				</div>												
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">
+						<div class="input-group-append">
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Reporte</span>
+							<select id="reporte" name="reporte" class="selectpicker" title="Reporte" data-live-search="true">
+							</select>
+						</div>	
+					</div>
+				  </div>	
+				  <div class="form-group mx-sm-3 mb-1">
+				 	<input type="date" required="required" id="fecha_i" name="fecha_i" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
+				  </div>  		
+				  <div class="form-group mx-sm-3 mb-1">
+						<input type="date" required="required" id="fecha_f" name="fecha_f" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Final" class="form-control"/>  
+				  </div>  
+				  <div class="form-group mx-sm-3 mb-3">
+						<input type="text" placeholder="Buscar por: Exp, Nombre, Apellido o Identidad" id="bs-regis" data-toggle="tooltip" data-placement="top" title="Buscar por: Expediente, Nombre, Apellido o Identidad" autofocus class="form-control" size="55"/> 
+				  </div>  
+				  <div class="form-group mx-sm-3 mb-3">
+						<button class="btn btn-primary ml-2" type="submit" id="buscarRegistros"><div class="sb-nav-link-icon"></div><i class="fas fa-search fa-lg"></i> Buscar</button>
+				  </div>  				  
+				  <div class="form-group mx-sm-3 mb-3">
+					<div class="dropdown show" data-toggle="tooltip" data-placement="top" title="Expotar">
+					  <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						 <i class="fas fa-download fa-lg"></i> Exportar
+					  </a>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item" href="#" id="reportes_exportar">Reporte</a>
+						<a class="dropdown-item" href="#" id="reporte1">Menores de 15 Días</a>	
+						<a class="dropdown-item" href="#" id="reporte2">Mayores de 15 Días</a>				
+					  </div>
+					</div>						
+				  </div>  				  
+			</form>          
+        </div>
+    </div>
+
+    <div class="card mb-4">
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fab fa-sellsy mr-1"></i>
+				Reporte Agenda
 			</div>
-		</div>	
-		<div class="form-group mx-sm-1 mb-1">
-			<div class="input-group">
-				<div class="input-group-append">
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
-					<select id="unidad" name="unidad" class="selectpicker" title="Unidad" data-live-search="true">
-					</select>
-				</div>	
+			<div class="card-body"> 
+				<div class="form-group">
+				  <div class="col-sm-12">
+					<div class="registros overflow-auto" id="agrega-registros"></div>
+				   </div>		   
+				</div>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center" id="pagination"></ul>
+				</nav>              
 			</div>
 		</div>
-		<div class="form-group mx-sm-1 mb-1">
-			<div class="input-group">
-				<div class="input-group-append">
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Profesional</span>
-					<select id="profesional" name="profesional" class="selectpicker" title="Profesional" data-live-search="true">
-					</select>
-				</div>	
-			</div>
-		</div>	
-		<div class="form-group mx-sm-1 mb-1">
-			<div class="input-group">
-				<div class="input-group-append">
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Reporte</span>
-					<select id="reporte" name="reporte" class="selectpicker" title="Reporte" data-live-search="true">
-					</select>
-				</div>	
-			</div>
-		</div>			  
-	  <div class="form-group mr-1">
-		   <input type="date" required="required" id="fecha_i" name="fecha_i" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
-      </div>	
-	  <div class="form-group mr-1">
-			<input type="date" required="required" id="fecha_f" name="fecha_f" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Final" class="form-control"/>  
-      </div>
-	  <div class="form-group mr-1">
-		<input type="text" placeholder="Buscar por: Exp, Nombre, Apellido o Identidad" id="bs-regis" data-toggle="tooltip" data-placement="top" title="Buscar por: Expediente, Nombre, Apellido o Identidad" autofocus class="form-control" size="30"/> 
-      </div>	  
-	  <div class="form-group">
-		<div class="dropdown show" data-toggle="tooltip" data-placement="top" title="Expotar">
-		  <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			 <i class="fas fa-download fa-lg"></i> Exportar
-		  </a>
-		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-			<a class="dropdown-item" href="#" id="reportes_exportar">Reporte</a>
-			<a class="dropdown-item" href="#" id="reporte1">Menores de 15 Días</a>	
-			<a class="dropdown-item" href="#" id="reporte2">Mayores de 15 Días</a>				
-		  </div>
-		</div>		  
-	  </div>
-      <div class="form-group" style="display:none;">
-	     <button class="btn btn-danger ml-1" type="submit" id="limpiar" data-toggle="tooltip" data-placement="top" title="Limpiar"><div class="sb-nav-link-icon"></div><i class="fas fa-broom fa-lg"></i> Limpiar</button>		 
-      </div> 	   
-    </form>	
-	<hr/>   
-    <div class="form-group">
-	  <div class="col-sm-12">
-		<div class="registros overflow-auto" id="agrega-registros"></div>
-	   </div>		   
 	</div>
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center" id="pagination"></ul>
-	</nav>
+	
 	<?php include("templates/footer.php"); ?>
 </div>	  
 

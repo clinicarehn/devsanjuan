@@ -53,7 +53,7 @@ if($servicio != "" && $unidad == "" && $profesional == "" && $colaborador_usuari
 	$where = "WHERE ex.fecha BETWEEN '$desde' AND '$hasta' AND pc.puesto_id = '$unidad ' and ex.usuario = $colaborador_usuario AND ex.servicio_id = '$servicio'";
 }
 	
-$registro = "SELECT DATE_FORMAT(ex.fecha, '%d/%m/%Y') AS 'fecha', CONCAT(p.apellido,' ',p.nombre) AS 'nombre', p.expediente AS 'expediente', p.identidad AS 'identidad', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h',
+$registro = "SELECT ex.fecha AS 'fecha', CONCAT(p.apellido,' ',p.nombre) AS 'nombre', p.expediente AS 'expediente', p.identidad AS 'identidad', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h',
        (CASE WHEN p.sexo = 'M' THEN 'X' ELSE '' END) AS 'm', (CASE WHEN ex.tipo_cita = 'n' THEN 'X' ELSE '' END) AS 'nuevo', (CASE WHEN ex.tipo_cita = 'S' THEN 'X' ELSE '' END) AS 'subsiguiente', pc.nombre AS 'puesto', CONCAT(c.apellido,' ',c.nombre) AS 'profesional', s.nombre AS 'servicio',  CONCAT(c1.apellido,' ',c1.nombre) AS 'usuario', ex.observaciones AS 'observaciones'
         FROM extemporaneos AS ex
         INNER JOIN pacientes AS p

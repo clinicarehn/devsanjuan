@@ -38,7 +38,7 @@ if($servicio != "" && $unidad == "" && $profesional == ""){
   $where = "WHERE a.fecha BETWEEN '$desde' AND '$hasta' AND a.servicio_id = '$servicio' AND c.puesto_id = '$unidad' AND c.colaborador_id = '$profesional'";
 }
 	
-$registro = "SELECT c.colaborador_id AS 'colaborador_id', s.servicio_id AS 'servicio_id', a.fecha AS 'fecha_cita1', DATE_FORMAT(a.fecha, '%d/%m/%Y') AS 'fecha', CONCAT(p.apellido,' ',p.nombre) AS 'nombre', (CASE WHEN a.paciente = 'n' THEN 'X' ELSE '' END) AS 'nuevo', (CASE WHEN a.paciente = 'S' THEN 'X' ELSE '' END) AS 'subsiguiente', a.expediente AS 'expediente', p.identidad AS 'identidad', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h', (CASE WHEN p.sexo = 'M' THEN 'X' ELSE '' END) AS 'm', s.nombre AS 'servicio', CONCAT(c.nombre,' ',c.apellido) AS 'medico', a.observaciones AS 'observaciones'
+$registro = "SELECT c.colaborador_id AS 'colaborador_id', s.servicio_id AS 'servicio_id', a.fecha AS 'fecha_cita1', a.fecha AS 'fecha', CONCAT(p.apellido,' ',p.nombre) AS 'nombre', (CASE WHEN a.paciente = 'n' THEN 'X' ELSE '' END) AS 'nuevo', (CASE WHEN a.paciente = 'S' THEN 'X' ELSE '' END) AS 'subsiguiente', a.expediente AS 'expediente', p.identidad AS 'identidad', (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h', (CASE WHEN p.sexo = 'M' THEN 'X' ELSE '' END) AS 'm', s.nombre AS 'servicio', CONCAT(c.nombre,' ',c.apellido) AS 'medico', a.observaciones AS 'observaciones'
       FROM ata AS a
       INNER JOIN pacientes AS p
       ON a.expediente = p.expediente

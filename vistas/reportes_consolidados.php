@@ -78,56 +78,73 @@ $mysqli->close();//CERRAR CONEXIÓN
 		<li class="breadcrumb-item active" id="acciones_factura"><span id="label_acciones_factura"></span>Reportes SESAL Consolidados</li>
 	</ol>
 
-    <form class="form-inline" id="form_main">
-		<div class="form-group mx-sm-1 mb-1">
-			<div class="input-group">
-				<div class="input-group-append">
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
-					<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
-					</select>
+
+	<div class="card mb-4">
+        <div class="card-body">
+			<form class="form-inline" id="form_main">
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">
+						<div class="input-group-append">
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Servicio</span>
+							<select id="servicio" name="servicio" class="selectpicker" title="Servicio" data-live-search="true">
+							</select>
+						</div>	
+					</div>
 				</div>	
-			</div>
-		</div>	
-		<div class="form-group mx-sm-1 mb-1">
-			<div class="input-group">
-				<div class="input-group-append">
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
-					<select id="unidad" name="unidad" class="selectpicker" title="Unidad" data-live-search="true">
-					</select>
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">
+						<div class="input-group-append">
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Unidad</span>
+							<select id="unidad" name="unidad" class="selectpicker" title="Unidad" data-live-search="true">
+							</select>
+						</div>	
+					</div>
 				</div>	
-			</div>
-		</div>	
-		<div class="form-group mx-sm-1 mb-1">
-			<div class="input-group">
-				<div class="input-group-append">
-					<span class="input-group-text"><div class="sb-nav-link-icon"></div>Reporte</span>
-					<select id="reporte" name="reporte" class="selectpicker" title="Reporte" data-live-search="true">
-					</select>
+				<div class="form-group mx-sm-3 mb-1">
+					<div class="input-group">
+						<div class="input-group-append">
+							<span class="input-group-text"><div class="sb-nav-link-icon"></div>Reporte</span>
+							<select id="reporte" name="reporte" class="selectpicker" title="Reporte" data-live-search="true">
+							</select>
+						</div>	
+					</div>
+				</div>												
+				<div class="form-group mx-sm-3 mb-1">
+					<input type="date" required="required" id="fecha_i" name="fecha_i" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
 				</div>	
-			</div>
-		</div>			  
-	  <div class="form-group mr-1">
-		   <input type="date" required="required" id="fecha_i" name="fecha_i" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
-      </div>	
-	  <div class="form-group mr-1">
-			<input type="date" required="required" id="fecha_f" name="fecha_f" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
-      </div>	  	  
-      <div class="form-group">
-	    <button class="btn btn-success ml-1" type="submit" id="reporte_excel" data-toggle="tooltip" data-placement="top" title="Exportar"><div class="sb-nav-link-icon"></div><i class="fas fa-download fa-lg"></i> Exportar</button>
-      </div>	
-      <div class="form-group">
-	     <button class="btn btn-danger ml-1" type="submit" id="limpiar" data-toggle="tooltip" data-placement="top" title="Limpiar"><div class="sb-nav-link-icon"></div><i class="fas fa-broom fa-lg"></i> Limpiar</button>		 
-      </div> 	   
-    </form>	
-	<hr/>   
-    <div class="form-group">
-	  <div class="col-sm-12">
-		<div class="registros overflow-auto" id="agrega-registros"></div>
-	   </div>		   
+				<div class="form-group mx-sm-3 mb-1">
+					<input type="date" required="required" id="fecha_f" name="fecha_f" style="width:165px;" value="<?php echo date ("Y-m-d");?>" data-toggle="tooltip" data-placement="top" title="Fecha Inicial" class="form-control"/>  
+				</div>  	 				  
+			</form>          
+        </div>
+    </div>
+
+	<div class="card mb-4">
+        <div class="card-body">
+			<div class="form-group-inline mx-sm-3 mb-1">
+				<button class="btn btn-success ml-1" type="submit" id="reporte_excel" form="form_main" data-toggle="tooltip" data-placement="top" title="Exportar"><div class="sb-nav-link-icon"></div><i class="fas fa-download fa-lg"></i> Exportar</button>
+				<button class="btn btn-danger ml-1" type="submit" id="limpiar" form="form_main" data-toggle="tooltip" data-placement="top" title="Limpiar"><div class="sb-nav-link-icon"></div><i class="fas fa-broom fa-lg"></i> Limpiar</button>		 
+			</div>				
+		</div>
 	</div>
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center" id="pagination"></ul>
-	</nav>
+
+	<div class="card mb-4">
+		<div class="card-header">
+			<i class="fab fa-sellsy mr-1"></i>
+			Reporte Consolidado
+		</div>
+		<div class="card-body"> 
+			<div class="form-group">
+			  <div class="col-sm-12">
+				<div class="registros overflow-auto" id="agrega-registros"></div>
+			   </div>		   
+			</div>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center" id="pagination"></ul>
+			</nav>		 
+		</div>
+	</div>
+
 	<?php include("templates/footer.php"); ?>
 </div>	  
 

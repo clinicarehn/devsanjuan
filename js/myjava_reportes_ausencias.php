@@ -1,59 +1,15 @@
 <script>
 $(document).ready(function() {
-  $('#form_main #servicio').on('change', function(){
-	 getColaborador_usuario();
-     pagination_ausencias(1);
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #unidad').on('change', function(){	
-     pagination_ausencias(1);
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #profesional').on('change', function(){	
-     pagination_ausencias(1);
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #reporte').on('change', function(){	
-	 getColaborador_usuario();
-     pagination_ausencias(1);
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #fecha_i').on('change', function(){	
-     pagination_ausencias(1);
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #fecha_f').on('change', function(){	
-     pagination_ausencias(1);
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #bs-regis').on('keyup', function(){	
-     pagination_ausencias(1);
-  });
-});
-
-$(document).ready(function() {
-  $('#form_main #colaborador_usuario').on('change', function(){	
-     pagination_ausencias(1);
-  });
-});
-
-$(document).ready(function() {
    getServicio();
    getReporte();
    getColaborador_usuario();
-   pagination_ausencias(1);
+});
+
+$(document).ready(function() {
+  $('#buscarRegistros').on('click', function(e){
+	 e.preventDefault();
+     pagination_ausencias(1);
+  });
 });
 
 function getServicio(){
@@ -170,11 +126,26 @@ function pagination_ausencias(partida){
 		type:'POST',
 		url:url,
 		data:'partida='+partida+'&desde='+desde+'&hasta='+hasta+'&servicio='+servicio+'&dato='+dato+'&unidad='+unidad+'&profesional='+profesional+'&reporte='+reporte+'&colaborador_usuario='+colaborador_usuario,		
+		beforeSend: function(){
+			swal({
+				title: "",
+				text: "Por favor espere...",
+				imageUrl: '../img/gif-load.gif',
+				closeOnConfirm: false,
+				showConfirmButton: false,
+				imageSize: '150x150',
+				allowEscapeKey: false,
+				allowOutsideClick: false
+			});
+		},			
 		success:function(data){
 			var array = eval(data);
 			$('#agrega-registros').html(array[0]);
 			$('#pagination').html(array[1]);			
-		}
+		},
+		complete:function(){
+			swal.close();		
+		}	
 	});
 	return false;	
 }
@@ -958,12 +929,12 @@ function getMes(fecha){
 	return resp	;	
 }
 
-$('#form_main #exportar').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
+$('#exportar').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	 e.preventDefault();
 	 reporteEXCEL();		 
 });
 
-$('#form_main #reporte_diario').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
+$('#reporte_diario').on('click', function(e){ // add event submit We don't want this to act as a link so cancel the link action
 	 e.preventDefault();
 	 reporteDiarioEXCEL();		 
 });

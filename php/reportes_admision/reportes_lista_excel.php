@@ -74,7 +74,7 @@ if($unidad == ""){
 }
 
 //EJECUTAMOS LA CONSULTA DE BUSQUEDA
-$registro = "SELECT DATE_FORMAT(CAST(le.fecha_solicitud AS DATE), '%d/%m/%Y') AS 'fecha_solicitud', DATE_FORMAT(CAST(le.fecha_solicitud AS DATE), '%d/%m/%Y') AS 'fecha_registro', CONCAT(p.nombre,' ',p.apellido) AS 'nombre', le.edad AS 'edad', p.identidad AS 'identidad', CONCAT(p.localidad,', ',m.nombre) AS 'direccion', p.telefono AS 'telefono', pc.nombre AS 'especialidad', CONCAT(c.nombre,' ',c.apellido) AS 'medico',
+$registro = "SELECT CAST(le.fecha_solicitud AS DATE) AS 'fecha_solicitud', CAST(le.fecha_solicitud AS DATE) AS 'fecha_registro', CONCAT(p.nombre,' ',p.apellido) AS 'nombre', le.edad AS 'edad', p.identidad AS 'identidad', CONCAT(p.localidad,', ',m.nombre) AS 'direccion', p.telefono AS 'telefono', pc.nombre AS 'especialidad', CONCAT(c.nombre,' ',c.apellido) AS 'medico',
 le.fecha_cita AS 'fecha_cita',
 (CASE WHEN le.prioridad = 'P' THEN 'X' ELSE '' END) AS 'preferente',
 (CASE WHEN le.prioridad = 'N' THEN 'X' ELSE '' END) AS 'normal',

@@ -55,7 +55,7 @@ if($servicio != "" && $unidad == "" && $profesional == ""){
     $where = "WHERE CAST(a.fecha_registro AS DATE) BETWEEN '$desde' AND '$hasta' AND a.servicio_id = '$servicio' AND a.hora <> 0 AND c.puesto_id = '$unidad' AND c.colaborador_id = '$profesional')";
 }
 	
-$registro = "SELECT a.pacientes_id AS 'pacientes_id', DATE_FORMAT(CAST(a.fecha_registro AS DATE), '%d/%m/%Y') AS 'fecha_registro', p.expediente As 'expediente', p.identidad AS 'identidad', CONCAT(p.nombre,' ',p.apellido) AS 'paciente', CONCAT(c.nombre,' ',c.apellido) AS 'colaborador', pc.nombre AS 'puesto', s.nombre AS 'servicio', CAST(a.fecha_cita AS DATE) AS 'fecha_cita', a.hora AS 'hora', CONCAT(u.nombre,' ',u.apellido) AS 'usuario', c.puesto_id AS 'puesto_id', a.servicio_id AS 'servicio_id'
+$registro = "SELECT a.pacientes_id AS 'pacientes_id', CAST(a.fecha_registro AS DATE) AS 'fecha_registro', p.expediente As 'expediente', p.identidad AS 'identidad', CONCAT(p.nombre,' ',p.apellido) AS 'paciente', CONCAT(c.nombre,' ',c.apellido) AS 'colaborador', pc.nombre AS 'puesto', s.nombre AS 'servicio', CAST(a.fecha_cita AS DATE) AS 'fecha_cita', a.hora AS 'hora', CONCAT(u.nombre,' ',u.apellido) AS 'usuario', c.puesto_id AS 'puesto_id', a.servicio_id AS 'servicio_id'
          FROM agenda AS a
          INNER JOIN pacientes AS p
          ON a.pacientes_id = p.pacientes_id
@@ -258,8 +258,8 @@ if($result->num_rows>0){
 		   $expediente = $registro2['expediente'];
 	   }
 	    
-       $busq_paciente_id = $registro2['pacientes_id'];
-       $busq_servicio = $registro2['servicio_id'];
+    $busq_paciente_id = $registro2['pacientes_id'];
+    $busq_servicio = $registro2['servicio_id'];
 	   $busq_puesto = $registro2['puesto_id'];
        	   
 	   $consultar_expediente = "SELECT a.agenda_id AS 'agenda_id'

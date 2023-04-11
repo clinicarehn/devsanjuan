@@ -39,7 +39,7 @@ if($servicio != "" && $unidad == "" && $profesional == "" && $reporte != ""){
   $where = "WHERE s.fecha BETWEEN '$desde' AND '$hasta' AND s.servicio_id = '$servicio' AND c.puesto_id = '$unidad' AND c.colaborador_id = '$profesional' AND s.intento = 1";
 }
 	
-$registro = "SELECT DATE_FORMAT(CAST(s.fecha AS DATE ), '%d/%m/%Y') AS 'fecha', s.suicida_id AS 'suicida_id', CONCAT(p.apellido,' ',p.nombre) AS 'usuario', p.expediente AS 'expediente', p.identidad AS 'identidad', CONCAT(c.nombre,' ',c.apellido) AS 'profesional', se.nombre AS 'servicio',
+$registro = "SELECT CAST(s.fecha AS DATE) AS 'fecha', s.suicida_id AS 'suicida_id', CONCAT(p.apellido,' ',p.nombre) AS 'usuario', p.expediente AS 'expediente', p.identidad AS 'identidad', CONCAT(c.nombre,' ',c.apellido) AS 'profesional', se.nombre AS 'servicio',
     (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h',
     (CASE WHEN p.sexo = 'M' THEN 'X' ELSE '' END) AS 'm',
     (CASE WHEN s.paciente = 'N' THEN 'X' ELSE '' END) AS 'nuevo', 

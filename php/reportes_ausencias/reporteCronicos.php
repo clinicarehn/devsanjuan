@@ -56,7 +56,7 @@ if($servicio != "" && $unidad == "" && $profesional == "" && $colaborador_usuari
 $registro = "SELECT p.pacientes_id AS 'pacientes_id', u.user_cronico_id AS 'user_cronico_id', 
       (CASE WHEN u.paciente = 'n' THEN 'X' ELSE '' END) AS 'nuevo', 
       (CASE WHEN u.paciente = 'S' THEN 'X' ELSE '' END) AS 'subsiguiente', 
-      DATE_FORMAT(u.fecha, '%d/%m/%Y') AS 'fecha', CONCAT(p.apellido,' ',p.nombre) AS 'nombre', p.identidad AS 'identidad', u.expediente AS 'expediente', s.nombre AS 'servicio',
+      u.fecha AS 'fecha', CONCAT(p.apellido,' ',p.nombre) AS 'nombre', p.identidad AS 'identidad', u.expediente AS 'expediente', s.nombre AS 'servicio',
 	  CONCAT(c.nombre,' ',c.apellido) AS 'medico', 
       (CASE WHEN p.sexo = 'H' THEN 'X' ELSE '' END) AS 'h', 
       (CASE WHEN p.sexo = 'M' THEN 'X' ELSE '' END) AS 'm'
