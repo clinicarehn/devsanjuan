@@ -85,7 +85,7 @@ $(document).ready(function() {
             
             if (getBloqueoFecha(fecha_cita, colaborador_id, servicio_id) == 1){
                 if (getFechaAusencias(moment(start).format('YYYY-MM-DD HH:mm:ss'), $('#botones_citas #medico_general').val()) == 2) {
-                    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
+                    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
                         if (getFinSemana(moment(start).format('YYYY-MM-DD HH:mm:ss')) == "Sabado" ||
                         getFinSemana(moment(start).format('YYYY-MM-DD HH:mm:ss')) == "Domingo") {
                             swal({
@@ -180,7 +180,7 @@ $(document).ready(function() {
         },
         eventRender: function(event, element) {
             element.bind('dblclick', function() {
-                if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
+                if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
                     $("#ModalEdit_enviar").attr('disabled', false);
                     $("#ModalImprimir_enviar").attr('disabled', false);
                     $('#form-editevent')[0].reset();
@@ -682,7 +682,7 @@ $('#mensaje_status #mensaje_status_refresh').on('click', function(e) {
 
 $('#ModalDelete_enviar').on('click', function(e) {
     e.preventDefault();
-    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
+    if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 3 || getUsuarioSistema() == 4 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16) {
         if ($('#fecha_citaedit').val() == "" || $('#fecha_citaeditend').val() == "") {
             $('#form-editevent')[0].reset();
             swal({

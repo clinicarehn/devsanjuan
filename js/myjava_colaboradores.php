@@ -439,7 +439,7 @@ $('#reg_puestos_colaboradores').on('click', function(e){
 $('#reg_servicios_colaboradores').on('click', function(e){
 	 e.preventDefault();
 	 if ($('#formulario_servicios #servicios').val() != ""){		   		 
-		 agregaRegistroPuestos();		
+		agregaRegistroServicios();		
 	 }else{		
 		swal({
 			title: "Error", 

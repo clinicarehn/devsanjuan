@@ -601,7 +601,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 						if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
 							$hora = "NuevosExcede";
 						}else{
-							if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+							if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:40'))){
 								$hora = $hora_h;
 							}else{
 							   $hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
@@ -614,7 +614,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 						
 						if($consulta_subsiguientes_devuelto > $limite){
 							$hora = "SubsiguienteExcede";
-						}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+						}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:40'))){
 							$hora = $hora_h;
 						}else{
 							$hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
@@ -664,7 +664,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 					if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
 						$hora = "NuevosExcede";
 					}else{
-						if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+						if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:40'))){
 							$hora = $hora_h;
 						}else{
 						   $hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
@@ -677,7 +677,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 					
 					if($consulta_subsiguientes_devuelto > $limite){
 						$hora = "SubsiguienteExcede";
-					}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+					}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:40'))){
 						$hora = $hora_h;
 					}else{
 						$hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
@@ -691,7 +691,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 					if($consulta_nuevos_devuelto > $consultarJornadaNuevos){
 						$hora = "NuevosExcede";
 					}else{
-						if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+						if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:40'))){
 							$hora = $hora_h;
 						}else{
 						   $hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
@@ -704,7 +704,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 					
 					if($consulta_subsiguientes_devuelto > $limite){
 						$hora = "SubsiguienteExcede";
-					}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+					}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:40'))){
 						$hora = $hora_h;
 					}else{
 						$hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
@@ -878,7 +878,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 								}
 							*/									
 																
-							if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+							if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:40'))){
 								$hora = $hora_h;
 							}else{
 							   $hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR
@@ -891,7 +891,7 @@ function getAgendatime($consultarJornadaJornada_id, $servicio, $consultarJornada
 					$colores = "#0071c5"; //AZUL OSCURO USUARIOS SUBSIGUIENTES
 					if($consulta_subsiguientes_devuelto > $limite){
 						$hora = "SubsiguienteExcede";
-					}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:00'))){
+					}else if ($hora_h >= date('H:i',strtotime('07:20')) && $hora_h < date('H:i',strtotime('16:40'))){
 						$hora = $hora_h;
 					}else{
 						$hora = "NulaP"; //HORA NO PERMITIDA PARA AGENDAR

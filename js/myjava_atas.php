@@ -496,7 +496,7 @@ $(document).ready(pagination(1))
 $('#reg_ata_form1').on('click', function(e){
 	 e.preventDefault();
 	 if (getUsuarioSistema() == 1 || getUsuarioSistema() == 2 || getUsuarioSistema() == 6 || getUsuarioSistema() == 7 || getUsuarioSistema() == 8 || getUsuarioSistema() == 10 || getUsuarioSistema() == 16){
-		if( (getPuestoId() == 2 || getPuestoId() == 1) && $('#formulario1 #servicio').val() == 12){
+		/*if( (getPuestoId() == 2 || getPuestoId() == 1) && $('#formulario1 #servicio').val() == 12){
 			if($('#formulario1 #programar_cita').val() == "" || $('#formulario1 #programar_cita').val() == null){
 				  swal({
 						title: "Error",
@@ -524,7 +524,8 @@ $('#reg_ata_form1').on('click', function(e){
 					allowOutsideClick: false
 			  });
 			  return false;
-		}
+		}*/
+		agregaRegistro();
 	}else{
 		  swal({
 				title: 'Acceso Denegado',
