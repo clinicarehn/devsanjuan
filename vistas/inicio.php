@@ -234,6 +234,7 @@ $mysqli->close();//CERRAR CONEXIÓN
 	<?php 			
 		include "../js/functions.php"; 
 		include "../js/main.php"; 
+		include "../js/myjava_main.php"; 
 		include "../js/myjava_cambiar_pass.php";
 		include "../js/charts/graphs.php"; 		
 	?>	

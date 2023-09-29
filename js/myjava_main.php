@@ -351,27 +351,25 @@ function main(){
 	var fallecido = getFallecidos();
 	/***********************************************/
 	
-	var preclinica_ce = getPreclinicaCE();
-	var preclinica_una = getPreclinicaUNA();	
+	var preclinica_ce = 0;
+	var preclinica_una = 0;	
 	/***********************************************/	
-	var pendientes_ce = getPendientesCE();
-	var pendientes_una = getPendientesUNA();
-    var pendientes_clinica = getPendientesClinica();	
+	var pendientes_ce = 0;
+	var pendientes_una = 0;
+    var pendientes_clinica = 0;	
 	/***********************************************/
-	var inasistencias_ce = getInasistenciasCE();
-	var inasistencias_una = getInasistenciasUNA();
-	var inasistencias_clinica = getInasistenciasClinica();
-	var inasistencias_terapia = getInasistenciasTerapia();
+	var inasistencias_ce = 0;
+	var inasistencias_una = 0;
+	var inasistencias_clinica = 0;
+	var inasistencias_terapia = 0;
 	/***********************************************/
-	var extemporaneos_ce = getExtemporaneosCE();
-	var extemporaneos_una = getExtemporaneosUNA();	
-	var extemporaneos_crisis = getExtemporaneoCrisis();
+	var extemporaneos_ce = 0;
+	var extemporaneos_una = 0;	
+	var extemporaneos_crisis = 0;
 	/***********************************************/
-	var maida = getPendientesMAIDA();
-    var s_h = getPendientesSH();
+	var maida = 0;
+    var s_h = 0;
 	/***********************************************/
-	
-	
 	
     //Usuarios	
 	$('#temporal').html("Total de Usuarios Temporales: " + temporal);

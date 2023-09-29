@@ -15,9 +15,9 @@ $unidad = $_GET['unidad'];
 $servicio = $_GET['servicio'];
 
 if($servicio==""){
-	$servicio = "1,3,4,6,7,12,14";
+	$servicio = "1,3,4,6,7,11,12,14";
 }else{
-	$servicio = "1,3,4,6,7,12,14";
+	$servicio = "1,3,4,6,7,11,12,14";
 }
 
 //OBTENER NOMBRE SERVICIO
