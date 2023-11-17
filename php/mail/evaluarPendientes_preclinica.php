@@ -73,8 +73,8 @@ $result = $mysqli->query($consulta_correo);
 $consulta_correo2 = $result->fetch_assoc();
 $correo_consulta = $consulta_correo2['email'];
      
-$de = "notificaciones@hsjddhn.com";
-$contraseña = 'S@nhn2023%CLIN';	
+$de = SUPPORT_USER;
+$contraseña = SUPPORT_PASS;	
 $servidor = "smtp.office365.com";
 $puerto = "587";
 $SMTPSecure = "tls";

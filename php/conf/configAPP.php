@@ -22,6 +22,15 @@
 	//CONEXION ODOO
 	const USER_NAMEPS = "admin";
 	const PASSWORDPS = "Soportehn";
+
+    //CORREO
+    const NOTIFICACIONES_USER = "";
+    const NOTIFICACIONES_PASS = "";
+
+    const SUPPORT_USER = "support@hsjddhn.com";
+    const SUPPORT_PASS = "Asd*246813";
+
+
     /*
         Para encriptar y Desencriptar
         Nota: Estos valores no se deben cambiar, si hay datos en la DB    

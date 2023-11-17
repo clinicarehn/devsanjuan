@@ -34,8 +34,8 @@ if($colaborador_id != ""){
       if($query){
          echo 1;//CONTRASEÑA CAMBIADA EXITOSAMENTE
    
-		$de = "notificaciones@hsjddhn.com";
-		$contraseña = 'S@nhn2023%CLIN';	
+		$de = SUPPORT_USER;
+		$contraseña = SUPPORT_PASS;	
 		$servidor = "smtp.office365.com";
 		$puerto = "587";
 		$SMTPSecure = "tls";
